@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: vazir;
+    list-style: none;
+}
+::selection {
+    background-color: #a306a1;
+    color: #ffffff;
+}
+@font-face {
+    font-family: vazir;
+    src: url(../assets/Fonts/Vazir.eot);
+    src: url(../assets/Fonts/Vazir.ttf);
+    src: url(../assets/Fonts/Vazir.woff);
+    src: url(../assets/Fonts/Vazir.woff2);
+}
+#root {
+    height: 100%;
+    overflow-x: hidden;
+}
