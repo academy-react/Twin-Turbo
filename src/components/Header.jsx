@@ -4,13 +4,13 @@ const Header = () => {
   return (
     <header className="border border-[#ccc] h-[70px]">
         <div className="my-0 mx-auto w-[1279px] h-full border flex justify-between">
-                <div className="w-[20%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>div]:py-[6px] [&>div]:px-[10px] [&>div]:bg-[#f1ebf8] [&>div]:m-[5px] [&>div]:rounded-[30px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div]:whitespace-nowrap [&>div]:text-x-[14px] [&>div]:cursor-pointer [&>div]:shadow-[0px_0px_7px_#ccc]">
-                <div className="shop"><img src="../src/assets/images/shop.png" alt="" /></div>
-                <div className="login">ورود</div>
-                <div className="register">ثبت نام</div>
-                <div className="search"><img src="../src/assets/images/search.png" alt="" /></div>
+                <div className="h-full flex justify-around items-center pl-1 text-[#8043bd] [&>div]:h-[36px]  [&>div]:bg-[#f1ebf8] [&>div]:mx-[8px] [&>div]:rounded-[30px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div]:whitespace-nowrap [&>div]:text-x-[14px] [&>div]:cursor-pointer [&>div]:shadow-[0px_3px_6px_#5757574f]">
+                <div className="w-10"><img src="../src/assets/images/shop.png" alt="" className="w-[25px] h-[25px]" /></div>
+                <div className="mx-[15px] w-20 px-4 " >ورود</div>
+                <div className="mx-[15px] w-20 px-4 " >ثبت نام</div>
+                <div className="w-10"><img src="../src/assets/images/search.png" alt="" className="w-[25px] h-[25px]" /></div>
             </div>
-            <div className="w-[35%] h-full flex flex-row-reverse justify-around items-center [&>a]:text-[#8043bd] [&>a]:pb-2">
+            <div className="w-[35%] h-full flex flex-row-reverse justify-around items-center [&>a]:text-[#8043bd] [&>a]:pb-2 ">
                 <img src="../src/assets/images/avatar.png" alt="" className="w-[40px] h-[40px]"/>
                 <NavLink to={"/"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >اموزش</NavLink>
                 <NavLink to={"/2"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خانه</NavLink>
