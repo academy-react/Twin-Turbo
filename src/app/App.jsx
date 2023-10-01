@@ -1,23 +1,26 @@
-import { createBrowserRouter , RouterProvider } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 
+
 const router = createBrowserRouter([
     {
+        path : '/',
+        element : "Home"
+    },
+    {
         path : '/header',
-        element : <Header />
+        element : <Header/>
     },
     {
         path : '/footer',
-        element : <Footer />
-    }
+        element : <Footer/>
+    },
 ])
 
-const App = () =>  {
- 
-    return (
-        <RouterProvider router={router} />
-    )
+const App = () => {
+    
+   return <RouterProvider router={router} />
 
 }
 

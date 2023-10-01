@@ -80,8 +80,8 @@ const App = () => {
               </ul>
               <ul>
                 <li>شماره تماس : </li>
-                <li dir="ltr">+989027912478</li>
                 <li dir="ltr">+989909123183</li>
+                <li dir="ltr">+989027912478</li>
               </ul>
             </div>
           </div>
