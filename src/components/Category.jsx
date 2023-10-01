@@ -28,7 +28,7 @@ const Category = () => {
           className="drop-shadow-[0px_3px_6px_#5757574f]"
         />
       </div>
-      <div className="w-[80%] h-[65%] flex flex-wrap justify-center [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px]">
+      <div className="w-[80%] h-[65%] flex flex-wrap justify-center [&>div]:bg-white [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px]">
         {images.map((el, index) => {
           return (
             <div key={index}>

@@ -18,7 +18,7 @@ const Courses = () => {
         />
       </div>
       <div className="w-[80%] h-[70%] flex justify-between">
-        <div className="w-[30%] h-[550px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:w-[90%] [&>img]:h-[150px]">
+        <div className="w-[30%] h-[550px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[150px]">
           <img src="../src/assets/images/vs.png" alt="" />
           <img src="../src/assets/images/angular.png" alt="" />
           <img src="../src/assets/images/nest.png" alt="" />
@@ -42,6 +42,7 @@ const Courses = () => {
         alt=""
         className="absolute right-[85px] top-40 w-28 -z-10"
       />
+      <img src="../src/assets/images/c-i-1-h.png" className="absolute left-[100px] bottom-[169px] -rotate-6 w-14" />
     </div>
   );
 };
