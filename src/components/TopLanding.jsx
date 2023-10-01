@@ -5,7 +5,7 @@ const TopLanding = () => {
   return (
     <div className="w-full h-[620px] relative ">
       <img
-        src="../src/assets/images/Group 155.png"
+        src="../src/assets/images/bg-top.png"
         alt=""
         className="w-full h-full absolute left-0 -top-[2px] scale-x-[107%] scale-y-[117%] -z-10"
       />
@@ -27,7 +27,7 @@ const TopLanding = () => {
         بتوانیم با راه کار های نوین و استفاده از پتانسیل فضای مجازی ایجاد فرصت
         کنیم برای افرادی که خواهان پیشرفت خود و کشورشان هستند
       </p>
-      <button className="bg-[#C003B2] rounded-[25px]  h-[50px] px-10 whitespace-nowrap absolute right-24 top-[350px] text-[#fff]">
+      <button className="bg-gradient-to-r from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] h-[50px] px-10 whitespace-nowrap absolute right-24 top-[350px] text-[#fff]">
         شروع یادگیری
       </button>
     </div>
