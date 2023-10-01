@@ -1,5 +1,6 @@
 import Services from "../components/Services";
 import Category from "../components/Category";
+import Masters from "../components/Masters";
 import TopLanding from "../components/TopLanding";
 const Landing = () => {
   return (
@@ -8,6 +9,7 @@ const Landing = () => {
         <TopLanding />
         <Services />
         <Category />
+        <Masters />
 
     </div>
   );
