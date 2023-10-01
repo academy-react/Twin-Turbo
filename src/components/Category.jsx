@@ -39,7 +39,10 @@ const Category = () => {
         })}
       </div>
       <More content="بیشتر" />
+        <img src="../src/assets/images/n.png" alt="" className="absolute top-[180px] left-[-40px] h-[85px]" />
+        <img src="../src/assets/images/n.png" alt="" className="absolute bottom-[150px] right-[40px] h-[55px]" />
     </div>
+
   );
 };
 
