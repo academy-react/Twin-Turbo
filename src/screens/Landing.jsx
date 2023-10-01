@@ -4,7 +4,7 @@ import TopLanding from './TopLanding'
 const Landing = () => {
 
   return (
-    <div className="w-[1280px] mx-auto my-0 overflow-hidden border border-[green]">
+    <div className="w-[1280px] mx-auto my-0 overflow-hidden">
 
         <TopLanding />
         <Services />
