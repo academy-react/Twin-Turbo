@@ -7,10 +7,7 @@
     box-sizing: border-box;
     font-family: vazir;
     list-style: none;
-}
-::selection {
-    background-color: #a306a1;
-    color: #ffffff;
+    user-select: none;
 }
 @font-face {
     font-family: vazir;

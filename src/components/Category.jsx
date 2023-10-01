@@ -14,9 +14,9 @@ const Category = () => {
     ])
 
   return (
-    <div className='w-[full] h-[700px] flex flex-col justify-around items-center relative'>
+    <div className='w-[full] h-[700px] mb-10 flex flex-col justify-around items-center relative'>
         <img src="../src/assets/images/Group 55.png" alt="" className=' drop-shadow-[0px_3px_6px_#5757574f]'/>
-        <div className='w-[80%] h-[65%] flex flex-wrap [&>div]:w-[23%] [&>div]:h-[45%] [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_6px_#5757574f] [&>div]:m-[4px]'>
+        <div className='w-[80%] h-[65%] flex flex-wrap justify-center [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] font-bold text-[25px]'>
             
             {images.map((el,index) => {
                 return (
@@ -26,40 +26,6 @@ const Category = () => {
                     </div>
                 )
             })}
-
-            {/* <div>
-                <img src="../src/assets/images/1.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/2.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/3.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/4.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/5.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/6.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/7.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div>
-            <div>
-                <img src="../src/assets/images/8.png" alt="" className='scale-[70%]' />
-                <p></p>
-            </div> */}
-
         </div>
     </div>
   )
