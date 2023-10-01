@@ -14,13 +14,13 @@ const Category = () => {
     ])
 
   return (
-    <div className='w-[full] h-[700px] mb-10 flex flex-col justify-around items-center relative'>
+    <div className='w-[full] h-[750px] mb-10 flex flex-col justify-around items-center relative'>
         <div className='relative'>
             <div className='text-[#5a0ba9] text-[38px] absolute left-[32%] top-8 z-10'>دسته بندی ها</div>
             <div className='text-[#9c6dcb] text-[20px] absolute left-[32%] top-28 z-10'>گستره وسیعی از موضوعات</div>
             <img src="../src/assets/images/category.png" alt="" className='drop-shadow-[0px_3px_6px_#5757574f]'/>
         </div>
-        <div className='w-[80%] h-[65%] flex flex-wrap justify-center [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] font-bold text-[25px]'>
+        <div className='w-[80%] h-[65%] flex flex-wrap justify-center [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px]'>
             
             {images.map((el,index) => {
                 return (
@@ -31,6 +31,7 @@ const Category = () => {
                 )
             })}
         </div>
+        <div className='text-[#6c63ff] border border-[#6c63ff] px-4 py-1 rounded-[14px] text-[18px]'>بیشتر</div>
     </div>
   )
 }
