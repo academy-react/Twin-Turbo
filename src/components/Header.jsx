@@ -20,12 +20,6 @@ const Header = () => {
                 <NavLink to={"/4"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خدمات</NavLink>
                 <NavLink to={"/5"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >بلاگ</NavLink>
                 <NavLink to={"/6"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >تماس به ما</NavLink>
-                <NavLink to={"/5"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >بلاگ</NavLink>
-                <NavLink to={"/4"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خدمات</NavLink>
-                <NavLink to={"/3"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >مالی</NavLink>
-                <NavLink to={"/2"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >اموزش</NavLink>
-                <NavLink to={"/"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خانه</NavLink>
-                <img src="../src/assets/images/avatar.png" alt="" className="w-[40px] h-[40px]"/>
             </div>
         </div>
     </header>

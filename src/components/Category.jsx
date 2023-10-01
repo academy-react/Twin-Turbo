@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Category = () => {
 
-    const [images, setimages] = useState([
+    const [images, setImages] = useState([
         {src:"../src/assets/images/1.png",name:"شیمی"},
         {src:"../src/assets/images/2.png",name:"ریاضی"},
         {src:"../src/assets/images/3.png",name:"معماری"},
