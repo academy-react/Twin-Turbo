@@ -12,8 +12,8 @@ const Header = () => {
             </div>
             <div className="w-[35%] h-full flex flex-row-reverse justify-around items-center [&>a]:text-[#8043bd] [&>a]:pb-2 ">
                 <img src="../src/assets/images/avatar.png" alt="" className="w-[40px] h-[40px]"/>
-                <NavLink to={"/"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >اموزش</NavLink>
-                <NavLink to={"/2"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خانه</NavLink>
+                <NavLink to={"/"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خانه</NavLink>
+                <NavLink to={"/2"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >اموزش</NavLink>
                 <NavLink to={"/3"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >مالی</NavLink>
                 <NavLink to={"/4"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >خدمات</NavLink>
                 <NavLink to={"/5"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} >بلاگ</NavLink>
