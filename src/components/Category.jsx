@@ -31,7 +31,7 @@ const Category = () => {
                 )
             })}
         </div>
-        <div className='text-[#6c63ff] border border-[#6c63ff] px-4 py-1 rounded-[14px] text-[18px]'>بیشتر</div>
+        <div className='text-[#6c63ff] border border-[#6c63ff] px-4 py-1 rounded-[14px] text-[18px] cursor-pointer'>بیشتر</div>
     </div>
   )
 }
