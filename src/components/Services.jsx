@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const Services = () => {
+
+
   return (
     <div className='w-[full] h-[700px] flex justify-center items-center pt-[100px] relative'>
         <div className='w-[550px] h-[270px] flex flex-wrap justify-between'>
@@ -9,7 +11,7 @@ const Services = () => {
             <img src="../src/assets/images/yellow.png" alt="" className='w-[48%] h-[48%] '/>
             <img src="../src/assets/images/red.png" alt="" className='w-[48%] h-[48%] '/>
         </div>
-        <img src="../src/assets/images/Group 159.png" alt="" className='absolute left-[-110px] bottom-[-70px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f]' />
+        <img src="../src/assets/images/Group 159.png" alt="" className='absolute left-[-110px] bottom-[-70px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f]' id='woman'/>
         <img src="../src/assets/images/Path 620.png" alt="" className='absolute left-[-250px] top-[-20px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f]'/>
         <img src="../src/assets/images/Group 160.png" alt="" className='absolute right-[-140px] top-[-20px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f]' />
     </div>

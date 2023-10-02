@@ -14,7 +14,7 @@ const Category = () => {
   ]);
 
   return (
-    <div className="w-[full] h-[750px] mb-10 flex flex-col justify-around items-center relative">
+    <div className="w-full h-[750px] mb-10 flex flex-col justify-around items-center relative">
       <div className="relative">
         <div className="text-[#5a0ba9] text-[38px] absolute left-[26%] top-7 z-10">
           دسته بندی ها

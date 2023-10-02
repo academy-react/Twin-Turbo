@@ -3,18 +3,18 @@ import More from "./common/Button";
 
 const Courses = () => {
   return (
-    <div className="w-[full] h-[750px] mb-10 flex flex-col justify-around items-center relative">
-      <div className="relative">
-        <div className="text-[#5a0ba9] text-[38px] absolute left-[36%] top-4 z-10">
+    <div className="w-full h-[750px] mb-10 flex flex-col justify-around items-center relative">
+      <div className="relative mx-auto">
+        <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10">
           دوره ها
         </div>
-        <div className="text-[#9c6dcb] text-[20px] absolute left-[29%] top-24 z-10">
+        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-20 z-10">
           آخرین دوره های موجود
         </div>
         <img
           src="../src/assets/images/courses-title.png"
           alt=""
-          className="drop-shadow-[0px_3px_6px_#5757574f]"
+          className="drop-shadow-[0px_3px_6px_#5757574f] w-[450px]"
         />
       </div>
       <div className="w-[80%] h-[70%] flex justify-between">
