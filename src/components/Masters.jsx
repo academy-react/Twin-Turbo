@@ -1,6 +1,6 @@
 const Masters = () => {
   return (
-    <div className='w-[full] h-[750px]  flex flex-col justify-center items-center pt-[100px] relative [&>div]:my-5'>
+    <div className='w-full h-[750px] flex flex-col justify-center items-center pt-[100px] relative [&>div]:my-5'>
         <div className="bg-white w-[300px] h-[120px] rounded-[15px] flex flex-col items-center justify-center shadow-[0px_0px_6px_#ccc]">
             <h2 className="my-1 font-black text-[30px] text-[#5a0ba9]" > اساتید برتر</h2>
             <p className="my-1 text-[#5a0ba9]">استاد های مهربون و دوست داشتنی</p>
