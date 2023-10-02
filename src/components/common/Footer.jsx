@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <>
-      <footer className="border border-[#ccc]">
+      <footer>
         <div className="max-w-7xl overflow-hidden my-0 mx-auto">
           <svg
             className="w-[110%] relative -z-10 -left-[3%]"
@@ -52,7 +52,7 @@ const App = () => {
               data-name="Path 9"
               d="M27.827,53.3C114.938,46.456,212.87-10.393,387.186,1.675c248.065,19.443,425.063,113.305,758.945,113.305,322.485,5.364,666.423-192.418,919.852-24.136s-19.04,57.4-19.04,57.4l-864.875,56.988-998.483-71.47H115.2S-59.283,60.143,27.827,53.3Z"
               transform="translate(1.837 51.726)"
-              fill="rgba(255,255,255,0.99)"
+              fill="#f5f5f5"
             />
           </svg>
           <div className="flex justify-around items-center flex-wrap -mt-16 [&>div]:w-4/12 [&>div]:h-[200px]">

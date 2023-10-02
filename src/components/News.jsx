@@ -8,13 +8,13 @@ const News = () => {
         </div>
         <div className="w-[95%] h-[350px] flex">
 
-          <div className="h-full w-[50%] shadow-[0_0_7px_#ccc] mx-3 rounded-[15px] relative flex justify-center items-center flex-col">
-            <div className="absolute top-[-25px] right-[-15px] p-2 px-3 shadow-[0_0_7px_#ccc] bg-white rounded-[15px]">اخبار</div>
+          <div className="h-full w-[50%] bg-white shadow-[0_0_7px_#ccc] mx-3 rounded-[15px] relative flex justify-center items-center flex-col">
+            <div className="absolute top-[-25px] right-[-15px] p-2 w-16 text-center shadow-[0_0_7px_#ccc] bg-white rounded-[15px]">اخبار</div>
             <ItemNews img1="node.png" img2="vs.png" img3="nest.png" />
           </div>
 
-          <div className="h-full w-[50%] shadow-[0_0_7px_#ccc] mx-3 rounded-[15px] relative flex justify-center items-center flex-col">
-            <div className="absolute top-[-25px] right-[-15px] p-2 px-3 shadow-[0_0_7px_#ccc] bg-white rounded-[15px]">مقالات</div>
+          <div className="h-full w-[50%] bg-white shadow-[0_0_7px_#ccc] mx-3 rounded-[15px] relative flex justify-center items-center flex-col">
+            <div className="absolute top-[-25px] right-[-15px] p-2 w-16 text-center shadow-[0_0_7px_#ccc] bg-white rounded-[15px]">مقالات</div>
             <ItemNews img1="vs.png" img2="node.png" img3="nest.png"/>
           </div>
         </div>

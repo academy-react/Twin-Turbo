@@ -1,9 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Header from '../components/Header.jsx'
 import Landing from '../screens/Landing.jsx'
-import Footer from '../components/Footer.jsx'
 import Courses from '../components/Courses.jsx'
-import Page404 from '../components/Page404.jsx'
+import Page404 from '../screens/Page404.jsx';
 
 const App = () => {
 
@@ -17,18 +15,12 @@ const App = () => {
             element : <Courses/>
         },
         {
-            path : '/footer',
-            element : <Footer/>
-        },
-        {
             path : '*',
-            element : <Page404 />
-        }
-
+            element : <Page404/>
+        },
     ])
-    
-    return <RouterProvider router={router} />
 
-}
+    return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
