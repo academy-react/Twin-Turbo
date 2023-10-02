@@ -3,6 +3,7 @@ import Header from '../components/Header.jsx'
 import Landing from '../screens/Landing.jsx'
 import Footer from '../components/Footer.jsx'
 import Courses from '../components/Courses.jsx'
+import Page404 from '../components/Page404.jsx'
 
 const App = () => {
 
@@ -19,6 +20,10 @@ const App = () => {
             path : '/footer',
             element : <Footer/>
         },
+        {
+            path : '*',
+            element : <Page404 />
+        }
 
     ])
     
