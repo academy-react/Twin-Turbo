@@ -14,7 +14,7 @@ const TopLanding = () => {
         alt=""
         className="absolute scale-[50%] left-[-140px] top-[-50px] -z-10"
       />
-      <Header />
+      <Header  src="avatar.png" color="#5A0BA9" />
       <h1 className="absolute right-36 top-40 text-[30px] text-[#666666]">
         پژوهشگاه سپهر
       </h1>

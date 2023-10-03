@@ -1,12 +1,12 @@
 import React from 'react'
+import Header from '../components/common/Header'
 
 const forget = () => {
   return (
-    <div className='w-full bg-gradient-to-r from-[#5A0BA9] to-[#C003B2]'>
-        <div className='w-full mx-auto bg-[url(../src/assets/images/forget-bg.png)] bg-fixed h-[100vh] bg-cover relative scale-x-110 scale-y-[90%]'>
-
-        </div>
+    <div className='w-full h-[100vh] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
+        <Header className="hidden" src="avatar-1.png" color="#fff" />
     </div>
+
   )
 }
 

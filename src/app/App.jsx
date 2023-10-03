@@ -16,7 +16,7 @@ const App = () => {
             element : <Courses/>
         },
         {
-            path : '/forgetpassword',
+            path : '/forget',
             element : <Forget />
         },
         {
