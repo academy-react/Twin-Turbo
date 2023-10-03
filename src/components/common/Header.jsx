@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink , Link } from "react-router-dom";
 
 const Header = ({className,src,color}) => {
 
@@ -14,11 +14,11 @@ const Header = ({className,src,color}) => {
                 <NavLink to={"/5"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >بلاگ</NavLink>
                 <NavLink to={"/6"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس به ما</NavLink>
             </div>
-            <div className={"h-full flex justify-around items-center pl-1 text-[#8043bd] [&>div]:h-[36px]  [&>div]:bg-[#f1ebf8] [&>div]:mx-[8px] [&>div]:rounded-[30px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div]:whitespace-nowrap [&>div]:text-x-[14px] [&>div]:cursor-pointer [&>div]:shadow-[0px_3px_6px_#5757574f] " + className}>
-                <div className="w-10"><img src="../src/assets/images/shop.png" alt="" className="w-[25px] h-[25px]" /></div>
-                <div className="mx-[15px] w-20 px-4 select-none" >ورود</div>
-                <div className="mx-[15px] w-20 px-4 select-none" >ثبت نام</div>
-                <div className="w-10 "><img src="../src/assets/images/search.png" alt="" className="w-[25px] h-[25px]" /></div>
+            <div className={"h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[36px]  [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-x-[14px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
+                <Link className="w-10"><img src="../src/assets/images/shop.png" alt="" className="w-[25px] h-[25px]" /></Link>
+                <Link to={"/login"} className='mx-[15px] w-20 px-4 select-none' >ورود</Link>
+                <Link to={"/register"} className='mx-[15px] w-20 px-4 select-none' >ثبت نام</Link>
+                <Link className="w-10 "><img src="../src/assets/images/search.png" alt="" className="w-[25px] h-[25px]" /></Link>
             </div>
         </div>
     </header>

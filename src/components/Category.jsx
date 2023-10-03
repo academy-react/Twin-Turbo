@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import More from "./common/Button";
 
 const Category = () => {
+
   const [images, setImages] = useState([
     { src: "../src/assets/images/1.png", name: "شیمی", color: "#32d835" },
     { src: "../src/assets/images/2.png", name: "ریاضی", color: "#ff3320" },
@@ -39,8 +40,8 @@ const Category = () => {
         })}
       </div>
       <More content="بیشتر" />
-        <img src="../src/assets/images/n.png" alt="" className="absolute top-[180px] left-[-40px] h-[85px]" />
-        <img src="../src/assets/images/n.png" alt="" className="absolute bottom-[150px] right-[40px] h-[55px]" />
+        <img src="../src/assets/images/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
+        <img src="../src/assets/images/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[55px] z-[-2] transition-all duration-[2s]" id="planet2" />
     </div>
 
   );

@@ -1,15 +1,4 @@
-import React, { useRef } from 'react'
-
 const Services = () => {
-
-  window.onscroll = ()=> {
-    if(pageYOffset > 140) {
-      man.style.right = "-140px"
-      holder.style.transform = "scale(100%)"
-    }
-    if(pageYOffset > 435) woman.style.left = "-110px"
-    
-  }
 
   return (
     <div className='w-[full] h-[700px] flex justify-center items-center pt-[100px] relative'>
