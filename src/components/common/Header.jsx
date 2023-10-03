@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Header = ({className,src,color}) => {
 
   return (
-    <header dir="rtl" className="h-[70px]" id="header">
+    <header dir="rtl" className="h-[70px] relative z-50" id="header">
         <div className="my-0 mx-auto w-[1280px] h-full flex justify-between" >
             <div className="w-[35%] h-full flex  justify-around items-center [&>a]:pb-2 px-4">
                 <img src={"../src/assets/images/" + src} alt="" className="w-[40px] h-[40px]"/>
