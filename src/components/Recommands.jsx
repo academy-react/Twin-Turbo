@@ -6,7 +6,7 @@ const Recommands = () => {
         </div>
         <div className="w-full relative h-[65%] mt-28">
             <img src="../src/assets/images/re-i.png" className="h-full" />
-            <div className="w-[450px] h-[490px] bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly">
+            <div className="w-[450px] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000" id="recommandsForm">
                 <div className="relative w-full flex justify-center">
                     <input type="text" className="placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-12 pl-5" placeholder="name"/>
                     <div className="text-[18px] text-[#67008F] absolute right-12 top-3">نام کامل</div>

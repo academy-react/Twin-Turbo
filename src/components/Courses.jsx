@@ -1,4 +1,3 @@
-import React from "react";
 import More from "./common/Button";
 
 const Courses = () => {
@@ -35,14 +34,16 @@ const Courses = () => {
       <img
         src="../src/assets/images/c-i-1.png"
         alt=""
-        className="absolute left-10 bottom-0 w-28 -z-10"
+        className="absolute left-[-300px] bottom-0 w-28 -z-10 transition-all duration-1000"
+        id="coursesHolder1"
       />
       <img
         src="../src/assets/images/c-i-2.png"
         alt=""
-        className="absolute right-[85px] top-40 w-28 -z-10"
+        className="absolute right-[-300px] top-40 w-28 -z-10 transition-all duration-1000"
+        id="coursesHolder2"
       />
-      <img src="../src/assets/images/c-i-1-h.png" className="absolute left-[100px] bottom-[169px] -rotate-6 w-14" />
+      <img src="../src/assets/images/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 transition-all duration-1000" id="coursesHolder3" />
     </div>
   );
 };
