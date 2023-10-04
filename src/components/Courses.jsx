@@ -17,17 +17,17 @@ const Courses = () => {
         />
       </div>
       <div className="w-[80%] h-[70%] flex justify-between">
-        <div className="w-[30%] h-[550px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[150px]">
+        <div className="w-[30%] h-[670px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[180px]">
           <img src="../src/assets/images/vs.png" alt="" />
           <img src="../src/assets/images/angular.png" alt="" />
           <img src="../src/assets/images/nest.png" alt="" />
           <More content="بیشتر" />
         </div>
-        <div className="w-[65%] h-[550px] rounded-3xl bg-white p-5 relative">
-          <img src="../src/assets/images/node.png" alt="" />
-          <div className="font-semibold text-[24px] absolute right-7 top-[65%]"> نود جی اس : دوره کامل</div>
-          <div className="text-[#7f7f7f] text-[20px] absolute left-7 top-[65%]"> محمد بحرالعلوم</div>
-          <div className="absolute right-7 top-[78%] " dir="rtl">نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
+        <div className="w-[65%] h-[670px] rounded-3xl bg-white p-5 relative">
+          <img src="../src/assets/images/node.png" alt="" className="w-full h-[400px]" />
+          <div className="font-semibold text-[26px] absolute right-7 top-[65%]"> نود جی اس : دوره کامل</div>
+          <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%]"> محمد بحرالعلوم</div>
+          <div className="absolute right-7 top-[78%] text-[20px]" dir="rtl">نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
           <More content="مشاهده دوره" className="absolute left-7 bottom-4" />
         </div>
       </div>
@@ -40,7 +40,7 @@ const Courses = () => {
       <img
         src="../src/assets/images/c-i-2.png"
         alt=""
-        className="absolute right-[-300px] top-40 w-28 -z-10 transition-all duration-1000"
+        className="absolute right-[-300px] top-[150px] w-28 -z-10 transition-all duration-1000"
         id="coursesHolder2"
       />
       <img src="../src/assets/images/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 transition-all duration-1000" id="coursesHolder3" />
