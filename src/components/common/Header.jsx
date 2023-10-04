@@ -15,7 +15,7 @@ const Header = ({className,src,color}) => {
                 <NavLink to={"/6"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس به ما</NavLink>
             </div>
             <div className={"w-[20%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px]  [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
-                <Link className="w-[50px]"><img src="../src/assets/images/shop.png" alt="" className="w-[25px] h-[25px]" /></Link>
+                <Link className="w-[50px]"><img src="../src/assets/images/shop.png" alt="" className="w-[27px] h-[27px]" /></Link>
                 <Link to={"/login"} className='mx-[15px] w-[100px] px-4 select-none' >ورود</Link>
                 <Link to={"/register"} className='mx-[15px] w-[100px] px-4 select-none'  >ثبت نام</Link>
                 <Link className="w-[50px] "><img src="../src/assets/images/search.png" alt="" className="w-[25px] h-[25px]" /></Link>

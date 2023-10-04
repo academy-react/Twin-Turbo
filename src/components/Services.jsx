@@ -10,7 +10,7 @@ const Services = () => {
         </div>
         <img src="../src/assets/images/Group 159.png" alt="" className='absolute left-[-500px] bottom-[-70px] scale-[70%] drop-shadow-[0px_3px_6px_#5757574f] transition-all duration-1000' id='woman'/>
         <img src="../src/assets/images/Path 620.png" alt="" className='absolute left-[-250px] top-[-20px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f] '/>
-        <img src="../src/assets/images/Group 160.png" alt="" className='absolute right-[-500px] top-[-20px] scale-[70%] drop-shadow-[0px_3px_6px_#5757574f] transition-all duration-1000' id='man'/>
+        <img src="../src/assets/images/Group 160.png" alt="" className='absolute right-[-550px] top-[-20px] scale-[70%] drop-shadow-[0px_3px_6px_#5757574f] transition-all duration-1000' id='man'/>
     </div>
   )
 }
