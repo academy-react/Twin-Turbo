@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="max-w-7xl overflow-hidden my-0 mx-auto">
+        <div className="w-[1920px] overflow-hidden my-0 mx-auto">
           <svg
             className="w-[110%] relative -z-10 -left-[3%]"
             xmlns="http://www.w3.org/2000/svg"

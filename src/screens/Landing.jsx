@@ -30,7 +30,7 @@ const Landing = () => {
   }
 
   return (
-    <div className="w-[1280px] mx-auto my-0 overflow-hidden">
+    <div className="w-[1920px] mx-auto my-0 overflow-hidden">
 
         <TopLanding />
         <Services />

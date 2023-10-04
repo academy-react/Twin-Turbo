@@ -35,7 +35,7 @@ const News = () => {
         <input
           dir="ltr"
           type="text"
-          className="h-full border-none outline-none placeholder:text-[#5a0ba951] px-3 bg-[#f5f5f5]"
+          className="h-full border-none outline-none placeholder:text-[#5a0ba951] text-[#5A0BA9] px-3 bg-[#f5f5f5]"
           placeholder="enter your email address"
         />
       </div>
