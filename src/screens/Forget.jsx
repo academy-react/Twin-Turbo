@@ -9,7 +9,7 @@ const forget = () => {
           <img src="../src/assets/images/path forget.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[120%]'/>
           <img src="../src/assets/images/forget logo woman.png" alt="" className='absolute left-[0] top-[260px]'/>
 
-          <div className="w-[400px] h-[450px] bg-white absolute right-[15%] top-[300px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col items-center justify-center">
+          <div className="w-[450px] h-[480px] bg-white absolute right-[16%] top-[340px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col items-center justify-center">
             <img src="../src/assets/images/key.png" alt="" className='w-[50px]'/>
             <p className='py-[35px] text-[26px]'>فراموشی رمز عبور</p>
             <div className='w-full h-[140px] flex flex-col items-center justify-center [&>*]:my-[5px]'>
