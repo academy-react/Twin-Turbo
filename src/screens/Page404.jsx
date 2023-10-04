@@ -2,7 +2,7 @@ import Footer from "../components/common/Footer";
 import {Link} from "react-router-dom"
 const Page404 = () => {
   return (
-    <div className=' w-[1280px] mx-[auto]'>
+    <div className=' w-[1920px] mx-[auto]'>
         <div className='w-full h-[400px] flex flex-col items-center justify-center'>
           <div className='relative w-[450px] h-[400px] flex justify-center items-center'>
             <img src="../src/assets/images/404.png" alt="" />

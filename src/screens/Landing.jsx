@@ -16,15 +16,15 @@ const Landing = () => {
     if(pageYOffset > 300) woman.style.left = "-110px"
     if(pageYOffset > 710) planet1.style.left = "-40px"
     if(pageYOffset > 1100) planet2.style.right = "40px"
-    if(pageYOffset > 1700) coursesHolder2.style.right = "85px"
-    if(pageYOffset > 1900) coursesHolder1.style.left = "40px"
-    if(pageYOffset > 1900) coursesHolder3.style.left = "100px"
+    if(pageYOffset > 1700) coursesHolder2.style.right = "145px"
+    if(pageYOffset > 1900) coursesHolder1.style.left = "100px"
+    if(pageYOffset > 1900) coursesHolder3.style.left = "160px"
     if(pageYOffset > 3000) {
       holderMasters.style.width = "100%"
       holderMasters.style.opacity = "1"
     }
     if(pageYOffset > 3800) {
-      recommandsForm.style.height = "490px"
+      recommandsForm.style.height = "530px"
       recommandsForm.style.opacity = "1"
     }
   }
