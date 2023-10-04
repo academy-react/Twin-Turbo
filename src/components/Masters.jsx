@@ -12,17 +12,17 @@ const Masters = () => {
             <p className="w-[420px] absolute right-[22%] bottom-[20%] text-[#666]" dir="rtl" >مدرس در آموزشگاه  , مدرس در دانشگاه علم و فناوری مازندران مستقر در بهشهر , مدرس دوره های وب</p>
         </div>
         <div className="w-52 h-[150px] opacity-0 flex justify-around items-center transition-all duration-1000 [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center " id="holderMasters">
-            <div className="w-[240px] h-[85px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
+            <div className="w-[340px] h-[120px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
                 <img src="../src/assets/images/ostad-3.jpg" alt="" className="h-[70px] w-[70px] absolute right-[8px] top-[-25px] rounded-[15px] "/>
                 <p className="text-[18px]" >حامد نظری</p>
                 <p className="text-[13px] text-[#444] ml-[13px]">طراح فرانت</p>
             </div>
-            <div className="w-[240px] h-[85px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
+            <div className="w-[340px] h-[120px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
                 <img src="../src/assets/images/ostad-2.png" alt="" className="h-[70px] w-[70px] absolute right-[8px] top-[-25px] rounded-[15px] "/>
                 <p className="text-[18px]" >مهدی اصغری</p>
                 <p className="text-[13px] text-[#444] ml-[13px]">React Developer</p>
             </div>
-            <div className="w-[240px] h-[85px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
+            <div className="w-[340px] h-[120px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">
                 <img src="../src/assets/images/ostad.jpg" alt="" className="h-[70px] w-[70px] absolute right-[8px] top-[-25px] rounded-[15px] "/>
                 <p className="text-[18px] mr-7" >محسن اسفندیاری</p>
                 <p className="text-[13px] text-[#444] ml-[13px]">React Developer</p>
