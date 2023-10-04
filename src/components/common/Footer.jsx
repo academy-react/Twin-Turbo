@@ -56,19 +56,19 @@ const Footer = () => {
             />
           </svg>
           <div className="flex justify-around items-center flex-wrap -mt-16 [&>div]:w-4/12 [&>div]:h-[200px]">
-            <div className="flex justify-evenly items-center [&>img]:w-[165px] [&>img]:h-[145px] [&>img]:object-cover">
+            <div className="flex justify-evenly items-center [&>img]:w-[200px] [&>img]:h-[180px] [&>img]:object-cover">
               <img src="../src/assets/images/enamad.png" />
               <img src="../src/assets/images/samandehi.png" />
             </div>
-            <div className="flex flex-col justify-end items-center pb-6 text-[#67008f] text-[18px]">
+            <div className="flex flex-col justify-end items-center pb-6 text-[#67008f] text-[22px]">
               <img
                 src="../src/assets/images/logoes.png"
-                className="h-10 mb-[5px] cursor-pointer"
+                className="h-12 mb-[5px] cursor-pointer"
               />
               <div>ما را در شبکه های اجتماعی دنبال کنید</div>
             </div>
             <div
-              className="flex justify-around items-start [&>ul>li]:my-1"
+              className="flex justify-around items-start [&>ul>li]:my-1 text-[20px]"
               dir="rtl"
             >
               <ul className="[&>li]:cursor-pointer">

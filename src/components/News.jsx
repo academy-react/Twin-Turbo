@@ -2,13 +2,13 @@ import ItemNews from "./common/ItemNews";
 const News = () => {
   return (
     <div className="w-full h-[650px] flex flex-col items-center justify-around">
-      <div className="w-[30%] h-[150px] relative">
+      <div className="w-[32%] h-[180px] relative">
         <img
           src="../src/assets/images/Group 135.png"
           alt=""
           className="w-full h-full"
         />
-        <p className="text-[#5a0ba9] absolute top-[25%] right-[38%] text-[20px]">
+        <p className="text-[#5a0ba9] absolute top-[25%] right-[38%] text-[24px]">
           اخبار و مقالات
         </p>
       </div>
@@ -35,7 +35,7 @@ const News = () => {
         <input
           dir="ltr"
           type="text"
-          className="h-full border-none outline-none placeholder:text-[#5a0ba951] text-[#5A0BA9] px-3 bg-[#f5f5f5]"
+          className="w-[70%] h-full border-none outline-none placeholder:text-[#5a0ba951] text-[#5A0BA9] px-3 bg-[#f5f5f5] text-[18px]"
           placeholder="enter your email address"
         />
       </div>
