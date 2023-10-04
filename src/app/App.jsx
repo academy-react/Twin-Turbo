@@ -1,9 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Landing from '../screens/Landing.jsx'
 import Courses from '../components/Courses.jsx'
-import Page404 from '../screens/Page404.jsx';
-import Forget from '../screens/Forget.jsx';
-import Login from '../screens/Login.jsx';
+import ContactUs from '../screens/ContactUs.jsx'
+import Page404 from '../screens/Page404.jsx'
+import Forget from '../screens/Forget.jsx'
+import Login from '../screens/Login.jsx'
 
 const App = () => {
 
@@ -23,6 +24,10 @@ const App = () => {
         {
             path : '/login',
             element : <Login />
+        },
+        {
+            path : '/contact-us',
+            element : <ContactUs />
         },
         {
             path : '*',

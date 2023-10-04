@@ -22,7 +22,7 @@ const login = () => {
                 <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[20px] cursor-pointer'>مرا به خاطر بسپار</label>
                 <input type="checkbox" id='checkbox' className='appearance-none border border-[#564FCC] w-4 h-4 rounded-[7px] cursor-pointer checked:bg-[#564FCC]'/>
             </div>
-            <div className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[24px]'>
+            <div className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
                 ورود
             </div>
             <Link to={"/forget"} className='text-[#564FCC] text-[20px]'>فراموشی رمز عبور</Link>
