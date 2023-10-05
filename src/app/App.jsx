@@ -5,6 +5,7 @@ import ContactUs from '../screens/ContactUs.jsx'
 import Page404 from '../screens/Page404.jsx'
 import Forget from '../screens/Forget.jsx'
 import Login from '../screens/Login.jsx'
+import Blog from '../screens/Blog.jsx'
 
 const App = () => {
 
@@ -28,6 +29,10 @@ const App = () => {
         {
             path : '/contact-us',
             element : <ContactUs />
+        },
+        {
+            path : '/blog',
+            element : <Blog />
         },
         {
             path : '*',
