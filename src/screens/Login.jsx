@@ -19,12 +19,12 @@ const login = () => {
                 <input type="text" dir='rtl' className='pr-2 border border-[#9F0099] w-[89%] h-12 rounded-xl mx-auto outline-none focus:border-2 text-[18px]' placeholder='رمز ورود'/>
             </div>
             <div className='flex items-center self-end mr-10'>
-                <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[20px] cursor-pointer'>مرا به خاطر بسپار</label>
+                <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[17px] cursor-pointer'>مرا به خاطر بسپار</label>
                 <input type="checkbox" id='checkbox' className='appearance-none border border-[#564FCC] w-4 h-4 rounded-[7px] cursor-pointer checked:bg-[#564FCC]'/>
             </div>
-            <div className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
+            <button className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
                 ورود
-            </div>
+            </button>
             <Link to={"/forget"} className='text-[#564FCC] text-[20px]'>فراموشی رمز عبور</Link>
             <div className='text-[#00000092]'>برای ثبت نام <Link to={"/register"} className='text-[#564FCC]' >اینجا</Link> کلیک کنید</div>
           </div>
