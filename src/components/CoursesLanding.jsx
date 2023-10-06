@@ -1,8 +1,8 @@
-import More from "./common/Button";
+import Button from "./common/Button";
 
 const Courses = () => {
   return (
-    <div className="w-full h-[750px] mb-10 flex flex-col justify-around items-center relative">
+    <div className="w-full mb-10 flex flex-col justify-around items-center relative">
       <div className="relative mx-auto">
         <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10">
           دوره ها
@@ -21,14 +21,14 @@ const Courses = () => {
           <img src="../src/assets/images/vs.png" alt="" />
           <img src="../src/assets/images/angular.png" alt="" />
           <img src="../src/assets/images/nest.png" alt="" />
-          <More content="بیشتر" />
+          <Button content="بیشتر" />
         </div>
         <div className="w-[65%] h-[670px] rounded-3xl bg-white p-5 relative">
           <img src="../src/assets/images/node.png" alt="" className="w-full h-[400px]" />
           <div className="font-semibold text-[26px] absolute right-7 top-[65%]"> نود جی اس : دوره کامل</div>
           <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%]"> محمد بحرالعلوم</div>
           <div className="absolute right-7 top-[78%] text-[20px]" dir="rtl">نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
-          <More content="مشاهده دوره" className="absolute left-7 bottom-4" />
+          <Button content="مشاهده دوره" className="absolute left-7 bottom-4" />
         </div>
       </div>
       <img
