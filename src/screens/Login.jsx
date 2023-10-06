@@ -13,10 +13,10 @@ const login = () => {
             <img src="../src/assets/images/log-in.png" alt="" className='w-[50px] h-[50px]'/>
             <div className='text-[26px]'>ورود</div>
             <div className='w-full relative flex justify-center'>
-                <input type="text" dir='rtl' className='pr-2 border border-[#9F0099] w-[89%] h-12 rounded-xl mx-auto outline-none focus:border-2 text-[18px]' placeholder='نام کاربری' />
+                <input type="text" dir='rtl' className='text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='نام کاربری' />
             </div>
             <div className='w-full relative flex justify-center'>
-                <input type="text" dir='rtl' className='pr-2 border border-[#9F0099] w-[89%] h-12 rounded-xl mx-auto outline-none focus:border-2 text-[18px]' placeholder='رمز ورود'/>
+                <input type="text" dir='rtl' className='text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='رمز ورود'/>
             </div>
             <div className='flex items-center self-end mr-10'>
                 <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[17px] cursor-pointer'>مرا به خاطر بسپار</label>
