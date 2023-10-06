@@ -3,7 +3,7 @@ import Button from "./common/Button";
 const Courses = () => {
   return (
     <div className="w-full mb-10 flex flex-col justify-around items-center relative">
-      <div className="relative mx-auto">
+      <div className="relative mx-auto mb-[40px]">
         <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10">
           دوره ها
         </div>
@@ -17,13 +17,13 @@ const Courses = () => {
         />
       </div>
       <div className="w-[80%] h-[70%] flex justify-between">
-        <div className="w-[30%] h-[670px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[180px]">
+        <div className="w-[30%] h-[700px] rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[190px] shadow-[0_0_7px_#ccc] ">
           <img src="../src/assets/images/vs.png" alt="" />
           <img src="../src/assets/images/angular.png" alt="" />
           <img src="../src/assets/images/nest.png" alt="" />
           <Button content="بیشتر" />
         </div>
-        <div className="w-[65%] h-[670px] rounded-3xl bg-white p-5 relative">
+        <div className="w-[65%] h-[700px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] ">
           <img src="../src/assets/images/node.png" alt="" className="w-full h-[400px]" />
           <div className="font-semibold text-[26px] absolute right-7 top-[65%]"> نود جی اس : دوره کامل</div>
           <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%]"> محمد بحرالعلوم</div>
