@@ -1,11 +1,11 @@
 const Masters = () => {
   return (
-    <div className='w-full h-[750px] flex flex-col justify-center items-center pt-[100px] relative [&>div]:my-5'>
+    <div className='w-full h-[750px] flex flex-col justify-center items-center relative [&>div]:my-8'>
         <div className="bg-white w-[300px] h-[120px] rounded-[15px] flex flex-col items-center justify-center shadow-[0px_0px_6px_#ccc]">
             <h2 className="my-1 font-black text-[30px] text-[#5a0ba9]" > اساتید برتر</h2>
             <p className="my-1 text-[#5a0ba9]">استاد های مهربون و دوست داشتنی</p>
         </div>
-        <div className="w-[550px] h-[220px] rounded-[15px]  flex flex-col items-center justify-center relative shadow-[0px_0px_6px_#ccc] bg-white">
+        <div className="w-[550px] h-[220px] rounded-[15px] flex flex-col items-center justify-center relative shadow-[0px_0px_6px_#ccc] bg-white">
             <img src="../src/assets/images/ostad.jpg" alt="" className="h-[150px] absolute right-[-58px] rounded-[15px]" />
             <p className="absolute right-[22%] top-[15%] text-[25px] font-extrabold">دکتر بحرالعلوم</p>
             <p className="absolute right-[22%] top-[38%] text-[20px] text-[#444]">مدیریت</p>
