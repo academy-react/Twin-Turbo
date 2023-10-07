@@ -7,11 +7,19 @@ import News from "../components/landing/News";
 import TopLanding from "../components/landing/TopLanding";
 import Recommands from "../components/landing/Recommands";
 import { useLocation } from "react-router-dom";
+import { useRef } from "react";
+import Navigation from "../components/landing/Navigation";
 
 const Landing = () => {
+
+  let navigation = useRef()
   window.onscroll = () => {
     if (window.location.pathname == "/") {
-      if (pageYOffset > 140) man.style.right = "-140px";
+      if (pageYOffset > 140) {
+        man.style.right = "-140px";
+        nav.style.opacity = 1;
+      }
+      else nav.style.opacity = 0;
       if (pageYOffset > 240) holder.style.transform = "scale(100%)";
       if (pageYOffset > 300) woman.style.left = "-110px";
       if (pageYOffset > 710) planet1.style.left = "-40px";
@@ -28,10 +36,13 @@ const Landing = () => {
         recommandsForm.style.opacity = "1";
       }
     }
+    scrollNav.style.width = Math.floor(pageYOffset/48.5)+"%";
   };
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
+      <div className="h-[5px] bg-[#9f009a] fixed top-0 left-0 z-50" style={{width:"0px"}} id="scrollNav"></div>
+      <Navigation />
       <TopLanding />
       <Services />
       <Category />
