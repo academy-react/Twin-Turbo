@@ -7,16 +7,16 @@ const SelectedCourses = () => {
   const [flag, setFlag] = useState(1);
   const change = (num) => {
     setFlag(num);
-    
 
-    if (num == 1) {
-      btn2.style.background = "transparent";
-      btn1.style.background = "#F5F5F5";
-    } else if (num == 2) {
-      btn1.style.background = "transparent";
-      btn2.style.background = "#F5F5F5";
+        if(num == 1) {
+            btn2.style.background = "transparent";
+            btn1.style.background = "#F5F5F5";
+        }
+        else if(num == 2) {
+            btn1.style.background = "transparent";
+            btn2.style.background = "#F5F5F5";
+        }
     }
-  };
 
   return (
     <>
