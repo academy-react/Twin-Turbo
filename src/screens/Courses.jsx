@@ -29,18 +29,9 @@ const Courses = () => {
                 <div className="w-[full] h-[1400px] flex justify-center items-center gap-[50px]">
 
                     <div dir='ltr' className="w-[30%] h-[1300px] flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white [&>div]:w-[85%] [&>div]:h-[220px] [&>div]:rounded-2xl [&>div]:shadow-[0_0_7px_#ccc] [&>div]:flex [&>div]:flex-col [&>div]:my-[10px]">
-                        <div className='[&>div]:w-full [&>div]:h-[25%] [&>div]:border [&>div]:border-[red]'>
-
-                        </div>
-                        <div className=''></div>
-                        <div className=''></div>
-                        <div className=''></div>
-                        <div className=''></div>
+                        
                     </div>
-
                     <RightPanel src="angularCourses.png" name="انگولار"/>
-
-
                 </div>
 
                 <Footer />
