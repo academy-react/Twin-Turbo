@@ -1,4 +1,4 @@
-const array = () => {
+const DataItem = () => {
   return (
     [
         {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
@@ -18,6 +18,4 @@ const array = () => {
 
 }
 
-array()
-
-export default array
+export default DataItem

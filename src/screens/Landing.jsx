@@ -11,6 +11,7 @@ import landingScrollLogic from "../core/utils/landingScrollLogic.utils";
 
 const Landing = () => {
   landingScrollLogic()
+  
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
