@@ -1,5 +1,5 @@
-import DescriptionBlog from "../selectedBlog/DescriptionBlog";
-import CommentBlog from "../selectedBlog/CommentBlog";
+import Description from "../selected-Blog-course/Description";
+import Comment from "../selected-Blog-course/Comment";
 import { useState } from "react";
 
 const RightPanel = ({ src, name }) => {
