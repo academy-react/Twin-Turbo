@@ -37,6 +37,8 @@ const Landing = () => {
       }
     }
     scrollNav.style.width = Math.floor(pageYOffset/48.5)+"%";
+
+    console.log(pageYOffset);
   };
 
   return (
