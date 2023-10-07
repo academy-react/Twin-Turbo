@@ -4,7 +4,8 @@ import ContactUs from "../screens/ContactUs.jsx";
 import Page404 from "../screens/Page404.jsx";
 import Forget from "../screens/Forget.jsx";
 import Login from "../screens/Login.jsx";
-import Blog from "../screens/Blog.jsx";
+import SelectedBlog from "../screens/SelectedBlog.jsx";
+import Blogs from "../screens/Blogs.jsx";
 import Courses from "../screens/Courses.jsx";
 
 const App = () => {
@@ -26,8 +27,8 @@ const App = () => {
       element: <ContactUs />,
     },
     {
-      path: "/blog",
-      element: <Blog />,
+      path: "/blogs",
+      element: <Blogs />,
     },
     {
       path: "/courses",
