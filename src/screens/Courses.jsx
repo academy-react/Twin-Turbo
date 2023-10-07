@@ -5,6 +5,7 @@ import DescriptionBlog from '../components/DescriptionBlog'
 import CommentBlog from '../components/CommentBlog'
 import RightPanel from '../components/RightPanel'
 
+
 const Courses = () => {
     const [flag, setFlag] = useState(1)
     const change = (num) => {

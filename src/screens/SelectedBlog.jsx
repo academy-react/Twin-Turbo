@@ -1,28 +1,13 @@
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 import RightPanel from '../components/RightPanel'
+import A from '../components/array'
 import { useState } from 'react'
 
 const Blog = () => {
 
-    const [item, setItem] = useState([
-        {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"nest.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"vs.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"nest.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"vs.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"nest.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"vs.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"nest.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-        {src:"vs.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
-    ])
-
-
-
-    
+    const [item, setItem] = useState(A)
+    console.log(item);
 
     return (
         <>
