@@ -36,8 +36,12 @@ const Landing = () => {
         recommandsForm.style.opacity = "1";
       }
       
-      console.log(document.documentElement.scrollTop);
     }
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    scrollNav.style.width = scrolled + "%";
+    console.log(scrolled);
     // scrollNav.style.width = Math.floor(pageYOffset/48.5)+"%";
 
   };
