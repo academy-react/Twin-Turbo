@@ -1,11 +1,9 @@
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
-import DescriptionBlog from '../components/DescriptionBlog'
-import CommentBlog from '../components/CommentBlog'
+import RightPanel from '../components/RightPanel'
 import { useState } from 'react'
 
 const Blog = () => {
-    const [flag, setFlag] = useState(true)
 
     const [item, setItem] = useState([
         {src:"node.png",name:"نود جی اس",content:"نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ "},
@@ -24,18 +22,7 @@ const Blog = () => {
 
 
 
-    const change = (num) => {
-        setFlag(num)
-
-        if(num == true) {
-            btn2.style.background = "transparent";
-            btn1.style.background = "#f1ebf8";
-        }
-        else if(num == false) {
-            btn1.style.background = "transparent";
-            btn2.style.background = "#f1ebf8";
-        }
-    }
+    
 
     return (
         <>
@@ -65,16 +52,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="w-[60%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white ">
-                        <div className='w-full h-[530px] flex justify-center items-center'><img src="../src/assets/images/node.png" alt="" className='scale-x-[110%]'/></div>
-                        <div className='w-full  flex justify-center items-center text-[40px]'>نود جی اس</div>
-                        <div dir='rtl' className='w-full h-[600px] px-[20px]'>
-                            <button className='p-[10px] border border-[#dddd] relative right-[35px] top-[8px] rounded-xl ' onClick={(e)=> change(true)} id='btn1' style={{background:"#f1ebf8"}}>نظرات</button>
-                            <button className='p-[10px] border border-[#dddd] relative right-[65px] top-[8px] rounded-xl ' onClick={(e)=> change(false)} id='btn2'>توضیحات</button>
-                            {flag == true && <DescriptionBlog/>}
-                            {flag == false && <CommentBlog />}
-                        </div>
-                    </div>
+                    <RightPanel src="Node.png" name="نود جی اس"/>
 
 
                 </div>

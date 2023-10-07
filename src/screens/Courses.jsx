@@ -3,6 +3,7 @@ import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 import DescriptionBlog from '../components/DescriptionBlog'
 import CommentBlog from '../components/CommentBlog'
+import RightPanel from '../components/RightPanel'
 
 const Courses = () => {
     const [flag, setFlag] = useState(1)
@@ -27,20 +28,17 @@ const Courses = () => {
 
                 <div className="w-[full] h-[1400px] flex justify-center items-center gap-[50px]">
 
-                    <div dir='ltr' className="w-[30%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white ">
-                        
+                    <div dir='ltr' className="w-[30%] h-[1300px] flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white [&>div]:w-[85%] [&>div]:h-[220px] [&>div]:rounded-2xl [&>div]:shadow-[0_0_7px_#ccc] [&>div]:flex [&>div]:flex-col [&>div]:my-[10px]">
+                        <div className='[&>div]:w-full [&>div]:h-[25%] [&>div]:border [&>div]:border-[red]'>
+
+                        </div>
+                        <div className=''></div>
+                        <div className=''></div>
+                        <div className=''></div>
+                        <div className=''></div>
                     </div>
 
-                    <div className="w-[60%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white ">
-                        <div className='w-full h-[530px] flex justify-center items-center'><img src="../src/assets/images/angularCourses.png" alt="" className='scale-x-[110%]'/></div>
-                        <div className='w-full  flex justify-center items-center text-[40px]'>انگولار</div>
-                        <div dir='rtl' className='w-full h-[600px] px-[20px]'>
-                            <button className='p-[10px] border border-[#eee] borde-[green] relative right-[35px] top-[8px] rounded-xl ' onClick={(e)=> change(1)} id='btn1'>نظرات</button>
-                            <button className='p-[10px] border border-[#eee] borde-[green] relative right-[65px] top-[8px] rounded-xl ' onClick={(e)=> change(2)} id='btn2'>توضیحات</button>
-                            {flag == 1 && <DescriptionBlog />}
-                            {flag == 2 && <CommentBlog />}
-                        </div>
-                    </div>
+                    <RightPanel src="angularCourses.png" name="انگولار"/>
 
 
                 </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import More from "./common/Button";
+import More from "../common/Button";
 
 const Category = () => {
 
