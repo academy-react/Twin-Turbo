@@ -35,10 +35,11 @@ const Landing = () => {
         recommandsForm.style.height = "600px";
         recommandsForm.style.opacity = "1";
       }
+      
+      console.log(document.documentElement.scrollTop);
     }
-    scrollNav.style.width = Math.floor(pageYOffset/48.5)+"%";
+    // scrollNav.style.width = Math.floor(pageYOffset/48.5)+"%";
 
-    console.log(pageYOffset);
   };
 
   return (
