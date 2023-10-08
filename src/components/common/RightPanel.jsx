@@ -45,8 +45,8 @@ const RightPanel = ({ src, name }) => {
         >
           توضیحات
         </button>
-        {flag == true && <DescriptionBlog />}
-        {flag == false && <CommentBlog />}
+        {flag == true && <Description />}
+        {flag == false && <Comment />}
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ const DescriptionBlog = () => {
                     )
                 })}
                 <textarea placeholder="نوشتن پیام" className="w-full h-[80%] bg-white shadow-[0_0_7px_#999] rounded-[15px] resize-none outline-none p-[10px]"></textarea>
-                <button className="bg-[#36C54E] rounded-[15px] w-full h-[85px] flex justify-center items-center text-[#fff] text-[21px]">ارسال متن</button>
+                <button className="bg-[#36C54E] rounded-[15px] w-full h-[85px] flex justify-center items-center text-[#fff] text-[21px] transition-all duration-500 hover:bg-[#34a647]">ارسال متن</button>
             </div>
         </div>
         </>
