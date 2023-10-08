@@ -1,6 +1,6 @@
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
-import Footer from '../components/common/Button'
+import Button from '../components/common/Button'
 import DataItem from '../components/DataItem'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
@@ -18,7 +18,7 @@ const Blogs = () => {
               <div className='w-[90%] h-[100px] flex items-center justify-between'>
 
                   
-                    <select name="" id="" className='w-[80px] h-[60px] appearance-none bg-white p-[5px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]'>
+                    <select name="" id="" className='w-[80px] h-[60px] bg-white p-[5px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]'>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -60,7 +60,7 @@ const Blogs = () => {
                         <p className='text-[24px] text-right '>{element.name}</p>
                         <span className='text-[#777] w-[100px]'>{element.content}</span>
                         <img src="../src/assets/images/Educated.png" alt="" className='absolute right-[35px] bottom-[30px] scale-[150%] '  />
-                        
+                        <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] absolute left-[15px] bottom-[20px]" />
                       </div>
 
                     </div>
