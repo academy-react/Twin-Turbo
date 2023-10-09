@@ -44,7 +44,7 @@ const SelectedCourses = () => {
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(2)]:bg-[#f5f5f5]" >
               <CourseDetail content="241000 تومن" contentStyle="text-[#C9292A] line-through " title="قیمت دوره" logo="abcd.png" />
               <CourseDetail content="211000 تومن" contentStyle="text-[#36C54E]" title="با تخفیف" logo="abcd.png" discount={true} discountPercent={20} />
-              <Timer month={5} day={17} hour={2} minute={46} second={50} />
+              <Timer month={5} day={17} hour={1} minute={2} second={10} />
               <button className='h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-b-2xl text-[22px] transition-all duration-500 hover:bg-[#34a647]'>ثبت نام</button>
             </div>
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5]" >
