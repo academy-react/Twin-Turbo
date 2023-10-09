@@ -2,8 +2,8 @@ import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 import Button from '../components/common/Button'
 import DataItem from '../components/DataItem'
-import {Link, useLocation, useNavigate} from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { useLocation} from 'react-router-dom'
+import { useRef, useState } from 'react'
 const Blogs = () => {
   const [items, setItems] = useState(DataItem)
   let location = useLocation()
@@ -44,7 +44,6 @@ const Blogs = () => {
               
               <div className='w-[90%] h-[100px] flex items-center justify-between'>
 
-                  
                     <select name="" id="" className='w-[80px] h-[60px] bg-white p-[5px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]'>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -53,7 +52,6 @@ const Blogs = () => {
                       <option value="5">5</option>
                     </select>
                   
-
                   <div className='w-[30%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] [&>input:checked+label]:border-b-[4px]'>
                     <input type="radio" name="radio" id="radio1" />
                     <label htmlFor="radio1">بلاگ</label>
@@ -68,13 +66,11 @@ const Blogs = () => {
                   </div>
 
                   <div className='w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] [&>input:checked+label]:border-b-[4px]'>
-                      <input type="radio" name="r" id="radios2" onChange={View} />
-                      <label htmlFor="radios2"><img src="../src/assets/images/view (2).png" alt="" /></label>
-                      <input type="radio" name="r" id="radios1" onChange={View} defaultChecked={true}/>
-                      <label htmlFor="radios1"><img src="../src/assets/images/view (1).png" alt="" /></label>
+                    <input type="radio" name="r" id="radios2" onChange={View} />
+                    <label htmlFor="radios2"><img src="../src/assets/images/view (2).png" alt="" /></label>
+                    <input type="radio" name="r" id="radios1" onChange={View} defaultChecked={true}/>
+                    <label htmlFor="radios1"><img src="../src/assets/images/view (1).png" alt="" /></label>
                   </div>
-
-
 
               </div>
               <div dir='rtl' className='w-[90%] flex flex-wrap justify-around' ref={parent}>
@@ -82,7 +78,9 @@ const Blogs = () => {
                   return (
                     <div key={index}  className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden' ref={item}>
 
-                      <div className='w-full h-170px overflow-hidden my-[10px]'><img src={"../src/assets/images/" + element.src} alt="" className=' mx-auto h-full w-full rounded-[20px]'/></div>
+                      <div className='w-full h-170px overflow-hidden my-[10px]'>
+                        
+                        <img src={"../src/assets/images/courses/" + element.src} alt="" className=' mx-auto h-full w-full rounded-[20px]'/></div>
 
                       <div dir='rtl' className='w-full h-[210px] mx-auto'>
 
@@ -112,7 +110,6 @@ const Blogs = () => {
                   </div>  
               </div>
             </div>
-            
 
         <Footer />
  

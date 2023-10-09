@@ -54,7 +54,7 @@ const SelectedCourses = () => {
               <CourseDetail content="" title="معرفی به بهترین شرکت ها" logo="advantage.png" />
             </div>
           </div>
-          <RightPanel src="angularCourses.png" name="انگولار" />
+          <RightPanel src="bootstrap.jpg" name="بوت استرپ" />
         </div>
         <Footer />
       </div>

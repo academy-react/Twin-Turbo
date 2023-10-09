@@ -4,14 +4,14 @@ import More from "../common/Button";
 const Category = () => {
 
   const [images, setImages] = useState([
-    { src: "../src/assets/images/1.png", name: "شیمی", color: "#32d835" },
-    { src: "../src/assets/images/2.png", name: "ریاضی", color: "#ff3320" },
-    { src: "../src/assets/images/3.png", name: "معماری", color: "#af2ecc" },
-    { src: "../src/assets/images/4.png", name: "کامپیوتر", color: "#3282d8" },
-    { src: "../src/assets/images/5.png", name: "فیزیک", color: "#20f9ff" },
-    { src: "../src/assets/images/6.png", name: "برق", color: "#cb0000" },
-    { src: "../src/assets/images/7.png", name: "بازار سهام", color: "#ff0065" },
-    { src: "../src/assets/images/8.png", name: "صنعت", color: "#ff9515" },
+    { src: "../src/assets/images/landingCategory/1.png", name: "شیمی", color: "#32d835" },
+    { src: "../src/assets/images/landingCategory/2.png", name: "ریاضی", color: "#ff3320" },
+    { src: "../src/assets/images/landingCategory/3.png", name: "معماری", color: "#af2ecc" },
+    { src: "../src/assets/images/landingCategory/4.png", name: "کامپیوتر", color: "#3282d8" },
+    { src: "../src/assets/images/landingCategory/5.png", name: "فیزیک", color: "#20f9ff" },
+    { src: "../src/assets/images/landingCategory/6.png", name: "برق", color: "#cb0000" },
+    { src: "../src/assets/images/landingCategory/7.png", name: "بازار سهام", color: "#ff0065" },
+    { src: "../src/assets/images/landingCategory/8.png", name: "صنعت", color: "#ff9515" },
   ]);
 
   return (
@@ -24,7 +24,7 @@ const Category = () => {
           گستره وسیعی از موضوعات
         </div>
         <img
-          src="../src/assets/images/category.png"
+          src="../src/assets/images/landingCategory/category.png"
           alt=""
           className="drop-shadow-[0px_3px_6px_#5757574f] w-[450px]"
         />
@@ -40,8 +40,8 @@ const Category = () => {
         })}
       </div>
       <More content="بیشتر" />
-        <img src="../src/assets/images/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
-        <img src="../src/assets/images/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[55px] z-[-2] transition-all duration-[2s]" id="planet2" />
+        <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
+        <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[55px] z-[-2] transition-all duration-[2s]" id="planet2" />
     </div>
 
   );

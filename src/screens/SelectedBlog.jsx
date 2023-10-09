@@ -54,7 +54,7 @@ const Blog = () => {
                   <div key={index} className="w-full h-[120px] flex cursor-pointer" onClick={()=> findPath(index)}>
                     <div className="w-[30%] h-full flex items-center justify-center">
                       <img
-                        src={"../src/assets/images/" + element.src}
+                        src={"../src/assets/images/courses/" + element.src}
                         alt=""
                         className="h-[110px] rounded-[15px]"
                       />

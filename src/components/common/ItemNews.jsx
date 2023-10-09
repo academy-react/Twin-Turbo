@@ -8,7 +8,7 @@ const ItemNews = ({ img1, img2, img3 }) => {
           آموزشگاه در تدارک دوره های جدید برنامه نویسی است
         </p>
         <img
-          src={"../src/assets/images/" + img1}
+          src={"../src/assets/images/courses/" + img1}
           alt=""
           className="w-[130px] h-[90%] rounded-[15px] "
         />
@@ -18,7 +18,7 @@ const ItemNews = ({ img1, img2, img3 }) => {
           آموزشگاه در تدارک دوره های جدید برنامه نویسی است
         </p>
         <img
-          src={"../src/assets/images/" + img2}
+          src={"../src/assets/images/courses/" + img2}
           alt=""
           className="w-[130px] h-[90%] rounded-[15px] "
         />
@@ -28,7 +28,7 @@ const ItemNews = ({ img1, img2, img3 }) => {
           آموزشگاه در تدارک دوره های جدید برنامه نویسی است
         </p>
         <img
-          src={"../src/assets/images/" + img3}
+          src={"../src/assets/images/courses/" + img3}
           alt=""
           className="w-[130px] h-[90%] rounded-[15px] "
         />

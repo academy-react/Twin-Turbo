@@ -36,14 +36,14 @@ const ContactUs = () => {
                                 <div className="text-[24px] text-[#666]">تماس بگیرید</div>
                                 <div className="text-[18px] text-[#aaa]">09036669933</div>
                             </div>
-                            <img src="../src/assets/images/call.png" alt="" className="ml-5" />
+                            <img src="../src/assets/images/contactUs/call.png" alt="" className="ml-5" />
                         </li>
                         <li className="flex items-center">
                             <div className="flex flex-col items-end">
                                 <div className="text-[24px] text-[#666]">مکاتبه ایمیلی</div>
                                 <div className="text-[18px] text-[#aaa]" dir="rtl">asgharpalang@gmail.com از طریق ایمیل</div>
                             </div>
-                            <img src="../src/assets/images/message.png" alt="" className="ml-5" />
+                            <img src="../src/assets/images/contactUs/message.png" alt="" className="ml-5" />
                         </li>
                         <li className="flex items-center">
                             <div className="flex flex-col items-end">
@@ -51,14 +51,14 @@ const ContactUs = () => {
                                 <div className="text-[18px] text-[#aaa]">شنبه تا چهارشنبه 10 تا 20</div>
                                 <div className="text-[18px] text-[#aaa]">پنجشنبه ها 8 تا 12</div>
                             </div>
-                            <img src="../src/assets/images/time.png" alt="" className="ml-5" />
+                            <img src="../src/assets/images/contactUs/time.png" alt="" className="ml-5" />
                         </li>
                         <li className="flex items-center">
                             <div className="flex flex-col items-end">
                                 <div className="text-[24px] text-[#666]">نشانی</div>
                                 <div className="text-[18px] text-[#aaa]">ساری خیابان فرهنگ روبروی حافظ</div>
                             </div>
-                            <img src="../src/assets/images/location.png" alt="" className="ml-5" />
+                            <img src="../src/assets/images/contactUs/location.png" alt="" className="ml-5" />
                         </li>
                     </ul>
 
