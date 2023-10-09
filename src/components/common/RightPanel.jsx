@@ -23,7 +23,7 @@ const RightPanel = ({ src, name }) => {
         <img
           src={"../src/assets/images/" + src}
           alt=""
-          className=" w-[90%] h-[90%]"
+          className=" w-[90%] h-[90%] rounded-[20px]"
           id="bigpic"
         />
       </div>

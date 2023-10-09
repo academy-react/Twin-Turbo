@@ -6,7 +6,6 @@ import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 const Blogs = () => {
   const [items, setItems] = useState(DataItem)
-  let navigate = useNavigate()
   let location = useLocation()
 
   let item = useRef()
@@ -83,14 +82,14 @@ const Blogs = () => {
                   return (
                     <div key={index}  className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden' ref={item}>
 
-                      <div className='w-full h-150px overflow-hidden my-[10px]'><img src={"../src/assets/images/" + element.src} alt="" className=' mx-auto h-full w-full'/></div>
+                      <div className='w-full h-170px overflow-hidden my-[10px]'><img src={"../src/assets/images/" + element.src} alt="" className=' mx-auto h-full w-full rounded-[20px]'/></div>
 
                       <div dir='rtl' className='w-full h-[210px] mx-auto'>
 
-                        <div className='w-[95%] h-[120px] mx-auto'>
+                        <div className='w-[95%] h-[150px] mx-auto'>
 
                             <p className='text-[24px] text-right '>{element.name}</p>
-                            <div className='text-[#777] w-full ' ref={content}>{element.content}</div>
+                            <div className='text-[#777] w-full mt-[15px] ' ref={content}>{element.content}</div>
 
                         </div>
 

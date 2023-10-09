@@ -3,17 +3,31 @@ import Footer from "../components/common/Footer";
 import RightPanel from "../components/common/RightPanel";
 import DataItem from '../components/DataItem' 
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Blog = () => {
   const [item, setItem] = useState(DataItem);
   let url = useParams()
+  let navigate = useNavigate()
+  let location  = useLocation()
 
   const finded = () => {
     let finded = item.find((element)=> {
       return element.id == url.id
     })
     return <RightPanel src={finded.src} name={finded.name} />
+  }
+
+  const findPath = (index) => {
+
+
+      let num1 = location.pathname.indexOf("/");
+      let num2 = location.pathname.lastIndexOf("/");
+      let result = location.pathname.slice(num1,num2)
+
+      console.log(result);
+
+      navigate(`${result}/${index+1}`)
   }
 
 
@@ -37,7 +51,7 @@ const Blog = () => {
             <div dir="rtl" className="w-full">
               {item.map((element, index) => {
                 return (
-                  <div key={index} className="w-full h-[120px] flex">
+                  <div key={index} className="w-full h-[120px] flex cursor-pointer" onClick={()=> findPath(index)}>
                     <div className="w-[30%] h-full flex items-center justify-center">
                       <img
                         src={"../src/assets/images/" + element.src}
