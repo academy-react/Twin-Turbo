@@ -81,7 +81,7 @@ const Blogs = () => {
               <div dir='rtl' className='w-[90%] flex flex-wrap justify-around' ref={parent}>
                 {items.map((element,index)=> {
                   return (
-                    <div key={index}  className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden' ref={item} onClick={() => navigate(`${location.pathname}/${index+1}`)}>
+                    <div key={index}  className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden' ref={item}>
 
                       <div className='w-full h-150px overflow-hidden my-[10px]'><img src={"../src/assets/images/" + element.src} alt="" className=' mx-auto h-full w-full'/></div>
 
@@ -97,7 +97,7 @@ const Blogs = () => {
                         <div className='w-full h-[50px] flex justify-between items-center'>
 
                             <img src="../src/assets/images/Educated.png" alt="" className='w-[100px] h-[29px]'  />
-                            <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%] " />
+                            <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%] " link={`${location.pathname}/${index+1}`} />
 
                         </div>
 

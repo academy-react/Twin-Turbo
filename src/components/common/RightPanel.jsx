@@ -23,7 +23,8 @@ const RightPanel = ({ src, name }) => {
         <img
           src={"../src/assets/images/" + src}
           alt=""
-          className="scale-x-[110%]"
+          className=" w-[90%] h-[90%]"
+          id="bigpic"
         />
       </div>
       <div className="w-full  flex justify-center items-center text-[40px]">

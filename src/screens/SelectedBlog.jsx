@@ -13,10 +13,10 @@ const Blog = () => {
     let finded = item.find((element)=> {
       return element.id == url.id
     })
-    
+    return <RightPanel src={finded.src} name={finded.name} />
   }
 
-  finded()
+
   return (
     <>
       <div className="w-[1920px] mx-[auto]">
@@ -54,8 +54,8 @@ const Blog = () => {
               })}
             </div>
           </div>
-
-          <RightPanel src="Node.png" name="نود جی اس" />
+          {finded()}
+          
         </div>
 
         <Footer />
