@@ -3,10 +3,20 @@ import Footer from "../components/common/Footer";
 import RightPanel from "../components/common/RightPanel";
 import DataItem from '../components/DataItem' 
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Blog = () => {
   const [item, setItem] = useState(DataItem);
+  let url = useParams()
 
+  const finded = () => {
+    let finded = item.find((element)=> {
+      return element.id == url.id
+    })
+    
+  }
+
+  finded()
   return (
     <>
       <div className="w-[1920px] mx-[auto]">

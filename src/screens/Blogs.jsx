@@ -2,10 +2,38 @@ import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 import Button from '../components/common/Button'
 import DataItem from '../components/DataItem'
-import {Link} from 'react-router-dom'
-import { useState } from 'react'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 const Blogs = () => {
   const [items, setItems] = useState(DataItem)
+  let navigate = useNavigate()
+  let location = useLocation()
+
+  let item = useRef()
+  let parent = useRef()
+  let content = useRef()
+
+  let view1 = "w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden"
+  let view2 = "w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]"
+  let rowView = "آموزشگاه در تدارک دوره های جدید برنامه نویسی است"
+  let colView = "آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است"
+
+  const View =  () => {
+      let children = parent.current.children
+
+      for(let i=0;i<children.length;i++) {
+        if(radios1.checked == true) {
+          parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = rowView
+          children[i].className = ""
+          children[i].className = view1
+        }
+        else if(radios1.checked == false) {
+          parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = colView
+          children[i].className = ""
+          children[i].className = view2
+        }
+      }
+  }
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
@@ -40,27 +68,39 @@ const Blogs = () => {
                     <label htmlFor="radio5">سایر</label>
                   </div>
 
-                  <div className='w-[120px] h-[60px] p-[5px] flex items-center justify-center rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer'>
-                    <img src="../src/assets/images/view (1).png" alt="" />
-                    <img src="../src/assets/images/view (2).png" alt="" />
+                  <div className='w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] [&>input:checked+label]:border-b-[4px]'>
+                      <input type="radio" name="r" id="radios2" onChange={View} />
+                      <label htmlFor="radios2"><img src="../src/assets/images/view (2).png" alt="" /></label>
+                      <input type="radio" name="r" id="radios1" onChange={View} defaultChecked={true}/>
+                      <label htmlFor="radios1"><img src="../src/assets/images/view (1).png" alt="" /></label>
                   </div>
 
 
 
-
               </div>
-              <div dir='rtl' className='w-[90%] flex flex-wrap justify-around'>
+              <div dir='rtl' className='w-[90%] flex flex-wrap justify-around' ref={parent}>
                 {items.map((element,index)=> {
                   return (
-                    <div className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] py-[10px]'>
+                    <div key={index}  className='w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden' ref={item} onClick={() => navigate(`${location.pathname}/${index+1}`)}>
 
+                      <div className='w-full h-150px overflow-hidden my-[10px]'><img src={"../src/assets/images/" + element.src} alt="" className=' mx-auto h-full w-full'/></div>
 
-                      <div dir='rtl' className='w-[95%] mx-auto'>
-                        <img src={"../src/assets/images/" + element.src} alt="" className='w-full h-[185px] mx-auto'/>
-                        <p className='text-[24px] text-right '>{element.name}</p>
-                        <span className='text-[#777] w-[100px]'>{element.content}</span>
-                        <img src="../src/assets/images/Educated.png" alt="" className='absolute right-[35px] bottom-[30px] scale-[150%] '  />
-                        <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] absolute left-[15px] bottom-[20px]" />
+                      <div dir='rtl' className='w-full h-[210px] mx-auto'>
+
+                        <div className='w-[95%] h-[120px] mx-auto'>
+
+                            <p className='text-[24px] text-right '>{element.name}</p>
+                            <div className='text-[#777] w-full ' ref={content}>{element.content}</div>
+
+                        </div>
+
+                        <div className='w-full h-[50px] flex justify-between items-center'>
+
+                            <img src="../src/assets/images/Educated.png" alt="" className='w-[100px] h-[29px]'  />
+                            <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%] " />
+
+                        </div>
+
                       </div>
 
                     </div>
