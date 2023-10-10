@@ -5,6 +5,7 @@ import Page404 from "../screens/Page404.jsx";
 import Forget from "../screens/Forget.jsx";
 import Login from "../screens/Login.jsx";
 import Blogs from "../screens/Blogs.jsx";
+import Courses from "../screens/Courses.jsx";
 import SelectedCourses from "../screens/SelectedCourses.jsx";
 import SelectedBlog from "../screens/SelectedBlog.jsx";
 
@@ -31,11 +32,15 @@ const App = () => {
       element: <Blogs />,
     },
     {
-      path: "/:name/:id",
+      path: "/:blogs/:id",
       element: <SelectedBlog />,
     },
     {
       path: "/courses",
+      element: <Courses />,
+    },
+    {
+      path: "/courses/:id",
       element: <SelectedCourses />,
     },
     {

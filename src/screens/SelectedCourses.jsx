@@ -4,8 +4,33 @@ import Footer from "../components/common/Footer";
 import RightPanel from "../components/common/RightPanel";
 import CourseDetail from "../components/course/CourseDetail";
 import Timer from "../components/course/Timer";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import CourseDataBase from "../components/database/CourseDataBase";
+
+
 
 const SelectedCourses = () => {
+
+  const [item, setItem] = useState(CourseDataBase);
+
+  let url = useParams();
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  const finded = () => {
+    let finded = item.find((element) => {
+      return element.id == url.id;
+    });
+    return <RightPanel src={finded.src} name={finded.name} />;
+  };
+
+  const findPath = (index) => {
+    let num1 = location.pathname.indexOf("/");
+    let num2 = location.pathname.lastIndexOf("/");
+    let result = location.pathname.slice(num1, num2);
+    navigate(`${result}/${index + 1}`);
+  };
+
 
   return (
     <>
@@ -54,7 +79,7 @@ const SelectedCourses = () => {
               <CourseDetail content="" title="معرفی به بهترین شرکت ها" logo="advantage.png" />
             </div>
           </div>
-          <RightPanel src="bootstrap.jpg" name="بوت استرپ" />
+          {finded()}
         </div>
         <Footer />
       </div>

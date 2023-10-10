@@ -1,11 +1,11 @@
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import Button from "../components/common/Button";
-import DataItem from "../components/database/BlogDataBase";
+import CourseDataBase from "../components/database/CourseDataBase";
 import { useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
-const Blogs = () => {
-  const [items, setItems] = useState(DataItem);
+const Courses = () => {
+  const [items, setItems] = useState(CourseDataBase);
   let location = useLocation();
 
   let item = useRef();
@@ -153,4 +153,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Courses;
