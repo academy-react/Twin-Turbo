@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import counter from "../../core/utils/timer.utils";
 
 const Timer = ({month , day , hour , minute , second}) => {
 
@@ -8,31 +9,10 @@ const Timer = ({month , day , hour , minute , second}) => {
     let [dayState, setDayState] = useState(day)
     let [monthState, setMonthState] = useState(month)
 
-        
     useEffect(() => {
-      let countDown = setTimeout(() => {
-        setSecondState(secondState - 1)
-        if(secondState == 0) {
-            setSecondState(59)
-            setMinuteState(minuteState - 1)
-        }
-        if(minuteState == 0 && secondState == 0) {
-            setMinuteState(59)
-            setHourState(hourState - 1)
-        }
-        if(hourState == 0 && minuteState == 0) {
-            setHourState(23)
-            setDayState(dayState - 1)
-        }
-        if(dayState == 0 && hourState == 0) {
-            setDayState(30)
-            setMonthState(monthState - 1)
-        }
-        if(monthState == 0) clearInterval(countDown)
-      }, 1000);
+      counter(secondState , setSecondState , minuteState , setMinuteState , hourState , setHourState,
+      dayState , setDayState , monthState , setMonthState)
     }, [secondState])
-    
-
     
     
   return (
