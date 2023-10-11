@@ -44,7 +44,7 @@ const Blogs = () => {
       <Header src="avatar.png" color="#5A0BA9" />
 
       <div className="w-full  flex flex-col items-center">
-        <div className="inline-block my-[55px] px-[95px] py-[12px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]">
+        <div className="inline-block my-[55px] px-[95px] py-[12px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] bg-white">
           بلاگ
         </div>
 
@@ -61,7 +61,7 @@ const Blogs = () => {
             <option value="5">5</option>
           </select>
 
-          <div className="w-[30%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] [&>input:checked+label]:border-b-[4px]">
+          <div className="w-[30%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
             <input type="radio" name="radio" id="radio1" />
             <label htmlFor="radio1">بلاگ</label>
             <input type="radio" name="radio" id="radio2" />
@@ -79,7 +79,7 @@ const Blogs = () => {
             <label htmlFor="radio5">سایر</label>
           </div>
 
-          <div className="w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] [&>input:checked+label]:border-b-[4px]">
+          <div className="w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
             <input type="radio" name="r" id="radios2" onChange={View} />
             <label htmlFor="radios2">
               <img src="../src/assets/images/view (2).png" alt="" />
