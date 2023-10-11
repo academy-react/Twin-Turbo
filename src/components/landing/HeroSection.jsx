@@ -1,6 +1,6 @@
 import Header from "../common/Header";
 
-const TopLanding = () => {
+const HeroSection = () => {
   return (
     <div className="w-full h-[830px] relative ">
       <img
@@ -33,4 +33,4 @@ const TopLanding = () => {
   );
 };
 
-export default TopLanding;
+export default HeroSection;

@@ -1,4 +1,5 @@
-import ItemNews from "../common/ItemNews";
+import ItemNews from "./ItemNews";
+
 const News = () => {
   return (
     <div className="w-full h-[650px] flex flex-col items-center justify-around">

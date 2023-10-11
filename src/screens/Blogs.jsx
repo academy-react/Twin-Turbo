@@ -1,11 +1,12 @@
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import Button from "../components/common/Button";
-import DataItem from "../components/database/BlogDataBase";
+import {Header,Footer,Button} from '../components/common'
+
+
+import  blogs  from "../core/services/blogDB";
+
 import { useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
 const Blogs = () => {
-  const [items, setItems] = useState(DataItem);
+  const [items, setItems] = useState(blogs);
   let location = useLocation();
 
   let item = useRef();

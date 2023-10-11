@@ -6,7 +6,7 @@ const Header = ({className,src,color}) => {
     <header dir="rtl" className="h-[80px] relative z-50" id="header">
         <div className="mx-auto w-[1920px] h-full flex justify-between " >
             <div className="w-[35%] h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse">
-                <NavLink to={"/contact-us"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس به ما</NavLink>
+                <NavLink to={"/contact-us"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس با ما</NavLink>
                 <NavLink to={"/blogs"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >بلاگ</NavLink>
                 <NavLink to={"/courses"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >دوره ها</NavLink>
                 <NavLink to={"/3"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >مالی</NavLink>

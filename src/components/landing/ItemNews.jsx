@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "../common/Button";
 
 const ItemNews = ({ img1, img2, img3 }) => {
   return (

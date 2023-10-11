@@ -1,12 +1,12 @@
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import RightPanel from "../components/common/RightPanel";
-import BlogDataBase from "../components/database/BlogDataBase";
+import {Header,Footer,RightPanel} from '../components/common'
+
+import  blogs  from "../core/services/blogDB";
+
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const Blog = () => {
-  const [item, setItem] = useState(BlogDataBase);
+  const [item, setItem] = useState(blogs);
   let url = useParams();
   let navigate = useNavigate();
   let location = useLocation();

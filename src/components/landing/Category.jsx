@@ -1,18 +1,12 @@
 import { useState } from "react";
-import More from "../common/Button";
+import Button from "../common/Button";
+import LandingCat from "../map/LandingCat";
+import category from "../../core/services/landingCatDB";
+
 
 const Category = () => {
 
-  const [images, setImages] = useState([
-    { src: "../src/assets/images/landingCategory/1.png", name: "شیمی", color: "#32d835" },
-    { src: "../src/assets/images/landingCategory/2.png", name: "ریاضی", color: "#ff3320" },
-    { src: "../src/assets/images/landingCategory/3.png", name: "معماری", color: "#af2ecc" },
-    { src: "../src/assets/images/landingCategory/4.png", name: "کامپیوتر", color: "#3282d8" },
-    { src: "../src/assets/images/landingCategory/5.png", name: "فیزیک", color: "#20f9ff" },
-    { src: "../src/assets/images/landingCategory/6.png", name: "برق", color: "#cb0000" },
-    { src: "../src/assets/images/landingCategory/7.png", name: "بازار سهام", color: "#ff0065" },
-    { src: "../src/assets/images/landingCategory/8.png", name: "صنعت", color: "#ff9515" },
-  ]);
+  const [catItems, setcatItems] = useState(category);
 
   return (
     <div className="w-full h-[750px] mb-10 flex flex-col justify-around items-center relative">
@@ -30,16 +24,9 @@ const Category = () => {
         />
       </div>
       <div className="w-[80%] h-[60%] flex flex-wrap justify-center [&>div]:bg-white [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px]">
-        {images.map((el, index) => {
-          return (
-            <div key={index}>
-              <img src={el.src} className="w-28 h-28 p-2" />
-              <p style={{ color: el.color }}>{el.name}</p>
-            </div>
-          );
-        })}
+      <LandingCat catItems={catItems} />
       </div>
-      <More content="بیشتر" />
+      <Button content="بیشتر" />
         <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
         <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[55px] z-[-2] transition-all duration-[2s]" id="planet2" />
     </div>

@@ -1,5 +1,5 @@
-import Footer from "../components/common/Footer";
-import Header from "../components/common/Header";
+import {Header,Footer} from '../components/common'
+
 
 const ContactUs = () => {
 
@@ -8,7 +8,7 @@ const ContactUs = () => {
             <Header src="avatar.png" color="#5A0BA9" />
                 <div className='w-[80%] h-[800px] mx-auto flex items-center justify-around my-10'>
                     <div className="w-[600px] h-[750px] shadow-[0_0_7px_#ddd] bg-white rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000" id="recommandsForm">
-                        <div className="text-[30px]">تماس باما</div>
+                        <div className="text-[30px]">تماس با ما</div>
                         <div className="relative w-[85%] flex justify-between items-center border rounded-lg pr-[15px] overflow-hidden">
                             <input type="text" className="text-[18px] w-[70%] placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[#70707023] outline-none rounded-lg h-12 pl-5" placeholder="name"/>
                             <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s]">نام و نام خانوادگی</div>

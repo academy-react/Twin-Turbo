@@ -1,11 +1,12 @@
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import Button from "../components/common/Button";
-import CourseDataBase from "../components/database/CourseDataBase";
+import {Header,Footer,Button} from '../components/common'
+
 import { useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
+
+import courses from "../core/services/courseDB";
+
 const Courses = () => {
-  const [items, setItems] = useState(CourseDataBase);
+  const [items, setItems] = useState(courses);
   let location = useLocation();
 
   let item = useRef();
