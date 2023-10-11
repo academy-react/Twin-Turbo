@@ -1,4 +1,5 @@
-const LandingCat = ({catItems}) => {
+import catItems from '../../core/services/landingCatDB'
+const LandingCat = () => {
     return (
         catItems.map((el, index) => {
             return (

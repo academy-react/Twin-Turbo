@@ -1,12 +1,8 @@
 import { useState } from "react";
 import Button from "../common/Button";
 import LandingCat from "../map/LandingCat";
-import category from "../../core/services/landingCatDB";
-
 
 const Category = () => {
-
-  const [catItems, setcatItems] = useState(category);
 
   return (
     <div className="w-full h-[750px] mb-10 flex flex-col justify-around items-center relative">
@@ -24,7 +20,7 @@ const Category = () => {
         />
       </div>
       <div className="w-[80%] h-[60%] flex flex-wrap justify-center [&>div]:bg-white [&>div]:w-[20%] [&>div]:h-[42%] [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px]">
-      <LandingCat catItems={catItems} />
+      <LandingCat />
       </div>
       <Button content="بیشتر" />
         <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
