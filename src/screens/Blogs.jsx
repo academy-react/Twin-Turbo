@@ -1,10 +1,13 @@
-import {Header,Footer,Button} from '../components/common'
+import {Header,Footer,Button,SelectOption,Sorts,View} from '../components/common'
+import changeView from "../core/utils/changeView";
 
 
 import  blogs  from "../core/services/blogDB";
 
 import { useLocation } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+
 const Blogs = () => {
   const [items, setItems] = useState(blogs);
   let location = useLocation();
@@ -12,32 +15,6 @@ const Blogs = () => {
   let item = useRef();
   let parent = useRef();
   let content = useRef();
-
-  let view1 =
-    "w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden";
-  let view2 =
-    "w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]";
-  let rowView = "آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
-  let colView =
-    "آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
-
-  const View = () => {
-    let children = parent.current.children;
-
-    for (let i = 0; i < children.length; i++) {
-      if (radios1.checked == true) {
-        parent.current.children[i].lastChild.firstChild.lastChild.innerHTML =
-          rowView;
-        children[i].className = "";
-        children[i].className = view1;
-      } else if (radios1.checked == false) {
-        parent.current.children[i].lastChild.firstChild.lastChild.innerHTML =
-          colView;
-        children[i].className = "";
-        children[i].className = view2;
-      }
-    }
-  };
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
@@ -49,51 +26,19 @@ const Blogs = () => {
         </div>
 
         <div className="w-[90%] h-[100px] flex items-center justify-between">
-          <select
-            name=""
-            id=""
-            className="w-[80px] h-[60px] bg-white p-[5px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]"
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
+          <SelectOption />
 
           <div className="w-[30%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-            <input type="radio" name="radio" id="radio1" />
-            <label htmlFor="radio1">بلاگ</label>
-            <input type="radio" name="radio" id="radio2" />
-            <label htmlFor="radio2">اخبار</label>
-            <input type="radio" name="radio" id="radio3" />
-            <label htmlFor="radio3">مقالات</label>
-            <input type="radio" name="radio" id="radio4" />
-            <label htmlFor="radio4">برترین اخبار</label>
-            <input
-              type="radio"
-              name="radio"
-              id="radio5"
-              defaultChecked={true}
-            />
-            <label htmlFor="radio5">سایر</label>
+            <Sorts id="radio5" htmlFor="radio5" text="همه" defaultChecked={true}/>
+            <Sorts id="radio4" htmlFor="radio4" text="برترین اخبار" defaultChecked={false}/>
+            <Sorts id="radio3" htmlFor="radio3" text="مقالات" defaultChecked={false}/>
+            <Sorts id="radio2" htmlFor="radio2" text="اخبار" defaultChecked={false}/>
+            <Sorts id="radio1" htmlFor="radio1" text="بلاگ" defaultChecked={false}/>
           </div>
 
           <div className="w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-            <input type="radio" name="r" id="radios2" onChange={View} />
-            <label htmlFor="radios2">
-              <img src="../src/assets/images/view (2).png" alt="" />
-            </label>
-            <input
-              type="radio"
-              name="r"
-              id="radios1"
-              onChange={View}
-              defaultChecked={true}
-            />
-            <label htmlFor="radios1">
-              <img src="../src/assets/images/view (1).png" alt="" />
-            </label>
+              <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
+              <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
           </div>
         </div>
         <div
@@ -136,7 +81,7 @@ const Blogs = () => {
                     <Button
                       content="ادامه مطلب"
                       className="whitespace-nowrap text-[16px] scale-[80%] "
-                      link={`${location.pathname}/${index + 1}`}
+                      link={`${location.pathname}Details/${index + 1}`}
                     />
                   </div>
                 </div>

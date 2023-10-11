@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../common/Header";
 
 const HeroSection = () => {
+
+  let navigate = useNavigate()
+
   return (
     <div className="w-full h-[830px] relative ">
       <img
@@ -26,7 +30,7 @@ const HeroSection = () => {
         بتوانیم با راه کار های نوین و استفاده از پتانسیل فضای مجازی ایجاد فرصت
         کنیم برای افرادی که خواهان پیشرفت خود و کشورشان هستند
       </p>
-      <button className="bg-gradient-to-r from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] h-[55px]  px-10 whitespace-nowrap absolute right-[200px] text-[19px] top-[500px] text-[#fff]">
+      <button className="bg-gradient-to-r from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] h-[55px]  px-10 whitespace-nowrap absolute right-[200px] text-[19px] top-[500px] text-[#fff]" onClick={()=> navigate("/courses")}>
         شروع یادگیری
       </button>
     </div>
