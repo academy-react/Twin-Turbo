@@ -1,20 +1,11 @@
 import {Header,Footer,Button,SelectOption,Sorts,View} from '../components/common'
 import changeView from "../core/utils/changeView.utils";
-
-
-import  blogs  from "../core/services/blogDB";
-
-import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import BlogsMap from '../components/map/BlogsMap'
 
 
 const Blogs = () => {
-  const [items, setItems] = useState(blogs);
-  let location = useLocation();
-
-  let item = useRef();
   let parent = useRef();
-  let content = useRef();
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
@@ -46,48 +37,7 @@ const Blogs = () => {
           className="w-[90%] flex flex-wrap justify-around"
           ref={parent}
         >
-          {items.map((element, index) => {
-            return (
-              <div
-                key={index}
-                className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden"
-                ref={item}
-              >
-                <div className="w-full h-170px overflow-hidden my-[10px]">
-                  <img
-                    src={"../src/assets/images/courses/" + element.src}
-                    alt=""
-                    className=" mx-auto h-full w-full rounded-[20px]"
-                  />
-                </div>
-
-                <div dir="rtl" className="w-full h-[210px] mx-auto">
-                  <div className="w-[95%] h-[150px] mx-auto">
-                    <p className="text-[24px] text-right ">{element.name}</p>
-                    <div
-                      className="text-[#777] w-full mt-[15px] "
-                      ref={content}
-                    >
-                      {element.content}
-                    </div>
-                  </div>
-
-                  <div className="w-full h-[50px] flex justify-between items-center">
-                    <img
-                      src="../src/assets/images/Educated.png"
-                      alt=""
-                      className="w-[100px] h-[29px]"
-                    />
-                    <Button
-                      content="ادامه مطلب"
-                      className="whitespace-nowrap text-[16px] scale-[80%] "
-                      link={`${location.pathname}Details/${index + 1}`}
-                    />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          <BlogsMap />
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center">
           <div className="w-[30%] h-full shadow-[0_0_7px_#ddd] rounded-[25px]"></div>

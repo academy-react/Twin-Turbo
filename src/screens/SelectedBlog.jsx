@@ -5,11 +5,10 @@ import  blogs  from "../core/services/blogDB";
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+import SelectedBlog from '../components/map/SelectedBlogMap'
 const Blog = () => {
   const [item, setItem] = useState(blogs);
   let url = useParams();
-  let navigate = useNavigate();
-  let location = useLocation();
 
   const finded = () => {
     let finded = item.find((element) => {
@@ -18,12 +17,7 @@ const Blog = () => {
     return <RightPanel src={finded.src} name={finded.name} />;
   };
 
-  const findPath = (index) => {
-    let num1 = location.pathname.indexOf("/");
-    let num2 = location.pathname.lastIndexOf("/");
-    let result = location.pathname.slice(num1, num2);
-    navigate(`${result}/${index + 1}`);
-  };
+  
 
   return (
     <>
@@ -43,27 +37,7 @@ const Blog = () => {
               <p>بلاگ ها</p>
             </div>
             <div dir="rtl" className="w-full">
-              {item.map((element, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="w-full h-[120px] flex cursor-pointer"
-                    onClick={() => findPath(index)}
-                  >
-                    <div className="w-[30%] h-full flex items-center justify-center">
-                      <img
-                        src={"../src/assets/images/courses/" + element.src}
-                        alt=""
-                        className="h-[110px] rounded-[15px]"
-                      />
-                    </div>
-                    <div className="w-[70%] h-full py-[5px] px-[15px] flex flex-col justify-center">
-                      <p className="text-[25px] ">{element.name}</p>
-                      <p className="text-[#777]">{element.content}</p>
-                    </div>
-                  </div>
-                );
-              })}
+              <SelectedBlog />
             </div>
           </div>
           {finded()}

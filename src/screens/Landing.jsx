@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import Footer from "../components/common/Footer";
 import {Category , Courses , Masters , Navigation , News , Recommands , Services , HeroSection} from '../components/landing'
 
-import landingScrollLogic from "../core/utils/landingScrollLogic.utils";
+import landingScrollLogic from "../core/utils/landingScroll.utils";
+
+
 
 const Landing = () => {
-  landingScrollLogic()
+  
+
+  useEffect(() => {
+      document.addEventListener("scroll",landingScrollLogic)
+  }, [])
+  
   
 
   return (

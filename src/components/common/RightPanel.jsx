@@ -1,21 +1,10 @@
-import Description from "../selected-Blog-course/Description";
-import Comment from "../selected-Blog-course/Comment";
+import Description from "../selected-Blog-course/Comment";
+import Comment from "../selected-Blog-course/Description";
 import { useState } from "react";
-
+import changeColor from '../../core/utils/changeColor.utils'
 const RightPanel = ({ src, name }) => {
   const [flag, setFlag] = useState(true);
 
-  const change = (num) => {
-    setFlag(num);
-
-    if (num == true) {
-      btn2.style.background = "transparent";
-      btn1.style.background = "#f1ebf8";
-    } else if (num == false) {
-      btn1.style.background = "transparent";
-      btn2.style.background = "#f1ebf8";
-    }
-  };
 
   return (
     <div className="w-[60%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white ">
@@ -33,7 +22,7 @@ const RightPanel = ({ src, name }) => {
       <div dir="rtl" className="w-full h-[600px] px-[20px]">
         <button
           className="p-[10px] border border-[#dddd] relative right-[35px] top-[8px] rounded-xl "
-          onClick={(e) => change(true)}
+          onClick={() => changeColor(true,setFlag)}
           id="btn1"
           style={{ background: "#f1ebf8" }}
         >
@@ -41,7 +30,7 @@ const RightPanel = ({ src, name }) => {
         </button>
         <button
           className="p-[10px] border border-[#dddd] relative right-[65px] top-[8px] rounded-xl "
-          onClick={(e) => change(false)}
+          onClick={() => changeColor(false,setFlag)}
           id="btn2"
         >
           توضیحات

@@ -1,16 +1,16 @@
 let courses = [
-    {id:1,src:"01.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:2,src:"react.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:3,src:"03.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:4,src:"01.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:5,src:"react.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:6,src:"03.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:7,src:"01.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:8,src:"react.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:9,src:"03.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:10,src:"01.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:11,src:"react.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
-    {id:12,src:"03.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است"},
+    {id:1,src:"01.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"react",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:2,src:"react.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"js",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:3,src:"03.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"css",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:4,src:"01.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"node",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:5,src:"react.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"angular",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:6,src:"03.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"nest",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:7,src:"01.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"next",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:8,src:"react.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"react",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:9,src:"03.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"js",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:10,src:"01.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"c#",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:11,src:"react.png",name:"نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"angular",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"46846",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
+    {id:12,src:"03.png",name:" جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"node",startTime:"1402/7/7",endTime:"1402/7/16",fullStorage:"400",quantityStudent:"14",masterNAme:"استاد بحرالعلوم",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:"255575",discount:"6486",secend:5,minute:4,hour:5,day:1,month:5},
 ]
 
 export default courses
