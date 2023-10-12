@@ -10,10 +10,8 @@ const Timer = ({month , day , hour , minute , second}) => {
     let [monthState, setMonthState] = useState(month)
 
     useEffect(() => {
-      counter(secondState , setSecondState , minuteState , setMinuteState , hourState , setHourState,
-      dayState , setDayState , monthState , setMonthState)
+      counter(secondState , setSecondState , minuteState , setMinuteState , hourState , setHourState, dayState , setDayState , monthState , setMonthState)
     }, [secondState])
-    
     
   return (
     <>
