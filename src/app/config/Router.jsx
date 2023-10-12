@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Landing,Forget,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourses,Page404} from '../../screens'
+import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourses,Page404, Register } from '../../screens'
 
 const Router = createBrowserRouter([
     {
@@ -7,12 +7,16 @@ const Router = createBrowserRouter([
       element: <Landing />,
     },
     {
-      path: "/forget",
-      element: <Forget />,
+      path: "/forgetPassword",
+      element: <ForgetPassword />,
     },
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
     {
       path: "/contact-us",
