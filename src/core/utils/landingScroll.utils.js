@@ -2,6 +2,14 @@ const landingScrollLogic = () => {
 
   window.onscroll = () => {
     if (window.location.pathname == "/") {
+      if (pageYOffset > 850) {
+        header.style.boxShadow = "0 0 7px #ddd" ;
+        header.style.background = "#fff";
+      }
+      else {
+        header.style.boxShadow = "0 0 7px transparent" ;
+        header.style.background = "transparent";
+      }
       if (pageYOffset > 140) {
         man.style.right = "-140px";
         nav.style.opacity = 1;
@@ -30,6 +38,7 @@ const landingScrollLogic = () => {
       let scrolled = (winScroll / height) * 100;
       scrollNav.style.width = scrolled + "%";
     }
+    
   };
 
 };
