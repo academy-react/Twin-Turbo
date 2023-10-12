@@ -4,7 +4,8 @@ import { useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
 
 import courses from "../core/services/courseDB";
-
+import changeView from '../core/utils/changeView.utils'
+import View from '../components/common/View'
 const Courses = () => {
   const [items, setItems] = useState(courses);
   let location = useLocation();
@@ -13,31 +14,6 @@ const Courses = () => {
   let parent = useRef();
   let content = useRef();
 
-  let view1 =
-    "w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden";
-  let view2 =
-    "w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]";
-  let rowView = "آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
-  let colView =
-    "آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
-
-  const View = () => {
-    let children = parent.current.children;
-
-    for (let i = 0; i < children.length; i++) {
-      if (radios1.checked == true) {
-        parent.current.children[i].lastChild.firstChild.lastChild.innerHTML =
-          rowView;
-        children[i].className = "";
-        children[i].className = view1;
-      } else if (radios1.checked == false) {
-        parent.current.children[i].lastChild.firstChild.lastChild.innerHTML =
-          colView;
-        children[i].className = "";
-        children[i].className = view2;
-      }
-    }
-  };
 
   return (
     <div className="w-[1920px] mx-auto my-0 overflow-hidden">
@@ -62,20 +38,10 @@ const Courses = () => {
           </select>
 
           <div className="w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-            <input type="radio" name="r" id="radios2" onChange={View} />
-            <label htmlFor="radios2">
-              <img src="../src/assets/images/view (2).png" alt="" />
-            </label>
-            <input
-              type="radio"
-              name="r"
-              id="radios1"
-              onChange={View}
-              defaultChecked={true}
-            />
-            <label htmlFor="radios1">
-              <img src="../src/assets/images/view (1).png" alt="" />
-            </label>
+
+              <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
+              <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
+
           </div>
         </div>
         <div

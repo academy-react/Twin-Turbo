@@ -1,5 +1,5 @@
 import {Header,Footer,Button,SelectOption,Sorts,View} from '../components/common'
-import changeView from "../core/utils/changeView";
+import changeView from "../core/utils/changeView.utils";
 
 
 import  blogs  from "../core/services/blogDB";
