@@ -16,7 +16,7 @@ const HeroSection = () => {
   }, [])
   
   return (
-    <div className="w-full h-[830px] relative ">
+    <div className="w-full h-[830px] relative max-[1400px]:h-[650px]">
       <img
         src="../src/assets/images/bg-top.png"
         alt=""
