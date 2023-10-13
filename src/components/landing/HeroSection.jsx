@@ -1,35 +1,58 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../common/Header";
 import Typewriter from "./Typewriter";
+import { useEffect, useRef, useState } from "react";
+import heroStartBtn from '../../core/utils/heroStartBtn.utils'
 
 const HeroSection = () => {
+  let navigate = useNavigate();
+  let btn = useRef()
+  let parentText = useRef()
 
-  let navigate = useNavigate()
+  useEffect(() => {
 
+    heroStartBtn(parentText,btn)
+
+  }, [])
+  
   return (
     <div className="w-full h-[830px] relative ">
       <img
         src="../src/assets/images/bg-top.png"
         alt=""
-        className="w-full h-full absolute left-0 -top-[2px] scale-x-[107%] scale-y-[117%] -z-10"
+        className="max-[1020px]:hidden w-full h-full absolute left-0 -top-[2px] scale-x-[107%] scale-y-[117%] -z-10 "
       />
       <img
         src="../src/assets/images/woman.png"
         alt=""
-        className="absolute scale-[72%] left-[-10px] top-[80px] -z-10"
+        className=" absolute scale-[72%] left-[-10px] top-[80px] -z-10 max-[1500px]:scale-[50%] max-[1500px]:left-[-200px] max-[1020px]:hidden"
       />
-      <Header  src="avatar.png" color="#5A0BA9" hClass="fixed" />
-      <h1 className="absolute right-[245px] top-[270px]  text-[36px] text-[#666]">
-        پژوهشگاه سپهر
-      </h1>
-      <Typewriter text="پ ژوهشگاه سپهر با هدف تولید و انتشار محتوای با کیفیت اموزشی و همچنین
-        آشنایی جامعه با فضای کسب و کار در فضای مجازی ایجاد شده و امید داریم
-        بتوانیم با راه کار های نوین و استفاده از پتانسیل فضای مجازی ایجاد فرصت
-        کنیم برای افرادی که خواهان پیشرفت خود و کشورشان هستند" speed={50} />
+      <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
+        <div dir="rtl" className="w-[650px] h-[350px] max-[1020px]:w-full max-[1300px]:scale-[85%] max-[1300px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
+            <h1 className=" text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">
+              پژوهشگاه سپهر
+            </h1>
+            <div className="w-full h-[40%] " ref={parentText}>
+                <Typewriter
+                  text="پ ژوهشگاه سپهر با هدف تولید و انتشار محتوای با کیفیت اموزشی و همچنین
+                  آشنایی جامعه با فضای کسب و کار در فضای مجازی ایجاد شده و امید داریم
+                  بتوانیم با راه کار های نوین و استفاده از پتانسیل فضای مجازی ایجاد فرصت
+                  کنیم برای افرادی که خواهان پیشرفت خود و کشورشان هستند"
+                  speed={40}
+              />
 
-      <button className="bg-gradient-to-r from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] h-[55px]  px-10 whitespace-nowrap absolute right-[200px] text-[19px] top-[500px] text-[#fff]" onClick={()=> navigate("/courses")}>
-        شروع یادگیری
-      </button>
+            </div>
+
+            <button
+              ref={btn}
+              style={{opacity:0}}
+              className="bg-gradient-to-r transition-opacity max-[1020px]:mx-auto duration-[.5s] from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] w-[200px] h-[55px] whitespace-nowrap  text-[19px]  text-[#fff]"
+              onClick={() => navigate("/courses")
+            }
+            >
+              شروع یادگیری
+            </button>
+        </div>
     </div>
   );
 };

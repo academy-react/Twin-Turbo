@@ -2,13 +2,16 @@ const landingScrollLogic = () => {
 
   window.onscroll = () => {
     if (window.location.pathname == "/") {
-      if (pageYOffset > 850) {
+      if (pageYOffset > 600) {
         header.style.boxShadow = "0 0 7px #ddd" ;
         header.style.background = "#fff";
+        header.style.position = "fixed";
+
       }
       else {
         header.style.boxShadow = "0 0 7px transparent" ;
         header.style.background = "transparent";
+        header.style.position = "static";
       }
       if (pageYOffset > 140) {
         man.style.right = "-140px";

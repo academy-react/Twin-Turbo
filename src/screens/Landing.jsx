@@ -11,7 +11,7 @@ const Landing = () => {
   }, [])
 
   return (
-    <div className="w-[1920px] mx-auto my-0 overflow-hidden max-[1919px]:w-full max-[1919px]:border max-[1919px]:border-[red]">
+    <div className="w-[1920px] mx-auto my-0 overflow-hidden max-[1919px]:w-full">
       <div className="h-[5px] bg-[#9f009a] fixed top-0 left-0 z-[1000]" style={{width:"0px"}} id="scrollNav"></div>
       <Navigation />
       <HeroSection />
