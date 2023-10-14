@@ -2,11 +2,11 @@ const Services = () => {
 
   return (
     <div className='w-[full] h-[700px] flex justify-center items-center pt-[100px] relative'>
-      <div className="absolute top-0 mx-auto hidden max-[930px]:block">
-          <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10">
+      <div className="absolute top-0 mx-auto hidden max-[930px]:block max-[750px]:scale-[85%] transition-all duration-1000">
+          <div className="text-[#5a0ba9] text-[38px] absolute left-[37%] top-3 z-10 max-[750px]:text-[32px]">
             خدمات
           </div>
-          <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-20 z-10">
+          <div className="text-[#9c6dcb] text-[20px] absolute left-[32%] top-20 z-10 max-[750px]:text-[18px]">
             تمام آنچه نیاز دارید
           </div>
           <img
@@ -15,7 +15,7 @@ const Services = () => {
             className="drop-shadow-[0px_3px_6px_#5757574f] w-[450px]"
           />
       </div>
-      <div className='w-[650px] h-[330px] flex flex-wrap justify-between scale-[1%] transition-all duration-1000 max-[1350px]:w-[500px] max-[1350px]:h-[250px]' id='holder'>
+      <div className='w-[650px] h-[330px] flex flex-wrap justify-between scale-[1%] transition-all duration-1000 max-[1350px]:w-[500px] max-[1350px]:h-[250px] max-[770px]:w-[400px] max-[770px]:h-[200px]' id='holder'>
           <img src="../src/assets/images/landingService/blue.png" alt="" className='w-[50%] h-[50%] mb-5'/>
           <img src="../src/assets/images/landingService/purple.png" alt="" className='w-[50%] h-[50%] '/>
           <img src="../src/assets/images/landingService/yellow.png" alt="" className='w-[50%] h-[50%] '/>
