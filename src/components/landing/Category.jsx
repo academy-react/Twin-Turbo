@@ -6,11 +6,11 @@ const Category = () => {
 
   return (
     <div className="w-full mb-10 flex flex-col justify-around items-center relative">
-      <div className="relative">
-        <div className="text-[#5a0ba9] text-[38px] absolute left-[26%] top-7 z-10">
+      <div className="relative max-[750px]:scale-[85%] transition-all duration-1000">
+        <div className="text-[#5a0ba9] text-[38px] absolute left-[26%] top-7 z-10 max-[750px]:text-[32px]">
           دسته بندی ها
         </div>
-        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-24 z-10">
+        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-24 z-10 max-[750px]:text-[18px]">
           گستره وسیعی از موضوعات
         </div>
         <img

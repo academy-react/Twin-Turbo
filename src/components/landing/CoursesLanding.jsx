@@ -3,11 +3,11 @@ import Button from "../common/Button";
 const Courses = () => {
   return (
     <div className="w-full mb-10 flex flex-col justify-around items-center relative">
-      <div className="relative mx-auto mb-[40px]">
-        <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10">
+      <div className="relative mx-auto mb-[40px] max-[750px]:scale-[85%]">
+        <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10  max-[750px]:text-[30px]">
           دوره ها
         </div>
-        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-20 z-10">
+        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-20 z-10 max-[750px]:text-[16px]">
           آخرین دوره های موجود
         </div>
         <img
@@ -23,11 +23,11 @@ const Courses = () => {
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="rounded-[20px]"/>
           <Button content="بیشتر" />
         </div>
-        <div className="w-[65%] max-[1023px]:w-[90%] max-[550px]:w-[100%] h-[700px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] ">
+        <div className="w-[65%] max-[1023px]:w-[90%] max-[550px]:w-[100%] h-[700px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] max-[800px]:scale-[80%] max-[620px]:scale-y-[75%]">
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="w-full h-[400px] max-[1200px]:h-[300px] rounded-3xl" />
-          <div className="font-semibold text-[26px] absolute right-7 top-[65%] max-[1200px]:top-[55%] max-[670px]:text-[22px] max-[550px]:text-[18px]"> نود جی اس : دوره کامل</div>
-          <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%] max-[1200px]:top-[55%] max-[670px]:text-[18px] max-[550px]:text-[15px]"> محمد بحرالعلوم</div>
-          <div className="absolute right-7 pl-4 top-[78%] text-[20px] max-[1200px]:top-[65%] max-[670px]:text-[16px]" dir="rtl">نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
+          <div className="font-semibold text-[26px] absolute right-7 top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[22px] max-[650px]:text-[18px]"> نود جی اس : دوره کامل</div>
+          <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[18px] max-[650px]:text-[15px]"> محمد بحرالعلوم</div>
+          <div className="absolute right-7 pl-4 top-[78%] text-[20px] max-[1200px]:top-[65%] max-[700px]:text-[16px]" dir="rtl">نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
           <Button content="مشاهده دوره" className="absolute left-7 bottom-4" />
         </div>
       </div>

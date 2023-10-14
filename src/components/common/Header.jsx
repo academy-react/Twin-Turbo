@@ -24,11 +24,11 @@ const Header = ({className,src,color}) => {
                 <img src={"../src/assets/images/header/" + src} alt="" className="scale-[70%]"/>
             </div>
             <img src="../src/assets/images/menu.png" alt="" ref={menuPic} className="h-[40px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>
-            <div className={"max-[1020px]:w-[15%] w-[25%] max-[1280px]:w-[35%]  h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px]  [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a:nth-child(2)]:max-[1020px]:hidden [&>a:nth-child(3)]:max-[1020px]:hidden [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
-                <Link className="w-[50px]"><img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px]" /></Link>
+            <div className={"max-[1020px]:w-[15%] w-[25%] max-[1280px]:w-[35%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a:nth-child(2)]:max-[1020px]:hidden [&>a:nth-child(3)]:max-[1020px]:hidden [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
+                <Link className="w-[50px]"><img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px] object-cover" /></Link>
                 <Link to={"/login"} className='mx-[15px] w-[100px] px-4 select-none ' >ورود</Link>
                 <Link to={"/register"} className='mx-[15px] w-[100px] px-4 select-none '  >ثبت نام</Link>
-                <Link className="w-[50px] "><img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px]" /></Link>
+                <Link className="w-[50px]"><img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px] object-cover" /></Link>
             </div>
             <div ref={menu} className="bg-white w-[450px] h-[100vh] absolute top-0 hidden max-[1020px]:block border transition-all duration-[.5s]" style={{right:"-300%"}}></div>
         </div>
