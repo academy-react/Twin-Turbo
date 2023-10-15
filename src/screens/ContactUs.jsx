@@ -1,7 +1,11 @@
 import {Header,Footer} from '../components/common'
-
+import {Form,Formik,Field,ErrorMessage} from 'formik'
 
 const ContactUs = () => {
+
+    const log = (value)=> {
+        console.log(value);
+    }
 
     return (
         <div className='w-[1920px] mx-[auto] max-[1920px]:w-full'>
