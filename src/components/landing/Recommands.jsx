@@ -5,8 +5,8 @@ const Recommands = () => {
             <h2 className="my-1 font-black text-[30px] text-[#5a0ba9]" > پیشنهاد و انتقادات</h2>
         </div>
         <div className="w-full relative h-[65%] mt-28">
-            <img src="../src/assets/images/re-i.png" className="h-full" />
-            <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000" id="recommandsForm">
+            <img src="../src/assets/images/re-i.png" className="h-full relative max-[1630px]:left-[-45px] max-[1630px]:scale-[90%] transition-all duration-1000 max-[1510px]:left-[-94px] max-[1510px]:scale-[80%] max-[1510px]:h-[85%] max-[1510px]:top-20 max-[1170px]:hidden" />
+            <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1630px]:scale-[90%] max-[1510px]:scale-[80%] max-[1510px]:w-[550px] max-[1170px]:relative max-[1170px]:left-0 max-[1170px]:mx-auto max-[530px]:scale-[70%] max-[530px]:left-[-50px] max-[480px]:scale-[60%] max-[480px]:left-[-80px] max-[378px]:w-[480px]" id="recommandsForm">
                 <div className="relative w-[85%] flex justify-between items-center border rounded-lg pr-[15px] overflow-hidden">
                     <input type="text" className="text-[18px] w-[75%] placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[#70707023] outline-none rounded-lg h-12 pl-5" placeholder="name"/>
                     <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s]">نام کامل</div>

@@ -11,7 +11,6 @@ const ItemNews = () => {
             return <ItemLandingNews key={index} image={element.src}/>
         })
       }
-
     </>
   );
 };
