@@ -5,7 +5,7 @@ const Typewriter = ({ text, speed }) => {
 
   return (
     <p
-      className=" text-[20px] w-[600px] text-[#777] max-[1500px]:text-[16px] max-[1020px]:mx-auto"
+      className=" text-[20px] w-[600px] text-[#777] max-[1500px]:text-[16px] max-[1020px]:mx-auto max-[599px]:w-[300px]"
       dir="rtl"
       id="paragraph"
     >

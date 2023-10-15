@@ -28,11 +28,11 @@ const HeroSection = () => {
         className=" absolute scale-[72%] left-[-10px] top-[80px] -z-10 max-[1500px]:scale-[50%] max-[1500px]:left-[-200px] max-[1020px]:hidden"
       />
       <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-        <div dir="rtl" className="w-[650px] h-[350px] max-[1020px]:w-full max-[1300px]:scale-[85%] max-[1300px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
+        <div dir="rtl" className="w-[650px] h-[400px] max-[1020px]:w-full max-[1300px]:scale-[85%] max-[1300px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
             <h1 className=" text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">
               پژوهشگاه سپهر
             </h1>
-            <div className="w-full h-[40%] " ref={parentText}>
+            <div className="w-full" ref={parentText}>
                 <Typewriter
                   text="پ ژوهشگاه سپهر با هدف تولید و انتشار محتوای با کیفیت اموزشی و همچنین
                   آشنایی جامعه با فضای کسب و کار در فضای مجازی ایجاد شده و امید داریم
