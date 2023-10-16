@@ -8,9 +8,6 @@ const Header = ({className,src,color}) => {
   useEffect(() => {
     menuPic.current.onclick = () => menu.current.style.right = '0%';
   }, [])
-  
-   
-  
 
   return (
     <header dir="rtl" className="w-full right-0 left-0 top-0 h-[80px] z-50 " id="header">

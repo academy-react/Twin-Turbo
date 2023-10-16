@@ -8,7 +8,7 @@ const Masters = () => {
             <img src="../src/assets/images/landingMaster/ostad.jpg" alt="" className="h-[150px] absolute right-[-58px] rounded-[15px] max-[700px]:scale-[85%] max-[600px]:top-4 max-[600px]:left-[12%]" />
             <p className="absolute right-[22%] top-[15%] text-[25px] font-extrabold max-[600px]:top-[42%] max-[600px]:right-[2%] max-[700px]:text-[22px]">دکتر بحرالعلوم</p>
             <p className="absolute right-[22%] top-[38%] text-[20px] text-[#444] max-[600px]:top-[52%] max-[600px]:right-[2%] max-[700px]:text-[17px]">مدیریت</p>
-            <p className="w-[420px] absolute right-[22%] bottom-[20%] text-[#666] max-[600px]:top-[65%] max-[600px]:right-[2%] max-[700px]:text-[15px]" dir="rtl" >مدرس در آموزشگاه  , مدرس در دانشگاه علم و فناوری مازندران مستقر در بهشهر , مدرس دوره های وب</p>
+            <p className="w-[70%] absolute right-[22%] bottom-[20%] text-[#666] max-[600px]:top-[65%] max-[600px]:right-[2%] max-[700px]:text-[15px]" dir="rtl" >مدرس در آموزشگاه  , مدرس در دانشگاه علم و فناوری مازندران مستقر در بهشهر , مدرس دوره های وب</p>
         </div>
         <div className="w-52 opacity-0 transition-all duration-1000 flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
             <div className="w-[340px] h-[120px] border rounded-[15px] shadow-[0px_0px_6px_#ccc] relative pr-8 bg-white">

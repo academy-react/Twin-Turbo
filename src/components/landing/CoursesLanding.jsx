@@ -11,7 +11,7 @@ const Courses = () => {
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="rounded-[20px]"/>
           <Button content="بیشتر" />
         </div>
-        <div className="w-[65%] max-[1023px]:w-[90%] max-[550px]:w-[100%] h-[700px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] max-[800px]:scale-[80%] max-[620px]:scale-y-[75%]">
+        <div className="w-[65%] min-w-[373px] max-[1023px]:w-[90%] max-[550px]:w-[110%] h-[700px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] max-[800px]:scale-[90%] max-[620px]:scale-y-[75%] max-[620px]:my-[-50px]  max-[410px]:scale-y-[60%]">
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="w-full h-[400px] max-[1200px]:h-[300px] rounded-3xl" />
           <div className="font-semibold text-[26px] absolute right-7 top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[22px] max-[650px]:text-[18px]"> نود جی اس : دوره کامل</div>
           <div className="text-[#7f7f7f] text-[22px] absolute left-7 top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[18px] max-[650px]:text-[15px]"> محمد بحرالعلوم</div>
