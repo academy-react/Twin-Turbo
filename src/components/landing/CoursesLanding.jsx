@@ -1,21 +1,9 @@
 import Button from "../common/Button";
-
+import TitleComponents from "./TitleComponents";
 const Courses = () => {
   return (
     <div className="w-full mb-10 flex flex-col justify-around items-center relative">
-      <div className="relative mx-auto mb-[40px] max-[750px]:scale-[85%]">
-        <div className="text-[#5a0ba9] text-[38px] absolute left-[35%] top-3 z-10  max-[750px]:text-[30px]">
-          دوره ها
-        </div>
-        <div className="text-[#9c6dcb] text-[20px] absolute left-[26%] top-20 z-10 max-[750px]:text-[16px]">
-          آخرین دوره های موجود
-        </div>
-        <img
-          src="../src/assets/images/landingCourse/courses-title.png"
-          alt=""
-          className="drop-shadow-[0px_3px_6px_#5757574f] w-[450px]"
-        />
-      </div>
+        <TitleComponents title="دوره ها" content="اخرین دوره های موجود" src="courses-title.png" className="flex mb-[45px]" />
       <div className="w-[80%] flex justify-between max-[1023px]:justify-center">
         <div className="w-[30%] h-[700px] max-[1200px]:h-[620px] max-[1023px]:hidden rounded-3xl bg-white flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] max-[1200px]:[&>img]:w-[80%] [&>img]:h-[190px] max-[1200px]:[&>img]:h-[150px] shadow-[0_0_7px_#ccc] ">
           <img src="../src/assets/images/courses/git.jpg" alt="" className="rounded-[20px]"/>

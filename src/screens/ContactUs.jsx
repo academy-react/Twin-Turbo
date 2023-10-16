@@ -29,7 +29,7 @@ const ContactUs = () => {
                                 <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s]">شماره موبایل</div>
                             </div>
                             <div className="relative w-full flex justify-center">
-                                <Field type="textarea" name="textarea" className="placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"/>
+                                <textarea className="placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"></textarea>
                                 <div className="text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
                             </div>
                             <button type='submit' className='w-[89%] h-16 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300'>

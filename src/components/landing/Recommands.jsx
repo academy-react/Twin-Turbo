@@ -1,9 +1,9 @@
+import TitleComponents from "./TitleComponents"
 const Recommands = () => {
   return (
     <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative'>
-        <div className="bg-white w-[300px] h-[80px] rounded-[15px] flex flex-col items-center justify-center shadow-[0px_0px_6px_#ccc]">
-            <h2 className="my-1 font-black text-[30px] text-[#5a0ba9]" > پیشنهاد و انتقادات</h2>
-        </div>
+        <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex" />
+
         <div className="w-full relative h-[65%] mt-28">
             <img src="../src/assets/images/re-i.png" className="h-full" />
             <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000" id="recommandsForm">
