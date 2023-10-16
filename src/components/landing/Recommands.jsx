@@ -1,7 +1,7 @@
 import TitleComponents from "./TitleComponents"
 const Recommands = () => {
   return (
-    <div className='w-full flex flex-col justify-center items-center pt-[10px] relative'>
+    <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px]'>
         <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex" />
 
         <div className="w-full relative h-[65%] mt-28">
