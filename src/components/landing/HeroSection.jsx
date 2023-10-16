@@ -13,10 +13,14 @@ const HeroSection = () => {
 
     heroStartBtn(parentText,btn)
 
+    return () => {
+     
+    }
+
   }, [])
   
   return (
-    <div className="w-full h-[830px] relative max-[1400px]:h-[650px]">
+    <div className=" w-full h-[830px] relative max-[1400px]:h-[650px]">
       <img
         src="../src/assets/images/bg-top.png"
         alt=""
@@ -27,8 +31,10 @@ const HeroSection = () => {
         alt=""
         className=" absolute scale-[72%] left-[-10px] top-[80px] -z-10 max-[1500px]:scale-[50%] max-[1500px]:left-[-200px] max-[1020px]:hidden"
       />
+      <img src="../src/assets/images/bg-top.png" alt="" className="scale-[130%] object-cover absolute top-0 left-0 w-full h-[90%] max-[1020px]:block hidden -z-[15]"/>
+
       <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-        <div dir="rtl" className="w-[650px] h-[400px] max-[1020px]:w-full max-[1300px]:scale-[85%] max-[1300px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
+        <div dir="rtl" className=" w-[650px] h-[400px] max-[1020px]:w-full max-[1300px]:scale-[85%] max-[1300px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
             <h1 className=" text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">
               پژوهشگاه سپهر
             </h1>
@@ -52,6 +58,7 @@ const HeroSection = () => {
             >
               شروع یادگیری
             </button>
+
         </div>
     </div>
   );

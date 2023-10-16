@@ -14,7 +14,7 @@ const BlogsMap = () => {
             return (
               <div
                 key={index}
-                className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden"
+                className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end max-[450px]:justify-center overflow-hidden"
                 ref={item}
               >
                 <div className="w-full h-170px overflow-hidden my-[10px]">
@@ -27,9 +27,9 @@ const BlogsMap = () => {
     
                 <div dir="rtl" className="w-full h-[210px] mx-auto">
                   <div className="w-[95%] h-[150px] mx-auto">
-                    <p className="text-[24px] text-right ">{element.name}</p>
+                    <p className="text-[24px] text-right max-[450px]:text-center">{element.name}</p>
                     <div
-                      className="text-[#777] w-full mt-[15px] "
+                      className="text-[#777] w-full mt-[15px] max-[450px]:text-center"
                       ref={content}
                     >
                       {element.content}
@@ -40,11 +40,11 @@ const BlogsMap = () => {
                     <img
                       src="../src/assets/images/Educated.png"
                       alt=""
-                      className="w-[100px] h-[29px]"
+                      className="w-[100px] h-[29px] max-[450px]:hidden"
                     />
                     <Button
                       content="ادامه مطلب"
-                      className="whitespace-nowrap text-[16px] scale-[80%] "
+                      className="whitespace-nowrap text-[16px] scale-[80%] mx-auto"
                       link={`${location.pathname}/${index + 1}`}
                     />
                   </div>

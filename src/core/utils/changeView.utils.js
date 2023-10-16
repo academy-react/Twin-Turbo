@@ -18,4 +18,5 @@ const changeView = (parent) => {
     }
   }
 };
+
 export default changeView;
