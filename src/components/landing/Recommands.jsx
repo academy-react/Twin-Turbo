@@ -1,9 +1,9 @@
+import TitleComponents from "./TitleComponents"
 const Recommands = () => {
   return (
     <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative'>
-        <div className="bg-white w-[300px] h-[80px] rounded-[15px] flex flex-col items-center justify-center shadow-[0px_0px_6px_#ccc]">
-            <h2 className="my-1 font-black text-[30px] text-[#5a0ba9]" > پیشنهاد و انتقادات</h2>
-        </div>
+        <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex" />
+
         <div className="w-full relative h-[65%] mt-28">
             <img src="../src/assets/images/re-i.png" className="h-full relative max-[1630px]:left-[-45px] max-[1630px]:scale-[90%] transition-all duration-1000 max-[1510px]:left-[-94px] max-[1510px]:scale-[80%] max-[1510px]:h-[85%] max-[1510px]:top-20 max-[1170px]:hidden" />
             <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1630px]:scale-[90%] max-[1510px]:scale-[80%] max-[1510px]:w-[550px] max-[1170px]:relative max-[1170px]:left-0 max-[1170px]:mx-auto max-[530px]:scale-[70%] max-[530px]:left-[-50px] max-[480px]:scale-[60%] max-[480px]:left-[-80px] max-[378px]:w-[480px]" id="recommandsForm">

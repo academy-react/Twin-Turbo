@@ -1,10 +1,9 @@
+import TitleComponents from "./TitleComponents"
 const Masters = () => {
   return (
     <div className='w-full flex flex-col justify-center items-center relative [&>div]:my-8'>
-        <div className="bg-white w-[300px] h-[120px] rounded-[15px] flex flex-col items-center justify-center shadow-[0px_0px_6px_#ccc]">
-            <h2 className="my-1 font-black text-[30px] text-[#5a0ba9] max-[700px]:text-[25px]" > اساتید برتر</h2>
-            <p className="my-1 text-[#5a0ba9] max-[700px]:text-[14px]">استاد های مهربون و دوست داشتنی</p>
-        </div>
+        <TitleComponents title="اساتید برتر" content="استاد های مهربون و دوست داشتی" src="courses-title.png" className="flex" />
+
         <div className="w-[550px] h-[220px] rounded-[15px] flex flex-col items-center justify-center relative shadow-[0px_0px_6px_#ccc] bg-white max-[1300px]:scale-[90%] transition-all duration-1000 max-[1023px]:w-[90%] max-[600px]:h-[400px]">
             <img src="../src/assets/images/landingMaster/ostad.jpg" alt="" className="h-[150px] absolute right-[-58px] rounded-[15px] max-[700px]:scale-[85%] max-[600px]:top-4 max-[600px]:left-[12%]" />
             <p className="absolute right-[22%] top-[15%] text-[25px] font-extrabold max-[600px]:top-[42%] max-[600px]:right-[2%] max-[700px]:text-[22px]">دکتر بحرالعلوم</p>
