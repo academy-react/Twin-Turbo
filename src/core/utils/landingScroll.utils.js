@@ -1,4 +1,4 @@
-const landingScrollLogic = () => {
+const landingScrollLogic = (menu) => {
 
   window.onscroll = () => {
     if (window.location.pathname == "/") {

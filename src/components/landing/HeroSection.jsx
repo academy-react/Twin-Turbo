@@ -2,22 +2,13 @@ import { useNavigate } from "react-router-dom";
 import Header from "../common/Header";
 import Typewriter from "./Typewriter";
 import { useEffect, useRef, useState } from "react";
-import heroStartBtn from '../../core/utils/heroStartBtn.utils'
 
 const HeroSection = () => {
   let navigate = useNavigate();
   let btn = useRef()
   let parentText = useRef()
 
-  useEffect(() => {
 
-    heroStartBtn(parentText,btn)
-
-    return () => {
-     
-    }
-
-  }, [])
   
   return (
     <div className=" w-full h-[830px] relative max-[1400px]:h-[650px]">
@@ -51,7 +42,6 @@ const HeroSection = () => {
 
             <button
               ref={btn}
-              style={{opacity:0}}
               className="bg-gradient-to-r transition-opacity max-[1020px]:mx-auto duration-[.5s] from-[#5A0BA9] to-[#C003B2] hover:bg-gradient-to-l rounded-[25px] w-[200px] h-[55px] whitespace-nowrap  text-[19px]  text-[#fff]"
               onClick={() => navigate("/courses")
             }
