@@ -10,7 +10,7 @@ const Header = ({className,src,color}) => {
   }, [])
 
   return (
-    <header dir="rtl" className="w-full right-0 left-0 top-0 h-[80px] z-50 " id="header">
+    <header dir="rtl" className="z-[100] relative w-full right-0 left-0 top-0 h-[80px]" id="header">
         <div className="mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center" >
             <div className="w-[35%] max-[1280px]:w-[45%] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
                 <NavLink to={"/contact-us"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس با ما</NavLink>
