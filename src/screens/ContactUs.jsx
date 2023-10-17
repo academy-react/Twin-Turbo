@@ -1,5 +1,6 @@
 import {Header,Footer} from '../components/common'
 import {Form,Formik,Field,ErrorMessage} from 'formik'
+import FieldInput from "../components/contactUs/FieldInput"
 
 const ContactUs = () => {
 
@@ -14,22 +15,20 @@ const ContactUs = () => {
                     <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> log(values)}>
                         <Form className="min-w-[600px] h-[750px] shadow-[0_0_7px_#ddd] bg-white rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1300px]:scale-[90%] max-[750px]:scale-[80%] max-[540px]:scale-[70%] max-[460px]:min-w-[540px] max-[410px]:scale-[60%] max-[350px]:scale-[50%] max-[540px]:mt-[-100px] max-[350px]:mt-[-150px]" id="recommandsForm">
                             <div className="text-[30px]">تماس با ما</div>
-                            <div className="relative w-[85%] flex justify-between items-center border rounded-lg pr-[15px] overflow-hidden">
-                                <Field name="name" type="text" className="text-[18px] w-[70%] placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[#70707023] outline-none rounded-lg h-12 pl-5" placeholder="name"/>
-                                <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s] whitespace-nowrap">نام و نام خانوادگی</div>
-                            </div>
-                            <div className="relative w-[85%] flex justify-between items-center border rounded-lg pr-[15px] overflow-hidden">
-                                <Field name="email" type="text" className="text-[18px] w-[75%]  placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[#70707023] outline-none  h-12 pl-5" placeholder="enter your email address"/>
-                                <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s]">ایمیل</div>
-                            </div>
-                            <div className="relative w-[85%] flex justify-between items-center border rounded-lg pr-[15px] overflow-hidden">
-                                <Field name="phone" type="text" className="text-[18px] w-[75%]  placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[#70707023] outline-none  h-12 pl-5" placeholder="phone call"/>
-                                <div className="text-[20px] text-[#67008F] transiition-all duration-[.5s] whitespace-nowrap">شماره موبایل</div>
-                            </div>
+
+                            <FieldInput name="name" content="نام و نام خانوادگی" placeholder="name" border="border"/>
+
+                            <FieldInput name="email" content="ایمیل" placeholder="email" border="border"/>
+
+                            <FieldInput name="phone" content="شماره موبایل" placeholder="phone call" border="border"/>
+
                             <div className="relative w-full flex justify-center">
-                                <textarea className="placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"></textarea>
+
+                                <Field as="textarea" name="textarea" className="placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"/>
                                 <div className="text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
+
                             </div>
+
                             <button type='submit' className='w-[89%] h-16 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300  max-[500px]:scale-90'>
                                 ارسال پیام
                             </button>
