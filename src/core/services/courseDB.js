@@ -1,7 +1,6 @@
 let courses = [
     {id:1,src:"01.png",name:"دوره کامل نود جی اس",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"react",startTime:"1402/11/21",endTime:"1403/11/21",fullStorage:400,quantityStudent:299,masterName:"استاد اسفندیاری",masterImage:"../src/assets/images/landingMaster/ostad-3.jpg",gmail:"mohsen@gmail.com",insta:"mohsen_esfandiari",price:310000,discount:285000,discountPercent:25,secend:5,minute:1,hour:5,day:1,month:5,comment : [
     {src:"bahrol.png",name:"استاد بحر",comment:"چیییییییییی آفرین به گروه Twin Turbo",time:"2"},
-    {src:"bahrol.png",name:"استاد بحر",comment:"چیییییییییی آفرین به گروه Twin Turbo",time:"2"},
 ]},
     {id:2,src:"react.png",name:"دوره کامل ری اکت",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"js",startTime:"1402/2/1",endTime:"1403/2/1",fullStorage:300,quantityStudent:207,masterName:"استاد بحرالعلوم",masterImage:"../src/assets/images/bahr.png",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:468000,discount:428000,discountPercent:30,secend:5,minute:4,hour:5,day:6,month:2,comment : [
     {src:"bahrol.png",name:"استاد بحر",comment:"چیییییییییی آفرین به گروه Twin Turbo",time:"2"},

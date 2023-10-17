@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { NavLink , Link } from "react-router-dom"
+import headerScroll from '../../core/utils/headerScroll.utils'
 
 const Header = ({className,src,color}) => {
 
@@ -8,6 +9,11 @@ const Header = ({className,src,color}) => {
     menuPic.onclick = () => menu.style.right = '0%';
     closePic.onclick = ()=> menu.style.right = '-30%';
     window.addEventListener("resize",()=> {if(window.innerWidth > 1020) menu.style.right = '-30%'})
+    window.addEventListener("scroll",headerScroll)
+
+    return () => {
+      window.removeEventListener("scroll",headerScroll)
+    }
 
 }, [])
 
