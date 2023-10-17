@@ -1,19 +1,20 @@
-import {Header,Footer,Button} from '../components/common'
-
-import { useLocation } from "react-router-dom";
-import { useRef, useState } from "react";
-
-import changeView from '../core/utils/changeView.utils'
-import View from '../components/common/View'
-
+import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
+import changeView from "../core/utils/changeView.utils";
+import { useEffect, useRef } from "react";
 import CoursesMap from '../components/map/CoursesMap'
-const Courses = () => {
+import resize from '../core/utils/resize.utils'
 
+
+const Blogs = () => {
   let parent = useRef();
-
+  
+    useEffect(() => {
+      window.addEventListener("resize",()=> resize(parent))
+      return () => { window.removeEventListener("resize",()=> resize(parent)) }
+    }, [])
 
   return (
-    <div className="w-[1920px] mx-auto my-0 overflow-hidden">
+    <div className="w-[1920px] max-[1920px]:w-full mx-auto my-0 overflow-hidden">
       <Header src="avatar.png" color="#5A0BA9" />
 
       <div className="w-full  flex flex-col items-center">
@@ -21,24 +22,20 @@ const Courses = () => {
           دوره
         </div>
 
-        <div className="w-[90%] h-[100px] flex items-center justify-between">
-          <select
-            name=""
-            id=""
-            className="w-[80px] h-[60px] bg-white p-[5px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc]"
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
+        <div className="w-[90%] h-[100px] flex items-center max-[801px]:justify-center min-[801px]:justify-between">
+          <SelectOption />
 
-          <div className="w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
+          <div className="w-[70%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1420px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
+            <Sorts id="radio5" htmlFor="radio5" text="همه" defaultChecked={true}/>
+            <Sorts id="radio4" htmlFor="radio4" text="بیشترین ظرفیت" defaultChecked={false}/>
+            <Sorts id="radio3" htmlFor="radio3" text="ارزان ترین" defaultChecked={false}/>
+            <Sorts id="radio2" htmlFor="radio2" text="بیشترین تعداد دانشجو" defaultChecked={false}/>
+            <Sorts id="radio1" htmlFor="radio1" text="پرفروش ترین" defaultChecked={false}/>
+          </div>
 
+          <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
               <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
               <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
-
           </div>
         </div>
         <div
@@ -58,4 +55,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Blogs;
