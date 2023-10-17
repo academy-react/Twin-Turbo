@@ -44,7 +44,7 @@ const BlogsMap = () => {
                     />
                     <Button
                       content="ادامه مطلب"
-                      className="whitespace-nowrap text-[16px] scale-[80%] mx-auto"
+                      className="whitespace-nowrap text-[16px] scale-[80%] max-[450px]:mx-auto"
                       link={`${location.pathname}/${index + 1}`}
                     />
                   </div>

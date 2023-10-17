@@ -7,20 +7,11 @@ import resize from '../core/utils/resize.utils'
 
 const Blogs = () => {
   let parent = useRef();
-
-
   
     useEffect(() => {
       window.addEventListener("resize",()=> resize(parent))
       return () => { window.removeEventListener("resize",()=> resize(parent)) }
     }, [])
-    
-
-    
-  
- 
-  
-  
 
   return (
     <div className="w-[1920px] max-[1920px]:w-full mx-auto my-0 overflow-hidden">

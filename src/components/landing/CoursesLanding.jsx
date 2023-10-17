@@ -34,9 +34,18 @@ const Courses = () => {
         </div>
 
       </div>
-
-      <img src="../src/assets/images/landingCourse/c-i-1.png" alt="" className="absolute left-[-300px] bottom-0 w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden" id="coursesHolder1"/>
-      <img src="../src/assets/images/landingCourse/c-i-2.png" alt="" className="absolute right-[-300px] top-[125px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden" id="coursesHolder2"/>
+      <img
+        src="../src/assets/images/landingCourse/c-i-1.png"
+        alt=""
+        className="absolute left-[-300px] bottom-0 w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden"
+        id="coursesHolder1"
+      />
+      <img
+        src="../src/assets/images/landingCourse/c-i-2.png"
+        alt=""
+        className="absolute right-[-300px] top-[240px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden"
+        id="coursesHolder2"
+      />
       <img src="../src/assets/images/landingCourse/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 max-[1500px]:-rotate-[5deg] max-[1500px]:ml-4 max-[1620px]:ml-2 max-[1200px]:hidden transition-all duration-1000" id="coursesHolder3" />
     
     </div>
