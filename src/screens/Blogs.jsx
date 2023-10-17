@@ -1,16 +1,15 @@
-import {Header,Footer,Button,SelectOption,Sorts,View} from '../components/common'
+import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
 import changeView from "../core/utils/changeView.utils";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import BlogsMap from '../components/map/BlogsMap'
-import resize from '../core/utils/resize.utils'
-
+import resizeBlog from '../core/utils/resizeBlog.utils'
 
 const Blogs = () => {
   let parent = useRef();
   
     useEffect(() => {
-      window.addEventListener("resize",()=> resize(parent))
-      return () => { window.removeEventListener("resize",()=> resize(parent)) }
+      window.addEventListener("resize",()=> resizeBlog(parent))
+      return () => { window.removeEventListener("resize",()=> resizeBlog(parent)) }
     }, [])
 
   return (
@@ -38,11 +37,7 @@ const Blogs = () => {
               <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
           </div>
         </div>
-        <div
-          dir="rtl"
-          className="w-[90%] flex flex-wrap justify-around"
-          ref={parent}
-        >
+        <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>
           <BlogsMap />
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center">

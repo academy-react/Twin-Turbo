@@ -1,11 +1,9 @@
-import Description from "../selected-Blog-course/Comment";
-import Comment from "../selected-Blog-course/Description";
+import Comment from "../selected-Blog-course/Comment";
+import Description from "../selected-Blog-course/Description";
 import { useState } from "react";
 import changeColor from '../../core/utils/changeColor.utils'
-const RightPanel = ({ src, name }) => {
+const RightPanel = ({ src, name , text}) => {
   const [flag, setFlag] = useState(true);
-
-
   return (
     <div className="w-[60%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white ">
       <div className="w-full h-[530px] flex justify-center items-center">
@@ -35,8 +33,8 @@ const RightPanel = ({ src, name }) => {
         >
           توضیحات
         </button>
-        {flag == true && <Description />}
-        {flag == false && <Comment />}
+        {flag == true && <Comment />}
+        {flag == false && <Description text={text} />}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Comment from '../../core/services/commentDB'
+import courseDB from '../../core/services/courseDB'
 const CommentMap = () => {
-    const [comment2, setComment] = useState(Comment)
+    const [comment2, setComment] = useState(courseDB)
   return (
     comment2.map((element,index)=> {
         return (

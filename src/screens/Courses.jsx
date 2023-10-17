@@ -2,15 +2,15 @@ import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
 import changeView from "../core/utils/changeView.utils";
 import { useEffect, useRef } from "react";
 import CoursesMap from '../components/map/CoursesMap'
-import resize from '../core/utils/resize.utils'
+import resizeCourse from '../core/utils/resizeCourse.utils'
 
 
 const Blogs = () => {
   let parent = useRef();
   
     useEffect(() => {
-      window.addEventListener("resize",()=> resize(parent))
-      return () => { window.removeEventListener("resize",()=> resize(parent)) }
+      window.addEventListener("resize",()=> resizeCourse(parent))
+      return () => { window.removeEventListener("resize",()=> resizeCourse(parent)) }
     }, [])
 
   return (
@@ -25,7 +25,7 @@ const Blogs = () => {
         <div className="w-[90%] h-[100px] flex items-center max-[801px]:justify-center min-[801px]:justify-between">
           <SelectOption />
 
-          <div className="w-[70%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1420px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
+          <div className="w-[50%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1700px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
             <Sorts id="radio5" htmlFor="radio5" text="همه" defaultChecked={true}/>
             <Sorts id="radio4" htmlFor="radio4" text="بیشترین ظرفیت" defaultChecked={false}/>
             <Sorts id="radio3" htmlFor="radio3" text="ارزان ترین" defaultChecked={false}/>

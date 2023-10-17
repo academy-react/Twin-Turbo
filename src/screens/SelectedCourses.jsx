@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CourseDetail from "../components/course/CourseDetail";
 import Timer from "../components/course/Timer";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import  courses  from "../core/services/courseDB";
 
 import {Header,Footer,RightPanel} from '../components/common'
@@ -12,32 +12,20 @@ const SelectedCourses = () => {
   const [item, setItem] = useState(courses);
 
   let url = useParams();
-  let navigate = useNavigate();
-  let location = useLocation();
 
   const finded = () => {
     let finded = item.find((element) => {
       return element.id == url.id;
     });
-    return <RightPanel src={finded.src} name={finded.name} />;
-  };
-
-  const findPath = (index) => {
-    let num1 = location.pathname.indexOf("/");
-    let num2 = location.pathname.lastIndexOf("/");
-    let result = location.pathname.slice(num1, num2);
-    navigate(`${result}/${index + 1}`);
+    return <RightPanel src={finded.src} name={finded.name} text={finded.content} />;
   };
 
   return (
     <>
-      <div className="w-[1920px] mx-[auto]">
+      <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
         <Header src="avatar.png" color="#5A0BA9" />
-        <div className="w-[full] flex justify-center gap-[50px] my-5">
-          <div
-            dir="ltr"
-            className="w-[30%] flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5"
-          >
+        <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5">
+          <div dir="ltr" className="w-[580px] flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5" >
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5]">
               <div className="text-[28px] self-end p-3">مشخصات دوره</div>
               <CourseDetail
@@ -92,10 +80,10 @@ const SelectedCourses = () => {
               </div>
               <div className="w-[85%] h-20 mx-auto my-3 rounded-3xl bg-[#f5f5f5] flex justify-end items-center">
                 <div className="text-[24px] mr-3 text-[#555]">
-                  {courses[url.id-1].masterNAme} 
+                  {courses[url.id-1].masterName} 
                 </div>
                 <img
-                  src="../src/assets/images/bahr.png"
+                  src={courses[url.id-1].masterImage}
                   alt=""
                   className="w-20 h-20 rounded-3xl"
                 />
@@ -128,7 +116,7 @@ const SelectedCourses = () => {
                 title="با تخفیف"
                 logo="abcd.png"
                 discount={true}
-                discountPercent={20}
+                discountPercent={courses[url.id-1].discountPercent}
               />
               <Timer month={courses[url.id-1].month} day={courses[url.id-1].day} hour={courses[url.id-1].hour} minute={courses[url.id-1].minute} second={courses[url.id-1].secend} />
               <button className="h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-b-2xl text-[22px] transition-all duration-500 hover:bg-[#34a647]">
