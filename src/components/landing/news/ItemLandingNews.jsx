@@ -7,7 +7,7 @@ const ItemLandingNews = ({ image}) => {
           <p className="text-[#888] text-[20px] max-[600px]:hidden">آموزشگاه در تدارک دوره های جدید برنامه نویسی است</p>
           <img src={"../src/assets/images/courses/" + image} alt="" className="max-[600px]:w-[150px] w-[130px] h-[90%] rounded-[15px] "/>
       </div>
-      <Button content="بیشتر"className="absolute left-2 bottom-2 scale-[80%]"/>
+      <Button content="بیشتر" className="absolute left-2 bottom-2 scale-[80%]" link="/blogs" />
     </>
   )
 }

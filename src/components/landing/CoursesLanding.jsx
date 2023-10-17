@@ -1,5 +1,6 @@
 import Button from "../common/Button";
 import TitleComponents from "./TitleComponents";
+
 const Courses = () => {
   return (
     <div className="w-full mb-10 flex flex-col justify-around items-center relative">
@@ -9,7 +10,7 @@ const Courses = () => {
           <img src="../src/assets/images/courses/git.jpg" alt="" className="rounded-[20px]"/>
           <img src="../src/assets/images/courses/web.jpg" alt="" className="rounded-[20px]"/>
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="rounded-[20px]"/>
-          <Button content="بیشتر" />
+          <Button content="بیشتر" link="/blogs" />
         </div>
         <div className="w-[65%] min-w-[373px] max-[1023px]:w-[90%] max-[550px]:w-[110%] h-[700px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] max-[800px]:scale-[90%] max-[620px]:scale-y-[75%] max-[620px]:my-[-50px]  max-[410px]:scale-y-[60%]">
           <img src="../src/assets/images/courses/bootstrap.jpg" alt="" className="w-full h-[400px] max-[1200px]:h-[300px] rounded-3xl" />
@@ -28,7 +29,7 @@ const Courses = () => {
       <img
         src="../src/assets/images/landingCourse/c-i-2.png"
         alt=""
-        className="absolute right-[-300px] top-[125px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden"
+        className="absolute right-[-300px] top-[240px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden"
         id="coursesHolder2"
       />
       <img src="../src/assets/images/landingCourse/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 max-[1500px]:-rotate-[5deg] max-[1500px]:ml-4 max-[1620px]:ml-2 max-[1200px]:hidden transition-all duration-1000" id="coursesHolder3" />
