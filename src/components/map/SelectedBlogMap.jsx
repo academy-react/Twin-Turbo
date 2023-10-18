@@ -21,8 +21,8 @@ const SelectedBlog = () => {
             />
             </div>
             <div className="w-[70%] h-full py-[5px] px-[15px] flex flex-col justify-center">
-            <p className="text-[25px] ">{element.name}</p>
-            <p className="text-[#777]">{element.content}</p>
+            <p className="text-[25px]">{element.name}</p>
+            <p className="text-[#777] w-[90%] truncate ">{element.content}</p>
             </div>
         </div>
         );
