@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourses,Page404, Register } from '../../screens'
+import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404, Register } from '../../screens'
 
 const Router = createBrowserRouter([
     {
@@ -36,7 +36,7 @@ const Router = createBrowserRouter([
     },
     {
       path: "/courses/:id",
-      element: <SelectedCourses />,
+      element: <SelectedCourse />,
     },
     {
       path: "*",

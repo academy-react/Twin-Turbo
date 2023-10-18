@@ -16,7 +16,7 @@ const Footer = () => {
                 <img src="../src/assets/images/footer/samandehi.png" className="h-12 mb-[5px] cursor-pointer"/>
             </div>
 
-            <div className="flex flex-col justify-center items-center pb-6 text-[#67008f] text-[22px] min-[770px]:hidden max-[770px]:flex">
+            <div className="flex flex-col justify-center items-center pb-6 text-[#67008f] text-[22px] max-[1300px]:hidden max-[770px]:flex">
                 <img src="../src/assets/images/footer/logoes.png" className="h-12 mb-[5px] cursor-pointer"/>
                 <div>ما را در شبکه های اجتماعی دنبال کنید</div>
             </div>

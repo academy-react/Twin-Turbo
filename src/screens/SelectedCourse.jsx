@@ -6,9 +6,8 @@ import  courses  from "../core/services/courseDB";
 
 import {Header,Footer,RightPanel} from '../components/common'
 
-
-
 const SelectedCourses = () => {
+
   const [item, setItem] = useState(courses);
 
   let url = useParams();
@@ -17,15 +16,15 @@ const SelectedCourses = () => {
     let finded = item.find((element) => {
       return element.id == url.id;
     });
-    return <RightPanel src={finded.src} name={finded.name} text={finded.content} />;
+    return <RightPanel src={finded.src} name={finded.name} text={finded.content} db={courses} title="دوره" />;
   };
 
   return (
     <>
       <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
         <Header src="avatar.png" color="#5A0BA9" />
-        <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5">
-          <div dir="ltr" className="w-[580px] flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5" >
+        <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5 mt-20">
+          <div dir="ltr" className="w-[580px] h-full flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5" >
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5]">
               <div className="text-[28px] self-end p-3">مشخصات دوره</div>
               <CourseDetail

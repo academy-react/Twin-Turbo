@@ -1,11 +1,11 @@
-import {Header,Footer,RightPanel} from '../components/common'
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
+import {Header,Footer,RightPanel} from '../components/common'
 import  blogs  from "../core/services/blogDB";
 
-import { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-
 import SelectedBlog from '../components/map/SelectedBlogMap'
+
 const Blog = () => {
   const [item, setItem] = useState(blogs);
   let url = useParams();
@@ -14,17 +14,15 @@ const Blog = () => {
     let finded = item.find((element) => {
       return element.id == url.id;
     });
-    return <RightPanel src={finded.src} name={finded.name} />;
+    return <RightPanel src={finded.src} name={finded.name} text={finded.content} db={blogs} title="بلاگ" />;
   };
-
-  
 
   return (
     <>
-      <div className="w-[1920px] mx-[auto]">
+      <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
         <Header src="avatar.png" color="#5A0BA9" />
 
-        <div className="w-[full] h-[1400px] flex justify-center items-center gap-[50px]">
+        <div className="w-[full] flex justify-center items-start gap-[50px] mt-20">
           <div
             dir="ltr"
             className="w-[30%] h-[1300px] rounded-xl shadow-[0_0_7px_#ddd] bg-white overflow-y-scroll"
