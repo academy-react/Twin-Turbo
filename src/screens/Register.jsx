@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Formik , Form , Field } from "formik"
 import Header from '../components/common/Header'
 import registerSubmit from "../core/validations/registerSubmit";
+import FieldInput from '../components/common/FieldInput'
 
 const login = () => {
   return (
@@ -15,21 +16,19 @@ const login = () => {
                 <Form className="w-[520px] h-[700px] bg-white absolute right-[14%] top-[255px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col justify-around items-center py-4">
                     <img src="../src/assets/images/panel/log-in.png" alt="" className='w-[50px] h-[50px]'/>
                     <div className='text-[26px]'>ثبت نام</div>
-                    <div className='w-full relative flex justify-center'>
-                        <Field name="name" type="text" dir='rtl' className='my-4 text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='نام و نام خانوادگی' />
-                    </div>
-                    <div className='w-full relative flex justify-center'>
-                        <Field name="email" type="text" dir='rtl' className='my-4 text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='ایمیل'/>
-                    </div>
-                    <div className='w-full relative flex justify-center'>
-                        <Field name="password" type="password" dir='rtl' className='my-4 text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='رمز عبور'/>
-                    </div>
-                    <div className='w-full relative flex justify-center'>
-                        <Field name="nationalCode" type="text" dir='rtl' className='my-4 text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='کد ملی'/>
-                    </div>
-                    <div className='w-full relative flex justify-center'>
-                        <Field name="birthdayDate" type="date" dir='rtl' className='my-4 text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='تاریخ تولد'/>
-                    </div>
+
+                        <FieldInput name="name" type="text" placeholder="نام و نام خانوداگی" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+
+                        <FieldInput name="email" type="text" placeholder=" ایمیل  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+
+                        <FieldInput name="password" type="text" placeholder="رمز عبور" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+
+                        <FieldInput name="nationalCode" type="text" placeholder="کد ملی " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                        
+                        <FieldInput name="birthdayDate" type="text" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
+                        
+                        <FieldInput name="birthdayDate" type="date" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
+                    
                     <button type="submit" className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
                         ثبت نام
                     </button>

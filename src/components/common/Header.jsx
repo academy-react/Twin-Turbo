@@ -43,7 +43,7 @@ const Header = ({className,src,color}) => {
 
         <div id="menu" className="bg-white w-[30%] h-[100vh] fixed top-0 z-[1000] hidden max-[1020px]:block transition-all duration-1000 rounded-l-[15px] border" style={{right:"-30%"}}>
           <div className=" w-full h-[50px] flex items-center pl-[15px]" >
-              <img src="../../src/assets/images/close.svg" title="بستن" alt="" className=" w-[25px] h-[25px] cursor-pointer" id="closePic" />
+              <img src="../../src/assets/images/close.svg" title="بستن" alt="" className=" w-[25px] h-[25px] cursor-pointer [&:hover]:drop-shadow-[0_0_1px_#5A0BA9]" id="closePic" />
           </div>
           <div className="w-full h-[80px] flex [&>div>a]:text-[13px] [&>div>a]:text-[#777] [&>div>img]:ml-[10px]">
               <div className="h-full w-[50%] flex justify-center items-center">
@@ -55,7 +55,7 @@ const Header = ({className,src,color}) => {
                 <img src="../../src/assets/images/panel/user.png" alt="" className="h-[25px]"/>
               </div>
           </div>
-          <div dir="rtl" className="w-full h-[250px] flex flex-col [&>a]:h-[40px] [&>a]:flex [&>a]:items-center [&>a]:pr-[5px] text-[13px]">
+          <div dir="rtl" className="w-full h-[250px] flex flex-col [&>a]:h-[40px] [&>a]:flex [&>a]:items-center [&>a]:pr-[5px] text-[13px] [&>a:hover]:bg-[#eee]">
             <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/"}>خانه</NavLink>
             <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/courses"}>اموزش</NavLink>
             <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/panel"}>مالی</NavLink>

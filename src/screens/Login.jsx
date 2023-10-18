@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Formik , Form , Field } from "formik"
 import Header from '../components/common/Header'
 import loginSubmit from "../core/validations/loginSubmit";
-import FieldInput from "../components/contactUs/FieldInput"
+import FieldInput from "../components/common/FieldInput"
 
 
 const login = () => {

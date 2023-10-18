@@ -1,6 +1,6 @@
 import {Header,Footer} from '../components/common'
 import {Form,Formik,Field,ErrorMessage} from 'formik'
-import FieldInput from "../components/contactUs/FieldInput"
+import FieldInput from "../components/common/FieldInput"
 
 const ContactUs = () => {
 
@@ -29,7 +29,7 @@ const ContactUs = () => {
 
                             </div>
 
-                            <button type='submit' className='w-[89%] h-16 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300  max-[500px]:scale-90'>
+                            <button type='submit' className='w-[85%] h-14 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300  max-[500px]:scale-90'>
                                 ارسال پیام
                             </button>
                         </Form>

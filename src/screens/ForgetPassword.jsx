@@ -3,6 +3,8 @@ import { Formik , Form , Field } from "formik"
 import Header from '../components/common/Header'
 import forgetSubmit from "../core/validations/forgetSubmit";
 
+import FieldInput from '../components/common/FieldInput'
+
 const ForgetPassword = () => {
   return (
     <div className='w-full h-[100vh] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
@@ -16,8 +18,10 @@ const ForgetPassword = () => {
               <img src="../src/assets/images/panel/key.png" alt="" className='w-[50px]'/>
               <p className='py-[35px] text-[26px]'>فراموشی رمز عبور</p>
               <div className='w-full h-[140px] flex flex-col items-center justify-center [&>*]:my-[5px]'>
-                  <Field name="email" type="text"  dir='rtl' className='text-[18px] px-[15px] placeholder:text-[#b9b7b7] placeholder:text-[16px] outline-none w-[88%] h-[50px] rounded-[14px] border border-[#a361a1] focus:border-[3px]' placeholder='ایمیل'/>
-                  <button type="submit" className='bg-[#36C54E] w-[88%] text-[#fff] text-[20px] h-[50px] rounded-[14px] hover:bg-[#38b24c] transition-all duration-300'>ادامه</button>
+
+                  <FieldInput name="email" content="" placeholder="ایمیل" dir="rtl" border="border border-[#a361a1]" display="text-[#b9b7b7] text-[15px]" className="rounded-[14px]" />
+                  <button type="submit" className='bg-[#36C54E] w-[85%] text-[#fff] text-[20px] h-[50px] rounded-[14px] hover:bg-[#38b24c] transition-all duration-300'>ادامه</button>
+              
               </div>
               <div className='w-[33%] h-7 flex justify-around items-center [&>*]:text-[#564FCC]'>
                 <Link to={"/register"} className='text-[18px]'>ثبت نام</Link>
