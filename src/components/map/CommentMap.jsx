@@ -13,11 +13,11 @@ const CommentMap = ({db}) => {
 
             return (
                 <div key={index} className="w-full flex items-center gap-[15px] my-[7px] py-5">
-                    <img src={"../src/assets/images/" + element.src} alt="" className="w-16 h-16 rounded-full" />
+                    <img src={"../src/assets/images/" + element.src} alt="" className="w-16 h-[60px] rounded-full" />
                     <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
-                        <span className="text-[17px]">{element.name}  |  {element.time} ساعت پیش</span>
-                        <p className="text-[#707070] text-[15px]">{element.comment}</p>
-                        <div className="w-[110px] h-[25px] flex justify-evenly items-center">
+                        <div className="text-[18px] my-1">{element.name}  |  {element.time} ساعت پیش</div>
+                        <p className="text-[#707070] text-[15px] my-1 inline-block">{element.comment}</p>
+                        <div className="w-[110px] h-[25px] flex justify-evenly items-center my-1">
                             <div className="flex items-center cursor-pointer" >
                                 <span className="text-[#37c54f]">{element.like}</span>
                                 <img src="../src/assets/images/like.png" className="mx-2" /> 
