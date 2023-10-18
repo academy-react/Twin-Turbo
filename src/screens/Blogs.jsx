@@ -1,5 +1,5 @@
 import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
-import changeView from "../core/utils/changeView.utils";
+import changeView from "../core/utils/changeViewBlog.utils";
 import { useEffect, useRef } from "react";
 import BlogsMap from '../components/map/BlogsMap'
 import resizeBlog from '../core/utils/resizeBlog.utils'

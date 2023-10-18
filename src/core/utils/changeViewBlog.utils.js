@@ -3,7 +3,7 @@ let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] rela
 let rowView = "آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
 let colView ="آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است";
 
-const changeView = (parent) => {
+const changeViewBlog = (parent) => {
   let children = parent.current.children;
 
   for (let i = 0; i < children.length; i++) {
@@ -19,4 +19,4 @@ const changeView = (parent) => {
   }
 };
 
-export default changeView;
+export default changeViewBlog;
