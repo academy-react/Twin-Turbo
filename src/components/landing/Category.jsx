@@ -12,7 +12,7 @@ const Category = () => {
       </div>
       <Button content="بیشتر" link="/courses" />
       <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute top-[180px] left-[800px] h-[85px] z-[-2] transition-all duration-[2s]" id="planet1" />
-      <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[55px] z-[-2] transition-all duration-[2s]" id="planet2" />
+      <img src="../src/assets/images/landingCategory/n.png" alt="" className="absolute bottom-[150px] right-[800px] h-[65px] z-[-2] transition-all duration-[2s] rotate1" id="planet2" />
     </div>
 
   );

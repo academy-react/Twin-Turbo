@@ -27,6 +27,7 @@ const ForgetPassword = () => {
                 <Link to={"/register"} className='text-[18px]'>ثبت نام</Link>
                 <p>|</p>
                 <Link to={"/login"} className='text-[18px]'>ورود</Link>
+                <a href="hjhj"></a>
               </div>
             </Form>
           </Formik>

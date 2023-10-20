@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import Footer from "../components/common/Footer";
 import {Category , Courses , Masters , Navigation , News , Recommands , Services , HeroSection} from '../components/landing'
 import landingScrollLogic from "../core/utils/landingScroll.utils";
+import DarkBtn from '../components/landing/DarkBtn'
 
 
 
@@ -19,6 +20,7 @@ const Landing = () => {
       
 
       <div className="h-[5px] bg-[#9f009a] fixed top-0 left-0 z-[1000]" style={{width:"0px"}} id="scrollNav"></div>
+      <DarkBtn />
       <Navigation />
       <HeroSection />
       <Services />
