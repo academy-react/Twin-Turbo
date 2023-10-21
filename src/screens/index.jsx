@@ -8,5 +8,7 @@ import Blogs from "./Blogs.jsx";
 import Courses from "./Courses.jsx";
 import SelectedCourse from "./SelectedCourse.jsx";
 import SelectedBlog from "./SelectedBlog.jsx";
+import Panel from "./Panel.jsx";
+import ListOfCourse from "../components/panel/ListOfCourse.jsx";
 
-export {Landing,ForgetPassword,Login,Register,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404}
+export {Landing,ForgetPassword,Login,Register,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404,Panel,ListOfCourse}
