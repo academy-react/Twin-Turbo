@@ -1,6 +1,6 @@
 import Header from '../components/common/Header'
 import { Outlet} from 'react-router-dom'
-import Links from '../components/panel/Linkes'
+import Links from '../components/common/Linkes'
 const Panel = () => {
   return (
     <>

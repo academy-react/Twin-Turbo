@@ -1,14 +1,15 @@
 import { useEffect } from "react"
-import { NavLink , Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+import Menu from "./header/Menu"
 import headerScroll from '../../core/utils/headerScroll.utils'
+import Linkes from "./Linkes"
 
 const Header = ({className,src,color}) => {
 
 
   useEffect(() => {
     menuPic.onclick = () => menu.style.right = '0%';
-    closePic.onclick = ()=> menu.style.right = '-30%';
-    window.addEventListener("resize",()=> {if(window.innerWidth > 1020) menu.style.right = '-30%'})
+    closePic.onclick = ()=> menu.style.right = '-100%';
     window.addEventListener("scroll",headerScroll)
 
     return () => {
@@ -17,17 +18,16 @@ const Header = ({className,src,color}) => {
 
 }, [])
 
-
   return (
     <>
       <header dir="rtl" className="z-[100] relative w-full right-0 left-0 top-0 h-[80px]" id="header">
           <div className="mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center" >
-              <div className="w-[35%] max-[1280px]:w-[45%] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
-                  <NavLink to={"/contact-us"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >تماس با ما</NavLink>
-                  <NavLink to={"/blogs"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >خدمات</NavLink>
-                  <NavLink to={"/3"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >مالی</NavLink>
-                  <NavLink to={"/courses"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >اموزش</NavLink>
-                  <NavLink to={"/"} style={({isActive})=>({borderBottom : isActive ? "2px solid #8043bd" : "none"})} className={"text-[" + color + "]"} >خانه</NavLink>
+              <div className="w-[35%] max-[1580px]:w-[45%] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
+                  <Linkes to="/contact-us" content="تماس با ما" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
+                  <Linkes to="/blogs" content="خدمات" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
+                  <Linkes to="/basket" content="مالی" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
+                  <Linkes to="/courses" content="آموزش" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
+                  <Linkes to="/" content="خانه" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
                   <img src={"../src/assets/images/header/" + src} alt="" className="scale-[70%]"/>
               </div>
               <img src="../src/assets/images/menu.png" alt="" id="menuPic" className="h-[30px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>
@@ -38,34 +38,8 @@ const Header = ({className,src,color}) => {
                   <Link className="w-[50px]"><img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px] object-cover" /></Link>
               </div>
           </div>
-          
       </header>
-
-        <div id="menu" className="bg-white w-[30%] h-[100vh] fixed top-0 z-[1000] hidden max-[1020px]:block transition-all duration-1000 rounded-l-[15px] border" style={{right:"-30%"}}>
-          <div className=" w-full h-[50px] flex items-center pl-[15px]" >
-              <img src="../../src/assets/images/close.svg" title="بستن" alt="" className=" w-[25px] h-[25px] cursor-pointer [&:hover]:drop-shadow-[0_0_1px_#5A0BA9]" id="closePic" />
-              <img src="../../src/assets/images/logo.png" className="w-full h-full scale-75 max-[850px]:hidden" />
-          </div>
-          <div className="w-full h-[80px] flex [&>div>a]:text-[13px] [&>div>a]:text-[#777] [&>div>img]:ml-[10px]">
-              <Link to={'/login'}  className="h-full w-[50%] flex justify-center items-center">
-                <div>ورود</div>
-                <img src="../../src/assets/images/panel/log-in.png" alt="" className="h-[20px] ml-2"/>
-              </Link>
-              <Link to={'/register'} className="h-full w-[50%] flex justify-center items-center">
-                <div>ثبت نام</div>
-                <img src="../../src/assets/images/panel/user.png" alt="" className="h-[25px] ml-2"/>
-              </Link>
-          </div>
-          <div dir="rtl" className="w-full h-[250px] flex flex-col [&>a]:h-[40px] [&>a]:flex [&>a]:items-center [&>a]:pr-[5px] text-[13px] [&>a:hover]:bg-[#eee]">
-            <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/"}>خانه</NavLink>
-            <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/courses"}>اموزش</NavLink>
-            <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/panel"}>مالی</NavLink>
-            <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/blogs"}>خدمات</NavLink>
-            <NavLink style={({isActive})=>({backgroundImage : isActive ? "linear-gradient(90deg, rgba(102,0,140,1) 0%, rgba(159,0,153,1) 100%)" : "none",color : isActive ? "#fff" : "#000"})} to={"/contact-us"}>تماس با ما</NavLink>
-          </div>
-
-        </div>
-
+      <Menu />
     </>
   )
 }
