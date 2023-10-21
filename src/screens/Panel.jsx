@@ -1,6 +1,6 @@
 import Header from '../components/common/Header'
 import { Outlet} from 'react-router-dom'
-import Links from '../components/panel/Linkes'
+import Links from '../components/common/Linkes'
 const Panel = () => {
   return (
     <>
@@ -8,7 +8,7 @@ const Panel = () => {
         <div className="w-[1920px] mx-auto my-0 overflow-hidden max-[1919px]:w-full relative">
 
                 <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-                <div className="h-[900px] w-[85%] mx-auto flex justify-between items-center [&>div]:h-[90%]">
+                <div className="h-[900px] w-[90%] mx-auto flex justify-between items-center [&>div]:h-[90%]">
 
 
                     <Outlet/>
@@ -30,7 +30,7 @@ const Panel = () => {
 
                             <Links src="editProfile.png" to="/" content="ویرایش پروفایل" className1="text-[purple]" className2="text-[black]" />
 
-                            <Links src="5.png" to="/" content="دوره های من" className1="text-[purple]" className2="text-[black]" />
+                            <Links src="5.png" to="ListOfCourse" content="دوره های من" className1="text-[purple]" className2="text-[black]" />
 
                             <Links src="menupanel.png" to="/" content="لیست دوره ها" className1="text-[purple]" className2="text-[black]" />
 
