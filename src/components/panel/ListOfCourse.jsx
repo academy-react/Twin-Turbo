@@ -1,15 +1,16 @@
+import ListCousePanelMap from '../map/ListCousePanelMap' 
 const ListOfCourse = () => {
   return (
 
-    <div className="w-[73%] border border-[green]">
+    <div className="w-[73%] border border-[green] ">
 
 
-        <div className="h-[15%] border-[red] border [&>div]:h-full [&>div]:w-[35%] flex justify-between">
+        <div className="h-[15%] [&>div]:h-full [&>div]:w-[35%] flex justify-between ">
 
             <div className="flex justify-center items-center"> 
             
-                <div className="bg-[#EEE6F6] w-[75%] h-[40%] rounded-[50px] flex items-center justify-around overflow-hidden px-[10px]">
-                    <img src="../src/assets/images/header/search.png" alt="" className=" w-[40px] h-[40px]" />
+                <div className="bg-[#EEE6F6] w-[75%] h-[40%] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]">
+                    <img src="../src/assets/images/header/search.png" alt="" className=" w-[30px] h-[30px]" />
                     <input dir="rtl" type="text" className="w-[75%] h-full border-none outline-none bg-[#EEE6F6] placeholder:text-[#7F42BC] text-[#7F42BC]" placeholder="جستجو"/>
                 </div>
 
@@ -19,7 +20,19 @@ const ListOfCourse = () => {
             </div>
 
         </div>
-        <div className="h-[85%] border-[red] border m-[25px] mt-[0]"></div>
+        <div className="h-[85%] m-[25px] mt-[0] bg-[#eee8e8] rounded-[25px]">
+            <div className="w-[75%] h-[15%]  flex justify-around items-center mx-[auto]">
+                <span>قیمت</span>
+                <span>تاریخ پایان</span>
+                <span>تاریخ شروع</span>
+                <span>نام ترم</span>
+                <span>نام استاد</span>
+                <span>نام دوره</span>
+            </div>
+            <div className="h-[85%] mx-auto px-[15px]">
+                <ListCousePanelMap />
+            </div>
+        </div>
 
 
     </div>
