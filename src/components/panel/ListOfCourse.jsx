@@ -21,7 +21,7 @@ const ListOfCourse = () => {
             </div>
 
         </div>
-        <div className="h-[85%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px]">
+        <div className="h-[83%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px]">
             <div className="w-[75%] h-[15%]  flex justify-around items-center mx-[auto]">
                 <span>قیمت</span>
                 <span>تاریخ پایان</span>
