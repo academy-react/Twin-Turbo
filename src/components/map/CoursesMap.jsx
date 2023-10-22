@@ -1,4 +1,4 @@
-import { Link , useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import courses from "../../core/services/courseDB";
 import { useRef } from "react";
 

@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
 import { Formik , Form , Field } from "formik"
-import Header from '../components/common/Header'
 import loginSubmit from "../core/validations/loginSubmit";
-import FieldInput from "../components/common/FieldInput"
-
+import { LinkComponent , FieldInput , Header } from "../components/common";
 
 const login = () => {
 
@@ -22,8 +19,6 @@ const login = () => {
 
                 <FieldInput name="name" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="w-full placeholder:text-[#b9b7b7]" dir="rtl" />
                 <FieldInput name="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="w-full placeholder:text-[#b9b7b7]" dir="rtl" />
-
-                
                 
                 <div className='flex items-center self-end mr-10'>
                     <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[17px] cursor-pointer'>مرا به خاطر بسپار</label>
@@ -32,12 +27,10 @@ const login = () => {
                 <button type="submit" className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
                     ورود
                 </button>
-                <Link to={"/forgetPassword"} className='text-[#564FCC] text-[20px]'>فراموشی رمز عبور</Link>
-                <div className='text-[#00000092]'>برای ثبت نام <Link to={"/register"} className='text-[#564FCC]' >اینجا</Link> کلیک کنید</div>
+                <LinkComponent content="فراموشی رمز عبور" link="/forgetPassword" className='text-[#564FCC] text-[20px]' />
+                <div className='text-[#00000092]'>برای ثبت نام <LinkComponent content="ایجاد" link="/register" className='text-[#564FCC]' /> کلیک کنید</div>
               </Form>
           </Formik>
-          
-
       </div>
     </div>
   )

@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom'
-import { Formik , Form , Field } from "formik"
-import Header from '../components/common/Header'
+import { Formik , Form } from "formik"
 import forgetSubmit from "../core/validations/forgetSubmit";
-
-import FieldInput from '../components/common/FieldInput'
+import { LinkComponent , FieldInput , Header } from '../components/common';
 
 const ForgetPassword = () => {
   return (
@@ -24,9 +21,9 @@ const ForgetPassword = () => {
               
               </div>
               <div className='w-[33%] h-7 flex justify-around items-center [&>*]:text-[#564FCC]'>
-                <Link to={"/register"} className='text-[18px]'>ثبت نام</Link>
+                <LinkComponent content="ثبت نام" link="/register" className='text-[18px]' />
                 <p>|</p>
-                <Link to={"/login"} className='text-[18px]'>ورود</Link>
+                <LinkComponent content="ورود" link="/login" className='text-[18px]' />
                 <a href="hjhj"></a>
               </div>
             </Form>

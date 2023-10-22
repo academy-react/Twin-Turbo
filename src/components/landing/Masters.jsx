@@ -16,7 +16,7 @@ const Masters = () => {
             
             <Master name="حامد نظری" ability="طراخ فرانت" src="ostad-3.jpg" />
             <Master name="مهدی اصغری" ability=" React Developer" src="ostad-2.png" />
-            <Master name="محسن افندیاری" ability=" React Developer" src="ostad.jpg" />
+            <Master name="محسن اسفندیاری" ability=" React Developer" src="ostad.jpg" />
 
         </div>
         <img src="../src/assets/images/landingMaster/Path 564.png" alt="" className="absolute bottom-[200px] right-[-50px] scale-[70%] max-[1300px]:scale-[60%] max-[1300px]:right-[-65px] max-[1023px]:hidden" />

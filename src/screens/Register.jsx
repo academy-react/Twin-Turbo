@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
-import { Formik , Form , Field } from "formik"
-import Header from '../components/common/Header'
+import { Formik , Form } from "formik"
+import { Header , FieldInput , LinkComponent} from '../components/common/index'
 import registerSubmit from "../core/validations/registerSubmit";
-import FieldInput from '../components/common/FieldInput'
 
 const login = () => {
   return (
@@ -17,22 +15,22 @@ const login = () => {
                     <img src="../src/assets/images/panel/log-in.png" alt="" className='w-[50px] h-[50px]'/>
                     <div className='text-[26px]'>ثبت نام</div>
 
-                        <FieldInput name="name" type="text" placeholder="نام و نام خانوداگی" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                    <FieldInput name="name" type="text" placeholder="نام و نام خانوداگی" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
 
-                        <FieldInput name="email" type="text" placeholder=" ایمیل  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                    <FieldInput name="email" type="text" placeholder=" ایمیل  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
 
-                        <FieldInput name="password" type="text" placeholder="رمز عبور" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                    <FieldInput name="password" type="text" placeholder="رمز عبور" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
 
-                        <FieldInput name="nationalCode" type="text" placeholder="کد ملی " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
-                        
-                        <FieldInput name="birthdayDate" type="text" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
-                        
-                        <FieldInput name="birthdayDate" type="date" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
+                    <FieldInput name="nationalCode" type="text" placeholder="کد ملی " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                    
+                    <FieldInput name="birthdayDate" type="text" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
+                    
+                    <FieldInput name="birthdayDate" type="date" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
                     
                     <button type="submit" className='w-[89%] h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px]'>
                         ثبت نام
                     </button>
-                    <Link to={"/login"} className='text-[#564FCC] text-[20px]'>ورود به حساب کاربری</Link>
+                    <LinkComponent content="ورود به حساب کاربری" link="/login" className='text-[#564FCC] text-[20px]' />
                 </Form>
             </Formik>
 

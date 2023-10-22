@@ -1,5 +1,4 @@
-import Footer from "../components/common/Footer";
-import { Link } from "react-router-dom"
+import { LinkComponent , Footer } from "../components/common";
 
 const Page404 = () => {
   return (
@@ -10,7 +9,7 @@ const Page404 = () => {
             <img src="../src/assets/images/sircle.png" alt="" className='scale-[70%] absolute right-[45px] top-[140px]' id='sircle1' />
             <img src="../src/assets/images/sircle.png" alt="" className='scale-[70%] absolute left-[45px] top-[105px]' id='sircle2' />
           </div>
-          <Link className="w-[200px] h-[52px] rounded-[15px] bg-[#A644C1] flex justify-center items-center text-[#fff] cursor-pointer hover:bg-[#8e2aae] transition-all duration-300 max-[400px]:scale-[90%] max-[350px]:scale-[80%]">بازگشت به صفحه اصلی</Link>
+          <LinkComponent content="بازگشت به صفحه اصلی" link="/" className="w-[200px] h-[52px] rounded-[15px] bg-[#A644C1] flex justify-center items-center text-[#fff] cursor-pointer hover:bg-[#8e2aae] transition-all duration-300 max-[400px]:scale-[90%] max-[350px]:scale-[80%]" />
         </div>
         <Footer />
     </div>
