@@ -1,8 +1,6 @@
 import { useEffect } from "react"
-import Menu from "./header/Menu"
+import { Menu , LinkComponent , Linkes } from "./index"
 import headerScroll from '../../core/utils/headerScroll.utils'
-import Linkes from "./Linkes"
-import LinkComponent from "./LinkComponent"
 
 const Header = ({className,src,color}) => {
 
