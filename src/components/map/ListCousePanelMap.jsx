@@ -1,7 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom'
 import courseDB from '../../core/services/courseDB'
-import { useState } from 'react'
-
 
 var myobj = [];
 
@@ -9,8 +6,6 @@ const ListCousePanelMap = () => {
   let sliced = courseDB.slice(0,6)
 
   const findItem = (e)=> {
-
-
 
     let index =  e.target.parentNode.getAttribute("data-id")
     let obj = courseDB.find((element)=> element.id == index)
@@ -49,8 +44,6 @@ const ListCousePanelMap = () => {
                 <span dir='rtl'>{element.name}</span>
 
                 <img src={"../src/assets/images/courses/" + element.src} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
-
-
             </div>
         )
     })

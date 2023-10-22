@@ -1,4 +1,5 @@
 import ListCousePanelMap from '../map/ListCousePanelMap' 
+
 const ListOfCourse = () => {
   return (
 

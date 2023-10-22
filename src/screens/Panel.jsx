@@ -1,6 +1,6 @@
-import Header from '../components/common/Header'
-import { Outlet} from 'react-router-dom'
-import Links from '../components/common/Linkes'
+import { Header , Links} from '../components/common/'
+import { Outlet } from 'react-router-dom'
+
 const Panel = () => {
   return (
     <>
@@ -9,7 +9,6 @@ const Panel = () => {
 
                 <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
                 <div className="h-[900px] w-[90%] mx-auto flex justify-between items-center [&>div]:h-[90%]">
-
 
                     <Outlet/>
 
@@ -24,8 +23,6 @@ const Panel = () => {
 
                         <div dir='rtl' className='h-[380px] [&>a]:h-[20%] [&>a]:flex [&>a]:items-center [&>a]:pr-[15px] ' >
                             
-
-
                             <Links src="dashboard/home.png" to="/" content="پیشخوان" acceptedClassName="text-[purple]" ejectedClassName="text-[black]" />
 
                             <Links src="dashboard/editProfile.png" to="/" content="ویرایش پروفایل" acceptedClassName="text-[purple]" ejectedClassName="text-[black]" />
@@ -36,16 +33,11 @@ const Panel = () => {
 
                             <Links src="dashboard/logout.png" to="/" content="خروج" acceptedClassName="text-[purple]" ejectedClassName="text-[black]" />
 
-
-
-
                         </div>
 
                     </div>
 
-
                 </div>
-
 
         </div>
 
