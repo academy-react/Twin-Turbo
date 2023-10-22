@@ -7,6 +7,7 @@ import Sorts from "./Sorts";
 import View from "./View";
 import FieldInput from "./FieldInput";
 import LinkComponent from "./LinkComponent";
+import Linkes from "./Linkes";
 import Menu from "./header/Menu";
 
-export {Header,Footer,Button,RightPanel,SelectOption,Sorts,View,FieldInput,LinkComponent,Menu}
+export {Header,Footer,Button,RightPanel,SelectOption,Sorts,View,FieldInput,LinkComponent,Menu,Linkes}

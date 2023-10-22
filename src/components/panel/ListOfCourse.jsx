@@ -3,7 +3,7 @@ import ListCousePanelMap from '../map/ListCousePanelMap'
 const ListOfCourse = () => {
   return (
 
-    <div className="w-[73%]">
+    <div className="w-[73%] bg-white rounded-3xl shadow-[0_0_7px_#ddd]">
 
 
         <div className="h-[15%] [&>div]:h-full [&>div]:w-[35%] flex justify-between ">
