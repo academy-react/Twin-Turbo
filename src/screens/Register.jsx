@@ -26,7 +26,7 @@ const login = () => {
                     <img src="../src/assets/images/panel/user.png" alt="" className='w-[50px] h-[50px]'/>
                     <div className='text-[26px]'>ثبت نام</div>
 
-                    <FieldInput name="name" type="text" placeholder="نام و نام خانوداگی" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />
+                    <FieldInput name="name" type="text" placeholder="نام و نام خانوداگی" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
 
                     <FieldInput name="email" type="text" placeholder=" ایمیل  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc] w-full" />
 
