@@ -9,7 +9,7 @@ const login = () => {
       <div className='w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden'>
           <Header className="hidden" src="avatar-1.png" color="#fff" />
 
-          <img src="../src/assets/images/panel/path forget.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[127%]'/>
+          <img src="../src/assets/images/panel/path forget.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[127%] max-[1256px]:hidden'/>
           <img src="../src/assets/images/panel/login.png" alt="" className='absolute left-0 top-[260px] w-[61%] transition-all duration-1000 max-[1485px]:top-[200px] max-[1256px]:hidden'/>
 
           <Formik initialValues={{name : "" , password : "" , remind : false}} onSubmit={(values)=> loginSubmit(values)}>

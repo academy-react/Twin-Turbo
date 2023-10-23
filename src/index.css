@@ -71,3 +71,43 @@ body {
 #sircle2 {
     animation: orbit2 5s infinite alternate linear;
 }
+/* datePicker */
+.datePicker {
+    padding: 0;
+}
+.datePicker > div:first-child {
+    background-color: #bf2cbd;
+}
+.datePicker > div:first-child > button:nth-child(2) {
+    color: #fff;
+    font-size: 18px;
+}
+.datePicker > div:first-child > button:last-child:hover , .datePicker > div:first-child > button:nth-child(2):hover , .datePicker > div:first-child > button:first-child:hover {
+    background-color: transparent;
+}
+.datePicker > div:first-child > button:last-child:focus , .datePicker > div:first-child > button:nth-child(2):focus , .datePicker > div:first-child > button:first-child:focus {
+    background-color: transparent;
+}
+.datePicker > div:nth-child(2) {
+    justify-content: space-between;
+}
+.datePicker > div:nth-child(2) > div {
+    color: #000;
+    font-size: 16px;
+}
+.datePicker > div:nth-child(3) {
+    width: 335px;
+    border-right: 1px solid #000;
+    position: relative;
+    right: -1px;
+}
+.datePicker > div:nth-child(3) > div > div > button[width="40"] {
+    font-size: 18px;
+    padding: 19.4px;
+}
+.datePicker > div:nth-child(3) > div > div > button:active {background-color: #761290;}
+.datePicker > div:nth-child(3) > div > div > button[data-selected="true"] {background-color: #761290;}
+.datePicker > .css-1ngbwef > button[data-selected="true"] {background-color: #761290;}
+.datePicker > .css-1ngbwef > button:active {background-color: #761290;}
+.datePicker > .css-133ufif > button[data-selected="true"] {background-color: #761290;}
+.datePicker > .css-133ufif > button:active {background-color: #761290;}
