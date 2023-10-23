@@ -5,7 +5,7 @@ import { LinkComponent , FieldInput , Header } from "../components/common";
 const login = () => {
 
   return (
-    <div className='w-full h-[100vh] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
+    <div className='w-full h-[1200px] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
       <div className='w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden'>
           <Header className="hidden" src="avatar-1.png" color="#fff" />
 
@@ -17,8 +17,8 @@ const login = () => {
                 <img src="../src/assets/images/panel/log-in.png" alt="" className='w-[50px] h-[50px]'/>
                 <div className='text-[26px]'>ورود</div>
 
-                <FieldInput name="name" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="w-full placeholder:text-[#b9b7b7]" dir="rtl" />
-                <FieldInput name="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="w-full placeholder:text-[#b9b7b7]" dir="rtl" />
+                <FieldInput name="name" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
+                <FieldInput name="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
                 
                 <div className='flex items-center self-end mr-10'>
                     <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[17px] cursor-pointer'>مرا به خاطر بسپار</label>

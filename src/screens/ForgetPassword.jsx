@@ -4,7 +4,7 @@ import { LinkComponent , FieldInput , Header } from '../components/common';
 
 const ForgetPassword = () => {
   return (
-    <div className='w-full h-[100vh] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
+    <div className='w-full h-[1200px] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
       <div className='w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden '>
           <Header className="hidden" src="avatar-1.png" color="#fff" />
           <img src="../src/assets/images/panel/path forget.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[120%] max-[1256px]:hidden'/>
