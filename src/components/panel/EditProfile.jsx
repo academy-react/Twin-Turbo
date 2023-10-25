@@ -3,12 +3,16 @@ import React from 'react'
 import { useRef } from 'react';
 import {Formik,Form,Field} from 'formik'
 import EditProfileItem from './EditProfileItem'
-import FieldInput from '../common/FieldInput'
+
+import DatePicker from "react-multi-date-picker"
+import persian from "react-date-object/calendars/persian"
+import persian_fa from "react-date-object/locales/persian_fa"
 
 
 const EditProfile = () => {
     let image = useRef()
 
+    const datePicker = useRef()
 
     const changePic = async (e)=> {
         let src = e.target.files[0];
@@ -19,10 +23,17 @@ const EditProfile = () => {
         let result = await axios.post("https://api.admin.sepehracademy.ir/api/upload/image",imageData)
         image.current.src = result.data.result
 
+
+
+
     }
 
     const submit = (values) => {
-        usename.innerHTML = values.name;
+        console.log(values);
+        if(values.name.length !== 0){
+            usename.innerHTML = values.name;
+        }
+        picprofile.src = image.current.getAttribute("src")
     }
 
     return (
@@ -36,23 +47,42 @@ const EditProfile = () => {
                 </div>
             </div>
             <Formik initialValues={{name:"",birthDay:"",phone:"",email:"",nationalCode:"",role:""}} onSubmit={(values)=> submit(values)}>
-                <Form dir='rtl' className="h-[62%] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
-                    <div >
-                        
-                        <EditProfileItem content="نام کاربری" name="name" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                        <EditProfileItem content="تاریخ تولد" name="birthDay" placeholder="تاریخ را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                        <EditProfileItem content="شماره همراه" name="phone" placeholder="شماره را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                {(form)=> (
+                    <Form dir='rtl' className="h-[62%] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
+                        <div>
+                            
+                            <EditProfileItem content="نام کاربری" name="name" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                                <div className='[&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9] [&>div:last-child>input]:w-[234%]'>
+                                    <div>تاریخ تولد</div>
+                                    <DatePicker
+                                        ref={datePicker}
+                                        onChange={() => {
+                                        setTimeout(() => {
+                                            form.values.birthDay = datePicker.current.children[0].value
+                                        }, 10);
+                                        }}
+                                        placeholder="تاریخ تولد را وارد کنید ..."
+                                        minDate="1330/1/1"
+                                        maxDate={new Date}
+                                        calendar={persian}
+                                        locale={persian_fa}
+                                        calendarPosition="left"
+                                    />
+                                </div>
 
-                    </div>
-                    <div>
+                            <EditProfileItem content="شماره همراه" name="phone" placeholder="شماره را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
-                        <EditProfileItem content="ایمیل" name="email" placeholder="ایمل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                        <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                        <EditProfileItem content="نقش" name="role" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                        </div>
+                        <div>
 
-                    </div>
-                    <button type='submit' className='bg-[#922492] text-[#fff] absolute bottom-[15px] w-[150px] h-[40px] rounded-[15px] right-[44%]' >ثبت تغییرات</button>
-                </Form>
+                            <EditProfileItem content="ایمیل" name="email" placeholder="ایمل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="نقش" name="role" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+
+                        </div>
+                        <button type='submit' className='bg-[#922492] text-[#fff] scale-[105%] absolute bottom-[15px] w-[150px] h-[45px] rounded-[15px] right-[44%]' >ثبت تغییرات</button>
+                    </Form>
+                )}
             </Formik>
 
         </div>

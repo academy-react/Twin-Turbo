@@ -12,5 +12,6 @@ import Panel from "./Panel.jsx";
 import ListOfCourse from "../components/panel/ListOfCourse.jsx";
 import Mycourse from '../components/panel/Mycourse.jsx'
 import EditProfile from '../components/panel/EditProfile.jsx'
+import DashBoard from '../components/panel//DashBoard.jsx'
 
-export {Landing,ForgetPassword,Login,Register,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404,Panel,ListOfCourse,Mycourse,EditProfile}
+export {Landing,ForgetPassword,Login,Register,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404,Panel,ListOfCourse,Mycourse,EditProfile,DashBoard}
