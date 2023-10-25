@@ -1,7 +1,7 @@
 import ListCousePanelMap from '../map/ListCousePanelMap'
 
 
-const CoursesListPanel = ({bool}) => {
+const CoursesListPanel = ({bool,content}) => {
   return (
     <div className="w-[73%] bg-white rounded-3xl shadow-[0_0_7px_#ddd]">
 
@@ -17,7 +17,7 @@ const CoursesListPanel = ({bool}) => {
 
             </div>
             <div dir="rtl" className="flex items-center px-[15px]">
-                <span>دوره های ثبت شده : 36 از 36</span>
+                <span>{content}</span>
             </div>
 
         </div>

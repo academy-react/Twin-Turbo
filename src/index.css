@@ -74,3 +74,21 @@ body {
 .rmdp-wrapper {
     scale: 150%;
 }
+.rmdp-day-picker > div > div > div > .sd:hover   {
+    /* border: 1px solid red; */
+    background-color: #922492;
+    color: #fff;
+}
+.rmdp-day-picker > div > div:first-child > div {
+    color: #922492;
+}
+button.rmdp-arrow-container:hover {
+    background-color: #922492;
+}
+.rmdp-selected > span {
+    background-color: #922492;
+}
+.rmdp-arrow {
+    border-right: 1px solid #922492;
+    border-bottom: 1px solid #922492;
+}

@@ -32,7 +32,7 @@ const Header = ({className,src,color}) => {
                 <LinkComponent content={<img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px] object-cover"  />} link="/" className='w-[50px]' />
                 <LinkComponent content="ثبت نام" link="/register" className='mx-[15px] w-[100px] px-4 select-none' />
                 <LinkComponent content="ورود" link="/login" className='mx-[15px] w-[100px] px-4 select-none' />
-                <LinkComponent content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px] object-cover" />} link="/panel" className='w-[50px]' />
+                <LinkComponent content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px] object-cover" />} link="/panel/userpanel" className='w-[50px]' />
               </div>
           </div>
       </header>
