@@ -26,7 +26,7 @@ const CoursesMap = () => {
             <div className="w-[50px] h-[70px]" style={{display:"none"}}></div>
 
 
-            <div className=" flex justify-between items-center absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
+            <div className=" flex justify-between items-start absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
                 <div className="text-[20px]">{element.masterName}</div>
                 <img src="../src/assets/images/star.png" className="w-36" />
                 <span className="h-8 px-7 border border-[#58AD57] rounded-[50px] text-[#58AD57] flex justify-center items-center">{element.price} تومان</span>
