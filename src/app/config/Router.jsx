@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404, Register , Panel ,ListOfCourse} from '../../screens'
+import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404, Register , Panel ,ListOfCourse,Mycourse,EditProfile} from '../../screens'
 
 const Router = createBrowserRouter([
     {
@@ -49,6 +49,26 @@ const Router = createBrowserRouter([
         {
           path : "/panel/ListOfCourse",
           element : <ListOfCourse/>,
+        }
+      ]
+    },
+    {
+      path: "/panel",
+      element: <Panel />,
+      children : [
+        {
+          path : "/panel/mycourse",
+          element : <Mycourse/>,
+        }
+      ]
+    },
+    {
+      path: "/panel",
+      element: <Panel />,
+      children : [
+        {
+          path : "/panel/editprofile",
+          element : <EditProfile/>,
         }
       ]
     },
