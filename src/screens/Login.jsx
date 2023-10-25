@@ -18,7 +18,7 @@ const login = () => {
                 <div className='text-[26px]'>ورود</div>
 
                 <FieldInput name="name" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
-                <FieldInput name="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
+                <FieldInput name="password" type="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" showPasswordCheck={true} />
                 
                 <div className='flex items-center self-end mr-10'>
                     <label htmlFor='checkbox' className='mx-2 text-[#564FCC] text-[17px] cursor-pointer'>مرا به خاطر بسپار</label>

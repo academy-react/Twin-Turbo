@@ -3,7 +3,6 @@ let rowView = "آموزشگاه در تدارک دوره های جدید برن�
 const resizeCourse = (parent) => {
 
     if(window.innerWidth < 800 && location.pathname == "/courses") {
-        console.log("courses");
         let children = parent.current.children;
         for (let i = 0; i < children.length; i++) {
             parent.current.children[i].lastChild.children[2].style.display = "none";

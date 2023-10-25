@@ -1,9 +1,6 @@
-import { useState } from "react"
 import courses from "../../core/services/courseDB"
 
-
-
-const landingCourseSelector = (e,pic,title,master,content,s,setNum) => {
+const landingCourseSelector = (e,pic,title,master,content,landingCourse,setNum) => {
 
 
     let num = e.target.getAttribute("data-id")
@@ -13,8 +10,8 @@ const landingCourseSelector = (e,pic,title,master,content,s,setNum) => {
     master.innerHTML = courses[num].masterName  
     content.innerHTML =  courses[num].content  
 
-    s.setAttribute("data-id",num)
-    setNum(s.getAttribute("data-id"))
+    landingCourse.setAttribute("data-id",num)
+    setNum(landingCourse.getAttribute("data-id"))
 
 
 }

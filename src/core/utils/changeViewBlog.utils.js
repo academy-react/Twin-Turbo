@@ -11,10 +11,25 @@ const changeViewBlog = (parent) => {
       parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = rowView;
       children[i].className = "";
       children[i].className = view1;
+      children[i].style.height = "400px"
     } else if (radios1.checked == false) {
       parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = colView;
       children[i].className = "";
       children[i].className = view2;
+      if(window.innerWidth > 800 && window.innerWidth < 1350 && radios2.checked && location.pathname == "/blogs") {
+          for (let i = 0; i < children.length; i++) {
+              children[i].style.height = "250px"
+              children[i].children[0].style.height = "180px"
+              children[i].children[0].style.marginTop = "30px"
+            }
+      }
+      if(window.innerWidth > 1350 && location.pathname == "/blogs") {
+          for (let i = 0; i < children.length; i++) {
+              children[i].style.height = "300px"
+              children[i].children[0].style.height = "92%"
+              children[i].children[0].style.marginTop = "10px"
+            }
+      }
     }
   }
 };

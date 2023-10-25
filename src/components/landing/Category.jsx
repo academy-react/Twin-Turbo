@@ -5,7 +5,7 @@ import TitleComponents from "./TitleComponents"
 const Category = () => {
 
   return (
-    <div className="w-full mb-10 flex flex-col justify-around items-center relative">
+    <div className="w-full flex flex-col justify-around items-center relative">
       <TitleComponents title="دسته بندی ها" content="گسترده وسیعی از موضوعات" src="courses-title.png" className="flex max-[450px]:mt-[-50px]"/>
       <div className="w-[80%] my-10 flex flex-wrap justify-center [&>div]:bg-white [&>div]:w-[300px] [&>div]:h-[190px] max-[1000px]:[&>div]:w-[218px] max-[1000px]:[&>div]:h-[150px] max-[1000px]:[&>div]:transtion max-[1000px]:[&>div]:duration-1000 [&>div]:m-5 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-around  [&>div]:rounded-[15px] [&>div]:shadow-[0px_0px_2px_#5757574f] text-[27px] max-[1000px]:text-[20px] max-[500px]:[&>div]:my-[-5px] max-[350px]:[&>div]:my-[-15px]">
       <LandingCatMap />

@@ -5,12 +5,12 @@ import CoursesMap from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 
 
-const Blogs = () => {
+const Courses = () => {
   let parent = useRef();
   
     useEffect(() => {
-      window.addEventListener("resize",()=> resizeCourse(parent))
-      return () => { window.removeEventListener("resize",()=> resizeCourse(parent)) }
+      window.onresize = () => {resizeCourse(parent)}
+      return () => { window.onresize = () => {return false}}
     }, [])
 
   return (
@@ -55,4 +55,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Courses;

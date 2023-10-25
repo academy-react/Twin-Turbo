@@ -1,16 +1,16 @@
 import TitleComponents from "./TitleComponents"
-import {Form,Formik,Field,ErrorMessage} from 'formik'
+import {Form,Formik,Field} from 'formik'
 import FieldInput from "../../components/common/FieldInput"
 const Recommands = () => {
   return (
-    <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px]'>
+    <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px] max-[480px]:mb-[-50px]'>
         <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex" />
 
 
         <Formik initialValues={{name:"",email:"",textarea:""}} onSubmit={(values)=> console.log(values)}>
-            <Form className="w-full relative h-[65%] mt-28">
+            <Form className="w-full relative h-[65%] mt-28 max-[1510px]:mt-5">
                 <img src="../src/assets/images/re-i.png" className="h-full relative max-[1630px]:left-[-45px] max-[1630px]:scale-[90%] transition-all duration-1000 max-[1510px]:left-[-94px] max-[1510px]:scale-[80%] max-[1510px]:h-[85%] max-[1510px]:top-20 max-[1170px]:hidden" />
-                <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1630px]:scale-[90%] max-[1510px]:scale-[80%] max-[1510px]:w-[550px] max-[1170px]:relative max-[1170px]:left-0 max-[1170px]:mx-auto max-[530px]:scale-[70%] max-[530px]:left-[-50px] max-[480px]:scale-[60%] max-[480px]:left-[-80px] max-[378px]:w-[480px]" id="recommandsForm">
+                <div className="w-[600px] shadow-[0_0_7px_#ddd] h-0 opacity-0 bg-white absolute right-24 top-0 rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1630px]:scale-[90%] max-[1510px]:scale-[80%] max-[1510px]:w-[550px] max-[1170px]:relative max-[1170px]:left-0 max-[1170px]:mx-auto max-[530px]:scale-[70%] max-[530px]:left-[-50px] max-[480px]:scale-[60%] max-[480px]:left-[-50px] max-[480px]:mt-[-120px] max-[400px]:scale-[60%] max-[400px]:left-[-70px] max-[410px]:translate-x-[-40px]" id="recommandsForm">
                     <FieldInput name="name" content="نام کامل" placeholder="name" border="border"/>
 
                     <FieldInput name="email" content="ایمیل" placeholder="enter your email address" border="border"/>

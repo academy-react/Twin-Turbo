@@ -8,8 +8,8 @@ const Blogs = () => {
   let parent = useRef();
   
     useEffect(() => {
-      window.addEventListener("resize",()=> resizeBlog(parent))
-      return () => { window.removeEventListener("resize",()=> resizeBlog(parent)) }
+      window.onresize = () => {resizeBlog(parent)}
+      return () => { window.onresize = () => {return false}}
     }, [])
 
   return (

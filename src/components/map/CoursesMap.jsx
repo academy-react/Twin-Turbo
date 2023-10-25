@@ -9,9 +9,9 @@ const CoursesMap = () => {
 
   return courses.map((element, index) => {
     return (
-        <div key={index} className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] cursor-pointer " ref={item} onClick={()=> navigate(`${location.pathname}/${index + 1}`)} >
-          <div className="w-full overflow-hidden my-[10px]">
-            <img src={"../src/assets/images/courses/" + element.src} className=" mx-auto h-full w-full rounded-[20px]"/>
+        <div key={index} className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer " ref={item} onClick={()=> navigate(`${location.pathname}/${index + 1}`)} >
+          <div className="w-full h-[170px] overflow-hidden my-[10px]">
+            <img src={"../src/assets/images/courses/" + element.src} className="mx-auto h-full w-full rounded-[20px]"/>
           </div>
 
           <div dir="rtl" className="w-full h-[210px] mx-auto relative">
@@ -26,7 +26,7 @@ const CoursesMap = () => {
             <div className="w-[50px] h-[70px]" style={{display:"none"}}></div>
 
 
-            <div className=" flex justify-between items-center absolute bottom-[20px] h-[100px]" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
+            <div className=" flex justify-between items-center absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
                 <div className="text-[20px]">{element.masterName}</div>
                 <img src="../src/assets/images/star.png" className="w-36" />
                 <span className="h-8 px-7 border border-[#58AD57] rounded-[50px] text-[#58AD57] flex justify-center items-center">{element.price} تومان</span>
