@@ -3,14 +3,18 @@ import { useLocation } from "react-router-dom";
 
 import blogs from "../../core/services/blogDB";
 import { Button } from "../common";
+import { useState } from "react";
 
+let setBlog;
 const BlogsMap = () => {
     let location = useLocation();
     let item = useRef();
     let content = useRef();
 
+    const [blogsItem, setBlogsItem] = useState(blogs)
+    setBlog = setBlogsItem
     return (
-        blogs.map((element, index) => {
+        blogsItem.map((element, index) => {
             return (
               <div
                 key={index}
@@ -40,7 +44,7 @@ const BlogsMap = () => {
                     <img
                       src="../src/assets/images/Educated.png"
                       alt=""
-                      className="w-[100px] h-[29px] max-[450px]:hidden"
+                      className="w-[100px] h-[29px] max-[450px]:hidden mb-[10px]"
                     />
                     <Button
                       content="ادامه مطلب"
@@ -54,5 +58,5 @@ const BlogsMap = () => {
         })
     )
 }
-
+export {setBlog}
 export default BlogsMap
