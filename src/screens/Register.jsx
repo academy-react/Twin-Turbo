@@ -17,7 +17,7 @@ const Register = () => {
           <img src="../src/assets/images/panel/path register.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[127%] max-[1256px]:hidden'/>
           <img src="../src/assets/images/panel/register logo.png" alt="" className='absolute left-0 top-[260px] w-[63%] transition-all duration-1000 max-[1485px]:top-[200px] max-[1256px]:hidden'/>
 
-            <Formik initialValues={{name: "" , email: "", password: "" , nationalCode: "" , phone: "" , birthdayDate: ""}} onSubmit={(values) => registerSubmit(values)}>
+            <Formik initialValues={{name: "" , email: "", password: "" , nationalCode: "" , phone: "" , birthdayDate: ""}} onSubmit={(values) => registerSubmit(values)} >
               {(form)=>(
                 <Form className="w-[520px] h-[700px] bg-white absolute right-[14%] top-[255px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col justify-around items-center py-4 regForm">
                     <img src="../src/assets/images/panel/user.png" alt="" className='w-[50px] h-[50px]'/>

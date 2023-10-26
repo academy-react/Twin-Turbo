@@ -1,8 +1,8 @@
 import { Formik , Form , Field } from "formik"
 import loginSubmit from "../core/validations/loginSubmit";
 import { LinkComponent , FieldInput , Header } from "../components/common";
-
 const login = () => {
+
 
   return (
     <div className='w-full h-[1200px] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
