@@ -1,27 +1,23 @@
-import {Header,Footer} from '../components/common'
+import {Header,Footer, Submit} from '../components/common'
 import {Form,Formik,Field,ErrorMessage} from 'formik'
 import FieldInput from "../components/common/FieldInput"
 import contactUsValidation from '../core/validations/contactUsValidation'
+import contactUsSubmit from '../core/validations/contactUsSubmit'
 
 const ContactUs = () => {
-
-    const log = (value)=> {
-        console.log(value);
-    }
-
     return (
         <div className='w-[1920px] mx-[auto] max-[1920px]:w-full'>
             <Header src="avatar.png" color="#5A0BA9" />
                 <div className='w-[80%] mx-auto flex items-center justify-around max-[1260px]:flex-wrap my-10'>
-                    <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> log(values)} validationSchema={contactUsValidation}>
+                    <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> contactUsSubmit(values)} validationSchema={contactUsValidation}>
                         <Form className="min-w-[600px] h-[750px] shadow-[0_0_7px_#ddd] bg-white rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1300px]:scale-[90%] max-[750px]:scale-[80%] max-[540px]:scale-[70%] max-[460px]:min-w-[540px] max-[410px]:scale-[60%] max-[350px]:scale-[50%] max-[540px]:mt-[-100px] max-[350px]:mt-[-150px]" id="recommandsForm">
                             <div className="text-[30px]">تماس با ما</div>
 
-                            <FieldInput name="name" content="نام و نام خانوادگی" placeholder="name" border="border"/>
+                            <FieldInput name="name" type="text" content="نام و نام خانوادگی" placeholder="name" border="border"/>
 
-                            <FieldInput name="email" content="ایمیل" placeholder="email" border="border"/>
+                            <FieldInput name="email" type="text" content="ایمیل" placeholder="email" border="border"/>
 
-                            <FieldInput name="phone" content="شماره موبایل" placeholder="phone call" border="border"/>
+                            <FieldInput name="phone" type="number" content="شماره موبایل" placeholder="phone call" border="border"/>
 
                             <div className="relative w-full flex justify-center">
 
@@ -29,12 +25,10 @@ const ContactUs = () => {
                                 <div className="text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
 
                             </div>
-                            <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] ' />
-
-
-                            <button type='submit' className='w-[85%] h-14 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300  max-[500px]:scale-90'>
-                                ارسال پیام
-                            </button>
+                            <div className="self-end mr-14 h-5">
+                                <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] ErrorMessage' />
+                            </div>
+                            <Submit content="ارسال پیام" className="w-[85%] h-14 max-[500px]:scale-90" />
                         </Form>
                     </Formik>
                     <ul className="min-w-[450px] h-[500px] flex flex-col justify-around items-end self-start transition-all duration-1000 max-[1300px]:scale-[90%] max-[640px]:scale-[80%] max-[640px]:mt-[-50px] max-[640px]:m-[-100px] max-[340px]:mt-[-150px] max-[400px]:scale-[70%] max-[400px]:mr-[-30px]">

@@ -10,12 +10,10 @@ const changeViewCourses = (parent) => {
     if(radios1.checked == true && flag == false) {
       parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
       flag = true
-      console.log(flag)
     }
     else if (radios2.checked == true && flag == true) {
       parent.current.children[i].lastChild.lastChild.style.flexDirection = "row"
       flag = false
-      console.log(flag)
     }
     if (radios1.checked) {
 

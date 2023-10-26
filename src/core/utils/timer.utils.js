@@ -17,7 +17,7 @@ function counter(secS,sSecS,minS,sMins,hrS,sHrs,dayS,sDayS,monS,sMonS) {
             sDayS(30)
             sMonS(monS - 1)
         }
-        if(monS == 0) clearInterval(countDown)
+        if(monS == 0) clearTimeout(countDown)
     }, 1000);
 }
 

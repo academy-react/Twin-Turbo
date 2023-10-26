@@ -71,11 +71,11 @@ body {
 #sircle2 {
     animation: orbit2 5s infinite alternate linear;
 }
+/* datepicker */
 .rmdp-wrapper {
     scale: 150%;
 }
 .rmdp-day-picker > div > div > div > .sd:hover   {
-    /* border: 1px solid red; */
     background-color: #922492;
     color: #fff;
 }
@@ -91,4 +91,23 @@ button.rmdp-arrow-container:hover {
 .rmdp-arrow {
     border-right: 1px solid #922492;
     border-bottom: 1px solid #922492;
+}
+/* delete default appreance for input number  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+@keyframes shake {
+    0% {transform: translate(0 , 0);}
+    25% {transform: translate(3px , 0);}
+    50% {transform: translate(-3px , 3px);}
+    75% {transform: translate(3px , -3px);}
+    100% {transform: translate(-2px , 2px);}
+}
+.ErrorMessage {
+    animation: shake 1s 1;
 }

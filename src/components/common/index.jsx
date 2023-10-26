@@ -9,5 +9,6 @@ import FieldInput from "./FieldInput";
 import LinkComponent from "./LinkComponent";
 import Linkes from "./Linkes";
 import Menu from "./header/Menu";
+import Submit from "./Submit";
 
-export {Header,Footer,Button,RightPanel,SelectOption,Sorts,View,FieldInput,LinkComponent,Menu,Linkes}
+export {Header,Footer,Button,RightPanel,SelectOption,Sorts,View,FieldInput,LinkComponent,Menu,Linkes,Submit}
