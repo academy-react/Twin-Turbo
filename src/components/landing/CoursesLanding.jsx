@@ -26,7 +26,7 @@ const Courses = () => {
 
         <div className="w-[65%] min-w-[373px] max-[1023px]:w-[90%] max-[550px]:w-[110%] h-[750px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc] max-[800px]:scale-[90%] max-[620px]:scale-y-[75%] max-[620px]:my-[-50px]  max-[410px]:scale-y-[60%]" data-id="1" ref={landingCourse}>
 
-          <img src="../src/assets/images/courses/01.png" alt="" className="w-full max-[1279]:h-[350px] h-[400px] max-[1200px]:h-[300px] rounded-3xl" ref={bigPic}/>
+          <img src="../src/assets/images/courses/01.png" alt="" className="w-full max-[1279px]:h-[350px] h-[400px] max-[1200px]:h-[300px] rounded-3xl" ref={bigPic}/>
           <div className=" text-[26px] absolute right-7 top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[22px] max-[650px]:text-[18px]" ref={title}>دوره کامل : جی اس</div>
           <div className=" text-[22px] absolute left-[50px] top-[65%] max-[1200px]:top-[55%] max-[770px]:text-[18px] max-[650px]:text-[15px]" ref={master}> استاد بحرالعلوم</div>
           <div className="text-[#7f7f7f] absolute right-7 pl-4 top-[78%] text-[20px] max-[1200px]:top-[65%] max-[700px]:text-[16px]" dir="rtl" ref={content}>نود جی‌اس یا نود دات جی‌اس (به انگلیسی: Node.js) یک محیط اجراییِ سمت سرورِ متن‌ باز و چندسکویی برای زبان جاوااسکریپت است.</div>
