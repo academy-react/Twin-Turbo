@@ -1,6 +1,7 @@
 import {Header,Footer} from '../components/common'
 import {Form,Formik,Field,ErrorMessage} from 'formik'
 import FieldInput from "../components/common/FieldInput"
+import contactUsValidation from '../core/validations/contactUsValidation'
 
 const ContactUs = () => {
 
@@ -12,7 +13,7 @@ const ContactUs = () => {
         <div className='w-[1920px] mx-[auto] max-[1920px]:w-full'>
             <Header src="avatar.png" color="#5A0BA9" />
                 <div className='w-[80%] mx-auto flex items-center justify-around max-[1260px]:flex-wrap my-10'>
-                    <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> log(values)}>
+                    <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> log(values)} validationSchema={contactUsValidation}>
                         <Form className="min-w-[600px] h-[750px] shadow-[0_0_7px_#ddd] bg-white rounded-3xl flex flex-col items-center justify-evenly transition-all duration-1000 max-[1300px]:scale-[90%] max-[750px]:scale-[80%] max-[540px]:scale-[70%] max-[460px]:min-w-[540px] max-[410px]:scale-[60%] max-[350px]:scale-[50%] max-[540px]:mt-[-100px] max-[350px]:mt-[-150px]" id="recommandsForm">
                             <div className="text-[30px]">تماس با ما</div>
 
@@ -28,6 +29,8 @@ const ContactUs = () => {
                                 <div className="text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
 
                             </div>
+                            <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] ' />
+
 
                             <button type='submit' className='w-[85%] h-14 flex justify-center items-center bg-[#36C54E] text-white rounded-2xl text-[22px] hover:bg-[#38b24c] transition-all duration-300  max-[500px]:scale-90'>
                                 ارسال پیام
