@@ -1,40 +1,60 @@
 import FooterSvg from "../landing/footerSvg";
-
+import FooterList from '../common/FooterList'
+import { useRef } from "react";
 const Footer = () => {
+  let btn = useRef()
+  let input = useRef()
+  const changer = ()=> {
+      if(input.current.value.length !== 0) btn.current.style.background = "#36c54e";
+      else btn.current.style.background = "#e0e0e2";
+  }
+
   return (
     <>
       <footer>
-        <div className="w-[1920px] overflow-hidden my-0 mx-auto max-[1919px]:w-full max-[1300px]:border-t-2 max-[1300px]:border-t-[#ccc]">
+        <div className="w-[1920px] overflow-hidden my-0 mx-auto max-[1919px]:w-full max-[1279px]:border-t-2 max-[1279px]:border-t-[#ccc]">
           <FooterSvg />
-          <div className=" max-[1300px]:flex-col-reverse max-[1300px]:[&>div]:w-full flex justify-around items-center  flex-wrap -mt-16 [&>div]:w-4/12 ">
-            <div className="flex justify-evenly items-center [&>img]:w-[200px] [&>img]:h-[180px] [&>img]:object-cover ">
-                <img src="../src/assets/images/footer/enamad.png" />   
-                <div className="flex flex-col justify-center items-center pb-6 text-[#67008f] text-[22px] h-[150px] min-[1300px]:hidden max-[770px]:hidden">
-                  <img src="../src/assets/images/footer/logoes.png" className="h-12 mb-[5px] cursor-pointer"/>
-                  <div>ما را در شبکه های اجتماعی دنبال کنید</div>                
-                </div>       
-                <img src="../src/assets/images/footer/samandehi.png" className="h-12 mb-[5px] cursor-pointer"/>
+          <div className="h-[200px] w-[95%] max-[470px]:[&>div]:scale-[50%] max-[1100px]:[&>div]:scale-[70%] max-[700px]:[&>div>p]:hidden mx-auto mt-[-75px] max-[1700px]:mt-[-50px] max-[1400px]:mt-[-25px] max-[1279px]:[&>div]:mt-[25px] flex [&>div]:w-[25%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div>img]:h-[90px] [&>div>p]:text-[#3f4064] [&>div>p]:text-[20px] [&>div>p]:my-[15px] max-[600px]:[&>div]:scale-[60%]">
+              <div className="mt-[-105px]">
+                <img src="../src/assets/images/footer/teach.png" alt="" />
+                <p>تدریس عالی</p>
+              </div>
+              <div className="mt-[-55px]">
+                <img src="../src/assets/images/footer/playtime.png" alt="" />
+                <p>زمان ویدیو</p>
+              </div>
+              <div>
+                <img src="../src/assets/images/footer/internet.png" alt="" />
+                <p>کلاس انلاین</p>
+              </div>
+              <div className="mt-[-40px]">
+                <img src="../src/assets/images/footer/headphone.png" alt="" />
+                <p>پشتیبانی انلاین</p>
+              </div>
+              <div className="mt-[-105px]">
+                <img src="../src/assets/images/footer/cloud.png" alt="" />
+                <p>امنیت داده ها</p>
+              </div>
+          </div>
+          <div className=" [&>div]:h-full flex">
+            <div dir="rtl" className="w-[40%] flex flex-col justify-center max-[1300px]:scale-[85%] max-[820px]:hidden max-[1000px]:mt-[60px] max-[1000px]:scale-[70%]">
+              <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px]"> با ما همراه باشید !!!</p>
+              <div className="h-[70px] w-[80%] flex justify-around items-center [&>img]:scale-[150%] ">
+                <img src="../src/assets/images/footer/twitter.png" alt="" />
+                <img src="../src/assets/images/footer/insta.png" alt="" />
+                <img src="../src/assets/images/footer/linkedin.png" alt="" />
+                <img src="../src/assets/images/footer/aparat.png" alt="" />
+              </div>
+              <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1280px]:text-[22px] max-[1150px]:text-[18px]">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</p>
+              <div className="h-[90px] flex items-center justify-around w-[90%] max-[1000px]:hidden">
+                  <input  type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
+                  <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
+              </div>
             </div>
-
-            <div className="flex flex-col justify-center items-center pb-6 text-[#67008f] text-[22px] max-[1300px]:hidden max-[770px]:flex">
-                <img src="../src/assets/images/footer/logoes.png" className="h-12 mb-[5px] cursor-pointer"/>
-                <div>ما را در شبکه های اجتماعی دنبال کنید</div>
-            </div>
-
-            <div className="flex max-[1300px]:justify-around justify-around items-start [&>ul>li]:my-1 text-[20px] " dir="rtl">
-              <ul className="[&>li]:cursor-pointer max-[1300px]:pt-[180px]">
-                <li>بلاگ</li>
-                <li>درباره ما</li>
-                <li>تماس با ما</li>
-                <li>همکاری با ما</li>
-                <li>سوالات متداول</li>
-              </ul>
-              <ul className="max-[1300px]:pt-[180px]">
-                <li>شماره تماس : </li>
-                <li dir="ltr">+989909123183</li>
-                <li dir="ltr">+989027912478</li>
-              </ul>
-              <img src="../src/assets/images/landingService/Group 159.png" alt="" className="max-[770px]:hidden hidden max-[1300px]:block scale-[80%] relative top-[50px] "/>
+            <div className="w-[60%] flex max-[820px]:w-full max-[520px]:flex-col-reverse max-[520px]:[&>ul]:w-full max-[520px]:[&>ul]:scale-[90%] max-[520px]:[&>ul]:flex max-[520px]:[&>ul]:flex-col max-[520px]:[&>ul]:items-center max-[520px]:[&>*]:border-[red]">
+                <FooterList title="برنامه نویسی" hidden1="hidden" hidedn2="hidden" content1="اندروید"  content2="پی اچ پی (PHP)"  content3="پایتون (Python)"  content4="جاوا (Java)" content5="مهندسی کامپیوتر" />
+                <FooterList title="کار با داده" hidden1="hidden" content1="وردپرس"  content2="انگولار"  content3="آموزش‌های متلب"  content4="داده‌کاوی و یادگیری ماشین "  content5="طراحی و گرافیک" />
+                <FooterList title="سیستم های اطلاعات" content1="بهینه‌سازی هوشمند"  content2="الگوریتم‌های تکاملی"  content3="شبکه‌های عصبی"  content4="هوش مصنوعی"  content5="نگارش آکادمیک" />
             </div>
           </div>
         </div>

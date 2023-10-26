@@ -1,7 +1,7 @@
 const FooterSvg = () => {
   return (
     <svg
-      className="w-[110%] relative -z-10 -left-[3%] max-[1280px]:hidden"
+      className="w-[110%] relative -z-10 -left-[3%] max-[1279px]:hidden"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 2175.721 256.959"
