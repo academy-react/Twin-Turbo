@@ -7,12 +7,15 @@ import { useState } from "react";
 
 let setBlog;
 const BlogsMap = () => {
+
     let location = useLocation();
     let item = useRef();
     let content = useRef();
 
-    const [blogsItem, setBlogsItem] = useState(blogs)
+    const [blogsItem, setBlogsItem] = useState(blogs.slice(0,4))
+
     setBlog = setBlogsItem
+    
     return (
         blogsItem.map((element, index) => {
             return (

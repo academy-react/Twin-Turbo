@@ -1,9 +1,10 @@
-import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
+import {Header,Footer,SelectOption,Sorts,View,Paginate} from '../components/common'
 import changeView from "../core/utils/changeViewBlog.utils";
 import { useEffect, useRef } from "react";
 import BlogsMap from '../components/map/BlogsMap'
 import resizeBlog from '../core/utils/resizeBlog.utils'
 import filterBlogs from '../core/utils/filterBlogs.utils'
+
 
 const Blogs = () => {
   let parent = useRef();
@@ -39,10 +40,13 @@ const Blogs = () => {
           </div>
         </div>
         <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>
-          <BlogsMap />
+          <BlogsMap  />
+
         </div>
-        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center">
-          <div className="w-[30%] h-full shadow-[0_0_7px_#ddd] rounded-[25px]"></div>
+        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center ">
+          <div className="h-full shadow-[0_0_7px_#ddd] rounded-[25px] flex justify-center items-center px-[10px]">
+              <Paginate itemsPerPage={4} />
+          </div>
         </div>
       </div>
 

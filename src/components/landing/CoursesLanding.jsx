@@ -23,9 +23,10 @@ const Courses = () => {
 
         </div>
 
-        <div className="w-[70%] mx-auto h-[800px] [&>div]:mx-[30px] [&>div]:my-[15px] flex min-[1601]:justify-between mt-[20px] max-[1600px]:h-[1200px] max-[1600px]:flex-col-reverse max-[1600px]:items-center justify-center">
+        <div className="w-[70%] mx-auto h-[800px] [&>div]:mx-[30px] [&>div]:my-[15px] flex min-[1601px]:justify-between mt-[20px] max-[1600px]:h-[1200px] max-[1600px]:flex-col-reverse max-[1600px]:items-center justify-center">
 
             <div className="w-[30%] min-w-[373px] max-[1023px]:w-[90%] max-[800px]:scale-[90%] max-[620px]:scale-y-[75%] rounded-[20px] shadow-[0_0_7px_#ccc] bg-white max-[1600px]:mt-[20px]  h-[750px] flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[190px] max-[1600px]:h-[200px] max-[1600px]:[&>img]:h-[70px] max-[1600px]:[&>img]:w-[70px] max-[1600px]:w-[65%] max-[1600px]:flex-row max-[1600px]:[&>img]:w-[30%]">
+                
                 <img src={"../src/assets/images/courses/" + courseDB[0].src} alt="" className="rounded-[20px]" data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                 <img src={"../src/assets/images/courses/" + courseDB[1].src} alt="" className="rounded-[20px]" data-id="2" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                 <img src={"../src/assets/images/courses/" + courseDB[2].src} alt="" className="rounded-[20px]" data-id="3" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/> 
