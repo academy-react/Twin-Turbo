@@ -2,9 +2,6 @@ import courseDB from '../services/courseDB'
 import { addToCourse } from '../../components/map/CoursesMap'
 const sortCourse = (e) => {
 
-    // let name = e.target.getAttribute("for")
-    
-    
     radio1.onclick = ()=> {
         setTimeout(() => {addToCourse([])}, 1);
         setTimeout(() => {addToCourse(courseDB.sort((a,b)=> a.price - b.price))}, 2);

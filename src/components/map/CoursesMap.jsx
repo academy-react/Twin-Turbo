@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import courseDB from "../../core/services/courseDB";
 import { useRef , useState } from "react";
-import { useEffect } from "react";
+
 let addToCourse;
 const CoursesMap = () => {
 
@@ -9,11 +9,8 @@ const CoursesMap = () => {
     let item = useRef();
     let navigate = useNavigate()
 
-    const [course, setCourse] = useState(courseDB)
+    const [course, setCourse] = useState(courseDB.slice(0,4))
     addToCourse = setCourse
-
-    
-  
 
     return (
 

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import BlogsMap from '../components/map/BlogsMap'
 import resizeBlog from '../core/utils/resizeBlog.utils'
 import filterBlogs from '../core/utils/filterBlogs.utils'
-
+import blogs from "../core/services/blogDB";
 
 const Blogs = () => {
   let parent = useRef();
@@ -35,17 +35,16 @@ const Blogs = () => {
           </div>
 
           <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-              <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
-              <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
+            <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
+            <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
           </div>
         </div>
         <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>
           <BlogsMap  />
-
         </div>
-        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center ">
-          <div className="h-full shadow-[0_0_7px_#ddd] rounded-[25px] flex justify-center items-center px-[10px]">
-              <Paginate itemsPerPage={4} />
+        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
+          <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white">
+              <Paginate itemsPerPage={4} db={blogs} blog={true} />
           </div>
         </div>
       </div>

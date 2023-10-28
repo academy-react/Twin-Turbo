@@ -1,9 +1,10 @@
-import {Header,Footer,SelectOption,Sorts,View} from '../components/common'
+import { Header,Footer,SelectOption,Sorts,View, Paginate } from '../components/common'
 import changeViewCourses from "../core/utils/changeViewCourse.utils";
 import { useEffect, useRef } from "react"
 import CoursesMap from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 import sortCourse from '../core/utils/sortCourse.utils'
+import courses from '../core/services/courseDB'
 
 
 const Courses = () => {
@@ -36,8 +37,8 @@ const Courses = () => {
           </div>
 
           <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-              <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeViewCourses(parent)}/>
-              <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeViewCourses(parent)}/>
+            <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeViewCourses(parent)}/>
+            <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeViewCourses(parent)}/>
           </div>
         </div>
         <div
@@ -47,8 +48,10 @@ const Courses = () => {
         >
           <CoursesMap />
         </div>
-        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center">
-          <div className="w-[30%] h-full shadow-[0_0_7px_#ddd] rounded-[25px]"></div>
+        <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
+          <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white">
+            <Paginate itemsPerPage={4} db={courses} course={true} />
+          </div>
         </div>
       </div>
 
