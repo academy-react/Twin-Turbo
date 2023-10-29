@@ -11,20 +11,19 @@ const Panel = () => {
   return (
     <>
 
-        <div className="w-[1920px] mx-auto my-0 overflow-hidden max-[1919px]:w-full relative">
+        <div className="w-[1920px] mx-auto my-0 max-[1919px]:w-full relative">
 
             <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
             <div className={location.pathname !== "/panel/editprofile" ? "h-[900px] " + panelLayout : "h-[1100px] " + panelLayout }>
 
                 <Outlet/>
 
-                    <div className="bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[24%] [&>div:first-child]:h-[150px] [&>div:first-child]:flex [&>div:first-child]:flex-col [&>div:first-child]:items-center [&>div:first-child]:justify-center relative">
-                        <div>
+                <div className="bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] relative">
 
-                            <div className='text-[25px] mr-[40px]' id='usename'>Hamid & Mmd</div>
-                            <img src="../src/assets/images/khoros.jpg" alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%] absolute right-[35px] top-[35px]' />
-
-                        </div>
+                    <div className="h-[150px] flex justify-center items-center px-3 ">
+                        <div className='text-[25px] truncate w-60' id='usename'>{account.username}</div>
+                        <img src={account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
+                    </div>
 
                     <div dir='rtl' className='h-[380px] [&>a]:h-[20%] [&>a]:flex [&>a]:items-center [&>a]:pr-[15px] ' >
                         

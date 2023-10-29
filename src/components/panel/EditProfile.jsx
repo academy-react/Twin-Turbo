@@ -45,9 +45,9 @@ const EditProfile = () => {
     }
 
     return (
-        <div className="w-[73%]  border border-[green] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
+        <div className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
-            <div className="h-[30%] border-[red] border justify-center items-center">
+            <div className="h-[30%] justify-center items-center">
                 <div className="w-[50%] mx-auto h-full flex flex-col justify-center items-center">
                     <img src={account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
                     <input type="file" className='hidden' onChange={(e)=> changePic(e)} id='fileInput' />
@@ -56,8 +56,7 @@ const EditProfile = () => {
             </div>
             <Formik initialValues={{name:"",birthDayDate:"",phone:"",email:"",nationalCode:"",role:""}} onSubmit={(values)=> submit(values)} validationSchema={editProfileValidation}>
                 {(form)=> (
-                    <Form dir='rtl' className=" max-[1550px]:items-center max-[1550px]:[&>div>div]:h-[150px] max-[1550px]:[&>div>div]:border max-[1550px]:[&>div>div]:border-[red] max-[1550px]:[&>div>div]:my-[5px] max-[1550px]:flex-col-reverse w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px]">
-                    {/* <Form dir='rtl' className="h-[605px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[600px] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] "> */}
+                    <Form dir='rtl' className="h-[605px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[600px] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
                             
                             <EditProfileItem content="نام کاربری" name="name" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
