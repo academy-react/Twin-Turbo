@@ -17,7 +17,7 @@ const Courses = () => {
   return (
     <div className="w-full relative max-[1023px]:mb-44 max-[800px]:mb-80 max-[400px]:mb-60 max-[1600px]:flex-col">
         
-        <div className="h-[250px]">
+        <div className="h-[250px] flex justify-center">
 
           <TitleComponents title="دوره ها" content="اخرین دوره های موجود" src="courses-title.png" className="flex mb-[45px]" />
 
