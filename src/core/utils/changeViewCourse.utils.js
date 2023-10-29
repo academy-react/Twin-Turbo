@@ -7,11 +7,11 @@ const changeViewCourses = (parent) => {
 
   let children = parent.current.children;
   for (let i = 0; i < children.length; i++) {
-    if(radios1.checked == true && flag == false) {
+    if(radios1.checked == true && !flag) {
       parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
       flag = true
     }
-    else if (radios2.checked == true && flag == true) {
+    else if (radios2.checked == true && !flag) {
       parent.current.children[i].lastChild.lastChild.style.flexDirection = "row"
       flag = false
     }
@@ -33,16 +33,19 @@ const changeViewCourses = (parent) => {
     if (!radios1.checked && window.innerWidth > 1350) {
       children[i].children[0].style.height = "92%"
       children[i].style.height = "300px"
-      parent.current.children[i].lastChild.lastChild.style.alignItems = "center"
+      parent.current.children[i].lastChild.lastChild.style.alignItems = "flex-start"
       parent.current.children[i].lastChild.lastChild.style.width = "500px"
       parent.current.children[i].lastChild.lastChild.style.bottom = "20px"
       parent.current.children[i].lastChild.lastChild.style.right = "0px"
       children[i].className = view2;
-
+      
     }
-    else if(window.innerWidth > 800 && window.innerWidth < 1350 && radios1.checked == false) {
+    else if(window.innerWidth > 800 && window.innerWidth < 1350 && !radios1.checked) {
       
       parent.current.children[i].lastChild.lastChild.style.width = "500px"
+      parent.current.children[i].lastChild.lastChild.style.right = "0px"
+      parent.current.children[i].lastChild.lastChild.style.bottom = "20px"
+      parent.current.children[i].lastChild.lastChild.style.alignItems = "flex-start"
       parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
       flag = true
 
@@ -51,7 +54,7 @@ const changeViewCourses = (parent) => {
       children[i].children[0].style.height = "180px"
       children[i].children[0].style.marginTop = "30px"
     }
-    else if(window.innerWidth > 0 && window.innerWidth < 1350 && radios1.checked == false) {
+    else if(window.innerWidth > 0 && window.innerWidth < 1350 && !radios1.checked) {
       parent.current.children[i].lastChild.lastChild.style.width = "200px"
       parent.current.children[i].lastChild.lastChild.style.bottom = "25px"
       parent.current.children[i].lastChild.lastChild.style.alignItems = "center"

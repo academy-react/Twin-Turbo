@@ -1,9 +1,8 @@
-import { useRef } from "react";
+import { useRef , useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import blogs from "../../core/services/blogDB";
 import { Button } from "../common";
-import { useState } from "react";
 
 let setBlog;
 const BlogsMap = () => {
