@@ -24,7 +24,7 @@ const SelectedCourses = () => {
       <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
         <Header src="avatar.png" color="#5A0BA9" />
         <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5 mt-20 [&>div]:transition-all [&>div]:duration-100">
-          <div dir="ltr" className="w-[580px] max-[1780px]:w-[500px] max-[1355px]:w-[400px] h-full flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5 max-[1150px]:order-2" >
+          <div dir="ltr" className="w-[580px] max-[1780px]:w-[500px] max-[1355px]:w-[400px] h-full flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5 max-[1150px]:order-2 max-[1150px]:w-[60%] max-[1150px]:mb-10 max-[715px]:w-[80%] max-[600px]:w-full max-[600px]:rounded-none" >
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5] max-[1360px]:[&>div:not(&>div:first-child)]:text-[18px]">
               <div className="text-[28px] self-end p-3">مشخصات دوره</div>
               <CourseDetail
@@ -68,7 +68,7 @@ const SelectedCourses = () => {
                 noLogo="hidden"
               />
             </div>
-            <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5] max-[1360px]:[&>div:not(&>div:first-child)]:text-[17px]">
+            <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5] max-[1360px]:[&>div:not(&>div:first-child)]:text-[17px] [&>div:nth-child(4)>div:first-child]:truncate">
               <div className="text-[28px] flex justify-between items-center p-3">
                 <img
                   src="../src/assets/images/selectedCourse/teacher.png"
@@ -94,6 +94,7 @@ const SelectedCourses = () => {
                 content={courses[url.id-1].gmail}
                 title="آدرس ایمیل"
                 noLogo="hidden"
+                dir={"rtl"}
               />
               <CourseDetail
                 content={courses[url.id-1].insta}
