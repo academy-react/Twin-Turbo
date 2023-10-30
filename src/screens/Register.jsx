@@ -42,6 +42,7 @@ const Register = () => {
                           form.values.birthdayDate = datePicker.current.children[0].value
                         }, 10);
                       }}
+                      arrow={false}
                       placeholder="تاریخ تولد"
                       minDate="1330/1/1"
                       maxDate={new Date}

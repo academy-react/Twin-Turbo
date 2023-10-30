@@ -28,7 +28,7 @@ const Courses = () => {
         <div className="w-[90%] h-[100px] flex items-center max-[801px]:justify-center min-[801px]:justify-between">
           <SelectOption />
 
-          <div className="w-[40%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1700px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
+          <div className="w-[40%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1700px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
             <Sorts func={sortCourse} id="radio5" sort="all" htmlFor="radio5" text="همه" defaultChecked={true}/>
             <Sorts func={sortCourse} id="radio4" sort="fullStorage" htmlFor="radio4" text="ظرفیت" defaultChecked={false}/>
             <Sorts func={sortCourse} id="radio3" sort="discount" htmlFor="radio3" text="ارزان ترین" defaultChecked={false}/>
@@ -36,7 +36,7 @@ const Courses = () => {
             <Sorts func={sortCourse} id="radio1" sort="price" htmlFor="radio1" text="پرفروش ترین" defaultChecked={false}/>
           </div>
 
-          <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
+          <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
             <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeViewCourses(parent)}/>
             <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeViewCourses(parent)}/>
           </div>
