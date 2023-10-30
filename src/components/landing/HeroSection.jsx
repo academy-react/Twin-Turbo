@@ -11,27 +11,30 @@ const HeroSection = () => {
   const parent = useRef()
 
   let interval = setInterval(() => {
-    let randomNum = Math.floor(Math.random()*window.innerWidth)
-    let randomWidth = Math.floor(Math.random()*120+25)
-    
-
-    setTimeout(() => {
+    if(window.innerWidth > 700){
+      let randomNum = Math.floor(Math.random()*window.innerWidth)
+      let randomWidth = Math.floor(Math.random()*120+25)
       
-      let image = document.createElement("img")
-      image.src = "../src/assets/images/bulb.png"
-      image.className = "absolute bottom-[5px] shakebulb opacity-0"
-      image.style.transition = "1s"
-      image.style.right = randomNum + "px"
-      image.style.width = randomWidth + "px"
-      parent.current.appendChild(image)
-      setTimeout(() => {image.style.opacity = "1"}, 500);
-
+  
       setTimeout(() => {
-        image.style.opacity = "0"
-        setTimeout(() => image.remove(), 1000);
-      }, 5000);
-
-    }, 10);
+        
+        let image = document.createElement("img")
+        image.src = "../src/assets/images/bulb.png"
+        image.className = "absolute bottom-[5px] shakebulb opacity-0"
+        image.style.transition = "1s"
+        image.style.right = randomNum + "px"
+        image.style.width = randomWidth + "px"
+        parent.current.appendChild(image)
+        setTimeout(() => {image.style.opacity = "1"}, 500);
+  
+        setTimeout(() => {
+          image.style.opacity = "0"
+          setTimeout(() => image.remove(), 1000);
+        }, 5000);
+  
+      }, 10);
+  
+    }
     
   }, 1000);
   
