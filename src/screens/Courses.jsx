@@ -50,7 +50,7 @@ const Courses = () => {
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
           <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white">
-            <Paginate itemsPerPage={4} db={courses} course={true} />
+            <Paginate itemsPerPage={4} db={courses}  />
           </div>
         </div>
       </div>

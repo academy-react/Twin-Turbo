@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { addToCourse } from '../map/CoursesMap'
 import {setBlog} from '../map/BlogsMap'
+import { useLocation } from 'react-router-dom';
 
-const Paginate = ({ itemsPerPage , db , blog , course})=>  {
+const Paginate = ({ itemsPerPage , db })=>  {
+  let location = useLocation()
+
 
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -11,9 +14,12 @@ const Paginate = ({ itemsPerPage , db , blog , course})=>  {
 
   const dbSliced = db.slice(itemOffset, num);
   const pageCount = Math.ceil(db.length / itemsPerPage);
+
+  if(location.pathname == "/blogs") setBlog(dbSliced)
+  else if(location.pathname == "/courses") addToCourse(dbSliced)
+  // else if(location.pathname == "//panel/ListOfCourse") 
   
-  if(blog) setBlog(dbSliced)
-  else if(course) addToCourse(dbSliced)
+
 
   const handlePageClick = (e) => {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
@@ -24,8 +30,8 @@ const Paginate = ({ itemsPerPage , db , blog , course})=>  {
     <>
       <ReactPaginate
         className='my-3 flex justify-around items-center [&>*]:p-[15px] [&>*]:rounded-[50px] [&>*]:w-[50px] [&>*]:h-[50px] [&>*>a]:px-[20px] [&>*>a]:py-[15px] [&>*>a]:rounded-3xl [&>*]:flex [&>*]:justify-center [&>*]:items-center'
-        activeClassName='bg-[#a361a1] text-[#fff]'
-        pageClassName='hover:bg-[#a361a1] hover:text-[#fff]'
+        activeClassName='bg-[#a361a1] text-[#fff] hover:bg-[#a361a2]'
+        pageClassName='hover:bg-[#999] hover:text-[#fff]'
         nextClassName='hover:bg-[#a361a1] hover:text-[#fff]'
         previousClassName='hover:bg-[#a361a1] hover:text-[#fff]'
         breakLabel="..."
