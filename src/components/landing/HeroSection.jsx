@@ -7,11 +7,32 @@ const HeroSection = () => {
   let navigate = useNavigate();
   let btn = useRef()
   let parentText = useRef()
+  const parent = useRef()
+  const bulbCreate = () => {
+    setInterval(() => {
+      let randomNum = Math.floor(Math.random()*window.innerWidth)
 
+      setTimeout(() => {
+        
+        let image = document.createElement("img")
+        image.src = "../src/assets/images/bulb.png"
+        image.className = "absolute bottom-5 shakebulb"
+        image.style.right = randomNum + "px"
+        parent.current.appendChild(image)
 
+        setTimeout(() => {
+          image.remove()
+        }, 5000);
+
+      }, 10);
+      
+    }, 1000);
+
+  }
+  bulbCreate()
   
   return (
-    <div className=" w-full h-[900px] relative max-[1650px]:h-[800px] max-[1500px]:h-[700px] max-[1270px]:h-[650px]">
+    <div className="w-full h-[900px] relative max-[1650px]:h-[800px] max-[1500px]:h-[700px] max-[1270px]:h-[650px]" ref={parent}>
       <img src="../src/assets/images/bg-top.png" alt="" className="max-[1020px]:hidden w-full h-full absolute left-0 -top-[2px] scale-x-[107%] scale-y-[117%] -z-10 max-[1140px]:scale-x-[115%] max-[1122px]:scale-x-[120%]"/>
       <img src="../src/assets/images/woman.png" alt="" className=" absolute scale-[72%] left-[-10px] top-[80px] -z-10 max-[1500px]:scale-[60%] max-[1500px]:left-[-100px] max-[1020px]:hidden max-[1350px]:scale-[50%] max-[1350px]:left-[-200px]"/>
       <img src="../src/assets/images/bg-top.png" alt="" className="scale-[130%] object-cover absolute top-0 left-0 w-full h-[90%] max-[1020px]:block hidden -z-[15]"/>

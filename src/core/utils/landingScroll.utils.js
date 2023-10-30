@@ -12,8 +12,8 @@ const landingScrollLogic = () => {
       if (pageYOffset > 710) planet1.style.left = "-40px";
       if (pageYOffset > 1100) planet2.style.right = "40px";
       if (pageYOffset > 1700) coursesHolder2.style.right = "12%";
-      if (pageYOffset > 2000) coursesHolder1.style.left = "9.4%";
-      if (pageYOffset > 2000) coursesHolder3.style.left = "12.7%";
+      if (pageYOffset > 2000) coursesHolder1.style.left = "12%";
+      if (pageYOffset > 2000) coursesHolder3.style.left = "15.3%";
       if (pageYOffset > 3000) {
         holderMasters.style.width = "100%";
         holderMasters.style.opacity = "1";

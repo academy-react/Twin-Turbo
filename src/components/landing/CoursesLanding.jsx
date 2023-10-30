@@ -19,7 +19,7 @@ const Courses = () => {
         
         <div className="h-[250px] flex justify-center">
 
-          <TitleComponents title="دوره ها" content="اخرین دوره های موجود" src="courses-title.png" className="flex" />
+          <TitleComponents title="دوره ها" content="اخرین دوره های موجود" src="courses-title.png" className="flex mb-[45px]" />
 
         </div>
 

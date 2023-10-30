@@ -39,7 +39,6 @@ body {
     90%{right:427px;top: 195px;} 
     100%{right:390px;top: 175px;} 
 }
-
 @keyframes orbit2 {
     0%{left:45px;top: 105px;}
     4.5%{left:15px;top: 110px;}
@@ -64,6 +63,55 @@ body {
     90%{left:408px;top: 235px;}
     95%{left:430px;top: 225px;}
     100%{left:395px;top: 185px;}
+}
+@keyframes shakebulb {
+    0% {
+        bottom: 0px;
+ 
+ transform : translateX(20px)   }
+    10% {
+        bottom: 100px;
+        transform : translateX(20px)
+    }
+    20% {
+        bottom: 200px;
+        transform : translateX(-20px)
+    }
+    30% {
+        bottom: 300px;
+        transform : translateX(20px)
+    }
+    40% {
+        bottom: 400px;
+        transform : translateX(-20px)
+    }
+    50% {
+        bottom: 500px;
+        transform : translateX(20px)
+    }
+    60% {
+        bottom: 600px;
+        transform : translateX(-20px)
+    }
+    70% {
+        bottom: 700px;
+        transform : translateX(20px)
+    }
+    80% {
+        bottom: 800px;
+        transform : translateX(-20px)
+    }
+    90% {
+        bottom: 900px;
+        transform : translateX(20px)
+    }
+    100% {
+        bottom: 1000px;
+        transform : translateX(-20px)
+    }
+}
+.shakebulb {
+    animation: shakebulb 10s forwards steps(100000);
 }
 #sircle1 {
     animation: orbit1 5s infinite alternate linear ;
