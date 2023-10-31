@@ -1,5 +1,5 @@
 import { Formik , Form } from "formik"
-import forgetSubmit from "../core/validations/forgetSubmit";
+import forgetSubmit from "../core/validations/submit/forgetSubmit";
 import { LinkComponent , FieldInput , Header, Submit } from '../components/common';
 import forgetPasswordValidation from "../core/validations/forgetPasswordValidation";
 

@@ -1,6 +1,6 @@
 import { Formik, Form ,Field, ErrorMessage } from 'formik'
 import CommentMap from '../map/CommentMap'
-import commentSubmit from '../../core/validations/commentSubmit'
+import commentSubmit from '../../core/validations/submit/commentSubmit'
 import * as yup from 'yup'
 
 const CommentBlog = ({db}) => {

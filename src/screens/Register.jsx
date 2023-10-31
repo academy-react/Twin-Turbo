@@ -3,7 +3,7 @@ import DatePicker from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 import { Header , FieldInput , LinkComponent , Submit} from "../components/common/index"
-import registerSubmit from "../core/validations/registerSubmit"
+import registerSubmit from "../core/validations/submit/registerSubmit"
 import { useRef } from "react"
 import Validation from "../core/validations/registerValidation"
 

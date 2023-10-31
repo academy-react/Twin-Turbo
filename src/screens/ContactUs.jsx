@@ -2,7 +2,7 @@ import {Header,Footer, Submit} from '../components/common'
 import {Form,Formik,Field,ErrorMessage} from 'formik'
 import FieldInput from "../components/common/FieldInput"
 import contactUsValidation from '../core/validations/contactUsValidation'
-import contactUsSubmit from '../core/validations/contactUsSubmit'
+import contactUsSubmit from '../core/validations/submit/contactUsSubmit'
 
 const ContactUs = () => {
     return (
