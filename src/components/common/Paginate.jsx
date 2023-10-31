@@ -37,8 +37,9 @@ const Paginate = ({ itemsPerPage , db })=>  {
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={3}
         pageCount={pageCount}
+        marginPagesDisplayed="10px"
         previousLabel="<"
         renderOnZeroPageCount={null}
       />
