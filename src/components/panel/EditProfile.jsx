@@ -17,9 +17,9 @@ const EditProfile = () => {
     const datePicker = useRef()
 
     return (
-        <div id="editProfile" className="border border-[red]  max-[1800px]:w-[70%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
+        <div id="editProfile" className="h-[3000px]  max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
-            <div className=" h-[30%] justify-center items-center">
+            <div className="h-[30%] justify-center items-center">
                 <div className="w-[50%] mx-auto h-full flex flex-col justify-center items-center">
                     <img src={account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
                     <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
@@ -28,11 +28,11 @@ const EditProfile = () => {
             </div>
             <Formik initialValues={{name:"",birthDayDate:"",phone:"",email:"",nationalCode:"",role:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
                 {(form)=> (
-                    <Form dir='rtl' className=" border border-[green] max-[1200px]:flex-col max-[1200px]:[&>div]:w-full items-center h-[605px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[600px] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
+                    <Form dir='rtl' className="max-[1200px]:flex-col max-[1200px]:[&>div]:w-full items-center py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[600px] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
                             
                             <EditProfileItem content="نام کاربری" name="name" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                                <div className=' [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9] [&>div:last-child>input]:w-[234%]'>
+                                <div className='[&>div:last-child]:w-[85%] [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9]'>
                                     <div>تاریخ تولد</div>
                                     <DatePicker
                                         ref={datePicker}
@@ -46,7 +46,9 @@ const EditProfile = () => {
                                         maxDate={new Date}
                                         calendar={persian}
                                         locale={persian_fa}
+                                        arrow={false}
                                         calendarPosition="left"
+                                        inputClass='text-[18px] pr-[15px] w-full placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[rgba(112,112,112,0.14)] outline-none rounded-lg h-12 pl-5 placeholder:text-[#b9b7b7]'
                                     />
                                 </div>
 
@@ -60,10 +62,13 @@ const EditProfile = () => {
                             <EditProfileItem content="نقش" name="role" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
-                        <button type='submit' className='bg-[#922492] text-[#fff] scale-[105%] absolute bottom-[15px] w-[150px] h-[45px] rounded-[15px] right-[44%]' >ثبت تغییرات</button>
+
                     </Form>
                 )}
             </Formik>
+            <div className='w-full flex justify-center items-center absolute bottom-[15px] '>
+                <button type='submit' className='bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' >ثبت تغییرات</button>
+            </div>
 
         </div>
     )

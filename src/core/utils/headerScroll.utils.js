@@ -1,6 +1,6 @@
 const headerScroll = () => {
     console.log(pageYOffset);
-    let y = 150
+    let y = 100
     if(location.pathname == "/") y = 600
     if (pageYOffset > y) {
         if(location.pathname !== "/login" && location.pathname !== "/forgetPassword") {

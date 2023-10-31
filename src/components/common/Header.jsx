@@ -34,12 +34,12 @@ const Header = ({className,src,color}) => {
                   <Linkes to="/" content="خانه" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
                   <img src={"../src/assets/images/header/" + src} alt="" className="scale-[70%]"/>
               </div>
-              <img src="../src/assets/images/menu.png" alt="" id="menuPic" className="h-[30px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>
+              <img src="../src/assets/images/menu.png" alt="" id="menuPic" className=" h-[30px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>
               <div className={"max-[799px]:w-[20%] max-[1400px]:[&>*]:scale-[95%] max-[599px]:w-[30%] max-[399px]:w-[40%] max-[325px]:w-[54%] max-[1020px]:w-[15%] max-[1080px]:w-[33%] w-[384px] max-[1400px]:w-[30%] max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a:nth-child(2)]:max-[1020px]:hidden [&>a:nth-child(3)]:max-[1020px]:hidden [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
                 <LinkComponent content={<img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px] object-cover"  />} link="/" className='w-[50px]' />
                 <LinkComponent content="ثبت نام" link="/register" className='mx-[15px] w-[100px] px-4 select-none' />
                 <LinkComponent content="ورود" link="/login" className='mx-[15px] w-[100px] px-4 select-none' />
-                <LinkComponent content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px] object-cover" />} link="/panel/userpanel" className='w-[50px]' />
+                <LinkComponent content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[27px] h-[27px] object-cover" />} className='w-[50px]' />
               </div>
           </div>
       </header>
