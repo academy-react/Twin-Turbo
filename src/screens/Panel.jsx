@@ -4,9 +4,9 @@ import account from '../core/services/Account'
 
 const Panel = () => {
 
-    let location = useLocation()
+    // let location = useLocation()
 
-    const panelLayout = "w-[90%] mx-auto flex justify-between items-center [&>div]:h-[90%]"
+    // const panelLayout = "w-[90%] mx-auto my-10 flex justify-between [&>div]:h-[90%] [&>div#dashBoard]:max-[1023px]:h-[1200px] [&>div#editProfile]:h-[1100px] "
 
   return (
     <>
@@ -14,13 +14,13 @@ const Panel = () => {
         <div className="w-[1920px] mx-auto my-0 max-[1919px]:w-full relative">
 
             <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-            <div className={location.pathname !== "/panel/editprofile" ? "h-[900px] " + panelLayout : "h-[1100px] " + panelLayout }>
+            <div className="w-[90%] h-[900px] mx-auto my-10 flex justify-evenly [&>div]:h-[90%] [&>div#dashBoard]:max-[1023px]:h-[1200px] max-[1020px]:w-full [&>div#editProfile]:h-[1100px] max-[1800px]:w-[100%]">
 
                 <Outlet/>
 
-                <div className="bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] relative">
+                <div className="max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] relative">
 
-                    <div className="h-[150px] flex justify-center items-center px-3 ">
+                    <div className="h-[150px] flex justify-center items-center px-3">
                         <div className='text-[25px] truncate w-60' id='usename'>{account.username}</div>
                         <img src={account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
