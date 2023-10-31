@@ -1,5 +1,4 @@
 const headerScroll = () => {
-    console.log(pageYOffset);
     let y = 100
     if(location.pathname == "/") y = 600
     if (pageYOffset > y) {

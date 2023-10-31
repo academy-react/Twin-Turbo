@@ -13,6 +13,7 @@ const changePic = async (e,userImage)=> {
 
 const editProfileSubmit = (values,userImage) => {
     console.log(values);
+
     if(values.name.length !== 0){
         usename.innerHTML = values.name;
         account.username = values.name

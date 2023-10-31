@@ -63,12 +63,15 @@ const EditProfile = () => {
 
                         </div>
 
+                        <div className='absolute bottom-0 flex justify-center items-center' style={{height:"100px",width:"100%"}}>
+                            <button type='submit' className='w-[150px] bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' onClick={(e)=> editProfileSubmit(form.values,userImage)} >ثبت تغییرات</button>
+                        </div>  
+
                     </Form>
+                    
                 )}
             </Formik>
-            <div className='w-full flex justify-center items-center absolute bottom-[15px] '>
-                <button type='submit' className='bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' >ثبت تغییرات</button>
-            </div>
+            
 
         </div>
     )
