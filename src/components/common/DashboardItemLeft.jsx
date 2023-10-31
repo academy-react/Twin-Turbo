@@ -1,6 +1,6 @@
 const DashboardItemLeft = ({title,course,master,price,src}) => {
   return (
-    <div className="flex flex-col items-center justify-center m-2">
+    <div className="flex flex-col items-center justify-center m-2 max-[1020px]:m-0">
         <div className="text-[21px] mb-[10px]">{title}</div>
         <div className="w-[90%] border h-[75%] rounded-[15px] pr-[10px] flex flex-row-reverse items-center justify-center [&>*]:ml-[10px] max-[1540px]:flex-col">
             <div className="h-[140px] w-[140px] rounded-[50%] overflow-hidden max-[1540px]:w-[91px] mt-2">

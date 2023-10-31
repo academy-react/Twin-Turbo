@@ -2,7 +2,7 @@ import DashboardItemLeft from '../common/DashboardItemLeft'
 import raiseUp from "../../core/utils/raiseUp.utils"
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import account from '../../core/services/Account'
+import account from '../../core/services/account'
 
 const DashBoard = () => {
 
@@ -10,8 +10,8 @@ const DashBoard = () => {
   useEffect(() => {navigate('/panel/userpanel')}, [])
 
   return (
-    <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] [&>div]:w-[49%] [&>div]:h-[90%] [&>div]:rounded-[25px] flex items-center justify-between px-[30px] mr-2 max-[1350px]:flex-col-reverse max-[1350px]:[&>div]:w-full max-[1350px]:[&>div:first-child]:h-[50%] max-[1023px]:[&>div:first-child]:h-[100%] max-[1350px]:[&>div]:my-2">
-        <div className="[&>div]:h-[48.5%] [&>div]:rounded-[25px] [&>div]:shadow-[0_0_70px_#ccc] flex flex-col justify-between max-[1350px]:flex-row max-[1350px]:[&>div]:w-[200%] max-[1350px]:[&>div]:h-[300px] max-[1023px]:flex-col max-[1023px]:[&>div]:h-[60%] max-[1023px]:[&>div]:w-[100%]">
+    <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] [&>div]:w-[49%] [&>div]:h-[90%] [&>div]:rounded-[25px] flex items-center justify-between px-[30px] mr-2 max-[1350px]:flex-col-reverse max-[1350px]:[&>div]:w-full max-[1350px]:[&>div:first-child]:h-[50%] max-[1023px]:[&>div:first-child]:h-[100%] max-[1350px]:[&>div]:my-2 max-[1020px]:w-full max-[1020px]:rounded-none max-[1020px]:shadow-none max-[1020px]:mr-0 max-[1020px]:bg-transparent max-[1020px]:[&>div]:bg-white max-[1020px]:px-0 max-[1020px]:[&>div]:rounded-none">
+        <div className="[&>div]:h-[48.5%] [&>div]:rounded-[25px] [&>div]:shadow-[0_0_70px_#ccc] flex flex-col justify-between max-[1350px]:flex-row max-[1350px]:[&>div]:w-[200%] max-[1350px]:[&>div]:h-[300px] max-[1023px]:flex-col max-[1023px]:[&>div]:h-[60%] max-[1023px]:[&>div]:w-[100%] max-[1020px]:bg-transparent max-[1020px]:[&>div]:rounded-none max-[1020px]:[&>div]:shadow-[0_0_10px_#ccc]">
             <DashboardItemLeft title="اخرین خریداری شده" course="دوره اموزش جامع انگولار" master="مدرس : استاد اصغری" price="250000 تومان" src="web.jpg" />
             <DashboardItemLeft title="دوره منتخب" course="دوره اموزش  نود جی اس" master="مدرس : استاد اصغری" price="150000 تومان" src="bootstrap.jpg"/>
         </div>
