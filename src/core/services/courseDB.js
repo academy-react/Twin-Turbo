@@ -14,7 +14,7 @@ let courses = [
     {id:4,src:"01.png",name:" ری اکت",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"node",startTime:"1402/7/7",endTime:"1403/7/7",fullStorage:250,quantityStudent:166,masterName:"استاد بحرالعلوم",masterImage:"../src/assets/images/bahr.png",gmail:"bahroololoom@gmail.com",insta:"bahr_ac",price:890000,discount:750000,discountPercent:10,secend:5,minute:1,hour:5,day:4,month:4,comment : [
     {like:212,dislike:4,src:"landingMaster/ostad-3.jpg",name:"استاد اسفندیاری",comment:"ایول فکرشو نمیکردم چنین چیزی بشه",time:"10"},
     {like:8,dislike:5,src:"landingMaster/ostad.jpg",name:"استاد بحر",comment:"چیییییییییی آفرین به گروه Twin Turbo",time:"2"},
-    {like:8,dislike:5,src:"landingMaster/ostad-2.png",name:"استاد اصغری",comment:"عالی گروه Twin Turbo",time:"21"},
+    {like:81,dislike:15,src:"landingMaster/ostad-2.png",name:"استاد اصغری",comment:"عالی گروه Twin Turbo",time:"21"},
     {like:8,dislike:5,src:"landingMaster/ostad.jpg",name:"استاد بحر",comment:"چیییییییییی آفرین به گروه Twin Turbo",time:"2"},
 ]},
     {id:5,src:"react.png",name:" نود ری اکت",content:"آموزشگاه در تدارک دوره های جدید برنامه نویسی است",courseName:"angular",startTime:"1402/7/7",endTime:"1403/7/7",fullStorage:400,quantityStudent:140,masterName:"استاد اسفندیاری",masterImage:"../src/assets/images/landingMaster/ostad-3.jpg",gmail:"mohsen@gmail.com",insta:"mohsen_esfandiari",price:890000,discount:750000,discountPercent:25,secend:5,minute:40,hour:5,day:1,month:1,comment : [

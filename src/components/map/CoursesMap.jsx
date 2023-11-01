@@ -34,9 +34,9 @@ const CoursesMap = () => {
 
 
                   <div className=" flex justify-between items-start absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
-                      <div className="text-[20px]">{element.masterName}</div>
-                      <img src="../src/assets/images/star.png" className="w-36" />
-                      <span className="h-8 px-7 border border-[#58AD57] rounded-[50px] text-[#58AD57] flex justify-center items-center">{element.discount} تومان</span>
+                      <div className="text-[20px] w-[200px]">{element.masterName}</div>
+                      <img src="../src/assets/images/star.png" className="w-36 ml-5" />
+                      <span className="h-8 w-[230px] rounded-[50px] text-[#58AD57] flex justify-start items-center"> <span className="text-[#000] text-[18px]"> مبلغ : </span> &nbsp; {element.discount} تومان</span>
                   </div>
 
                 </div>

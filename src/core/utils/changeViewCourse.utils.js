@@ -7,57 +7,63 @@ const changeViewCourses = (parent) => {
 
   let children = parent.current.children;
   for (let i = 0; i < children.length; i++) {
+    
+    let centerDetails = parent.current.children[i].lastChild.lastChild
+    let courseImg = children[i].children[0]
+    let item = children[i]
+
     if(radios1.checked == true && !flag) {
-      parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
+      centerDetails.style.flexDirection = "column"
       flag = true
     }
     else if (radios2.checked == true && !flag) {
-      parent.current.children[i].lastChild.lastChild.style.flexDirection = "row"
+      centerDetails.style.flexDirection = "row"
       flag = false
     }
     if (radios1.checked) {
 
-      parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
-      children[i].style.height = "400px"
-      children[i].children[0].style.marginTop = "10px"
-      children[i].children[0].style.height = "180px"
-      parent.current.children[i].lastChild.lastChild.style.alignItems = "flex-start"
+      centerDetails.style.flexDirection = "column"
+      item.style.height = "400px"
+      courseImg.style.marginTop = "10px"
+      courseImg.style.height = "180px"
+      centerDetails.style.alignItems = "flex-start"
       parent.current.children[i].lastChild.children[2].style.display = "none";
-      parent.current.children[i].lastChild.lastChild.style.width = "180px"
-      parent.current.children[i].lastChild.lastChild.style.bottom = "20px"
-      parent.current.children[i].lastChild.lastChild.style.right = "0px"
+      centerDetails.style.width = "180px"
+      centerDetails.style.bottom = "20px"
+      centerDetails.style.right = "0px"
       parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = rowView;
-      children[i].className = view1;
+      item.className = view1;
 
     } 
     if (!radios1.checked && window.innerWidth > 1350) {
-      children[i].children[0].style.height = "92%"
-      children[i].style.height = "300px"
-      parent.current.children[i].lastChild.lastChild.style.alignItems = "flex-start"
-      parent.current.children[i].lastChild.lastChild.style.width = "500px"
-      parent.current.children[i].lastChild.lastChild.style.bottom = "20px"
-      parent.current.children[i].lastChild.lastChild.style.right = "0px"
-      children[i].className = view2;
+      courseImg.style.height = "92%"
+      item.style.height = "300px"
+      centerDetails.style.flexDirection = "row"
+      centerDetails.style.alignItems = "center"
+      centerDetails.style.width = "500px"
+      centerDetails.style.bottom = "20px"
+      centerDetails.style.right = "0px"
+      item.className = view2;
       
     }
     else if(window.innerWidth > 800 && window.innerWidth < 1350 && !radios1.checked) {
       
-      parent.current.children[i].lastChild.lastChild.style.width = "500px"
-      parent.current.children[i].lastChild.lastChild.style.right = "0px"
-      parent.current.children[i].lastChild.lastChild.style.bottom = "20px"
-      parent.current.children[i].lastChild.lastChild.style.alignItems = "flex-start"
-      parent.current.children[i].lastChild.lastChild.style.flexDirection = "column"
+      centerDetails.style.width = "500px"
+      centerDetails.style.right = "0px"
+      centerDetails.style.bottom = "20px"
+      centerDetails.style.alignItems = "flex-start"
+      centerDetails.style.flexDirection = "column"
       flag = true
 
-      children[i].className = view2;
-      children[i].style.height = "250px"
-      children[i].children[0].style.height = "180px"
-      children[i].children[0].style.marginTop = "30px"
+      item.className = view2;
+      item.style.height = "250px"
+      courseImg.style.height = "180px"
+      courseImg.style.marginTop = "30px"
     }
     else if(window.innerWidth > 0 && window.innerWidth < 1350 && !radios1.checked) {
-      parent.current.children[i].lastChild.lastChild.style.width = "200px"
-      parent.current.children[i].lastChild.lastChild.style.bottom = "25px"
-      parent.current.children[i].lastChild.lastChild.style.alignItems = "center"
+      centerDetails.style.width = "200px"
+      centerDetails.style.bottom = "25px"
+      centerDetails.style.alignItems = "center"
     }
   }
 };
