@@ -22,7 +22,7 @@ const Panel = () => {
 
                     <div className="h-[150px] flex justify-center items-center px-3">
                         <div className='text-[25px] truncate w-60' id='usename'>{account.username}</div>
-                        <img src={account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
+                        <img src={"../src/assets/images/dashboard/" + account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 
                     <div dir='rtl' className='h-[380px] [&>a]:h-[20%] [&>a]:flex [&>a]:items-center [&>a]:pr-[15px] ' >

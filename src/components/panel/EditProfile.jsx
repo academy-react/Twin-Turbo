@@ -21,7 +21,7 @@ const EditProfile = () => {
 
             <div className="h-[30%] justify-center items-center">
                 <div className="w-[50%] mx-auto h-full flex flex-col justify-center items-center">
-                    <img src={account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
+                    <img src={"../src/assets/images/dashboard/" + account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
                     <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
                     <label htmlFor="fileInput" className='w-[180px] h-[50px] bg-[#922492] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-md'>اپلود عکس</label>
                 </div>

@@ -3,10 +3,10 @@ import ReactPaginate from 'react-paginate';
 import { addToCourse } from '../map/CoursesMap'
 import {setBlog} from '../map/BlogsMap'
 import { useLocation } from 'react-router-dom';
-
+import {setNumberCourse} from '../map/ListCousePanelMap'
 const Paginate = ({ itemsPerPage , db })=>  {
   let location = useLocation()
-
+  
 
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -17,13 +17,13 @@ const Paginate = ({ itemsPerPage , db })=>  {
 
   if(location.pathname == "/blogs") setBlog(dbSliced)
   else if(location.pathname == "/courses") addToCourse(dbSliced)
-  // else if(location.pathname == "//panel/ListOfCourse") 
+  else if(location.pathname == "/panel/ListOfCourse") setNumberCourse(dbSliced)
   
 
 
   const handlePageClick = (e) => {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
-      setItemOffset(newOffset);
+      setItemOffset(newOffset);  
   };
 
   return (
@@ -32,8 +32,8 @@ const Paginate = ({ itemsPerPage , db })=>  {
         className='my-3 flex justify-around items-center [&>*]:p-[15px] [&>*]:rounded-[50px] [&>*]:w-[50px] [&>*]:h-[50px] [&>*>a]:px-[20px] [&>*>a]:py-[15px] [&>*>a]:rounded-3xl [&>*]:flex [&>*]:justify-center [&>*]:items-center'
         activeClassName='bg-[#a361a1] text-[#fff] hover:bg-[#a361a2]'
         pageClassName='hover:bg-[#999] hover:text-[#fff]'
-        nextClassName='hover:bg-[#a361a1] hover:text-[#fff]'
-        previousClassName='hover:bg-[#a361a1] hover:text-[#fff]'
+        nextClassName='hover:bg-[#999] hover:text-[#fff]'
+        previousClassName='hover:bg-[#999] hover:text-[#fff]'
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}

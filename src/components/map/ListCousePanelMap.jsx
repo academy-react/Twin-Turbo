@@ -1,9 +1,30 @@
+import { useState } from 'react'
 import courseDB from '../../core/services/courseDB'
+import { useEffect } from 'react';
+let setNumberCourse;
+const ListCousePanelMap = ({inpurSearch}) => {
+  let sliced = courseDB.slice(0,5)
+  const [slice, setSlice] = useState(sliced)
 
-const ListCousePanelMap = () => {
-  let sliced = courseDB.slice(0,6)
+    
+  useEffect(() => {
+
+      inpurSearch.current.oninput = ()=> {
+          let filtered = slice.filter((element)=> {
+            return element.name.indexOf(inpurSearch.current.value) !== -1 || element.masterName.indexOf(inpurSearch.current.value) !== -1
+            || element.courseName.indexOf(inpurSearch.current.value) !== -1
+          })
+          setSlice(filtered)
+      }
+      
+  }, [])
+ 
+
+    
+  
+setNumberCourse = setSlice
   return (
-    sliced.map((element,index)=> {
+    slice.map((element,index)=> {
         return (
             <div key={index} className='h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
@@ -24,5 +45,5 @@ const ListCousePanelMap = () => {
   
   
 }
-
+export {setNumberCourse}
 export default ListCousePanelMap

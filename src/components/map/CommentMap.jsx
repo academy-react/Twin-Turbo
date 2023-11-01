@@ -1,15 +1,21 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { disLikeDown, disLikeUp, likeDown, likeUp } from '../../core/utils/commentLikeDisLike.utils'
-
+let Comment;
+let setComment;
 const CommentMap = ({db}) => {
+    
     let url = useParams()
-    let finded = db.find((el)=> el.id == url.id)
+    const [finded, setFinded] = useState(db.find((el)=> el.id == url.id).comment)
     const [like, setLike] = useState(false)
     const [disLike, setDisLike] = useState(false)
 
+
+    setComment = setFinded
+    Comment = finded
+
     return (
-        finded.comment.map((element,index)=> {
+        finded.map((element,index)=> {
             return (
                 <div key={index} className="w-full flex items-center gap-[15px] my-[7px] py-5 " data-id="1" >
                     <img src={"../src/assets/images/" + element.src} alt="" className="w-16 h-[60px] rounded-full " />
@@ -37,5 +43,5 @@ const CommentMap = ({db}) => {
         })
     )
 }
-
+export {setComment,Comment}
 export default CommentMap

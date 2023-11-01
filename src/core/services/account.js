@@ -1,5 +1,5 @@
 let account = {
-    image : "../src/assets/images/dashboard/khoros.jpg" ,
+    image : "khoros.jpg" ,
     username : "khoros" , 
     password : "12345678" ,
     role : "دانش آموز" , 

@@ -13,14 +13,15 @@ const HeroSection = () => {
   let interval = setInterval(() => {
     if(window.innerWidth > 700){
       let randomNum = Math.floor(Math.random()*window.innerWidth)
-      let randomWidth = Math.floor(Math.random()*120+25)
+      let randomWidth = Math.floor(Math.random()*80+25)
+      let src = Math.ceil(Math.random()*2)
       
   
       setTimeout(() => {
         
         let image = document.createElement("img")
-        image.src = "../src/assets/images/bulb.png"
-        image.className = "absolute bottom-[5px] shakebulb opacity-0"
+        image.src = "../src/assets/images/header/" + src + ".png"
+        image.className = "absolute bottom-[5px] shakebulb opacity-0 "
         image.style.transition = "1s"
         image.style.right = randomNum + "px"
         image.style.width = randomWidth + "px"
@@ -56,8 +57,8 @@ const HeroSection = () => {
 
       <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
         <div dir="rtl" className=" w-[650px] h-[400px] max-[1020px]:w-full max-[1350px]:scale-[85%] max-[1350px]:right-[50px] max-[1057px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
-            <h1 className=" text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">پژوهشگاه سپهر</h1>
-            <div className="w-full" ref={parentText}>
+            <h1 className="z-10 text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">پژوهشگاه سپهر</h1>
+            <div className="z-10 relative w-full" ref={parentText}>
                 <Typewriter
                   text="پ ژوهشگاه سپهر با هدف تولید و انتشار محتوای با کیفیت اموزشی و همچنین
                   آشنایی جامعه با فضای کسب و کار در فضای مجازی ایجاد شده و امید داریم

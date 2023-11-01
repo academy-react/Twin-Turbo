@@ -1,12 +1,30 @@
 import { Formik, Form ,Field, ErrorMessage } from 'formik'
-import CommentMap from '../map/CommentMap'
+import CommentMap,{setComment,Comment} from '../map/CommentMap'
 import commentSubmit from '../../core/validations/submit/commentSubmit'
 import * as yup from 'yup'
+import { useParams } from 'react-router-dom'
+import account from '../../core/services/account'
 
 const CommentBlog = ({db}) => {
+    let url = useParams()
+    console.log(db.find((el)=> el.id == url.id).comment);
+
+    const handle = (value)=> { 
+
+        let arrayComment = db.find((el)=> el.id == url.id).comment
+        // let newObj = {like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"}
+        // arrayComment.push(newObj)
+        
+
+        setComment([{like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"},...Comment])
+        arrayComment.unshift({like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"})
+
+        
+    }
+    
     return (
         <>
-            <Formik initialValues={{comment : ""}} onSubmit={(value)=> commentSubmit(value)} validationSchema={yup.object().shape({comment : yup.string().required("لطفا متن را وارد کنید"),})} >
+            <Formik initialValues={{comment : ""}} onSubmit={(value)=> handle(value)} >
                 <Form>
                     <div className="w-full bg-[#F5F5F5] rounded-[25px] overflow-hidden relative z-10">
                         <div dir="rtl" className="h-full flex flex-col p-[25px] leading-[28px] [&>*]:my-[7px]">
