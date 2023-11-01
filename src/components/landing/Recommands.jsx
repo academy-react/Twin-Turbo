@@ -26,7 +26,7 @@ const Recommands = () => {
                         <div className="self-end mr-14 h-6" >
                             <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] text-[18px] ErrorMessage' />
                         </div>
-                        <Submit content="ارسال" data={form.v !== "" ? "موفقیت" : undefined} className="w-[85%] h-12 mb-[15px]" />
+                        <Submit content="ارسال" data="موفقیت" className="w-[85%] h-12 mb-[15px]" />
                     </div>
                 </Form>
             )}
