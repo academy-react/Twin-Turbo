@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { disLikeDown, disLikeUp, likeDown, likeUp } from '../../core/utils/commentLikeDisLike.utils'
+import { useDispatch, useSelector } from 'react-redux';
+
 let Comment;
 let setComment;
 const CommentMap = ({db}) => {
@@ -9,9 +11,21 @@ const CommentMap = ({db}) => {
     const [finded, setFinded] = useState(db.find((el)=> el.id == url.id).comment)
     const [like, setLike] = useState(false)
     const [disLike, setDisLike] = useState(false)
-
+    
     setComment = setFinded
     Comment = finded
+
+
+
+    let select = useSelector((reducer)=> reducer)
+
+    useEffect(() => {
+
+
+        console.log(select);
+     
+    }, [])
+    
 
     return (
         finded.map((element,index)=> {
@@ -24,7 +38,7 @@ const CommentMap = ({db}) => {
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
                             <div className=" flex items-center">
                                 <span className="text-[#37c54f]">{element.like}</span>
-                                <img src="../src/assets/images/selectedCourse/likeDefault.png" className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} onClick={(e)=> !like ? likeUp(e,db,disLike,setLike,url) : likeDown(e,db,disLike,setLike,url)} /> 
+                                <img src="../src/assets/images/selectedCourse/likeDefault.png" className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} onClick={(e)=> !like ? likeUp(e,db,disLike,setLike,url,setFinded) : likeDown(e,db,disLike,setLike,url)} /> 
                             </div>
                             |
                             <div className="flex items-center mr-2" >

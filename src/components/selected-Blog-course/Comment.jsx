@@ -7,7 +7,6 @@ import account from '../../core/services/account'
 
 const CommentBlog = ({db}) => {
     let url = useParams()
-    console.log(db.find((el)=> el.id == url.id).comment);
 
     const handle = (value)=> { 
 
