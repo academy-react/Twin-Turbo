@@ -36,12 +36,13 @@ const CoursesListPanel = ({bool,content}) => {
                 <span>نام دوره</span>
             </div>
             <div className="h-[85%] mx-auto px-[15px] ">
-                {bool == true && <ListCousePanelMap inpurSearch={inpurSearch} />}
-                   
+                {bool && <ListCousePanelMap inpurSearch={inpurSearch} />}
+                {!bool && <div>ddd</div> }
+                  
             </div>
         </div>
         <div className='h-[10%] w-[30%] mx-auto'>
-            {bool == true && <Paginate itemsPerPage={5} db={courses} />}
+            {bool && <Paginate itemsPerPage={5} db={courses} />}
         </div>
 
 
