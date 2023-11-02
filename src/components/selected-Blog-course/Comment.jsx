@@ -1,22 +1,31 @@
 import { Formik, Form ,Field, ErrorMessage } from 'formik'
 import CommentMap,{setComment,Comment} from '../map/CommentMap'
 import commentSubmit from '../../core/validations/submit/commentSubmit'
-import * as yup from 'yup'
 import { useParams } from 'react-router-dom'
 import account from '../../core/services/account'
+import { onName } from '../../redux/user';
+import { useDispatch, useSelector } from 'react-redux'
 
 const CommentBlog = ({db}) => {
     let url = useParams()
 
+    let disPatch = useDispatch()
+
+    let selector = useSelector((state)=>state)
     const handle = (value)=> { 
 
         let arrayComment = db.find((el)=> el.id == url.id).comment
         // let newObj = {like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"}
         // arrayComment.push(newObj)
         
+        setTimeout(() => {
+            
+            disPatch(onName(setFinded))
+        }, 100);
 
-        setComment([{like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"},...Comment])
-        arrayComment.unshift({like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"})
+        console.log(selector.name);
+        // setComment([{like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"},...Comment])
+        // arrayComment.unshift({like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"})
 
         
     }
