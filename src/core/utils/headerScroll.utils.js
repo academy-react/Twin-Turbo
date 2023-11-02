@@ -5,6 +5,7 @@ const headerScroll = () => {
         if(location.pathname !== "/login" && location.pathname !== "/forgetPassword") {
             header.style.boxShadow = "0 0 7px #ddd" ;
             header.style.background = "#fff";
+            header.firstChild.style.paddingLeft = "25px"
         }
         else header.style.background = "linear-gradient(97deg, rgba(90,11,169,1) 0%, rgba(192,3,178,1) 100%)";
         header.style.position = "fixed";
@@ -12,6 +13,7 @@ const headerScroll = () => {
     else {
         header.style.boxShadow = "0 0 7px transparent" ;
         header.style.background = "transparent";
+        header.firstChild.style.paddingLeft = 0
         header.style.position = "static";
     }
 }

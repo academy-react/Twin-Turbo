@@ -18,6 +18,10 @@ const landingScrollLogic = () => {
         holderMasters.style.width = "100%";
         holderMasters.style.opacity = "1";
       }
+      if (pageYOffset > 3800) {
+        recommandsForm.style.height = "640px";
+        recommandsForm.style.opacity = "1";
+      }
       // progress Bar
       let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
