@@ -8,7 +8,7 @@ const changeViewBlog = (parent) => {
 
   for (let i = 0; i < children.length; i++) {
     if (radios1.checked == true) {
-      parent.current.children[i].lastChild.lastChild.lastChild.style.marginBottom = "10px"
+      parent.current.children[i].lastChild.lastChild.lastChild.style.marginBottom = "20px"
       parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = rowView;
       children[i].className = "";
       children[i].className = view1;

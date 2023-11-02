@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { disLikeDown, disLikeUp, likeDown, likeUp } from '../../core/utils/commentLikeDisLike.utils'
-import { useDispatch, useSelector } from 'react-redux';
-import { onName } from '../../redux/user';
 
 
 let Comment;
@@ -16,17 +14,6 @@ const CommentMap = ({db}) => {
     
     setComment = setFinded
     Comment = finded
-
-    let selector = useSelector((reducer)=> reducer)
-    let disPatch = useDispatch()
-    setTimeout(() => {
-        
-        disPatch(onName(setFinded))
-        
-        console.log(selector.user);
-    }, 100);
-
-    
 
     return (
         finded.map((element,index)=> {

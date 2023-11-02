@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import user from "./user";
+import blogsItem from "./seting"
 
 let store = configureStore({
     reducer : {
-        user : user
+        blogsItem
     }
 })
 
