@@ -17,7 +17,7 @@ const Masters = () => {
             
         </div>
 
-        <div className="w-full opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
+        <div className="w-[60%] opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
             
             <Master name="حامد نظری" ability="طراح فرانت" src="ostad-3.jpg" />
             <Master name="مهدی اصغری" ability=" React Developer" src="ostad-2.png" />
