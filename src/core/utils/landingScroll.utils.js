@@ -15,12 +15,12 @@ const landingScrollLogic = () => {
       if (pageYOffset > 2000) coursesHolder1.style.left = "12%";
       if (pageYOffset > 2000) coursesHolder3.style.left = "15.3%";
       if (pageYOffset > 3000) {
-        holderMasters.style.width = "100%";
+        // holderMasters.style.height = "150px";
         holderMasters.style.opacity = "1";
       }
       if (pageYOffset > 3800) {
-        recommandsForm.style.height = "640px";
-        recommandsForm.style.opacity = "1";
+        itemMaster.style.height = "120px";
+        itemMaster.style.opacity = "1";
       }
       // progress Bar
       let winScroll =
