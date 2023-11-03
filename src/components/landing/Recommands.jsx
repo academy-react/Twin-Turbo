@@ -7,7 +7,7 @@ import recommandsSubmit from "../../core/validations/submit/recommandsSubmit"
 const Recommands = () => {
   return (
     <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px] max-[480px]:mb-[-50px]'>
-        <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex" />
+        <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex scale-y-[112%] top-[15px]" />
 
         <Formik initialValues={{name:"",email:"",textarea:"",bool:false}} onSubmit={(values)=> recommandsSubmit(values)} validationSchema={recommandsValidation}>
             <Form className="w-full relative h-[65%] mt-28 max-[1510px]:mt-5 max-[1170px]:flex justify-center">

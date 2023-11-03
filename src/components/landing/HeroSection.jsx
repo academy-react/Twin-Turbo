@@ -55,7 +55,7 @@ const HeroSection = () => {
       <img src="../src/assets/images/heroSection/bg-top.png" alt="" className="scale-[130%] object-cover absolute top-0 left-0 w-full h-[90%] max-[1020px]:block hidden -z-[15]"/>
 
       <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-        <div dir="rtl" className="max-[1020px]:top-[170px] w-[650px] h-[400px] max-[1020px]:w-full max-[1350px]:scale-[85%] max-[1350px]:right-[50px] max-[1057px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px]">
+        <div dir="rtl" className="max-[1020px]:top-[170px] w-[650px] h-[400px] max-[1020px]:w-full max-[1350px]:scale-[85%] max-[1350px]:right-[50px] max-[1057px]:right-0 max-[1020px]:items-center max-[1280px]:mx-auto flex flex-col justify-evenly absolute right-[150px] top-[200px] max-[1270px]:top-[150px]">
             <h1 className="z-10 text-[36px] text-[#666] mr-[45px] max-[1020px]:mr-0">پژوهشگاه سپهر</h1>
             <div className="z-10 relative w-full" ref={parentText}>
                 <Typewriter
