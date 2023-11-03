@@ -1,11 +1,10 @@
 import { useEffect } from "react"
 import { Menu , LinkComponent , Linkes } from "./index"
 import headerScroll from '../../core/utils/headerScroll.utils'
-import { useRef } from "react"
+import NightMode from '../common/NightMode'
 
 const Header = ({className,src,color}) => {
 
-  const sircle = useRef()
 
   useEffect(() => {
     
@@ -24,23 +23,6 @@ const Header = ({className,src,color}) => {
       window.removeEventListener("scroll",headerScroll)
     }
   }, [])
-  
-
-  let flag = true
-  const change = ()=> {
-      sircle.current.children[0].classList.toggle("translate-x-[-43px]")
-      if(!flag) { 
-          sircle.current.children[0].src = "../src/assets/images/header/sun.png"
-          flag = true
-          sircle.current.style.background = 'url(../src/assets/images/header/sky.png) 0 0 / 62px';
-      }
-      else if(flag) { 
-          sircle.current.children[0].src = "../src/assets/images/header/moon.png"
-          flag = false
-          sircle.current.style.background = 'url(../src/assets/images/header/night-sky.png) 0 0 / 100%';
-      }
-
-  }
 
   return (
     <>
@@ -55,11 +37,7 @@ const Header = ({className,src,color}) => {
               </div>
               <img src="../src/assets/images/menu.png" alt="" id="menuPic" className=" h-[30px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>
               <div className={"relative max-[799px]:w-[20%] max-[1400px]:[&>*]:scale-[95%] max-[599px]:w-[30%] max-[399px]:w-[40%] max-[325px]:w-[54%] max-[1020px]:w-[15%] max-[1080px]:w-[33%] w-[400px] max-[1400px]:w-[30%] max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a:nth-child(3)]:max-[1020px]:hidden [&>a:nth-child(4)]:max-[1020px]:hidden [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
-                <div className="rounded-[25px] p-[5px] absolute right-[-100px] max-[1300px]:right-[-90px] max-[321px]:right-[-75px]">
-                  <div ref={sircle} dir="rtl" className="cursor-pointer flex items-center transition-all duration-500 h-[35px] w-[80px] px-[3px] py-[1px] rounded-[50px]" onClick={change} style={{background : 'url(../src/assets/images/header/sky.png) 0 0 / 62px'}}>
-                    <img src="../src/assets/images/header/sun.png" alt="" className="w-[42%] h-[90%] rounded-[50%] transition-all duration-50" />
-                  </div>
-                </div>
+                <NightMode />
                 <LinkComponent content={<img src="../src/assets/images/header/search.png" alt="" className="w-[25px] h-[25px] object-cover"  />} link="/" className='w-[50px]' />
                 <LinkComponent content="ثبت نام" link="/register" className='mx-[15px] w-[100px] px-4 select-none' />
                 <LinkComponent content="ورود" link="/login" className='mx-[15px] w-[100px] px-4 select-none' />
