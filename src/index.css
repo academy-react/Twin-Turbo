@@ -127,4 +127,16 @@ input[type=number] {-moz-appearance:textfield;}
     100% {transform: translate(-2px , 2px);}
 }
 .ErrorMessage {animation: shake 1s 1;}
-
+.headerItemHover::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #8043bd;
+    transition: .5s;
+}
+.headerItemHover:hover::before {
+    width: 100%;
+}
