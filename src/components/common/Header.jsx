@@ -29,10 +29,10 @@ const Header = ({className,src,color}) => {
       <header dir="rtl" className="z-[100] relative w-full right-0 left-0 top-0 max-h-[80px]" id="header">
           <div className="mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center" >
               <div className="w-[35%] max-[1580px]:w-[40%] max-[1580px]:[&>a]:text-[16px] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
-                  <Linkes to="/contact-us" content="تماس با ما" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
-                  <Linkes to="/blogs" content="خدمات" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
-                  <Linkes to="/courses" content="آموزش" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
-                  <Linkes to="/" content="خانه" imgClassName="hidden" acceptedStyle="2px solid #8043bd" ejectedStyle="none" acceptedClassName={"text-[" + color + "]"} ejectedClassName={"text-[" + color + "]"} />
+                  <Linkes to="/contact-us" content="تماس با ما" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border border-b-[3px] border-b-[#8043bd]"} ejectedClassName={"text-[" + color + "] headerItemHover relative"} />
+                  <Linkes to="/blogs" content="خدمات" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border border-b-[3px] border-b-[#8043bd]"} ejectedClassName={"text-[" + color + "] headerItemHover relative"} />
+                  <Linkes to="/courses" content="آموزش" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border border-b-[3px] border-b-[#8043bd]"} ejectedClassName={"text-[" + color + "] headerItemHover relative"} />
+                  <Linkes to="/" content="خانه" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border border-b-[3px] border-b-[#8043bd]"} ejectedClassName={"text-[" + color + "] headerItemHover relative"} />
                   <img src={"../src/assets/images/header/" + src} alt="" className="scale-[70%]"/>
               </div>
               <img src="../src/assets/images/menu.png" alt="" id="menuPic" className=" h-[30px] max-[1020px]:block m-[15px] cursor-pointer hidden "/>

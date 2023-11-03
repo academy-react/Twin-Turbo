@@ -1,6 +1,7 @@
-import { Header , Linkes} from '../components/common/'
+import { Header } from '../components/common/'
 import { Outlet } from 'react-router-dom'
 import account from '../core/services/account'
+import PanelQuickAccess from '../components/panel/PanelQuickAccess'
 
 const Panel = () => {
 
@@ -20,19 +21,7 @@ const Panel = () => {
                         <img src={"../src/assets/images/dashboard/" + account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 
-                    <div dir='rtl' className='h-[380px] [&>a]:h-[20%] [&>a]:flex [&>a]:items-center [&>a]:pr-[15px]' >
-                        
-                        <Linkes src="dashboard/home.png" imgClassName="w-10" to="/panel/userpanel" content="پیشخوان" acceptedClassName="hover:bg-[#eee] text-[purple]" ejectedClassName="hover:bg-[#eee] text-[black]" />
-
-                        <Linkes src="dashboard/editProfile.png" imgClassName="w-10" to="/panel/editprofile" content="ویرایش پروفایل" acceptedClassName="hover:bg-[#eee] text-[purple]" ejectedClassName="hover:bg-[#eee] text-[black]" />
-
-                        <Linkes src="dashboard/selectedCourses.png" imgClassName="w-10" to="/panel/mycourse" content="دوره های من" acceptedClassName="hover:bg-[#eee] text-[purple]" ejectedClassName="hover:bg-[#eee] text-[black]" />
-
-                        <Linkes src="dashboard/menupanel.png" imgClassName="w-10" to="ListOfCourse" content="لیست دوره ها" acceptedClassName="hover:bg-[#eee] text-[purple]" ejectedClassName="hover:bg-[#eee] text-[black]" />
-
-                        <Linkes src="dashboard/logout.png" imgClassName="w-10" to="/" content="خروج" acceptedClassName="hover:bg-[#eee] text-[purple]" ejectedClassName="hover:bg-[#eee] text-[black]" />
-
-                    </div>
+                    <PanelQuickAccess />
 
                 </div>
 

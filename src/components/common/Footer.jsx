@@ -11,8 +11,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer>
-        <div className="w-[1920px] overflow-hidden my-0 mx-auto max-[1919px]:w-full max-[1279px]:border-t-2 max-[1279px]:border-t-[#ccc]">
+        <div className="w-[1920px] overflow-hidden my-0 mx-auto max-[1919px]:w-full max-[1279px]:border-t-2 max-[1279px]:border-t-[#ccc]" >
           <FooterSvg />
           <div className="h-[200px] w-[95%] max-[470px]:[&>div]:scale-[50%] max-[1100px]:[&>div]:scale-[70%] max-[700px]:[&>div>p]:hidden mx-auto mt-[-75px] max-[1700px]:mt-[-50px] max-[1400px]:mt-[-25px] max-[1279px]:[&>div]:mt-[25px] flex [&>div]:w-[25%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div>img]:h-[90px] [&>div>p]:text-[#3f4064] [&>div>p]:text-[20px] [&>div>p]:my-[15px] max-[600px]:[&>div]:scale-[60%]">
               <div className="mt-[-105px]">
@@ -58,7 +57,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
     </>
   );
 };
