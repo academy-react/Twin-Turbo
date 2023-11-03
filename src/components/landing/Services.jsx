@@ -3,7 +3,7 @@ const Services = () => {
 
   return (
     <div className='h-[700px] w-[full] max-[650px]:h-[850px] flex flex-col justify-center items-center relative'>
-      <TitleComponents title="خدمات" content="انچه به ان نیاز دارید" src="courses-title.png" className="hidden max-[650px]:flex" />
+      <TitleComponents title="خدمات" content="آنچه به آن نیاز دارید" src="courses-title.png" className="hidden max-[650px]:flex" />
       <div className='mt-[70px] max-[1350px]:mt-[100px] [&>div]:flex [&>div]:flex-col [&>div]:justify-evenly max-[1500px]:[&>div]:w-[280px] max-[1500px]:[&>div]:h-[290px] max-[1200px]:[&>div]:w-[250px] max-[1200px]:[&>div]:h-[260px]  max-[930px]:flex-col [&>div>img]:w-full [&>div>img]:h-[48%] flex max-[550px]:flex-col max-[550px]:items-center  scale-[0.01%] transition-all duration-1000 [&>div]:w-[325px] [&>div]:h-[350px] ' id='holder'>
           <div>
             <img src="../src/assets/images/landingService/blue.png" alt="" />

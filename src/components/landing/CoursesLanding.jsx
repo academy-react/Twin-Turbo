@@ -23,33 +23,38 @@ const Courses = () => {
 
         </div>
 
-        <div className="max-[1600px]:w-full w-[70%] max-[400px]:[&>div]:scale-x-[90%] mx-auto [&>div]:mx-[30px] flex min-[1601px]:justify-between max-[1600px]:flex-col-reverse max-[1600px]:items-center justify-center max-[1600px]:[&>div]:my-[15px]">
+        <div className="border border-[green]  max-[400px]:[&>div]:scale-x-[90%] mx-auto [&>div]:mx-[30px] flex min-[1601px]:justify-center justify-center max-[1600px]:[&>div]:my-[15px]">
 
-            <div className="w-[30%] max-[850px]:h-[150px] max-[600px]:h-[120px] min-w-[373px] max-[1023px]:w-[70%] rounded-[20px] shadow-[0_0_7px_#ccc] bg-white h-[750px] flex flex-col items-center justify-around [&>img]:cursor-pointer [&>img]:w-[90%] [&>img]:h-[190px] max-[1600px]:h-[200px] max-[1600px]:w-[65%] max-[1600px]:flex-row max-[1600px]:[&>img]:h-[80%] max-[1600px]:[&>img]:w-[30%]">
+            <div className="w-[300px] h-[600px] border border-[red] rounded-[25px] flex flex-col justify-around items-center [&>img]:w-[85%] [&>img]:cursor-pointer [&>img]:h-[150px]">
                 
                 <img src={"../src/assets/images/courses/" + courseDB[0].src} alt="" className="rounded-[20px]" data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                 <img src={"../src/assets/images/courses/" + courseDB[1].src} alt="" className="rounded-[20px]" data-id="2" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                 <img src={"../src/assets/images/courses/" + courseDB[2].src} alt="" className="rounded-[20px]" data-id="3" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/> 
-                <Button content="بیشتر" link="/blogs" className="max-[1600px]:hidden" />
+                <Button content="بیشتر" link="/blogs" className="mx-auto" />
 
             </div>
 
-            <div className="transition-all duration-[100ms] max-[1600px]:w-[50%] max-[400px]:w-[50%] max-[400px]:h-[450px] max-[680px]:h-[450px] w-[65%] [&>div]:max-[1200px]:mt-[50px] [&>div]:max-[650px]:mt-[0px] min-w-[373px] max-[1023px]:h-[500px] h-[750px] max-[1200px]:h-[620px] rounded-3xl bg-white p-5 relative shadow-[0_0_7px_#ccc]" data-id="1" ref={landingCourse}>
+            <div className="w-[500px] h-[600px] relative py-[15px] border border-[red] rounded-[25px]" data-id="1" ref={landingCourse}>
 
-                <img src="../src/assets/images/courses/01.png" alt="" className="max-[650px]:h-[200px] max-[1200px]:h-[350px] w-full h-[400px] rounded-3xl max-[1023px]:h-[260px]" ref={bigPic}/>
-                <div className=" text-[26px] absolute right-7 top-[65%] max-[1200px]:top-[55%] max-[890px]:text-[22px] max-[770px]:text-[20px]" ref={title}>دوره کامل : جی اس</div>
-                <div className=" text-[22px] absolute left-[50px] top-[65%] max-[1200px]:top-[56%] max-[890px]:text-[18px] max-[770px]:text-[15px]" ref={master}> استاد بحرالعلوم</div>
-                <div className="text-[#7f7f7f] absolute right-7 pl-4 top-[78%] text-[20px] max-[1200px]:top-[65%] max-[700px]:text-[16px]" dir="rtl" ref={content}>آموزشگاه در تدارک دوره های جدید برنامه نویسی است</div>
+                <img src="../src/assets/images/courses/01.png" alt="" className="w-[90%] h-[250px] mx-auto rounded-xl" ref={bigPic}/>
+                <div className="w-[90%] h-[250px] mx-auto relative">
+                    <div className="h-[50px] flex justify-between items-center">
+                        <div className="text-[18px]" ref={master}> استاد بحرالعلوم</div>
+                        <div className="text-[24px]" ref={title}>دوره کامل : جی اس</div>
+                    </div>
+                    <div className="mt-[30px] text-[#777]" dir="rtl" ref={content}>آموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی استآموزشگاه در تدارک دوره های جدید برنامه نویسی است آموزشگاه در تدارک دوره های جدید برنامه نویسی است</div>
+                </div>
                 <Button content="مشاهده دوره" className="absolute left-7 bottom-4" link={"/courses/" + num } />
+
 
             </div>
 
         </div>
       
 
-        <img src="../src/assets/images/landingCourse/c-i-1.png" alt="" className="absolute left-[-300px] bottom-0 w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden max-[1600px]:hidden"  id="coursesHolder1" />
-        <img src="../src/assets/images/landingCourse/c-i-2.png" alt="" className="absolute right-[-300px] top-[240px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden max-[1600px]:hidden" id="coursesHolder2"/>
-        <img src="../src/assets/images/landingCourse/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 max-[1500px]:-rotate-[5deg] max-[1500px]:ml-4 max-[1620px]:ml-2 max-[1200px]:hidden transition-all duration-1000 max-[1600px]:hidden" id="coursesHolder3" />
+        <img src="../src/assets/images/landingCourse/c-i-1.png" alt="" className="absolute left-[-300px] bottom-0 w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden "  id="coursesHolder1" />
+        <img src="../src/assets/images/landingCourse/c-i-2.png" alt="" className="absolute right-[-300px] top-[240px] w-28 -z-10 transition-all duration-1000 max-[1200px]:hidden " id="coursesHolder2"/>
+        <img src="../src/assets/images/landingCourse/c-i-1-h.png" className="absolute left-[-260px] bottom-[169px] -rotate-6 w-14 max-[1500px]:-rotate-[5deg] max-[1500px]:ml-4 max-[1620px]:ml-2 max-[1200px]:hidden transition-all duration-1000" id="coursesHolder3" />
     
     </div>
   );
