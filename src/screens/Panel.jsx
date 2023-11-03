@@ -9,7 +9,7 @@ const Panel = () => {
         <div className=" w-[1920px] mx-auto my-0 max-[1919px]:w-full relative">
 
             <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
-            <div className="w-[90%] h-[900px] mx-auto my-10 flex justify-evenly [&>div]:h-[90%] [&>div#dashBoard]:max-[1023px]:h-[1200px] max-[1020px]:w-full [&>div#editProfile]:h-[1100px] max-[1800px]:w-[100%] [&>div#editProfile]:max-[1200px]:h-[1900px]">
+            <div className="w-[90%] h-[900px] mx-auto my-10 flex justify-evenly [&>div]:h-[90%] [&>div#dashBoard]:max-[1023px]:h-[1200px] max-[1020px]:w-full [&>div#editProfile]:h-[1100px] max-[1800px]:w-[100%] [&>div#editProfile]:max-[1200px]:h-[1600px]">
 
                 <Outlet/>
 

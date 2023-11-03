@@ -19,7 +19,7 @@ const EditProfile = () => {
     return (
         <div id="editProfile" className="h-[3000px]  max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
-            <div className="h-[30%] justify-center items-center">
+            <div className="h-[30%] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="w-[50%] mx-auto h-full flex flex-col justify-center items-center">
                     <img src={"../src/assets/images/dashboard/" + account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
                     <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
