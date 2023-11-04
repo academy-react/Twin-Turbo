@@ -26,7 +26,7 @@ setNumberCourse = setSlice
   return (
     slice.map((element,index)=> {
         return (
-            <div key={index} className='h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
+            <div key={index} className='max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
                 <img src="../src/assets/images/dashboard/add.png" alt="" className='cursor-pointer' onClick={()=> findListCourse(element)}/>
 

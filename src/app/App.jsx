@@ -1,7 +1,9 @@
 import { RouterProvider } from "react-router-dom";
 import router from './config/Router'
-const App = () => {
+import NightMode from "../components/common/NightMode";
 
+const App = () => {
+  NightMode("","")
   return <RouterProvider router={router} />;
 };
 
