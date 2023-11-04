@@ -4,7 +4,7 @@ import {Category , Courses , Masters , Navigation , News , Recommands , Services
 import landingScrollLogic from "../core/utils/landingScroll.utils";
 
 const Landing = () => {
-
+  
   useEffect(() => {
       document.addEventListener("scroll",()=> landingScrollLogic())
       
