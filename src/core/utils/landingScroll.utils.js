@@ -4,11 +4,11 @@ const landingScrollLogic = () => {
     if (window.location.pathname == "/") {
       
       if (pageYOffset > 140) {
-        man.style.right = "-140px";
+        servicesMan.style.right = "-140px";
         nav.style.opacity = 1;
       } else nav.style.opacity = 0;
       if (pageYOffset > 240) holder.style.transform = "scale(100%)";
-      if (pageYOffset > 300) woman.style.left = "-110px";
+      if (pageYOffset > 300) servicesWoman.style.left = "-110px";
       if (pageYOffset > 710) planet1.style.left = "-40px";
       if (pageYOffset > 1100) planet2.style.right = "40px";
       if (pageYOffset > 1700) coursesHolder2.style.right = "-13%";
