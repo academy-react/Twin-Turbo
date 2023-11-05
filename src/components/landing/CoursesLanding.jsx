@@ -25,7 +25,7 @@ const Courses = () => {
 
         <div className="max-[1250px]:w-[90%] max-[700px]:[&>div]:w-[95%]  max-[820px]:[&>div]:w-[680px] max-[900px]:[&>div]:w-[800px] max-[900px]:[&>div]:mx-auto max-[1020px]:w-full max-[1020px]:flex-col-reverse max-[1020px]:items-center [&>div]:shadow-[0_0_7px_#ccc]  mx-auto [&>div]:mx-[30px] flex min-[1601px]:justify-center justify-center max-[1600px]:[&>div]:my-[15px]" >
 
-            <div className="bg-white w-[350px] max-[820px]:h-[150px] h-[600px] rounded-[25px] flex flex-col  max-[1020px]:flex-row justify-around items-center transition-all duration-100 relative max-[1020px]:h-[200px] max-[1020px]:w-[80%] max-[450px]:h-[105px]" >
+            <div className="[&>img:hover]:shadow-[0_0_25px_#999] bg-white w-[350px] max-[820px]:h-[150px] h-[600px] rounded-[25px] flex flex-col  max-[1020px]:flex-row justify-around items-center transition-all duration-100 relative max-[1020px]:h-[200px] max-[1020px]:w-[80%] max-[450px]:h-[105px]" >
                 <img src="../src/assets/images/landingCourse/c-i-1.png" alt="" className="absolute left-[-160%] bottom-0 z-10 transition-all duration-1000 h-[250px] max-[1020px]:hidden"  id="coursesHolder1" />
 
                 <img src={"../src/assets/images/courses/" + courseDB[0].src} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
