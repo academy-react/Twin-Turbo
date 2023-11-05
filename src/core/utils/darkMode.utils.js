@@ -1,5 +1,10 @@
-
 const darkMode = () => {
+
+    const changeMode = (theme , themeSrc) => {
+        document.documentElement.className = theme
+        for(let i in elementImages) if(location.pathname == "/") elementImages[i].src = themeSrc[i]
+    }
+
     if(location.pathname == "/") {
         var elementImages = [heroSection.children[0] , heroSectionWoman , servicesWoman , servicesMan , servicesPath ]
         var lightSrc = ["../src/assets/images/heroSection/bg-top.png" , "../src/assets/images/heroSection/woman.png" , "../src/assets/images/landingService/Group 159.png" , "../src/assets/images/landingService/Group 160.png" , "../src/assets/images/landingService/Path 620.png"]
@@ -7,16 +12,8 @@ const darkMode = () => {
     }
     let loc = localStorage.getItem("theme")
 
-    for(let i in elementImages) {
-        if(loc == "light"){
-            document.documentElement.className = "light"
-            if(location.pathname == "/") elementImages[i].src = lightSrc[i]
-        }
-        else if(loc == "dark"){
-            document.documentElement.className = "dark"
-            if(location.pathname == "/") elementImages[i].src = darktSrc[i]
-        }
-    }
+    if(loc == "light")  changeMode("light" , lightSrc)
+    else if(loc == "dark")  changeMode("dark" , darktSrc)
 }
 
 export default darkMode
