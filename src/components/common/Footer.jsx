@@ -50,7 +50,7 @@ const Footer = () => {
                   <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
               </div>
             </div>
-            <div className="w-[60%] flex max-[820px]:w-full max-[520px]:flex-col-reverse max-[520px]:[&>ul]:w-full max-[520px]:[&>ul]:scale-[90%] max-[520px]:[&>ul]:flex max-[520px]:[&>ul]:flex-col max-[520px]:[&>ul]:items-center max-[520px]:[&>*]:border-[red]">
+            <div className="w-[60%] flex max-[820px]:w-full flex-wrap max-[520px]:[&>ul]:scale-[90%] max-[520px]:[&>ul]:flex max-[520px]:[&>ul]:flex-col max-[520px]:[&>ul]:items-center max-[520px]:[&>*]:border-[red]">
                 <FooterList title="برنامه نویسی" hidden1="hidden" hidedn2="hidden" content1="اندروید"  content2="پی اچ پی (PHP)"  content3="پایتون (Python)"  content4="جاوا (Java)" content5="مهندسی کامپیوتر" />
                 <FooterList title="کار با داده" hidden1="hidden" content1="وردپرس"  content2="انگولار"  content3="آموزش‌های متلب"  content4="داده‌کاوی و یادگیری ماشین "  content5="طراحی و گرافیک" />
                 <FooterList title="سیستم های اطلاعات" content1="بهینه‌سازی هوشمند"  content2="الگوریتم‌های تکاملی"  content3="شبکه‌های عصبی"  content4="هوش مصنوعی"  content5="نگارش آکادمیک" />

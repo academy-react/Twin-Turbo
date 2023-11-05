@@ -1,10 +1,9 @@
-import { RouterProvider } from "react-router-dom";
-import router from './config/Router'
-import NightMode from "../components/common/NightMode";
+import { RouterProvider } from "react-router-dom"
+import Router from './config/Router'
 
 const App = () => {
-  NightMode("","")
-  return <RouterProvider router={router} />;
+  ondragstart = () => false
+  return <RouterProvider router={Router} />
 };
 
 export default App;
