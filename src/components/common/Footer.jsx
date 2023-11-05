@@ -35,25 +35,29 @@ const Footer = () => {
                 <p>امنیت داده ها</p>
               </div>
           </div>
-          <div className=" [&>div]:h-full flex">
-            <div dir="rtl" className="w-[40%] flex flex-col justify-center max-[1300px]:scale-[85%] max-[820px]:hidden max-[1000px]:mt-[60px] max-[1000px]:scale-[70%]">
-              <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px]"> با ما همراه باشید !!!</p>
-              <div className="h-[70px] w-[80%] flex justify-around items-center [&>img]:scale-[150%] ">
-                <img src="../src/assets/images/footer/twitter.png" alt="" />
-                <img src="../src/assets/images/footer/insta.png" alt="" />
-                <img src="../src/assets/images/footer/linkedin.png" alt="" />
-                <img src="../src/assets/images/footer/aparat.png" alt="" />
+          <div className="[&>div]:h-full flex max-[1270px]:flex-col-reverse max-[1270px]:[&>div]:w-full">
+            <div dir="rtl" className="w-[40%] flex flex-col justify-center pt-[30px] max-[1270px]:mt-[-50px] max-[1270px]:flex-row max-[1270px]:w-full max-[1270px]:mb-[20px] max-[766px]:flex-col max-[766px]:[&>div]:w-full  max-[766px]:pr-[30px]">
+              <div className="max-[1270px]:w-[40%] mb-3">
+                <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px]"> با ما همراه باشید !!!</p>
+                <div className="h-[70px] w-[70%] flex justify-around items-center [&>img]:w-12 [&>img]:cursor-pointer [&>img:hover]:drop-shadow-[0_0_5px_#444]">
+                  <img src="../src/assets/images/footer/twitter.png" alt="" />
+                  <img src="../src/assets/images/footer/insta.png" alt="" />
+                  <img src="../src/assets/images/footer/linkedin.png" alt="" />
+                  <img src="../src/assets/images/footer/telegram.png" alt="" />
+                </div>
               </div>
-              <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1280px]:text-[22px] max-[1150px]:text-[18px]">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</p>
-              <div className="h-[90px] flex items-center justify-around w-[90%] max-[1000px]:hidden">
-                  <input  type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
-                  <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
+              <div className="max-[1270px]:flex max-[1270px]:flex-col max-[1270px]:w-[50%]">
+                <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1480px]:text-[22px] max-[1350px]:text-[18px] max-[960px]:pr-0">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</p>
+                <div className="h-[90px] flex items-center justify-around w-[90%]">
+                    <input  type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
+                    <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
+                </div>
               </div>
             </div>
             <div className="w-[60%] flex max-[820px]:w-full flex-wrap max-[520px]:[&>ul]:scale-[90%] max-[520px]:[&>ul]:flex max-[520px]:[&>ul]:flex-col max-[520px]:[&>ul]:items-center max-[520px]:[&>*]:border-[red]">
-                <FooterList title="برنامه نویسی" hidden1="hidden" hidedn2="hidden" content1="اندروید"  content2="پی اچ پی (PHP)"  content3="پایتون (Python)"  content4="جاوا (Java)" content5="مهندسی کامپیوتر" />
-                <FooterList title="کار با داده" hidden1="hidden" content1="وردپرس"  content2="انگولار"  content3="آموزش‌های متلب"  content4="داده‌کاوی و یادگیری ماشین "  content5="طراحی و گرافیک" />
-                <FooterList title="سیستم های اطلاعات" content1="بهینه‌سازی هوشمند"  content2="الگوریتم‌های تکاملی"  content3="شبکه‌های عصبی"  content4="هوش مصنوعی"  content5="نگارش آکادمیک" />
+                <FooterList title="برنامه نویسی" hidden1="hidden" hidedn2="hidden" content1="اندروید"  content2="پی اچ پی (PHP)" content3="پایتون (Python)" content4="جاوا (Java)" content5="مهندسی کامپیوتر" />
+                <FooterList title="کار با داده" hidden1="hidden" content1="وردپرس" content2="انگولار"  content3="آموزش‌های متلب" content4="داده‌کاوی و یادگیری ماشین "  content5="طراحی و گرافیک" />
+                <FooterList title="سیستم های اطلاعات" content1="بهینه‌سازی هوشمند" content2="الگوریتم‌های تکاملی" content3="شبکه‌های عصبی" content4="هوش مصنوعی" content5="نگارش آکادمیک" />
             </div>
           </div>
         </div>
