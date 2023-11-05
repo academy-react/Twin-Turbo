@@ -4,10 +4,16 @@ import { useRef } from "react";
 const Footer = () => {
   let btn = useRef()
   let input = useRef()
+  
   const changer = ()=> {
       if(input.current.value.length !== 0) btn.current.style.background = "#36c54e";
       else btn.current.style.background = "#e0e0e2";
   }
+  const changeSocialIcon = (img)=> {
+    console.log(img);
+    img.src = img.src.replace(".png" , "-light.png")
+  }
+  const changeSocialIconDefault = (img)=> {img.src = img.src.replace("-light.png" , ".png")}
 
   return (
     <>
@@ -34,32 +40,72 @@ const Footer = () => {
                 <img src="../src/assets/images/footer/cloud.png" alt="" />
                 <p>امنیت داده ها</p>
               </div>
+          
           </div>
+          
           <div className="[&>div]:h-full flex max-[1270px]:flex-col-reverse max-[1270px]:[&>div]:w-full">
+            
             <div dir="rtl" className="w-[40%] flex flex-col justify-center pt-[30px] max-[1270px]:mt-[-50px] max-[1270px]:flex-row max-[1270px]:w-full max-[1270px]:mb-[20px] max-[766px]:flex-col max-[766px]:[&>div]:w-full  max-[766px]:pr-[30px]">
+              
               <div className="max-[1270px]:w-[40%] mb-3">
+                
                 <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px]"> با ما همراه باشید !!!</p>
-                <div className="h-[70px] w-[70%] flex justify-around items-center [&>img]:w-12 [&>img]:cursor-pointer [&>img:hover]:drop-shadow-[0_0_5px_#444]">
-                  <img src="../src/assets/images/footer/twitter.png" alt="" />
-                  <img src="../src/assets/images/footer/insta.png" alt="" />
-                  <img src="../src/assets/images/footer/linkedin.png" alt="" />
-                  <img src="../src/assets/images/footer/telegram.png" alt="" />
+                
+                <div className="h-[70px] w-[70%] flex justify-around items-center [&>div>img]:w-16 [&>div]:cursor-pointer ">
+                  
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+
+                    <img src="../src/assets/images/footer/twitter.png" alt="" className="p-2 z-10 relative" />
+
+                  </div>
+
+                  <div className="socialMediaIcons instagram relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+
+                    <img src="../src/assets/images/footer/insta.png" alt="" className="p-2 z-10 relative" />
+
+                  </div>
+
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+
+                    <img src="../src/assets/images/footer/linkedin.png" alt="" className="p-2 z-10 relative" />
+
+                  </div>
+
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+
+                    <img src="../src/assets/images/footer/telegram.png" alt="" className="p-2 z-10 relative" />
+
+                  </div>
+                
                 </div>
+              
               </div>
+              
               <div className="max-[1270px]:flex max-[1270px]:flex-col max-[1270px]:w-[50%]">
+                
                 <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1480px]:text-[22px] max-[1350px]:text-[18px] max-[960px]:pr-0">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</p>
+                
                 <div className="h-[90px] flex items-center justify-around w-[90%]">
+                    
                     <input  type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
+                    
                     <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
+                
                 </div>
+              
               </div>
+            
             </div>
+            
             <div className="w-[60%] flex max-[820px]:w-full flex-wrap max-[520px]:[&>ul]:scale-[90%] max-[520px]:[&>ul]:flex max-[520px]:[&>ul]:flex-col max-[520px]:[&>ul]:items-center max-[520px]:[&>*]:border-[red]">
                 <FooterList title="برنامه نویسی" hidden1="hidden" hidedn2="hidden" content1="اندروید"  content2="پی اچ پی (PHP)" content3="پایتون (Python)" content4="جاوا (Java)" content5="مهندسی کامپیوتر" />
                 <FooterList title="کار با داده" hidden1="hidden" content1="وردپرس" content2="انگولار"  content3="آموزش‌های متلب" content4="داده‌کاوی و یادگیری ماشین "  content5="طراحی و گرافیک" />
                 <FooterList title="سیستم های اطلاعات" content1="بهینه‌سازی هوشمند" content2="الگوریتم‌های تکاملی" content3="شبکه‌های عصبی" content4="هوش مصنوعی" content5="نگارش آکادمیک" />
+            
             </div>
+          
           </div>
+        
         </div>
     </>
   );
