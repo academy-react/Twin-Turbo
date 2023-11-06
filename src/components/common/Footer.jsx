@@ -9,10 +9,7 @@ const Footer = () => {
       if(input.current.value.length !== 0) btn.current.style.background = "#36c54e";
       else btn.current.style.background = "#e0e0e2";
   }
-  const changeSocialIcon = (img)=> {
-    console.log(img);
-    img.src = img.src.replace(".png" , "-light.png")
-  }
+  const changeSocialIcon = (img)=> {img.src = img.src.replace(".png" , "-light.png")}
   const changeSocialIconDefault = (img)=> {img.src = img.src.replace("-light.png" , ".png")}
 
   return (
@@ -53,25 +50,25 @@ const Footer = () => {
                 
                 <div className="h-[70px] w-[70%] flex justify-around items-center [&>div>img]:w-16 [&>div]:cursor-pointer ">
                   
-                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-[#ee1b60]" onMouseOver={(e)=> changeSocialIcon(e.target.firstChild || e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target.firstChild || e.target)}>
 
-                    <img src="../src/assets/images/footer/twitter.png" alt="" className="p-2 z-10 relative" />
+                    <img src="../src/assets/images/footer/aparat.png" alt="" className="p-2 z-10 relative" />
 
                   </div>
 
-                  <div className="socialMediaIcons instagram relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+                  <div className="socialMediaIcons instagram relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl" onMouseOver={(e)=> changeSocialIcon(e.target.firstChild || e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target.firstChild || e.target)}>
 
                     <img src="../src/assets/images/footer/insta.png" alt="" className="p-2 z-10 relative" />
 
                   </div>
 
-                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-[#51cc5e]" onMouseOver={(e)=> changeSocialIcon(e.target.firstChild || e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target.firstChild || e.target)}>
 
-                    <img src="../src/assets/images/footer/linkedin.png" alt="" className="p-2 z-10 relative" />
+                    <img src="../src/assets/images/footer/whatsapp.png" alt="" className="p-2 z-10 relative" />
 
                   </div>
 
-                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target)}>
+                  <div className="socialMediaIcons relative -z-1 overflow-hidden border border-[#ccc] rounded-2xl before:bg-gradient-to-b before:from-[#36AEE0] before:to-[#1C96D1]" onMouseOver={(e)=> changeSocialIcon(e.target.firstChild || e.target)} onMouseOut={(e)=> changeSocialIconDefault(e.target.firstChild || e.target)}>
 
                     <img src="../src/assets/images/footer/telegram.png" alt="" className="p-2 z-10 relative" />
 
