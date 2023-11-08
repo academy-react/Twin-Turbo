@@ -3,7 +3,7 @@ import { Menu , LinkComponent , Linkes } from "./index"
 import headerScroll from '../../core/utils/headerScroll.utils'
 import NightMode from '../common/NightMode'
 
-const Header = ({className,src,color}) => {
+const Header = ({className,src,color,borderClass}) => {
 
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Header = ({className,src,color}) => {
 
   return (
     <>
-      <header dir="rtl" className="z-[100] relative w-full right-0 left-0 top-0 max-h-[80px]" id="header">
+      <header dir="rtl" className={"z-[100] relative w-full right-0 left-0 top-0 max-h-[80px] " + borderClass} id="header">
           <div className="mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center" >
               <div className="w-[35%] max-[1580px]:w-[40%] max-[1580px]:[&>a]:text-[16px] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
                   <Linkes to="/contact-us" content="تماس با ما" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border-b-[2px] border-b-[#8043bd] dark:text-[#fff] dark:border-b-[#fff]"} ejectedClassName={"text-[" + color + "] headerItemHover relative dark:text-[#ddd] dark:before:bg-white"} />
