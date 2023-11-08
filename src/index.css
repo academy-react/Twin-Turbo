@@ -137,9 +137,7 @@ input[type=number] {-moz-appearance:textfield;}
     background-color: #8043bd;
     transition: .5s;
 }
-.headerItemHover:hover::before {
-    width: 100%;
-}
+.headerItemHover:hover::before {width: 100%;}
 .socialMediaIcons::before {
     content: "";
     position: absolute;
@@ -149,9 +147,7 @@ input[type=number] {-moz-appearance:textfield;}
     height: 0;
     transition: .5s;
 }
-.socialMediaIcons:hover::before {
-    height: 100%;
-}
+.socialMediaIcons:hover::before {height: 100%;}
 .instagram::before {
     background-image: url(./assets/images/footer/instaBg.png) ;
     background-size: cover;
