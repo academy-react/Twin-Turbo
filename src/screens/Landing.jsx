@@ -6,16 +6,10 @@ import customAxios from "../core/services/interceptor";
 
 const Landing = () => {
 
-  const getCourse = async ()=> {
-
-      let result =  await customAxios.get("/News/GetListNewsCategor")
-      console.log(result);
-
-  }
   
   useEffect(() => {
     
-      getCourse()
+
       document.addEventListener("scroll",()=> landingScrollLogic())
       
   }, [])
