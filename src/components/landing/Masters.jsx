@@ -1,6 +1,24 @@
 import TitleComponents from "./TitleComponents"
 import Master from '../common/Master'
+import customAxios from '../../core/services/interceptor'
+import { useEffect , useState } from "react"
+
 const Masters = () => {
+  let res ;
+
+  const [teacher, setTeacher] = useState([])
+  const getTeacher = async () => {
+
+      let result = await customAxios.get("/Home/GetTeachers")
+      res = result
+      
+    }
+    useEffect(() => {
+      
+      getTeacher()
+
+  }, [])
+  
   return (
     <div className='w-full flex flex-col justify-center items-center relative [&>div]:my-8'>
         <TitleComponents title="اساتید برتر" content="استاد های مهربون و دوست داشتی" src="courses-title.png" className="flex" />
@@ -18,10 +36,12 @@ const Masters = () => {
         </div>
 
         <div className="w-[60%] opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
-            
-            <Master name="حامد نظری" ability="طراح فرانت" src="ostad-3.jpg" />
-            <Master name="مهدی اصغری" ability=" React Developer" src="ostad-2.png" />
-            <Master name="محسن اسفندیاری" ability=" React Developer" src="ostad.jpg" />
+            {
+              console.log(res)
+            }
+            <Master name="" ability="طراح فرانت" src="ostad-3.jpg" />
+            <Master name="" ability=" React Developer" src="ostad-2.png" />
+            <Master name="" ability=" React Developer" src="ostad.jpg" />
 
         </div>
         <img src="../src/assets/images/landingMaster/Path 564.png" alt="" className="absolute bottom-[200px] right-[-50px] scale-[70%] max-[1300px]:scale-[60%] max-[1300px]:right-[-65px] max-[1120px]:scale-[55%] max-[1023px]:hidden transition-all duration-700" />

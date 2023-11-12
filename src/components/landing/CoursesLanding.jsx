@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../common/Button";
 import TitleComponents from "./TitleComponents";
-import { landingCourseSelector } from '../../core/utils/landingCourseSelector.utils'
+import landingCourseSelector from '../../core/utils/landingCourseSelector.utils'
 import courseDB from '../../core/services/courseDB'
-import CustomAxios from '../../core/services/interceptor/index'
+import customAxios from '../../core/services/interceptor/index'
 
 
 const Courses = () => {
@@ -18,11 +18,18 @@ const Courses = () => {
     const [item, setItem] = useState([])
     setTimeout(() => {setNum(landingCourse.current.getAttribute("data-id"))}, 10);
 
-  
-
+    const inctance = async ()=> {
+        let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
+        return result
+    }
+    
     const getCourse = async () => {
-        let result = await CustomAxios.get("/Home/GetCoursesTop?Count=3")
+        let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
         setItem(result)
+        master.current.innerHTML = result[1].teacherName;
+        title.current.innerHTML = "  دوره کامل :  " + result[1].classRoomName;
+        content.current.innerHTML = result[1].describe;
+        console.log(result);
     }
     useEffect(() => {
         getCourse()
@@ -44,7 +51,7 @@ const Courses = () => {
                      {
                         item.map((el,index)=> {
                             return (
-                                <img key={index} src={"../src/assets/images/courses/" + courseDB[index].src} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
+                                <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                             )
                         })
                      }
@@ -57,10 +64,10 @@ const Courses = () => {
                     <img src="../src/assets/images/courses/01.png" alt="" className="max-[560px]:w-[90%] max-[450px]:w-full max-[1020px]:scale-[80%] max-[963px]:w-[70%] max-[963px]:h-[230px] w-[90%] h-[280px] mx-auto rounded-[15px]" ref={bigPic}/>
                     <div className="max-[650px]:mt-[15px] max-[400px]:mt-[15px] max-[650px]:pr-[15px] w-[90%] mx-auto relative max-[1020px]:left-[25px] max-[1020px]:bottom-[65px] max-[960px]:bottom-[50px] max-[903px]:bottom-[40px]">
                         <div className="max-[400px]:flex-col-reverse px-[10px] max-[650px]:items-end max-[400px]:mt-[20px] h-[50px] flex justify-between items-center relative top-[10px] max-[650px]:flex-row ">
-                            <div className="text-[18px] max-[500px]:text-[15px] max-[400px]:mb-[-11px]" ref={master}> استاد بحرالعلوم</div>
-                            <div className="text-[24px] max-[500px]:text-[20px]" ref={title}>دوره کامل : جی اس</div>
+                            <div className="text-[18px] max-[500px]:text-[15px] max-[400px]:mb-[-11px]" ref={master}>  </div>
+                            <div className="text-[24px] max-[500px]:text-[20px]" ref={title}></div>
                         </div>
-                        <div className="mt-[30px] text-[#777] px-[10px]" dir="rtl" ref={content}>آموزشگاه در تدارک دوره های جدید برنامه نویسی است</div>
+                        <div className="mt-[30px] text-[#777] px-[10px]" dir="rtl" ref={content}></div>
                     </div>
                     <Button content="مشاهده دوره" className="absolute left-7 bottom-4 max-[1020px]:bottom-[40px] max-[900px]:scale-[70%] max-[900px]:bottom-[20px] max-[650px]:bottom-[10px]" link={"/courses/" + num } />
 

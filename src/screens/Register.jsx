@@ -1,23 +1,46 @@
 import { Formik , Form } from "formik"
-import DatePicker from "react-multi-date-picker"
-import persian from "react-date-object/calendars/persian"
-import persian_fa from "react-date-object/locales/persian_fa"
 import { Header , FieldInput , LinkComponent , Submit} from "../components/common/index"
 import { useRef } from "react"
 import Validation from "../core/validations/registerValidation"
 import { useState } from "react"
+import customAxios from "../core/services/interceptor"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
 
   const [flag, setFlag] = useState(1)
-
+  let navigate = useNavigate()
   const datePicker = useRef()
 
 
-  const registerSubmit = (values) => {
-
-      setFlag(flag+1)
+  const registerSubmit = async (values) => {
+      
+      
       console.log(values);
+      if(flag == 1) { 
+          customAxios.post("/Sign/SendVerifyMessage",{ phoneNumber : values.PhoneNumberOrGmail })
+          setFlag(flag+1)
+      }
+      if(flag == 2) {
+          let res = await customAxios.post("/Sign/VerifyMessage",
+          { 
+            phoneNumber : values.PhoneNumberOrGmail ,
+            verifyCode : values.VerifyCode
+          })
+          if(res.success) setFlag(flag+1)
+      }
+      if(flag == 3) {
+          let res = await customAxios.post("/Sign/Register",
+          { 
+              phoneNumber: values.PhoneNumberOrGmail ,
+              password: values.Password ,
+              gmail: values.Email,
+          })
+          if(res.success) { 
+            navigate("/login")
+            console.log(res);
+          }
+      }
 
   }
 
