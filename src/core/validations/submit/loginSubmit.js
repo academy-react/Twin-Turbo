@@ -1,9 +1,13 @@
+import customAxios from "../../services/interceptor"
 
-const loginSubmit = (values,navigate) => {
-    console.log(values);
-    // if(values.name == account.username && values.password == account.password) {
-        navigate("/panel/userpanel")
-    // }
+const loginSubmit = async (values,navigate) => {
+    let result = await customAxios.post("/Sign/Login" , {
+        phoneOrGmail : values.phoneOrGmail,
+        password : values.password,
+        rememberMe : values.rememberMe
+    })
+    if(result.success)  navigate("/panel/userpanel")
+    else alert(result.message)
 }
 
 export default loginSubmit

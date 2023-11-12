@@ -16,17 +16,17 @@ const login = () => {
           <img src="../src/assets/images/panel/path forget.png" alt="" className="absolute left-[-31px] top-0 scale-x-[122%] scale-y-[127%] max-[1000px]:hidden"/>
           <img src="../src/assets/images/panel/login.png" alt="" className="absolute left-0 top-[260px] w-[61%] transition-all duration-1000 max-[1485px]:top-[200px] order-2 max-[1256px]:mt-20 max-[1256px]:right-0 max-[1256px]:top-0 max-[1256px]:relative max-[700px]:hidden"/>
 
-          <Formik initialValues={{name : "" , password : "" , remind : false}} onSubmit={(values)=> loginSubmit(values,navigate)} validationSchema={loginValidation}>
+          <Formik initialValues={{phoneOrGmail : "" , password : "" , rememberMe : false}} onSubmit={(values)=> loginSubmit(values,navigate)} validationSchema={loginValidation}>
               <Form className="w-[450px] h-[500px] bg-white absolute right-[300px] top-[335px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col justify-around items-center py-4 transition-all duration-1000 max-[1800px]:top-[300px] max-[1700px]:top-[270px] max-[1700px]:right-[200px] max-[1530px]:top-[200px] max-[1460px]:scale-90 max-[1400px]:top-[150px] max-[550px]:scale-[80%] max-[430px]:scale-[70%] max-[340px]:scale-[65%] max-[1256px]:mt-20 max-[1256px]:right-0 max-[1256px]:top-0 max-[1256px]:relative">
                 <img src="../src/assets/images/panel/log-in.png" alt="" className="w-[50px] h-[50px]"/>
                 <div className="text-[26px]">ورود</div>
 
-                <FieldInput name="name" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
+                <FieldInput name="phoneOrGmail" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
                 <FieldInput name="password" type="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" showPasswordCheck={true} />
                 
                 <div className="flex items-center self-end mr-10">
-                    <label htmlFor="checkbox" className="mx-2 text-[#564FCC] text-[17px] cursor-pointer">مرا به خاطر بسپار</label>
-                    <Field name="remind" type="checkbox" id="checkbox" className="appearance-none border border-[#564FCC] w-4 h-4 rounded-[7px] cursor-pointer checked:bg-[#564FCC]"/>
+                  <label htmlFor="checkbox" className="mx-2 text-[#564FCC] text-[17px] cursor-pointer">مرا به خاطر بسپار</label>
+                  <Field name="rememberMe" type="checkbox" id="checkbox" className="appearance-none border border-[#564FCC] w-4 h-4 rounded-[7px] cursor-pointer checked:bg-[#564FCC]"/>
                 </div>
                 <Submit content="ورود" className="w-[89%] h-12 " />
                 <LinkComponent content="فراموشی رمز عبور" link="/forgetPassword" className="text-[#564FCC] text-[20px]" />
