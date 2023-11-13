@@ -1,16 +1,14 @@
-import courses from "../../core/services/courseDB"
+import customAxios from "../services/interceptor";
 
-const landingCourseSelector = (e,pic,title,master,content,landingCourse,setNum) => {
-
+const landingCourseSelector = async (e,pic,title,master,content,landingCourse,setNum) => {
+    let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
     let num = e.target.getAttribute("data-id")
-
-    landingCourse.style.transform = "rotateY(90deg)"
+    console.log(result);
     setTimeout(() => {
-        landingCourse.style.transform = "rotateY(0deg)"
         pic.src = e.target.getAttribute("src")
-        title.innerHTML = "دوره کامل : " + courses[num].name
-        master.innerHTML = courses[num].masterName  
-        content.innerHTML =  courses[num].content  
+        title.innerHTML = "دوره کامل : " + result[num].classRoomName
+        master.innerHTML = result[num].teacherName  
+        content.innerHTML =  result[num].describe  
 
         landingCourse.setAttribute("data-id",num)
         setNum(landingCourse.getAttribute("data-id"))
@@ -18,4 +16,4 @@ const landingCourseSelector = (e,pic,title,master,content,landingCourse,setNum) 
 
 }
 
-export {landingCourseSelector}
+export default landingCourseSelector

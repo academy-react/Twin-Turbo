@@ -9,7 +9,6 @@ const LandingCatMap = () => {
   const getTechnologies = async () => {
     let result = await customAxios.get("/Home/GetTechnologies")
     setCatItems(result)
-    console.log(result);
   }
 
   useEffect(() => {
