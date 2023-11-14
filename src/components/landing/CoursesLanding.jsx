@@ -29,11 +29,11 @@ const Courses = () => {
         master.current.innerHTML = result[1].teacherName;
         title.current.innerHTML = "  دوره کامل :  " + result[1].classRoomName;
         content.current.innerHTML = result[1].describe;
-        console.log(result);
     }
     useEffect(() => {
         getCourse()
     }, [])
+    
     
     return (
         <div className="w-full relative max-[1600px]:flex-col">
