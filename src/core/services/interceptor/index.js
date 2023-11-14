@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const customAxios = axios.create({
 
-    baseURL : "https://api-academy.iran.liara.run/api"
+    baseURL : "https://acadapi.etacorealtime.ir/api"
     
 })
 

@@ -7,7 +7,7 @@ const Router = createBrowserRouter([
       element: <Landing />,
     },
     {
-      path: "/forgetPassword",
+      path: "/forgetPassword/:ConfigValue",
       element: <ForgetPassword />,
     },
     {
