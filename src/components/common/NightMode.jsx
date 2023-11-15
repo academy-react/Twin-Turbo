@@ -41,8 +41,8 @@ const NightMode = ({bgClass,borderClass}) => {
 
     return (
         <div className={"rounded-[25px] p-[5px] max-[1300px]:right-[-90px] max-[321px]:right-[-75px] " + bgClass}>
-            <div id="sircle" className={"cursor-pointer flex items-center transition-all duration-500 h-[35px] w-[80px] px-[3px] py-[1px] rounded-[50px]  " + borderClass} onClick={changeMode} style={local == "light" ? {background : 'url(../src/assets/images/header/sky.png) 0 0 / 62px'} : {background : 'url(../src/assets/images/header/night-sky.png) 0 0 / 100%'}}>
-                <img src={local == "light" ? "../src/assets/images/header/sun.png" : "../src/assets/images/header/moon.png" } alt="" className={local == "light" ? sircleImgClassName : sircleImgClassName + "translate-x-[-40px]" } />
+            <div id="sircle" className={"cursor-pointer flex items-center transition-all duration-500 h-[35px] w-[80px] px-[3px] py-[1px] rounded-[50px]  " + borderClass} onClick={changeMode} style={local == "dark" ? {background : 'url(../src/assets/images/header/night-sky.png) 0 0 / 62px'} : {background : 'url(../src/assets/images/header/sky.png) 0 0 / 100%'}}>
+                <img src={local == "dark" ? "../src/assets/images/header/moon.png" : "../src/assets/images/header/sun.png" } alt="" className={local == "dark" ? sircleImgClassName + "translate-x-[-40px]" : sircleImgClassName } />
             </div>
         </div>
     )

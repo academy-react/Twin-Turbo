@@ -12,7 +12,6 @@ const Masters = () => {
 
       let result = await customAxios.get("/Home/GetTeachers")
       result = result.slice(5,8)
-      console.log(result);
       setTeacher(result)
       
     }
@@ -39,7 +38,7 @@ const Masters = () => {
 
           <div className="w-[60%] opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
               {
-                  teacher.map((element,index)=> <Master key={index} name={element.fullName} ability="طراح فرانت" src="ostad-3.jpg" />)
+                  teacher.map((element,index)=> <Master key={index} name={element.fullName} ability="طراح فرانت" src={element.pictureAddress} />)
               }
               {/* <Master name="" ability="طراح فرانت" src="ostad-3.jpg" />
               <Master name="" ability=" React Developer" src="ostad-2.png" />

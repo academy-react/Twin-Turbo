@@ -2,8 +2,8 @@ import { Formik , Form } from "formik"
 import forgetSubmit from "../core/validations/submit/forgetSubmit";
 import { LinkComponent , FieldInput , Header, Submit } from '../components/common';
 import forgetPasswordValidation from "../core/validations/forgetPasswordValidation";
-import { json, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import customAxios from "../core/services/interceptor";
 
 const ForgetPassword = () => {
@@ -12,38 +12,34 @@ const ForgetPassword = () => {
 
 
   const get = async ()=> {
-    let res = await customAxios.get("/Sign/Reset/" + url.ConfigValue)
-    // console.log(res);
+      let res = await customAxios.get("/Sign/Reset/" + url.ConfigValue)
+      console.log(res);
       
-      localStorage.setItem("userId",res.id)
-      localStorage.setItem("userMessage",res.message)
+      sessionStorage.setItem("userId",res.id)
+      sessionStorage.setItem("userMessage",res.message)
 
   }
 
   const post = async ()=> {
 
-    let userId = localStorage.getItem("userId")
-    userId =  Math.ceil(userId)
-    let userMessage = localStorage.getItem("userMessage")
+    let userId = sessionStorage.getItem("userId")
+    let userMessage = sessionStorage.getItem("userMessage")
+
+    userId = Math.ceil(userId)
 
     console.log(userId,userMessage);
 
     let res = await customAxios.post("/Sign/Reset",
     {
       userId: userId,
-      newPassword: "123456",
+      newPassword: "Ssstormy#so123",
       resetValue: userMessage
     })
     console.log(res);
   }
 
   useEffect(() => {
-      get()
-
-      setTimeout(() => {
-        post()
-      }, 4000);
-
+      // get()
   }, [])
   
   return (
