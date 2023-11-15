@@ -1,22 +1,27 @@
 import TitleComponents from "./TitleComponents"
 import Master from '../common/Master'
 import customAxios from '../../core/services/interceptor'
-import { useEffect , useState } from "react"
+import { useCallback, useEffect , useState } from "react"
 
 const Masters = () => {
 
 
     const [teacher, setTeacher] = useState([])
+    
 
-    const getTeacher = async () => {
+    const getTeacher = useCallback (async () => {
 
-      let result = await customAxios.get("/Home/GetTeachers")
-      result = result.slice(5,8)
-      setTeacher(result)
+        let result = await customAxios.get("/Home/GetTeachers")
+        setTeacher(result);
+        console.log(teacher);
+  
+    })
       
-    }
+
     useEffect(() => {
+
       getTeacher()
+
     }, [])
     
   

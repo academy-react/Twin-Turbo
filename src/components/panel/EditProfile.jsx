@@ -12,18 +12,26 @@ import { changePic, editProfileSubmit } from '../../core/validations/submit/edit
 
 
 const EditProfile = () => {
+
     let userImage = useRef()
+    let img = useRef()
 
     const datePicker = useRef()
+
+
+    const inHovering = ()=> img.current.src = "../src/assets/images/panel/camera hover.png"
+    const outHovering = ()=> img.current.src = "../src/assets/images/panel/camera.png"
 
     return (
         <div id="editProfile" className="h-[3000px]  max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
             <div className="h-[30%] justify-center items-center max-[1200px]:h-[15%]">
-                <div className="w-[50%] mx-auto h-full flex flex-col justify-center items-center">
-                    <img src={"../src/assets/images/dashboard/" + account.image} alt="" className='w-[120px] h-[120px] rounded-[50%] mb-[25px]' ref={userImage} />
-                    <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
-                    <label htmlFor="fileInput" className='w-[180px] h-[50px] bg-[#922492] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-md'>اپلود عکس</label>
+                <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
+                    <div className='w-[120px] h-[120px] rounded-[50%] mb-[25px] relative'>
+                        <img src={"../src/assets/images/dashboard/" + account.image} alt="" className='rounded-[50%]' ref={userImage} />
+                        <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
+                        <label htmlFor="fileInput" className='border border-black w-[34px] h-[34px] bg-[#db9cdb] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-[50%] absolute right-[-2px] top-[80px]' onMouseOver={inHovering} onMouseOut={outHovering} ><img src="../src/assets/images/panel/camera.png" alt="" className='w-[20px] h-[15px]' ref={img} /></label>
+                    </div>
                 </div>
             </div>
             <Formik initialValues={{name:"",birthDayDate:"",phone:"",email:"",nationalCode:"",role:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
