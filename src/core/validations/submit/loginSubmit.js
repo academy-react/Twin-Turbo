@@ -6,7 +6,11 @@ const loginSubmit = async (values,navigate) => {
         password : values.password,
         rememberMe : values.rememberMe
     })
-    if(result.success)  navigate("/panel/userpanel")
+    if(result.success) {
+        navigate("/panel/userpanel")
+        localStorage.setItem("token",result.token)
+        console.log(result.token);
+    }
     else alert(result.message)
 }
 

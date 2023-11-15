@@ -43,10 +43,10 @@ const ForgetPassword = () => {
   }, [])
   
   return (
-    <div className='w-full  bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
+    <div className='w-full h-[1345px] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
       <Header className="hidden" src="avatar-1.png" color="#fff"/>
 
-      <div className='w-[1920px] max-[1919px]:w-full mx-auto h-[100vh] relative overflow-hidden flex flex-col justify-start items-center max-[1256px]:mt-28'>
+      <div className='w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden flex flex-col justify-start items-center max-[1256px]:mt-28'>
           
           <img src="../src/assets/images/panel/path forget.png" alt="" className='absolute left-[-31px] top-0 scale-x-[122%] scale-y-[120%] max-[1000px]:hidden'/>
           <img src="../src/assets/images/panel/forget logo woman.png" alt="" className='absolute left-[0] top-[260px] w-[65%] transition-all duration-1000 max-[1485px]:top-[200px] order-2 max-[1256px]:mt-20 max-[1256px]:right-0 max-[1256px]:top-0 max-[1256px]:relative max-[700px]:hidden '/>
