@@ -21,14 +21,14 @@ const EditProfile = () => {
     const datePicker = useRef()
 
     const getInfo = async () => {
-        let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+        let result = await customAxios.get("/SharePanel/GetProfileInfo",{
             headers : {"Authorization" : "Bearer " + token}
         })
-        setMyInfo(myresult)
+        setMyInfo(result)
     }
 
     useEffect(() => {
-      getInfo()
+        getInfo()
     }, [])
     
 
@@ -36,7 +36,7 @@ const EditProfile = () => {
     const outHovering = ()=> img.current.src = "../src/assets/images/panel/camera.png"
 
     return (
-        <div id="editProfile" className="h-[3000px]  max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
+        <div id="editProfile" className="border border-[green] max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
             <div className="h-[30%] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
@@ -47,19 +47,23 @@ const EditProfile = () => {
                     </div>
                 </div>
             </div>
-            <Formik initialValues={{name:"",birthDayDate:"",phone:"",email:"",nationalCode:"",role:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
+            <Formik initialValues={{lName:"",fName:"",UserAbout:"",LinkdinProfile:"",TelegramLink:"",ReceiveMessageEvent:false,HomeAdderess:"",NationalCode:"",Gender:false,BirthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
                 {(form)=> (
-                    <Form dir='rtl' className="max-[1200px]:flex-col max-[1200px]:[&>div]:w-full items-center py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[600px] [&>div]:flex [&>div]:flex-col [&>div]:justify-around [&>div>div]:w-[95%] [&>div>div]:h-[28%] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
+                    <Form dir='rtl' className="max-[1200px]:flex-col max-[1200px]:[&>div]:w-full [&>div]:border [&>div]:border-[red] items-center py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[1400px] [&>div]:flex [&>div]:flex-col [&>div>div]:my-[15px] [&>div>div]:w-[95%] [&>div>div]:h-[200px] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
-                            
-                            <EditProfileItem content="نام کاربری" name="name" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+
+                            <EditProfileItem content="نام" name="fName" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="درباره من" name="UserAbout" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="کد ملی" name="NationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem type="checkbox" content="جنسیت " name="Gender" placeholder="جنسیت را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                                
                                 <div className='[&>div:last-child]:w-[85%] [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9]'>
                                     <div>تاریخ تولد</div>
                                     <DatePicker
                                         ref={datePicker}
                                         onChange={() => {
                                         setTimeout(() => {
-                                            form.values.birthDayDate = datePicker.current.children[0].value
+                                            form.values.BirthDay = datePicker.current.children[0].value
                                         }, 10);
                                         }}
                                         placeholder="تاریخ تولد را وارد کنید ..."
@@ -78,9 +82,11 @@ const EditProfile = () => {
                         </div>
                         <div>
 
-                            <EditProfileItem content="ایمیل" name="email" placeholder="ایمیل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="نقش" name="role" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="نام خانوادگی" name="lName" placeholder="ایمیل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="پروفایل لینکدین" name="LinkdinProfile" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="لینک تلگرام" name="TelegramLink" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="دریافت خبرها" type="checkbox" name="ReceiveMessageEvent" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="ادرس منزل" name="HomeAdderess" placeholder="ادرس منزل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
 

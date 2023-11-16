@@ -12,10 +12,10 @@ const DashBoard = () => {
   let token = localStorage.getItem("token")
 
   const getInfo = async () => {
-      let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+      let result = await customAxios.get("/SharePanel/GetProfileInfo",{
           headers : {"Authorization" : "Bearer " + token}
       })
-      setMyInfo(myresult)
+      setMyInfo(result)
   }
 
 

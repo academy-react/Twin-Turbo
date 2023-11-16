@@ -10,10 +10,13 @@ const Panel = () => {
     let token = localStorage.getItem("token")
 
     const getInfo = async () => {
-        let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+
+
+        let result = await customAxios.get("/SharePanel/GetProfileInfo",{
             headers : {"Authorization" : "Bearer " + token}
         })
-        setMyInfo(myresult)
+        // console.log(result);
+        setMyInfo(result)
     }
 
     useEffect(() => {
@@ -33,7 +36,7 @@ const Panel = () => {
 
                     <div className="h-[150px] flex justify-center items-center px-3">
                         <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName + myInfo?.fName}</div>
-                        <img src={myInfo?.currentPictureAddress} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
+                        <img src={myInfo?.currentPictureAddress} alt="" id='picprofile' className='border border-[red] h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 
                     <PanelQuickAccess />

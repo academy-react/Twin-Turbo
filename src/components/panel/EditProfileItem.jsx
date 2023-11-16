@@ -1,10 +1,10 @@
 import FieldInput from '../common/FieldInput'
 
-const EditProfileItem = ({name,placeholder,border,display,className,dir,content}) => {
+const EditProfileItem = ({name,placeholder,border,display,className,dir,content,type}) => {
   return (
-        <div>
+        <div className='border border-[red]'>
             <div>{content}</div>
-            <FieldInput name={name} placeholder={placeholder} border={border} display={display} className={className} dir={dir} />
+            <FieldInput name={name} type={type} placeholder={placeholder} border={border} display={display} className={className} dir={dir} />
         </div>
   )
 }
