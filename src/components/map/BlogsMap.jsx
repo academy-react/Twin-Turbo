@@ -1,8 +1,9 @@
-import { useRef , useState } from "react";
+import { useEffect, useRef , useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import blogs from "../../core/services/blogDB";
 import { Button } from "../common";
+import customAxios from "../../core/services/interceptor";
 
 let setBlog;
 const BlogsMap = () => {
@@ -11,9 +12,18 @@ const BlogsMap = () => {
     let item = useRef();
     let content = useRef();
 
-    const [blogsItem, setBlogsItem] = useState(blogs.slice(0,4))
+    const [blogsItem, setBlogsItem] = useState([])
 
-    setBlog = setBlogsItem
+    const getBlogs = async () => {
+      let result = await customAxios.get("/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC") 
+      setBlogsItem(result.news)
+      console.log(result);
+    }
+
+    setBlog = blogsItem
+    useEffect(() => {
+      getBlogs()
+    }, [])
     
     return (
         blogsItem.map((element, index) => {
@@ -25,7 +35,7 @@ const BlogsMap = () => {
               >
                 <div className="w-full h-170px overflow-hidden my-[10px]">
                   <img
-                    src={"../src/assets/images/courses/" + element.src}
+                    src={element.currentImageAddressTumb}
                     alt=""
                     className=" mx-auto h-full w-full rounded-[20px]"
                   />
@@ -33,21 +43,17 @@ const BlogsMap = () => {
     
                 <div dir="rtl" className="w-full h-[210px] mx-auto">
                   <div className="w-[95%] h-[150px] mx-auto">
-                    <p className="text-[24px] text-right max-[450px]:text-center">{element.name}</p>
+                    <p className="text-[24px] text-right max-[450px]:text-center">{element.title}</p>
                     <div
                       className="text-[#777] w-full mt-[15px] max-[450px]:text-center"
                       ref={content}
                     >
-                      {element.content}
+                      {element.miniDescribe}
                     </div>
                   </div>
     
-                  <div className="w-full h-[50px] flex justify-between items-center">
-                    <img
-                      src="../src/assets/images/Educated.png"
-                      alt=""
-                      className="w-[100px] h-[29px] max-[450px]:hidden mb-[10px]"
-                    />
+                  <div className="w-full h-[50px] pb-2 flex justify-between items-center">
+                    <div className="text-[#777]">{element.newsCatregoryName}</div>
                     <Button
                       content="ادامه مطلب"
                       className="whitespace-nowrap text-[16px] scale-[80%] max-[450px]:mx-auto"
