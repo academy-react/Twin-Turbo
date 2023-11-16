@@ -21,7 +21,7 @@ const login = () => {
                 <img src="../src/assets/images/panel/log-in.png" alt="" className="w-[50px] h-[50px]"/>
                 <div className="text-[26px]">ورود</div>
 
-                <FieldInput name="phoneOrGmail" content="ورود" placeholder="نام کاربری" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
+                <FieldInput name="phoneOrGmail" content="ورود" placeholder="شماره تلفن یا ایمیل" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" />
                 <FieldInput name="password" type="password" content="رمز ورود" placeholder="رمز ورود" border="border border-[#a361a1]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl" showPasswordCheck={true} />
                 
                 <div className="flex items-center self-end mr-10">
@@ -30,7 +30,7 @@ const login = () => {
                 </div>
                 <Submit content="ورود" className="w-[89%] h-12 " />
                 <LinkComponent content="فراموشی رمز عبور" link="/forgetPassword" className="text-[#564FCC] text-[20px]" />
-                <div className="text-[#00000092]">برای ثبت نام <LinkComponent content="ایجاد" link="/register" className="text-[#564FCC]" /> کلیک کنید</div>
+                <div className="text-[#00000092]">برای ثبت نام <LinkComponent content="اینجا" link="/register" className="text-[#564FCC]" /> کلیک کنید</div>
               </Form>
           </Formik>
       </div>
