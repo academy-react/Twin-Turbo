@@ -15,9 +15,9 @@ const Paginate = ({ itemsPerPage , db })=>  {
   const dbSliced = db.slice(itemOffset, num);
   const pageCount = Math.ceil(db.length / itemsPerPage);
 
-  if(location.pathname == "/blogs") setBlog(dbSliced)
-  else if(location.pathname == "/courses") addToCourse(dbSliced)
-  else if(location.pathname == "/panel/ListOfCourse") setNumberCourse(dbSliced)
+  // if(location.pathname == "/blogs") setBlog(dbSliced)
+  // else if(location.pathname == "/courses") addToCourse(dbSliced)
+  if(location.pathname == "/panel/ListOfCourse") setNumberCourse(dbSliced)
   
 
 
