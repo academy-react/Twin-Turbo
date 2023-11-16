@@ -5,19 +5,10 @@ const changePic = async (e,userImage)=> {
     let src = e.target.files[0];
     let token = localStorage.getItem("token")
     let imageData = new FormData()
-    imageData.append("formFile",src)
+    imageData.append("image",src)
 
-    console.log(imageData);
-
-    let result = await customAxios.post("/SharePanel/AddProfileImage",imageData,{
-        headers : {"Authorization" : "Bearer " + token}
-    })
-    console.log(result);
-    
-    let myresult = await customAxios.post("/SharePanel/GetProfileInfo",{
-        headers : {"Authorization" : "Bearer " + token}
-    })
-    userImage.current.src = myresult.userImage[0].puctureAddress
+    let result = await axios.post("https://api.admin.sepehracademy.ir/api/upload/image",imageData)
+    userImage.current.src = result.data.result
 }
 
 const editProfileSubmit = (values,userImage) => {
