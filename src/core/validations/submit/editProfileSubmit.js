@@ -7,6 +7,7 @@ const changePic = async (e,userImage)=> {
     let imageData = new FormData()
     imageData.append("image",src)
 
+
     let result = await axios.post("https://api.admin.sepehracademy.ir/api/upload/image",imageData)
     userImage.current.src = result.data.result
 }
