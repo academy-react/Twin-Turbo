@@ -1,4 +1,4 @@
-import React , { useRef } from 'react'
+import React , { useEffect, useRef, useState } from 'react'
 import {Formik,Form} from 'formik'
 import EditProfileItem from './EditProfileItem'
 
@@ -8,6 +8,7 @@ import persian_fa from "react-date-object/locales/persian_fa"
 import account from '../../core/services/account';
 import editProfileValidation from '../../core/validations/editProfileValidation';
 import { changePic, editProfileSubmit } from '../../core/validations/submit/editProfileSubmit';
+import customAxios from '../../core/services/interceptor'
 
 
 
@@ -15,9 +16,21 @@ const EditProfile = () => {
 
     let userImage = useRef()
     let img = useRef()
-
+    const [myInfo, setMyInfo] = useState()
+    let token = localStorage.getItem("token")
     const datePicker = useRef()
 
+    const getInfo = async () => {
+        let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+            headers : {"Authorization" : "Bearer " + token}
+        })
+        setMyInfo(myresult)
+    }
+
+    useEffect(() => {
+      getInfo()
+    }, [])
+    
 
     const inHovering = ()=> img.current.src = "../src/assets/images/panel/camera hover.png"
     const outHovering = ()=> img.current.src = "../src/assets/images/panel/camera.png"
@@ -28,7 +41,7 @@ const EditProfile = () => {
             <div className="h-[30%] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
                     <div className='w-[120px] h-[120px] rounded-[50%] mb-[25px] relative'>
-                        <img src={"../src/assets/images/dashboard/" + account.image} alt="" className='rounded-[50%]' ref={userImage} />
+                        <img src={myInfo?.currentPictureAddress} alt="" className='rounded-[50%]' ref={userImage} />
                         <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
                         <label htmlFor="fileInput" className='border border-black w-[34px] h-[34px] bg-[#db9cdb] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-[50%] absolute right-[-2px] top-[80px]' onMouseOver={inHovering} onMouseOut={outHovering} ><img src="../src/assets/images/panel/camera.png" alt="" className='w-[20px] h-[15px]' ref={img} /></label>
                     </div>

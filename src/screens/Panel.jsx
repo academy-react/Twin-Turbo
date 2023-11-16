@@ -1,9 +1,24 @@
 import { Header } from '../components/common/'
 import { Outlet } from 'react-router-dom'
-import account from '../core/services/account'
 import PanelQuickAccess from '../components/panel/PanelQuickAccess'
+import { useEffect, useState } from 'react'
+import customAxios from '../core/services/interceptor'
 
 const Panel = () => {
+
+    const [myInfo, setMyInfo] = useState()
+    let token = localStorage.getItem("token")
+
+    const getInfo = async () => {
+        let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+            headers : {"Authorization" : "Bearer " + token}
+        })
+        setMyInfo(myresult)
+    }
+
+    useEffect(() => {
+      getInfo()
+    }, [])
 
   return (
     <>
@@ -17,8 +32,8 @@ const Panel = () => {
                 <div className="max-[1200px]:w-[360px] max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] relative">
 
                     <div className="h-[150px] flex justify-center items-center px-3">
-                        <div className='text-[25px] truncate w-60' id='usename'>{account.username}</div>
-                        <img src={"../src/assets/images/dashboard/" + account.image} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
+                        <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName + myInfo?.fName}</div>
+                        <img src={myInfo?.currentPictureAddress} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 
                     <PanelQuickAccess />

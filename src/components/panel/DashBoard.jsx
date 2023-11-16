@@ -1,13 +1,28 @@
 import DashboardItemLeft from '../common/DashboardItemLeft'
 import raiseUp from "../../core/utils/raiseUp.utils"
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
-import account from '../../core/services/account'
+import { useEffect , useState } from 'react'
+import customAxios from '../../core/services/interceptor'
 
 const DashBoard = () => {
 
   let navigate = useNavigate()
-  useEffect(() => {navigate('/panel/userpanel')}, [])
+
+  const [myInfo, setMyInfo] = useState()
+  let token = localStorage.getItem("token")
+
+  const getInfo = async () => {
+      let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
+          headers : {"Authorization" : "Bearer " + token}
+      })
+      setMyInfo(myresult)
+  }
+
+
+  useEffect(() => {
+    navigate('/panel/userpanel')
+    getInfo()
+  }, [])
 
   return (
     <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] [&>div]:w-[49%] [&>div]:h-[90%] [&>div]:rounded-[25px] flex items-center justify-between px-[30px] mr-2 max-[1350px]:flex-col-reverse max-[1350px]:[&>div]:w-full max-[1350px]:[&>div:first-child]:h-[50%] max-[1023px]:[&>div:first-child]:h-[100%] max-[1350px]:[&>div]:my-2 max-[1020px]:w-full max-[1020px]:rounded-none max-[1020px]:shadow-none max-[1020px]:mr-0 max-[1020px]:bg-transparent max-[1020px]:[&>div]:bg-white max-[1020px]:px-0 max-[1020px]:[&>div]:rounded-none">
@@ -19,13 +34,13 @@ const DashBoard = () => {
             <div className="text-center mt-[20px] text-[21px]">اطلاعات حساب کاربری</div>
             <div dir="rtl" className="h-[70%] [&>div]:h-[14.28%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
               
-              <div>نام کاربری:<span>{account.username}</span></div>
-              <div>نقش :  <span> {account.role}  </span></div>
-              <div>ایمیل :  <span> {account.email} </span></div>
-              <div>تاریخ تولد :  <span> {account.birthDayDate} </span></div>
-              <div>کد ملی : <span> {account.nationalCode} </span></div>
-              <div>شماره همراه : <span> {account.phone} </span></div>
-              <div>وضعیت :<span> {account.status} </span></div>
+              <div>نام کاربری:<span>{myInfo?.fName + myInfo?.lName}</span></div>
+              <div>نقش :  <span> {myInfo?.role}  </span></div>
+              <div>ایمیل :  <span> {myInfo?.email} </span></div>
+              <div>تاریخ تولد :  <span> {myInfo?.birthDay.slice(0,10)} </span></div>
+              <div>کد ملی : <span> {myInfo?.nationalCode} </span></div>
+              <div>شماره همراه : <span> {myInfo?.phoneNumber} </span></div>
+              <div>جنسیت :<span> {myInfo?.gender ? "مرد" : "زن"} </span></div>
 
             </div>
             <div onClick={()=> raiseUp(navigate,"/panel/editprofile",true)} className="bg-[#36C54E] w-[90%] h-[60px] rounded-[15px] mx-auto flex justify-center items-center text-[#fff] text-[22px] cursor-pointer">ویرایش</div>
