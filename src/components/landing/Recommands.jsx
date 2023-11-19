@@ -3,13 +3,25 @@ import {Form,Formik,Field , ErrorMessage} from 'formik'
 import { FieldInput , Submit} from "../../components/common"
 import recommandsValidation from "../../core/validations/recommandsValidation"
 import recommandsSubmit from "../../core/validations/submit/recommandsSubmit"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react"
+import { Spinner } from "@material-tailwind/react";
 
 const Recommands = () => {
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme"))
+
+    useEffect(() => {
+      console.log(theme);
+    }, [theme])
+    
+
   return (
     <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px] max-[480px]:mb-[-50px]'>
         <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex max-[1170px]:mb-16 top-[15px] max-[710px]:mb-0 max-[700px]:scale-[90%] " />
 
-        <Formik initialValues={{name:"",email:"",textarea:"",bool:false}} onSubmit={(values)=> recommandsSubmit(values)} validationSchema={recommandsValidation}>
+        <Formik initialValues={{name:"",email:"",textarea:"",bool:false}} onSubmit={(values)=> recommandsSubmit(values, "عملیات با موفقیت انجام شد" , setTheme)} validationSchema={recommandsValidation}>
             <Form className="w-full relative h-[65%] mt-28 max-[1510px]:mt-5 max-[1170px]:flex justify-center max-[710px]:mb-16 max-[500px]:mb-0">
                 <img src="../src/assets/images/landingRec/re-i.png" className="h-full relative max-[1630px]:left-[-45px] max-[1630px]:scale-[90%] transition-all duration-1000 max-[1510px]:left-[-94px] max-[1510px]:scale-[80%] max-[1510px]:h-[85%] max-[1510px]:top-20 max-[1170px]:hidden" />
                 <img src="../src/assets/images/landingService/Path 620.png" alt="" className='hidden max-[1170px]:inline-block absolute left-[-250px] top-[-150px] scale-[50%] drop-shadow-[0px_3px_6px_#5757574f] transition-all duration-1000 max-[855px]:scale-[40%] max-[855px]:top-[-180px] max-[710px]:hidden' id="recommandsPath"/>
@@ -27,10 +39,12 @@ const Recommands = () => {
                     <div className="self-end mr-14 h-6" >
                         <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] text-[18px] ErrorMessage' />
                     </div>
-                    <Submit content="ارسال" data="موفقیت" className="w-[85%] h-12 mb-[15px]" />
+                    <Submit content="ارسال" className="w-[85%] h-12 mb-[15px]" />
                 </div>
             </Form>
         </Formik>
+        <Spinner />
+        <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
     </div>
   )
 }
