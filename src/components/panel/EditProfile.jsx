@@ -36,9 +36,9 @@ const EditProfile = () => {
     const outHovering = ()=> img.current.src = "../src/assets/images/panel/camera.png"
 
     return (
-        <div id="editProfile" className="border border-[green] max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
+        <div id="editProfile" className="h-[1800px] max-[1200px]:h-[3200px] max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
 
-            <div className="h-[30%] justify-center items-center max-[1200px]:h-[15%]">
+            <div className="h-[250px] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
                     <div className='w-[120px] h-[120px] rounded-[50%] mb-[25px] relative'>
                         <img src={myInfo?.currentPictureAddress} alt="" className='rounded-[50%]' ref={userImage} />
@@ -49,7 +49,7 @@ const EditProfile = () => {
             </div>
             <Formik initialValues={{lName:"",fName:"",UserAbout:"",LinkdinProfile:"",TelegramLink:"",ReceiveMessageEvent:false,HomeAdderess:"",NationalCode:"",Gender:false,BirthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
                 {(form)=> (
-                    <Form dir='rtl' className="max-[1200px]:flex-col max-[1200px]:[&>div]:w-full [&>div]:border [&>div]:border-[red] items-center py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:h-[1400px] [&>div]:flex [&>div]:flex-col [&>div>div]:my-[15px] [&>div>div]:w-[95%] [&>div>div]:h-[200px] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
+                    <Form dir='rtl' className="items-start max-[1200px]:flex-col max-[1200px]:[&>div]:w-full py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:flex [&>div]:flex-col [&>div>div]:my-[15px] [&>div>div]:w-[95%] [&>div>div]:h-[200px] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
 
                             <EditProfileItem content="نام" name="fName" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
@@ -90,7 +90,7 @@ const EditProfile = () => {
 
                         </div>
 
-                        <div className='absolute bottom-0 flex justify-center items-center' style={{height:"100px",width:"100%"}}>
+                        <div className='absolute bottom-0 left-0 flex justify-center items-center' style={{height:"100px",width:"100%"}}>
                             <button type='submit' className='w-[150px] bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' onClick={(e)=> editProfileSubmit(form.values,userImage)} >ثبت تغییرات</button>
                         </div>  
 
