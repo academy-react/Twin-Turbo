@@ -9,7 +9,7 @@ const CommentBlog = ({db}) => {
 
     const handle = (value)=> { 
 
-        let arrayComment = db.find((el)=> el.id == url.id).comment
+        // let arrayComment = db.find((el)=> el.id == url.id).comment
         // let newObj = {like:0,dislike:0,src:account.image,comment:value.comment,name:account.username,time:"همین حالا"}
         // arrayComment.push(newObj)
         

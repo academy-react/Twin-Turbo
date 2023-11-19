@@ -24,30 +24,34 @@ const changePic = async (e,userImage)=> {
 
 const editProfileSubmit = async (values,userImage) => {
     // console.log(values);
+
     let token = localStorage.getItem("token")
-    let result = await customAxios.get("/SharePanel/GetProfileInfo",{
-        headers : {"Authorization" : "Bearer " + token}
-    })
 
-    console.log(values);
-    // customAxios.put("/SharePanel/UpdateProfileInfo",{
+    // let result = await customAxios.get("/SharePanel/GetProfileInfo",{
+    //     headers : {"Authorization" : "Bearer " + token}
+    // })
 
-    //     lName : "fgggggggggg",
-    //     fName : "fgggggggggg",
-    //     UserAbout : "Fئئئئئئئئئئئئئئئئئئئئئئئئئئئئئ",
-    //     LinkdinProfile : "https://acadapi.etacorealtime.ir/",
-    //     TelegramLink : "f",
-    //     ReceiveMessageEvent : true,
-    //     HomeAdderess : "farhanguuuuuuuuuu",
-    //     NationalCode : "201326949",
-    //     Gender : true,
-    //     BirthDay : "F",
-    //     Latitude : "12.3",
-    //     Longitude : "14.6",
+    // console.log(result);
+    let res = customAxios.put("/SharePanel/UpdateProfileInfo",{
 
-    // },
-    // {headers : {"Authorization" : "Bearer " + token}}
-    // )
+        lName : "fgggggggggg",
+        fName : "fgggggggggg",
+        UserAbout : "Fئئئئئئئئئئئئئئئئئئئئئئئئئئئئئ",
+        LinkdinProfile : "https://acadapi.etacorealtime.ir/",
+        TelegramLink : "f",
+        ReceiveMessageEvent : true,
+        HomeAdderess : "farhanguuuuuuuuuu",
+        NationalCode : "201326949",
+        Gender : true,
+        BirthDay : "F",
+        Latitude : "12.3",
+        Longitude : "14.6",
+
+    },
+    {headers : {"Authorization" : "Bearer " + token}}
+    )
+
+    // console.log(res);
 
     // if(values.name.length !== 0){
     //     usename.innerHTML = values.name;

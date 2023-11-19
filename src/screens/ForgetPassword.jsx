@@ -26,7 +26,7 @@ const ForgetPassword = () => {
 
     useEffect(() => {
 
-      if(location.pathname !== "/forgetPassword" && location.pathname !== "/forgetPassword/" ) {
+      if(location.pathname !== "/forgetPassword" ) {
           setFlag(flag+1)
           console.log(flag);
           get()
