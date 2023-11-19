@@ -6,7 +6,7 @@ import recommandsSubmit from "../../core/validations/submit/recommandsSubmit"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
-import { Spinner } from "@material-tailwind/react";
+// import { Spinner } from "@material-tailwind/react";
 
 const Recommands = () => {
 
@@ -43,7 +43,7 @@ const Recommands = () => {
                 </div>
             </Form>
         </Formik>
-        <Spinner />
+        {/* <Spinner /> */}
         <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
     </div>
   )
