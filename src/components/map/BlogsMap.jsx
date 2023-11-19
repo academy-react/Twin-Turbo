@@ -1,7 +1,5 @@
 import { useEffect, useRef , useState } from "react";
 import { useLocation } from "react-router-dom";
-
-import blogs from "../../core/services/blogDB";
 import { Button } from "../common";
 import customAxios from "../../core/services/interceptor";
 
@@ -56,7 +54,7 @@ const BlogsMap = () => {
                     <div className="text-[#777]">{element.newsCatregoryName}</div>
                     <Button
                       content="ادامه مطلب"
-                      className="whitespace-nowrap text-[16px] scale-[80%] max-[450px]:mx-auto"
+                      className="whitespace-nowrap text-[16px] scale-[80%]"
                       link={`${location.pathname}/${index + 1}`}
                     />
                   </div>
