@@ -3,6 +3,7 @@ import { useRef , useState , useEffect } from "react";
 import customAxios from '../../core/services/interceptor'
 
 let addToCourse;
+let Rows;
 const CoursesMap = () => {
 
     let location = useLocation();
@@ -10,14 +11,23 @@ const CoursesMap = () => {
     let navigate = useNavigate()
 
     const [course, setCourse] = useState([])
+    const [rowsOfPage, setRowsOfPage] = useState(4)
 
     const getCoursesAll = async () => {
-      let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=4&SortingCol=Active&SortType=DESC&TechCount=0") 
+      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=${rowsOfPage}&SortingCol=Active&SortType=DESC&TechCount=0`) 
       setCourse(result.courseFilterDtos)
       console.log(result);
     }
 
+    useEffect(() => {
+
+      getCoursesAll()
+      
+    }, [rowsOfPage])
+    
     addToCourse = setCourse
+    Rows = setRowsOfPage
+
     useEffect(() => {
       getCoursesAll()
     }, [])
@@ -54,5 +64,5 @@ const CoursesMap = () => {
 
     );
 };
-export {addToCourse}
+export {addToCourse , Rows}
 export default CoursesMap;

@@ -1,11 +1,42 @@
 import { Formik, Form ,Field, ErrorMessage } from 'formik'
 import CommentMap from '../map/CommentMap'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
+import customAxios from '../../core/services/interceptor'
 
 const CommentBlog = ({db}) => {
     let url = useParams()
+    let location = useLocation()
+
+    const addCommentBlog = async (value) => {
+        customAxios.post("/News/CreateNewsComment",{
+            newsId: url.id,
+            title: "Hamid",
+            describe: value.comment
+        })
+    } 
+
+    const addCommentCourse= async (value) => {
+        let formData = new FormData()
+
+        formData.append("CourseId", url.id)
+        formData.append("Title", "Hamid")
+        formData.append("Describe", value.comment)
+
+        console.log(formData);
+
+        let res = await customAxios.post("/Course/AddCommentCourse",formData)
+
+        console.log(res);
+    } 
 
     const handle = (value)=> { 
+
+        if(location.pathname.indexOf("/blogs") !== -1)  {
+            addCommentBlog(value)
+        }  
+        else if(location.pathname.indexOf("/courses") !== -1) {
+            addCommentCourse(value)
+        }   
 
     }
     
