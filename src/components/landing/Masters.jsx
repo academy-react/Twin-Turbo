@@ -32,12 +32,12 @@ const Masters = () => {
               </div>
               
           </div>
-          <div className="w-[60%] opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:transition-all [&>div]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
+          <div className="w-[60%] opacity-0 transition-all duration-[2s] flex flex-wrap justify-around items-center [&>div]:flex [&>div]:flex-col [&>div]:justify-center [&>div]:items-center [&>div]:max-[1300px]:scale-[90%] [&>div]:max-[1024px]:transition-all [&>div]:max-[1024px]:duration-500 [&>div]:max-[1024px]:w-[90%] whitespace-nowrap" id="holderMasters">
               {
                 teacher.map((element,index)=> <Master key={index} name={element.fullName} ability="طراح فرانت" src={element.pictureAddress} />)
               }
           </div>
-          <img src="../src/assets/images/landingMaster/Path 564.png" alt="" className="absolute bottom-[200px] right-[-50px] scale-[70%] max-[1300px]:scale-[60%] max-[1300px]:right-[-65px] max-[1120px]:scale-[55%] max-[1023px]:hidden transition-all duration-700" />
+          <img src="../src/assets/images/landingMaster/Path 564.png" alt="" className="absolute bottom-[200px] right-[-50px] scale-[70%] max-[1300px]:scale-[60%] max-[1300px]:right-[-65px] max-[1120px]:scale-[55%] max-[1024px]:hidden transition-all duration-700" />
           <img src="../src/assets/images/landingMaster/77777.png" alt="" className="absolute top-[100px] left-[-120px] scale-[70%] max-[1300px]:scale-[60%] max-[1300px]:left-[-135px] max-[1120px]:scale-[50%] max-[1120px]:left-[-158px] max-[1023px]:hidden transition-all duration-700" />
       </div>
     )

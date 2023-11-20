@@ -27,17 +27,17 @@ const CoursesListPanel = ({bool,content}) => {
 
         </div>
         <div className="h-[70%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px] max-[1350px]:overflow-x-scroll" dir='rtl'>
-            <div className="w-[75%] h-[15%] flex flex-row-reverse justify-around items-center mx-[auto] max-[1350px]:w-[900px]">
+            <div className="pr-[40px] w-[90%] h-[15%] flex flex-row-reverse justify-evenly items-center mx-[auto] max-[1350px]:w-[900px]">
                 <span>قیمت</span>
-                <span>تاریخ پایان</span>
-                <span>تاریخ شروع</span>
-                <span>نام ترم</span>
+                <span>اخرین تغییرات</span>
+                <span>وضعیت</span>
+                <span>سطح</span>
                 <span>نام استاد</span>
                 <span>نام دوره</span>
             </div>
             <div className="h-[85%] mx-auto px-[15px] max-[1350px]:h-[80%]">
                 {bool && <ListCousePanelMap inpurSearch={inpurSearch} />}
-                {!bool && <div>ddd</div> }
+                {!bool && <div></div> }
                   
             </div>
         </div>

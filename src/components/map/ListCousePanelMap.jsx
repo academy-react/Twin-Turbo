@@ -1,14 +1,21 @@
 import { useState } from 'react'
 import courseDB from '../../core/services/courseDB'
 import { useEffect } from 'react';
+import customAxios from '../../core/services/interceptor';
 let setNumberCourse;
 const ListCousePanelMap = ({inpurSearch}) => {
-  let sliced = courseDB.slice(0,5)
-  const [slice, setSlice] = useState(sliced)
+
+  const [slice, setSlice] = useState([])
+
+  const getCourse = async ()=> {
+      let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=10&SortingCol=Active&SortType=DESC&TechCount=0")
+      console.log(result.courseFilterDtos);
+      setSlice(result.courseFilterDtos)
+  }
 
     
   useEffect(() => {
-
+      getCourse()
       inpurSearch.current.oninput = ()=> {
           let filtered = slice.filter((element)=> {
             return element.name.indexOf(inpurSearch.current.value) !== -1 || element.masterName.indexOf(inpurSearch.current.value) !== -1
@@ -30,14 +37,14 @@ setNumberCourse = setSlice
 
                 <img src="../src/assets/images/dashboard/add.png" alt="" className='cursor-pointer' onClick={()=> findListCourse(element)}/>
 
-                <span dir='rtl'>{element.price}  تومان  </span>
-                <span dir='rtl'>{element.endTime}</span>
-                <span dir='rtl'>{element.startTime}</span>
-                <span dir='rtl'>{element.courseName}</span>
-                <span dir='rtl'>{element.masterName}</span>
-                <span dir='rtl'>{element.name}</span>
+                <span dir='rtl'>{element.cost}  تومان  </span>
+                <span dir='rtl'>{element.lastUpdate?.slice(0,10)}</span>
+                <span dir='rtl'>{element.statusName}</span>
+                <span dir='rtl'>{element.levelName}</span>
+                <span dir='rtl'>{element.teacherName}</span>
+                <span dir='rtl'>{element.title}</span>
 
-                <img src={"../src/assets/images/courses/" + element.src} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                <img src={element.tumbImageAddress} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
             </div>
         )
     })

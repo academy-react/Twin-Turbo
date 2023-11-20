@@ -32,7 +32,7 @@ const Panel = () => {
 
                 <Outlet/>
 
-                <div className="sticky top-[0%] border border-[red] right-1 max-[1200px]:w-[360px] max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] ">
+                <div className="right-1 max-[1200px]:w-[360px] max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] ">
 
                     <div className=" h-[150px] flex justify-center items-center px-3">
                         <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName + myInfo?.fName}</div>
