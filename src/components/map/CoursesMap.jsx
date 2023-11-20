@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import courseDB from "../../core/services/courseDB";
-import { useRef , useState } from "react";
+import { useRef , useState , useEffect } from "react";
 import customAxios from '../../core/services/interceptor'
-import { useEffect } from "react";
 
 let addToCourse;
 const CoursesMap = () => {

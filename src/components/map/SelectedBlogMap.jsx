@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import findPath from '../../core/utils/findPath.utils'
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState , useEffect } from "react";
 import customAxios from "../../core/services/interceptor";
 
 const SelectedBlog = () => {

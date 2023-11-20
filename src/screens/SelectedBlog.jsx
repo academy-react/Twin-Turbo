@@ -1,34 +1,31 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import {Header,Footer,RightPanel} from '../components/common'
-import  blogs  from "../core/services/blogDB";
 
 import SelectedBlogMap from '../components/map/SelectedBlogMap'
-import { useEffect } from "react";
 import customAxios from "../core/services/interceptor";
 
 const SelectedBlog = () => {
-  const [item, setItem] = useState(blogs);
+  const [blog, setBlog] = useState({});
+  const [itemComment, setItemComment] = useState([]);
   let url = useParams();
 
 
-  const getBlogs = async () => {
-    let result = await customAxios.get("/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC") 
-    setItem(result.news)
+  const getBlogDetail = async () => {
+    let result = await customAxios.get("/News/" + url.id) 
+    setBlog(result.detailsNewsDto)
+  }
+
+  const getBlogComment = async () => {
+    let resultComment = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
+    setItemComment(resultComment)
+
   }
 
   useEffect(() => {
-    getBlogs()
+    getBlogDetail()
+    getBlogComment()
   }, [])
-  
-
-  const finded = () => {
-    let finded = item.find((element) => {
-      return element.id == url.id;
-    });
-    return <RightPanel src={finded?.currentImageAddressTumb} name={finded?.title} text={finded?.describe} db={finded} title="بلاگ" />;
-  };
 
   return (
     <>
@@ -45,9 +42,8 @@ const SelectedBlog = () => {
               <SelectedBlogMap />
             </div>
           </div>
-          {finded()}
+          <RightPanel src={blog?.currentImageAddress} name={blog?.title} text={blog?.describe} title="بلاگ" db={itemComment} />
         </div>
-
         <Footer />
       </div>
     </>
