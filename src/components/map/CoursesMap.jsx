@@ -11,7 +11,7 @@ const CoursesMap = () => {
 
     const [course, setCourse] = useState([])
 
-    const getCourses = async () => {
+    const getCoursesAll = async () => {
       let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=4&SortingCol=Active&SortType=DESC&TechCount=0") 
       setCourse(result.courseFilterDtos)
       console.log(result);
@@ -19,7 +19,7 @@ const CoursesMap = () => {
 
     addToCourse = setCourse
     useEffect(() => {
-      getCourses()
+      getCoursesAll()
     }, [])
     
     return (

@@ -8,19 +8,34 @@ import customAxios from "../core/services/interceptor";
 const SelectedCourses = () => {
 
   const [item, setItem] = useState();
-  const [teacher, setTeacher] = useState({});
+  const [teacher, setTeacher] = useState();
+  const [comment, setComment] = useState();
   let url = useParams();
 
   const getCourseDetail = async () => {
+
     let result = await customAxios.get("/Home/GetCourseDetails?CourseId=" + url.id)
     setItem(result)
+    // console.log(result);
 
-    let Teacherresult = await customAxios.get("/Home/GetTeacherDetails?TeacherId=" + result.teacherId)
-    setTeacher(Teacherresult)
+
+    let TeacherResult = await customAxios.get("/Home/GetTeacherDetails?TeacherId=" + result.teacherId)
+    setTeacher(TeacherResult)
+
+  }
+
+  const getCommentCourse = async () => {
+
+      let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+      setComment(result)
+
   }
 
   useEffect(() => {
-    getCourseDetail()
+
+      getCourseDetail()
+      getCommentCourse()
+
   }, [])
   
   return (
@@ -63,7 +78,7 @@ const SelectedCourses = () => {
               <button className="h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-b-2xl text-[22px] transition-all duration-500 hover:bg-[#34a647]">  ثبت نام در دوره</button>
             </div>
           </div>
-          <RightPanel src={item?.tumbImageAddress} name={item?.title} text={item?.describe} db={item} title="دوره"/>
+          <RightPanel src={item?.tumbImageAddress} name={item?.title} text={item?.describe} db={comment} title="دوره"/>
         </div>
         <Footer/>
       </div>
