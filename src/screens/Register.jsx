@@ -4,6 +4,7 @@ import Validation from "../core/validations/registerValidation"
 import { useState } from "react"
 import customAxios from "../core/services/interceptor"
 import { useNavigate } from "react-router-dom"
+import interval from "../core/utils/spamTimer.utils"
 
 const Register = () => {
 
@@ -34,11 +35,7 @@ const Register = () => {
             setFlag(flag+1)
             setPhoneNumber(values.phoneNumber)
             
-            let interval = setInterval(() => {
-              setCodeS(codeS - 1)
-              if(codeS == 0) setCodeM(codeM - 1)
-              if(codeM == 0 && codeS == 0) clearInterval(interval)
-            }, 1000);
+            interval(codeS , codeM , setCodeS , setCodeM)
           }
           else alert(result.message)
       }
