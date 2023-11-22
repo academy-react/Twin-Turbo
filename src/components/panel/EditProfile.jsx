@@ -47,14 +47,14 @@ const EditProfile = () => {
                     </div>
                 </div>
             </div>
-            <Formik initialValues={{lName:"",fName:"",UserAbout:"",LinkdinProfile:"",TelegramLink:"",ReceiveMessageEvent:false,HomeAdderess:"",NationalCode:"",Gender:false,BirthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
+            <Formik initialValues={{lName:"",fName:"",userAbout:"",linkdinProfile:"",telegramLink:"",receiveMessageEvent:false,homeAdderess:"",nationalCode:"",gender:false,birthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
                 {(form)=> (
                     <Form dir='rtl' className="items-start max-[1200px]:flex-col max-[1200px]:[&>div]:w-full py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:flex [&>div]:flex-col [&>div>div]:my-[15px] [&>div>div]:w-[95%] [&>div>div]:h-[200px] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
 
                             <EditProfileItem content="نام" name="fName" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="درباره من" name="UserAbout" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="کد ملی" name="NationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="درباره من" name="userAbout" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem type="checkbox" content="جنسیت " name="Gender" placeholder="جنسیت را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                                 
                                 <div className='[&>div:last-child]:w-[85%] [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9]'>
@@ -77,16 +77,15 @@ const EditProfile = () => {
                                     />
                                 </div>
 
-                            <EditProfileItem content="شماره همراه" name="phone" placeholder="شماره را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
                         <div>
 
                             <EditProfileItem content="نام خانوادگی" name="lName" placeholder="ایمیل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="پروفایل لینکدین" name="LinkdinProfile" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="لینک تلگرام" name="TelegramLink" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="پروفایل لینکدین" name="linkdinProfile" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="لینک تلگرام" name="telegramLink" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="دریافت خبرها" type="checkbox" name="ReceiveMessageEvent" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="ادرس منزل" name="HomeAdderess" placeholder="ادرس منزل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="ادرس منزل" name="homeAdderess" placeholder="ادرس منزل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
 

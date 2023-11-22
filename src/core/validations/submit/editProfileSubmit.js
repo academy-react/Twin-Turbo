@@ -1,70 +1,54 @@
-import account from '../../services/account';
 import customAxios from '../../services/interceptor';
 
+let token = localStorage.getItem("token")
+
+let input ;
 const changePic = async (e,userImage)=> {
-    let src = e.target.files[0];
 
-    let imageData = new FormData()
-    imageData.append("formFile",src)
-    
-    let token = localStorage.getItem("token")
+    userImage.current.src = URL.createObjectURL(e.target.files[0])
+    input = e.target.files[0]
 
-    let result = await customAxios.post("/SharePanel/AddProfileImage",imageData,{
-        headers : {"Authorization" : "Bearer " + token}
-    })
-    alert("تغییر یافت")
-    // console.log(result);
-    
-    let myresult = await customAxios.get("/SharePanel/GetProfileInfo",{
-        headers : {"Authorization" : "Bearer " + token}
-    })
-    console.log(myresult);
-    userImage.current.src = myresult.currentPictureAddress
 }
 
 const editProfileSubmit = async (values,userImage) => {
-    // console.log(values);
 
-    let token = localStorage.getItem("token")
+    if(input) {
+        customAxios.post("/SharePanel/DeleteProfileImage",imageData,{
+            headers : {"Authorization" : "Bearer " + token}
+        })
 
-    // let result = await customAxios.get("/SharePanel/GetProfileInfo",{
-    //     headers : {"Authorization" : "Bearer " + token}
-    // })
+        let imageData = new FormData()
+        imageData.append("formFile", input)
+    
+        customAxios.post("/SharePanel/AddProfileImage",imageData,{
+            headers : {"Authorization" : "Bearer " + token}
+        })
+    
+    }
 
-    // console.log(result);
-    let res = customAxios.put("/SharePanel/UpdateProfileInfo",{
+    let res = await customAxios.get("/SharePanel/GetProfileInfo",{
+        headers : {"Authorization" : "Bearer " + token}
+    })
 
-        lName : "fgggggggggg",
-        fName : "fgggggggggg",
-        UserAbout : "Fئئئئئئئئئئئئئئئئئئئئئئئئئئئئئ",
-        LinkdinProfile : "https://acadapi.etacorealtime.ir/",
-        TelegramLink : "f",
-        ReceiveMessageEvent : true,
-        HomeAdderess : "farhanguuuuuuuuuu",
-        NationalCode : "201326949",
-        Gender : true,
-        BirthDay : "F",
-        Latitude : "12.3",
-        Longitude : "14.6",
+    console.log(res);
+    let formData = new FormData();
+    formData.append("LName" , values.lName !== "" ? values.lName : res.lName)
+    formData.append("FName" , values.fName !== "" ? values.fName : res.fName)
+    formData.append("UserAbout" , values.userAbout !== "" ? values.userAbout : res.userAbout)
+    formData.append("LinkdinProfile" , values.linkdinProfile !== "" ? values.linkdinProfile : res.linkdinProfile)
+    formData.append("TelegramLink" , values.telegramLink !== "" ? values.telegramLink : res.telegramLink)
+    formData.append("ReceiveMessageEvent" , values.receiveMessageEvent ? values.receiveMessageEvent : res.receiveMessageEvent)
+    formData.append("HomeAdderess" , values.homeAdderess !== "" ? values.homeAdderess : res.homeAdderess)
+    formData.append("NationalCode" , values.nationalCode !== "" ? values.nationalCode : res.nationalCode)
+    formData.append("Gender" , values.gender ? values.gender : res.gender)
+    formData.append("BirthDay" , "2006-10-09")
+    formData.append("Latitude" , "12.3")
+    formData.append("Longitude" , "14.6")
 
-    },
-    {headers : {"Authorization" : "Bearer " + token}}
+    customAxios.put("/SharePanel/UpdateProfileInfo",formData,
+        {headers : {"Authorization" : "Bearer " + token}}
     )
 
-    // console.log(res);
-
-    // if(values.name.length !== 0){
-    //     usename.innerHTML = values.name;
-    //     account.username = values.name
-    // }
-    // picprofile.src = userImage.current.getAttribute("src")
-    // account.image = userImage.current.getAttribute("src")
-    
-    // if(values.email.length !== 0) account.email = values.email
-    // if(values.birthDayDate.length !== 0) account.birthDayDate = values.birthDayDate
-    // if(values.nationalCode.length !== 0) account.nationalCode = values.nationalCode
-    // if(values.phone.length !== 0) account.phone = values.phone
-    // if(values.role.length !== 0) account.role = values.role
 
 }
 

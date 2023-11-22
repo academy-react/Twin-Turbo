@@ -5,11 +5,16 @@ import {Header,Footer,RightPanel} from '../components/common'
 import SelectedBlogMap from '../components/map/SelectedBlogMap'
 import customAxios from "../core/services/interceptor";
 
+export let setingBlogs ;
+export let setingItemComment ;
+
 const SelectedBlog = () => {
   const [blog, setBlog] = useState({});
   const [itemComment, setItemComment] = useState([]);
   let url = useParams();
 
+  setingBlogs = setBlog
+  setingItemComment = setItemComment
 
   const getBlogDetail = async () => {
     let result = await customAxios.get("/News/" + url.id) 

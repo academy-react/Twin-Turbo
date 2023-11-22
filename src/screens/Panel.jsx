@@ -15,7 +15,6 @@ const Panel = () => {
         let result = await customAxios.get("/SharePanel/GetProfileInfo",{
             headers : {"Authorization" : "Bearer " + token}
         })
-        // console.log(result);
         setMyInfo(result)
     }
 
@@ -35,7 +34,7 @@ const Panel = () => {
                 <div className="right-1 max-[1200px]:w-[360px] max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] ">
 
                     <div className=" h-[150px] flex justify-center items-center px-3">
-                        <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName + myInfo?.fName}</div>
+                        <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName} {myInfo?.fName}</div>
                         <img src={myInfo?.currentPictureAddress} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 

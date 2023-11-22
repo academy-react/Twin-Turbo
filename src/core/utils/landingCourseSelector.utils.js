@@ -1,7 +1,9 @@
 import customAxios from "../services/interceptor";
 
 const landingCourseSelector = async (e,pic,title,master,content,landingCourse,setNum) => {
-    let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
+    let result = await customAxios.get("/Home/GetCoursesTop?Count=4")
+    result.shift()
+    console.log(result);
     let num = e.target.getAttribute("data-id")
     console.log(result);
     setTimeout(() => {

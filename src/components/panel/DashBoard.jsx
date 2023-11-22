@@ -16,6 +16,7 @@ const DashBoard = () => {
           headers : {"Authorization" : "Bearer " + token}
       })
       setMyInfo(result)
+      console.log(result);
   }
 
 
@@ -34,7 +35,7 @@ const DashBoard = () => {
             <div className="text-center mt-[20px] text-[21px]">اطلاعات حساب کاربری</div>
             <div dir="rtl" className="h-[70%] [&>div]:h-[14.28%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
               
-              <div>نام کاربری:<span>{myInfo?.fName + myInfo?.lName}</span></div>
+              <div>نام کاربری:<span>{myInfo?.lName} {myInfo?.fName}</span></div>
               <div>نقش :  <span> {myInfo?.role}  </span></div>
               <div>ایمیل :  <span> {myInfo?.email} </span></div>
               <div>تاریخ تولد :  <span> {myInfo?.birthDay.slice(0,10)} </span></div>

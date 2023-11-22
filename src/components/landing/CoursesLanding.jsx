@@ -18,19 +18,10 @@ const Courses = () => {
     const [num, setNum] = useState()
     const [item, setItem] = useState([])
     setTimeout(() => {setNum(landingCourse.current.getAttribute("data-id"))}, 10);
-
-    const inctance = async ()=> {
-        let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
-        return result
-    }
     
     const getCourse = async () => {
         let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
         setItem(result)
-        
-        // master.current.innerHTML = result[1].teacherName;
-        // title.current.innerHTML = "  دوره کامل :  " + result[1].classRoomName;
-        // content.current.innerHTML = result[1].describe;
     }
 
 
@@ -55,7 +46,7 @@ const Courses = () => {
                      {
                         item.map((el,index)=> {
                             return (
-                                <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id="1" onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
+                                <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id={index} onClick={(e)=> landingCourseSelector(e,bigPic.current,title.current,master.current,content.current,landingCourse.current,setNum)}/>
                             )
                         })
                      }
@@ -65,11 +56,11 @@ const Courses = () => {
                      
                 <div className="bg-white w-[650px] max-[400px]:h-[400px] max-[963px]:h-[250px] h-[600px] relative py-[15px] rounded-[25px] transition-all duration-150 max-[1020px]:w-[80%] max-[1020px]:flex max-[1020px]:flex-row-reverse max-[1020px]:h-[300px] max-[1020px]:items-center max-[650px]:h-[400px] max-[650px]:flex-col " data-id="1" ref={landingCourse}>
                     <img src="../src/assets/images/landingCourse/c-i-2.png" alt="" className="absolute right-[-100%] top-[0px] w-28 -z-10 transition-all duration-1000 max-[1020px]:hidden " id="coursesHolder2"/>
-                    <img src="" alt="" className="max-[560px]:w-[90%] max-[450px]:w-full max-[1020px]:scale-[80%] max-[963px]:w-[70%] max-[963px]:h-[230px] w-[90%] h-[280px] mx-auto rounded-[15px]" ref={bigPic}/>
-                    <div className="max-[650px]:mt-[15px] max-[400px]:mt-[15px] max-[650px]:pr-[15px] w-[90%] mx-auto relative max-[1020px]:left-[25px] max-[1020px]:bottom-[65px] max-[960px]:bottom-[50px] max-[903px]:bottom-[40px]">
+                    <img src={item[1]?.tumbImageAddress} alt="" className="max-[560px]:w-[90%] max-[450px]:w-full max-[1020px]:scale-[80%] max-[963px]:w-[70%] max-[963px]:h-[230px] w-[90%] h-[280px] mx-auto rounded-[15px]" ref={bigPic}/>
+                    <div className=" max-[650px]:mt-[15px] max-[400px]:mt-[15px] max-[650px]:pr-[15px] w-[90%] mx-auto relative max-[1020px]:left-[25px] max-[1020px]:bottom-[65px] max-[960px]:bottom-[50px] max-[903px]:bottom-[40px]">
                         <div className="max-[400px]:flex-col-reverse px-[10px] max-[650px]:items-end max-[400px]:mt-[20px] h-[50px] flex justify-between items-center relative top-[10px] max-[650px]:flex-row ">
-                            <div className="text-[18px] max-[500px]:text-[15px] max-[400px]:mb-[-11px]" ref={master}>{item[0]?.teacherName}</div>
-                            <div className="text-[24px] max-[500px]:text-[20px]" ref={title}> دوره کامل : {item[0]?.classRoomName}</div>
+                            <div className="text-[18px] max-[500px]:text-[15px] max-[400px]:mb-[-11px]" ref={master}>{item[1]?.teacherName}</div>
+                            <div className="text-[24px] max-[500px]:text-[20px]" ref={title}> دوره کامل : {item[1]?.classRoomName}</div>
                         </div>
                         <div className="mt-[30px] text-[#777] px-[10px]" dir="rtl" ref={content}>{item[1]?.describe}</div>
                     </div>

@@ -12,7 +12,6 @@ const SelectedBlog = () => {
     const getBlogs = async () => {
       let result = await customAxios.get("/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC") 
       setBlogs(result.news)
-      console.log(result.news);
     }
   
     useEffect(() => {

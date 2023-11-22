@@ -8,11 +8,11 @@ const CommentMap = ({db}) => {
     let url = useParams()
     const [like, setLike] = useState(false)
     const [disLike, setDisLike] = useState(false)
-    // console.log(db);
+    
 
     const plusLike = async (id)=> {
         // let res = await customAxios.post("/Course/AddCourseCommentLike?CourseCommandId=" + id)
-        console.log(id);
+
     }
 
     
