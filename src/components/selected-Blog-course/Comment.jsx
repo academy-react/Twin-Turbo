@@ -6,12 +6,15 @@ import customAxios from '../../core/services/interceptor'
 const CommentBlog = ({db}) => {
     let url = useParams()
     let location = useLocation()
+    let token = localStorage.getItem("token")
 
     const addCommentBlog = async (value) => {
         customAxios.post("/News/CreateNewsComment",{
             newsId: url.id,
             title: "Hamid",
             describe: value.comment
+        },{
+            headers : {"Authorization" : "Bearer " + token}
         })
     } 
 
@@ -22,11 +25,7 @@ const CommentBlog = ({db}) => {
         formData.append("Title", "Hamid")
         formData.append("Describe", value.comment)
 
-        console.log(formData);
-
-        let res = await customAxios.post("/Course/AddCommentCourse",formData)
-
-        console.log(res);
+        customAxios.post("/Course/AddCommentCourse",formData)
     } 
 
     const handle = (value)=> { 
