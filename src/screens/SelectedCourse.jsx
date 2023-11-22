@@ -70,6 +70,8 @@ const SelectedCourses = () => {
               <CourseDetail content={teacher?.newsCount} title="تعداد خبرها" noLogo="hidden" dir={"rtl"}/>
               <CourseDetail content={teacher?.courseCounts} title="تعداد دوره ها" noLogo="hidden" dir={"rtl"}/>
             </div>
+            <button className="h-12 flex justify-center items-center bg-[#d50808] text-white text-[22px] transition-all duration-500 hover:bg-[#d50808]"> افزودن به علاقه مندی ها</button>
+
             <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(2)]:bg-[#f5f5f5] max-[1360px]:[&>div]:text-[18px]">
               <div className="text-[28px] flex justify-between items-center p-3"> 
                 <img src="../src/assets/images/selectedCourse/teacher.png" alt="" className="w-7 h-7"/> ثبت نام

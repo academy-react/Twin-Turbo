@@ -1,18 +1,25 @@
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { disLikeDown, disLikeUp, likeDown, likeUp } from '../../core/utils/commentLikeDisLike.utils'
 import customAxios from '../../core/services/interceptor'
 import miladi_be_shamsi from '../../core/utils/miladiToShamsi.utils'
 
 const CommentMap = ({db}) => {
-    let url = useParams()
-    const [like, setLike] = useState(false)
-    const [disLike, setDisLike] = useState(false)
+    let token = localStorage.getItem("token")
     
 
-    const plusLike = async (id)=> {
-        // let res = await customAxios.post("/Course/AddCourseCommentLike?CourseCommandId=" + id)
+    const addLike = async (id) => {
+        console.log(id);
+        let res = await customAxios.post("Course/AddCourseCommentLike?CourseCommandId=" + id,{
+            headers : {"Authorization" : "Bearer " + token}
+        })
+        console.log(res);
+    }
 
+    
+    const addDissLike = async (id) => {
+        console.log(id);
+        let res = await customAxios.post("/Course/AddCourseCommentDissLike?CourseCommandId=" + id,{
+            headers : {"Authorization" : "Bearer " + token}
+        })
+        console.log(res);
     }
 
     
@@ -28,14 +35,14 @@ const CommentMap = ({db}) => {
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
-                            <div className=" flex items-center" onClick={()=> plusLike(element.id)}>
-                                <span className="text-[#37c54f]">{element?.likeCount}</span>
+                            <div className=" flex items-center" onClick={()=> addLike(element.id)}>
+                                <span className="text-[#37c54f]">{element?.likeCount || element?.commentLike}</span>
                                 <img src="../src/assets/images/selectedCourse/likeDefault.png" className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                             |
-                            <div className="flex items-center mr-2" >
+                            <div className="flex items-center mr-2" onClick={()=> addDissLike(element.id)} >
                                 <span className="text-[#ec0b1a]">{element?.disslikeCount ? element?.disslikeCount : "0"}</span> 
-                                <img src="../src/assets/images/selectedCourse/dislikeDefault.png" className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} onClick={(e)=> !disLike ? disLikeUp(e,db,like,setDisLike,url) : disLikeDown(e,db,like,setDisLike,url)}/>
+                                <img src="../src/assets/images/selectedCourse/dislikeDefault.png" className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                         </div>
                         <div className="flex items-center justify-between w-[40px] absolute left-[50px] bottom-[10px] [&>img]:cursor-pointer" >
