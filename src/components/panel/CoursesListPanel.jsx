@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import ListCousePanelMap from '../map/ListCousePanelMap'
 import Paginate from '../common/Paginate'
 import courses from '../../core/services/courseDB'
+import ReserveCourseMap from '../map/ReserveCourseMap'
 
 const CoursesListPanel = ({bool,content}) => {
 
@@ -37,7 +38,8 @@ const CoursesListPanel = ({bool,content}) => {
             </div>
             <div className="h-[85%] mx-auto px-[15px] max-[1350px]:h-[80%]">
                 {bool && <ListCousePanelMap inpurSearch={inpurSearch} />}
-                {!bool && <div></div> }
+                {!bool && <div>خالی</div> }
+                {location.pathname == "/panel/reserveCourse" && <ReserveCourseMap />}
                   
             </div>
         </div>

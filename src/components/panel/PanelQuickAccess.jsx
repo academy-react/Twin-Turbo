@@ -14,7 +14,8 @@ const PanelQuickAccess = ({ className }) => {
 
         <Linkes src="dashboard/selectedCourses.png" imgClassName="w-10" to="/panel/mycourse" content="دوره های من" acceptedClassName={location.pathname.indexOf("/panel") !== -1 ? "bg-gradient-to-r from-[#9f009a] to-[#fff] text-[#000]" : "hover:bg-[#eee] text-[purple]"} ejectedClassName="hover:bg-[#eee] text-[#888]" />
 
-        <Linkes src="dashboard/menupanel.png" imgClassName="w-10" to="ListOfCourse" content="لیست دوره ها" acceptedClassName={location.pathname.indexOf("/panel") !== -1 ? "bg-gradient-to-r from-[#9f009a] to-[#fff] text-[#000]" : "hover:bg-[#eee] text-[purple]"} ejectedClassName="hover:bg-[#eee] text-[#888]" />
+        <Linkes src="dashboard/menupanel.png" imgClassName="w-10" to="/panel/ListOfCourse" content="لیست دوره ها" acceptedClassName={location.pathname.indexOf("/panel") !== -1 ? "bg-gradient-to-r from-[#9f009a] to-[#fff] text-[#000]" : "hover:bg-[#eee] text-[purple]"} ejectedClassName="hover:bg-[#eee] text-[#888]" />
+        <Linkes src="dashboard/reserve.png" imgClassName="w-9" to="/panel/reserveCourse" content="دوره های رزرو شده" acceptedClassName={location.pathname.indexOf("/panel") !== -1 ? "bg-gradient-to-r from-[#9f009a] to-[#fff] text-[#000]" : "hover:bg-[#eee] text-[purple]"} ejectedClassName="hover:bg-[#eee] text-[#888]" />
 
         <Linkes src="dashboard/logout.png" imgClassName="w-10" to="/" content="خروج" acceptedClassName={location.pathname.indexOf("/panel") !== -1 ? "bg-gradient-to-r from-[#9f009a] to-[#fff] text-[#000]" : "hover:bg-[#eee] text-[purple]"} ejectedClassName="hover:bg-[#eee] text-[#888]" />
 

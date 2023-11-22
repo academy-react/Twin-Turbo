@@ -8,7 +8,7 @@ const ListCousePanelMap = ({inpurSearch}) => {
   const [slice, setSlice] = useState([])
 
   const getCourse = async ()=> {
-      let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=10&SortingCol=Active&SortType=DESC&TechCount=0")
+      let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=6&SortingCol=Active&SortType=DESC&TechCount=0")
       console.log(result.courseFilterDtos);
       setSlice(result.courseFilterDtos)
   }

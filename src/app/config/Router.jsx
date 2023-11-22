@@ -71,6 +71,10 @@ const Router = createBrowserRouter([
           path : "/panel/userpanel",
           element : <DashBoard/>,
         },
+        {
+          path : "/panel/reserveCourse",
+          element : <Mycourse/>,
+        },
       ]
     },
     {
