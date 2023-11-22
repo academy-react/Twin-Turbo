@@ -36,7 +36,7 @@ const BlogsMap = () => {
                   <div className="w-[95%] h-[150px] mx-auto"> 
 
                     <p className="text-[24px] text-right max-[450px]:text-center">{element.title}</p> 
-                    <div className="text-[#777] w-full mt-[15px] max-[450px]:text-center" ref={content}>{element.miniDescribe}</div>
+                    <div className="text-[#777] w-full mt-[15px] leading-6 max-[450px]:text-center" ref={content}>{element.miniDescribe.length >= 140 ? element.miniDescribe.slice(0,140) + "..." : element.miniDescribe}</div>
                   
                   </div>
                 <div className="w-full h-[50px] pb-2 flex justify-between items-center">     
