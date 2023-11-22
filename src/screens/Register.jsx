@@ -11,14 +11,8 @@ const Register = () => {
   const [phoneNumber, setPhoneNumber] = useState()
   let navigate = useNavigate()
   let submitMessage ;
-  // let codeM = "1"
-  // let codeS = "59"
-
-  // let interval = setInterval(() => {
-  //   codeS = codeS - 1
-  //   if(codeS == 0) codeM = codeM - 1
-  //   if(codeM == 0 && codeS == 0) clearInterval(interval)
-  // }, 1000);
+  const [codeM, setCodeM] = useState(1)
+  const [codeS, setCodeS] = useState(59)
 
   const resendCode = async ()=> {
     await customAxios.post("/Sign/SendVerifyMessage",{ phoneNumber : phoneNumber })
@@ -39,6 +33,12 @@ const Register = () => {
           if(result.success) {
             setFlag(flag+1)
             setPhoneNumber(values.phoneNumber)
+            
+            let interval = setInterval(() => {
+              setCodeS(codeS - 1)
+              if(codeS == 0) setCodeM(codeM - 1)
+              if(codeM == 0 && codeS == 0) clearInterval(interval)
+            }, 1000);
           }
           else alert(result.message)
       }
@@ -80,7 +80,7 @@ const Register = () => {
                   {flag == 2 && <FieldInput name="VerifyCode" type="text" placeholder=" کد تایید  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" /> }
                   {flag == 2 && <div className="flex justify-between w-[85%]">
                     <span className="mt-[-10px] text-[15px] self-end cursor-pointer border-b-1 border-b border-b-black hover:text-[#8b61a3] hover:border-b-[#8b61a3]" onClick={()=> setFlag(flag - 1)}>ویرایش شماره همراه</span>
-                    {/* <span className="self-start" onClick={resendCode}>ارسال مجدد کد در : {codeM}:{codeS} </span> */}
+                    <span className="self-start" onClick={resendCode}>ارسال مجدد کد در : {codeM}:{codeS} </span>
                   </div> }
                   {/* {flag == 2 && } */}
                   {flag == 3 && <FieldInput name="phoneNumber" type="number" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />}
