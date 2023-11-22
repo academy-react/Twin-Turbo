@@ -25,7 +25,9 @@ const CommentBlog = ({db}) => {
         formData.append("Title", "Hamid")
         formData.append("Describe", value.comment)
 
-        customAxios.post("/Course/AddCommentCourse",formData)
+        customAxios.post("/Course/AddCommentCourse",formData,{
+            headers : {"Authorization" : "Bearer " + token}
+        })
     } 
 
     const handle = (value)=> { 
