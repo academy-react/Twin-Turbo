@@ -21,11 +21,11 @@ const Masters = () => {
       <div className='w-full flex flex-col justify-center items-center relative [&>div]:my-8'>
           <TitleComponents title="اساتید برتر" content="استاد های مهربون و دوست داشتی" src="courses-title.png" className="flex" />
 
-          <div className="[&>div]:h-full w-[550px] h-[220px] rounded-[15px] flex max-[600px]:flex-col-reverse relative shadow-[0px_0px_6px_#ccc] bg-white max-[1300px]:scale-[90%] transition-all duration-1000 max-[1023px]:w-[90%] max-[600px]:h-[400px]">
+          <div className="[&>div]:h-full w-[550px] h-[220px] rounded-[15px] flex max-[600px]:flex-col-reverse relative shadow-[0px_0px_6px_#ccc] bg-white dark:bg-[#26324D] max-[1300px]:scale-[90%] transition-all duration-1000 max-[1023px]:w-[90%] max-[600px]:h-[400px]">
               <div dir="rtl" className="w-[80%] max-[600px]:w-full flex flex-col justify-center max-[600px]:items-center [&>p]:py-[4px] max-[600px]:pr-[0px] pr-[25px]">
-                <p className="text-[22px]">دکتر بحرالعلوم</p>
-                <p className="text-[#555]">مدیریت</p>
-                <p dir="rtl" className="text-[#777] w-[90%] ">مدرس در آموزشگاه  , مدرس در دانشگاه علم و فناوری مازندران مستقر در بهشهر , مدرس دوره های وب</p> 
+                <p className="text-[22px] dark:text-[#fff]">دکتر بحرالعلوم</p>
+                <p className="text-[#555] dark:text-[#f5f5f5]">مدیریت</p>
+                <p dir="rtl" className="text-[#777] w-[90%] dark:text-[#f1f1f1]">مدرس در آموزشگاه  , مدرس در دانشگاه علم و فناوری مازندران مستقر در بهشهر , مدرس دوره های وب</p> 
               </div>
               <div className="w-[20%]  flex items-center justify-center max-[600px]:w-full">
                   <img src="../src/assets/images/landingMaster/ostad.jpg" alt="" className="rounded-[10px] w-[150px] max-[600px]:ml-[0px] ml-[50px]" /> 

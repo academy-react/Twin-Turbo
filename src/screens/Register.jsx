@@ -114,7 +114,6 @@ const Register = () => {
                     <span className="self-start" ref={sendAgainIn}>ارسال مجدد کد در : {codeM}:{codeS} </span>
                     <span className="self-start hidden cursor-pointer" ref={sendAgain} onClick={resendCode}> <span className="text-[#bbb] cursor-default"> کدی دریافت نکردید؟ </span> ارسال مجدد کد </span>
                   </div> }
-                  {/* {flag == 2 && } */}
                   {flag == 3 && <FieldInput name="phoneNumber" type="number" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />}
                   {flag == 3 && <FieldInput name="Password" type="Password" placeholder="رمز عبور" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" showPasswordCheck={true} />}
                   {flag == 3 && <FieldInput name="Email" type="text" placeholder="جیمیل را وارد کنید" dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />}
