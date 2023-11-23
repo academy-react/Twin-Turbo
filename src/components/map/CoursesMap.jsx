@@ -4,6 +4,9 @@ import customAxios from '../../core/services/interceptor'
 
 let addToCourse;
 let Rows;
+let settingPageNumber;
+let settingSort;
+
 const CoursesMap = () => {
 
     let location = useLocation();
@@ -12,22 +15,25 @@ const CoursesMap = () => {
 
     const [course, setCourse] = useState([])
     const [rowsOfPage, setRowsOfPage] = useState(4)
+    const [PageNumber, setPageNumber] = useState(1)
+    const [sort, setSort] = useState("Active")
 
     const getCoursesAll = async () => {
-      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=${rowsOfPage}&SortingCol=Active&SortType=DESC&TechCount=0`) 
+      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&TechCount=0`) 
       setCourse(result.courseFilterDtos)
       console.log(result);
     }
 
-    useEffect(() => {
+    useEffect(() => {getCoursesAll()}, [rowsOfPage])
 
-      getCoursesAll()
-      
-    }, [rowsOfPage])
+    useEffect(() => {getCoursesAll()}, [PageNumber])
+
+    useEffect(() => {getCoursesAll()}, [sort])
     
     addToCourse = setCourse
     Rows = setRowsOfPage
-
+    settingPageNumber = setPageNumber
+    settingSort = setSort
     useEffect(() => {
       getCoursesAll()
     }, [])
@@ -64,5 +70,5 @@ const CoursesMap = () => {
 
     );
 };
-export {addToCourse , Rows}
+export {addToCourse , Rows , settingPageNumber , settingSort}
 export default CoursesMap;

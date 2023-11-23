@@ -4,6 +4,8 @@ import { addToCourse } from '../map/CoursesMap'
 import {setBlog} from '../map/BlogsMap'
 import { useLocation } from 'react-router-dom';
 import {setNumberCourse} from '../map/ListCousePanelMap'
+
+import { settingPageNumber } from '../map/CoursesMap';
 const Paginate = ({ itemsPerPage , db })=>  {
   let location = useLocation()
   
@@ -25,6 +27,7 @@ const Paginate = ({ itemsPerPage , db })=>  {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
       console.log(e.selected);
       setItemOffset(newOffset);  
+      settingPageNumber(e.selected+1)
   };
 
   return (
