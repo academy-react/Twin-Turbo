@@ -3,8 +3,9 @@ import ListCousePanelMap from '../map/ListCousePanelMap'
 import Paginate from '../common/Paginate'
 import courses from '../../core/services/courseDB'
 import ReserveCourseMap from '../map/ReserveCourseMap'
+import FavoriteCourseMap from '../map/FavoriteCourseMap'
 
-const CoursesListPanel = ({bool,content}) => {
+const CoursesListPanel = ({bool}) => {
 
     const inpurSearch = useRef()
 
@@ -23,7 +24,7 @@ const CoursesListPanel = ({bool,content}) => {
 
             </div>
             <div dir="rtl" className="flex items-center px-[15px]">
-                <span>{content}</span>
+                <span>تعداد دوره ها : </span>
             </div>
 
         </div>
@@ -38,8 +39,8 @@ const CoursesListPanel = ({bool,content}) => {
             </div>
             <div className="h-[85%] mx-auto px-[15px] max-[1350px]:h-[80%]">
                 {bool && <ListCousePanelMap inpurSearch={inpurSearch} />}
-                {!bool && <div>خالی</div> }
                 {location.pathname == "/panel/reserveCourse" && <ReserveCourseMap />}
+                {location.pathname == "/panel/favoriteCourse" && <FavoriteCourseMap />}
                   
             </div>
         </div>

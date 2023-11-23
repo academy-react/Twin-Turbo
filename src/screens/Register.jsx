@@ -1,28 +1,51 @@
 import { Formik , Form } from "formik"
 import { Header , FieldInput , LinkComponent , Submit} from "../components/common/index"
 import Validation from "../core/validations/registerValidation"
-import { useState } from "react"
 import customAxios from "../core/services/interceptor"
 import { useNavigate } from "react-router-dom"
+import { useEffect , useState} from "react"
+import { useRef } from "react"
 
 const Register = () => {
 
+  const sendAgain = useRef()
+  const sendAgainIn = useRef()
   const [flag, setFlag] = useState(1)
+  const [timerflag, setTimerFlag] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState()
   let navigate = useNavigate()
   let submitMessage ;
-  // let codeM = "1"
-  // let codeS = "59"
-
-  // let interval = setInterval(() => {
-  //   codeS = codeS - 1
-  //   if(codeS == 0) codeM = codeM - 1
-  //   if(codeM == 0 && codeS == 0) clearInterval(interval)
-  // }, 1000);
-
-  const resendCode = async ()=> {
-    await customAxios.post("/Sign/SendVerifyMessage",{ phoneNumber : phoneNumber })
-  }
+  const [codeM, setCodeM] = useState(1)
+  const [codeS, setCodeS] = useState(59)
+  
+  useEffect(() => {
+    if(timerflag) {
+      let timer = setTimeout(() => {
+        setCodeS(codeS - 1)
+        if(codeS == 0) {
+          setCodeM(codeM - 1)
+          setCodeS(59)
+        }
+        if(codeM == 0 && codeS == 0) {
+          alert()
+          setTimerFlag(false)
+          clearTimeout(timer)
+          sendAgainIn.current.style.display = "none"
+          sendAgain.current.style.display = "inline"
+        }
+      }, 1000);
+    }
+  }, [timerflag , codeS])
+  
+  
+    const resendCode = async ()=> {
+      await customAxios.post("/Sign/SendVerifyMessage",{ phoneNumber : phoneNumber })
+      sendAgainIn.current.style.display = "inline"
+      sendAgain.current.style.display = "none"
+      setCodeM(1)
+      setCodeS(59)
+      setTimerFlag(true)
+    }
 
   if(flag == 1) submitMessage = "ورود"
   else if(flag == 2) submitMessage = "ادامه"
@@ -39,6 +62,7 @@ const Register = () => {
           if(result.success) {
             setFlag(flag+1)
             setPhoneNumber(values.phoneNumber)
+            setTimerFlag(true)
           }
           else alert(result.message)
       }
@@ -64,6 +88,13 @@ const Register = () => {
       }
   }
 
+  const editPhoneNumber = () => {
+    setFlag(flag - 1)
+    setCodeM(1)
+    setCodeS(59)
+    setTimerFlag(false)
+  }
+
   return (
     <div className="w-full h-[1200px] bg-[#f5f5f5]">
       <Header className="hidden" src="avatar.png" color="#5A0BA9" />
@@ -79,8 +110,9 @@ const Register = () => {
                   {flag == 1 && <FieldInput name="phoneNumber" type="text" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />}
                   {flag == 2 && <FieldInput name="VerifyCode" type="text" placeholder=" کد تایید  " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" /> }
                   {flag == 2 && <div className="flex justify-between w-[85%]">
-                    <span className="mt-[-10px] text-[15px] self-end cursor-pointer border-b-1 border-b border-b-black hover:text-[#8b61a3] hover:border-b-[#8b61a3]" onClick={()=> setFlag(flag - 1)}>ویرایش شماره همراه</span>
-                    {/* <span className="self-start" onClick={resendCode}>ارسال مجدد کد در : {codeM}:{codeS} </span> */}
+                    <span className="mt-[-10px] text-[15px] self-end cursor-pointer border-b-1 border-b border-b-black hover:text-[#8b61a3] hover:border-b-[#8b61a3]" onClick={editPhoneNumber}>ویرایش شماره همراه</span>
+                    <span className="self-start" ref={sendAgainIn}>ارسال مجدد کد در : {codeM}:{codeS} </span>
+                    <span className="self-start hidden cursor-pointer" ref={sendAgain} onClick={resendCode}> <span className="text-[#bbb] cursor-default"> کدی دریافت نکردید؟ </span> ارسال مجدد کد </span>
                   </div> }
                   {/* {flag == 2 && } */}
                   {flag == 3 && <FieldInput name="phoneNumber" type="number" placeholder="شماره موبایل " dir="rtl" border="border border-[#a361a1]" display="text-[#999] text-[15px]" className="placeholder:text-[#ccc]" />}

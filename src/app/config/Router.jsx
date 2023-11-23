@@ -7,10 +7,10 @@ const Router = createBrowserRouter([
       element: <Landing />,
     },
     {
-      path: "/forgetPassword?/:ConfigValue",
+      path: "/forgetPassword/:ConfigValue",
       element: <ForgetPassword />,
     },
-    {
+    {    // when the forget page was optional the 404 page didn`t worked when we write anything in url
       path: "/forgetPassword",
       element: <ForgetPassword />,
     },
@@ -73,6 +73,10 @@ const Router = createBrowserRouter([
         },
         {
           path : "/panel/reserveCourse",
+          element : <Mycourse/>,
+        },
+        {
+          path : "/panel/favoriteCourse",
           element : <Mycourse/>,
         },
       ]

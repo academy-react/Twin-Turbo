@@ -55,7 +55,7 @@ const CoursesMap = () => {
                   </div>
 
                   <div className="w-[50px] h-[70px]" style={{display:"none"}}></div>
-
+                  <img src="../src/assets/images/courses/heart-outline.png" alt="" className="w-7 absolute left-1 top-1" />
 
                   <div className=" flex justify-between items-start absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>
