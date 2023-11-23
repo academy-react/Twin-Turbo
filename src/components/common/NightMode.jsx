@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react"
 import headerScroll from "../../core/utils/headerScroll.utils"
 import darkMode from "../../core/utils/darkMode.utils"
 
-const NightMode = ({bgClass,borderClass}) => {
+const NightMode = ({bgClass}) => {
 
-    let sircleImgClassName = "w-[42%] h-[90%] rounded-[50%] transition-all duration-50 "
     let local = localStorage.getItem("theme")
     if(!local) localStorage.setItem("theme","light")
+
     const pic = useRef()
+
     useEffect(() => {
         darkMode()
     }, [])
