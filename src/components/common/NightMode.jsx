@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import headerScroll from "../../core/utils/headerScroll.utils"
 import darkMode from "../../core/utils/darkMode.utils"
+import { setttttttt } from "../landing/TitleComponents"
 
 const NightMode = ({bgClass}) => {
 
@@ -21,13 +22,13 @@ const NightMode = ({bgClass}) => {
 
             pic.current.src = "../src/assets/images/header/sun.png"
             localStorage.setItem("theme","dark")
-
+            setttttttt(`../src/assets/images/landingCourse/courses-title-dark.png`)
         }
         else if(local == "dark") {
 
             pic.current.src = "../src/assets/images/header/moon.png"
             localStorage.setItem("theme","light")
-
+            setttttttt(`../src/assets/images/landingCourse/courses-title.png`)
         }
         darkMode()
         // for darkMode the header it should call here
