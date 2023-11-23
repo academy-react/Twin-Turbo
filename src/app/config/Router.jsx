@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404, Register , Panel ,ListOfCourse,Mycourse,EditProfile,DashBoard} from '../../screens'
+import {Landing,ForgetPassword,Login,ContactUs,Blogs,SelectedBlog,Courses,SelectedCourse,Page404, Register , Panel ,ListOfCourse,Mycourse,EditProfile,DashBoard,ChangePassword} from '../../screens'
 
 const Router = createBrowserRouter([
     {
@@ -78,6 +78,10 @@ const Router = createBrowserRouter([
         {
           path : "/panel/favoriteCourse",
           element : <Mycourse/>,
+        },
+        {
+          path : "/panel/changePassword",
+          element : <ChangePassword/>,
         },
       ]
     },
