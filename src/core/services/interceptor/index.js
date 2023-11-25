@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+let token = localStorage.getItem("token")
 
 const customAxios = axios.create({
 
@@ -17,7 +18,13 @@ const error = (err) => {
 
 customAxios.interceptors.response.use(succses,error)
 
-// customAxios.interceptors.request.use()
+customAxios.interceptors.request.use((option)=> {
+    option.headers["Authorization"] = "Bearer" + token
+    return option 
+})
+
+
+
 
 
 
