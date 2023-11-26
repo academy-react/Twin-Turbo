@@ -6,7 +6,6 @@ import {Header,Footer,RightPanel} from '../components/common'
 import customAxios from "../core/services/interceptor";
 
 const SelectedCourses = () => {
-  let token = localStorage.getItem("token")
   const [item, setItem] = useState();
   const [teacher, setTeacher] = useState();
   const [comment, setComment] = useState();
@@ -32,18 +31,12 @@ const SelectedCourses = () => {
   const addToReserve = () => {
     customAxios.post("/CourseReserve/ReserveAdd",{
         courseId: url.id
-    },
-    {
-      headers : {"Authorization" : "Bearer " + token}
     })
   }
 
   const addToFavorite = () => {
     customAxios.post("/Course/AddCourseFavorite",{
         courseId: url.id
-    },
-    {
-      headers : {"Authorization" : "Bearer " + token}
     })
   }
 

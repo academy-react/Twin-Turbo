@@ -3,23 +3,18 @@ import customAxios from '../../core/services/interceptor'
 import miladi_be_shamsi from '../../core/utils/miladiToShamsi.utils'
 
 const CommentMap = ({ db , parentComment }) => {
-    let token = localStorage.getItem("token")
     
 
     const addLike = async (id) => {
         console.log(id);
-        let res = await customAxios.post("Course/AddCourseCommentLike?CourseCommandId=" + id,{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let res = await customAxios.post("/Course/AddCourseCommentLike?CourseCommandId=" + id)
         console.log(res);
     }
 
     
     const addDissLike = async (id) => {
         console.log(id);
-        let res = await customAxios.post("/Course/AddCourseCommentDissLike?CourseCommandId=" + id,{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let res = await customAxios.post("/Course/AddCourseCommentDissLike?CourseCommandId=" + id)
         console.log(res);
     }
 

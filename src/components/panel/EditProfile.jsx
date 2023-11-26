@@ -17,13 +17,10 @@ const EditProfile = () => {
     let userImage = useRef()
     let img = useRef()
     const [myInfo, setMyInfo] = useState()
-    let token = localStorage.getItem("token")
     const datePicker = useRef()
 
     const getInfo = async () => {
-        let result = await customAxios.get("/SharePanel/GetProfileInfo",{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let result = await customAxios.get("/SharePanel/GetProfileInfo")
         setMyInfo(result)
     }
 

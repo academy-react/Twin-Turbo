@@ -5,7 +5,6 @@ import customAxios from "../../core/services/interceptor"
 
 const ChangePassword = () => {
 
-    let token = localStorage.getItem("token")
 
     const ChangePass = (values) => {
 
@@ -15,9 +14,6 @@ const ChangePassword = () => {
             {
                 oldPassword : values.oldPass,
                 newPassword : values.newPass,
-            },
-            {
-                headers : {"Authorization" : "Bearer " + token}
             })
 
         }

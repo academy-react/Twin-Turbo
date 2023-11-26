@@ -7,7 +7,6 @@ import { useRef } from 'react'
 const CommentBlog = ({db}) => {
     let url = useParams()
     let location = useLocation()
-    let token = localStorage.getItem("token")
     const parentComment = useRef()
 
     const addCommentBlog = async (value) => {
@@ -15,8 +14,6 @@ const CommentBlog = ({db}) => {
             newsId: url.id,
             title: "Hamid",
             describe: value.comment
-        },{
-            headers : {"Authorization" : "Bearer " + token}
         })
     } 
 
@@ -27,9 +24,7 @@ const CommentBlog = ({db}) => {
         formData.append("Title", "Hamid")
         formData.append("Describe", value.comment)
 
-        customAxios.post("/Course/AddCommentCourse",formData,{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        customAxios.post("/Course/AddCommentCourse",formData)
     } 
 
     const handle = (value)=> { 

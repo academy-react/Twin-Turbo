@@ -1,6 +1,5 @@
 import customAxios from '../../services/interceptor';
 
-let token = localStorage.getItem("token")
 
 let input ;
 const changePic = async (e,userImage)=> {
@@ -13,22 +12,16 @@ const changePic = async (e,userImage)=> {
 const editProfileSubmit = async (values,userImage) => {
 
     if(input) {
-        customAxios.post("/SharePanel/DeleteProfileImage",imageData,{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        customAxios.post("/SharePanel/DeleteProfileImage",imageData)
 
         let imageData = new FormData()
         imageData.append("formFile", input)
     
-        customAxios.post("/SharePanel/AddProfileImage",imageData,{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        customAxios.post("/SharePanel/AddProfileImage",imageData)
     
     }
 
-    let res = await customAxios.get("/SharePanel/GetProfileInfo",{
-        headers : {"Authorization" : "Bearer " + token}
-    })
+    let res = await customAxios.get("/SharePanel/GetProfileInfo")
 
     console.log(res);
     let formData = new FormData();

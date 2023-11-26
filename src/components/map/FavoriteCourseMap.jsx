@@ -2,14 +2,11 @@ import { useState , useEffect } from "react"
 import customAxios from "../../core/services/interceptor"
 
 const FavoriteCourseMap = () => {
-    let token = localStorage.getItem("token")
 
     const [favoriteCourse, setFavoriteCourse] = useState()
 
     const getFavoriteCourse = async() => {
-        let res = await customAxios.get("/SharePanel/GetMyFavoriteCourses",{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let res = await customAxios.get("/SharePanel/GetMyFavoriteCourses")
 
         setFavoriteCourse(res.favoriteCourseDto)
         console.log(res);

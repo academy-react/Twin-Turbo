@@ -7,14 +7,11 @@ import customAxios from '../core/services/interceptor'
 const Panel = () => {
 
     const [myInfo, setMyInfo] = useState()
-    let token = localStorage.getItem("token")
 
     const getInfo = async () => {
 
 
-        let result = await customAxios.get("/SharePanel/GetProfileInfo",{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let result = await customAxios.get("/SharePanel/GetProfileInfo")
         setMyInfo(result)
     }
 

@@ -2,14 +2,11 @@ import { useState , useEffect } from "react"
 import customAxios from "../../core/services/interceptor"
 
 const ReserveCourseMap = () => {
-    let token = localStorage.getItem("token")
 
     const [reserveCourse, setReserveCourse] = useState()
 
     const getReserveCourse = async() => {
-        let res = await customAxios.get("/SharePanel/GetMyCoursesReserve",{
-            headers : {"Authorization" : "Bearer " + token}
-        })
+        let res = await customAxios.get("/SharePanel/GetMyCoursesReserve")
 
         setReserveCourse(res)
         console.log(res);
