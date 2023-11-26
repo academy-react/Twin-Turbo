@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import customAxios from '../../core/services/interceptor'
 import { useRef } from 'react'
 
-const CommentBlog = ({db}) => {
+const Comment = ({db}) => {
     let url = useParams()
     let location = useLocation()
     const parentComment = useRef()
@@ -58,4 +58,4 @@ const CommentBlog = ({db}) => {
     )
 }
 
-export default CommentBlog
+export default Comment
