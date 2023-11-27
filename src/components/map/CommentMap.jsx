@@ -1,17 +1,55 @@
 import customAxios from '../../core/services/interceptor'
 
 const CommentMap = ({ db , parentComment }) => {
-
-    const likeDissLikeCourse = (id,params,bool) => {
-        console.log(id);
+    
+    const likeDissLikeCourse = (id,params,bool,element,e) => {
+        
         if(location.pathname.indexOf("/courses") !== -1){
+            
+            // like
+            if(params == "Like" && element.currentUserEmotion !== "LIKED") {
+                e.target.previousElementSibling.innerHTML = element.likeCount + 1
+                e.target.src = "../src/assets/images/selectedCourse/like.png"
+                customAxios.post(`/Course/AddCourseComment${params}?CourseCommandId=` + id)
+            }
+            else if(params == "Like" && element.currentUserEmotion == "LIKED") {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/likeDefault.png"
+                customAxios.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=` + id)
+            }
 
-            customAxios.post(`/Course/AddCourseComment${params}?CourseCommandId=` + id)
+            //disslike
+            if(params == "DissLike" && element.currentUserEmotion !== "DISSLIKED") {
+                e.target.previousElementSibling.innerHTML = element.disslikeCount + 1
+                e.target.src = "../src/assets/images/selectedCourse/disslike.png"
+                customAxios.post(`/Course/AddCourseComment${params}?CourseCommandId=` + id)
+            }
+            else if(params == "DissLike" && element.currentUserEmotion == "DISSLIKED") {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/disslikeDefault.png"
+                // api isnt exist
+
+                // customAxios.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=` + id)
+            }
 
         }
         else if(location.pathname.indexOf("/blogs") !== -1) {
             
-            customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
+             // like
+            if(bool) {
+                e.target.previousElementSibling.innerHTML = element.commentLike + 1
+                e.target.src = "../src/assets/images/selectedCourse/like.png"
+                customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
+            }
+            else if(!bool) {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/likeDefault.png"
+                // api isnt exist
+
+                // customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
+            }
+
+            
 
         }
     }
@@ -64,7 +102,6 @@ const CommentMap = ({ db , parentComment }) => {
         flag = false
         
     }
-
     
     return (
         db?.map((element,index)=> {            
@@ -76,14 +113,14 @@ const CommentMap = ({ db , parentComment }) => {
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
-                            <div className=" flex items-center" onClick={()=> likeDissLikeCourse(element.id,"Like",true)}>
-                                <span className="text-[#37c54f]">{element?.likeCount || element?.commentLike}</span>
-                                <img src="../src/assets/images/selectedCourse/likeDefault.png" className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} />
+                            <div className=" flex items-center">
+                                <span className="text-[#37c54f]">{element?.likeCount == 0 ? 0 : element?.likeCount || element?.commentLike}</span>
+                                <img src={element?.currentUserEmotion == "LIKED" ? "../src/assets/images/selectedCourse/like.png" : "../src/assets/images/selectedCourse/likeDefault.png"} onClick={(e)=> likeDissLikeCourse(element.id,"Like",true,element,e)} className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
-                            | {console.log(element?.commentLike)}
-                            <div className="flex items-center mr-2" onClick={()=> likeDissLikeCourse(element.id,"DissLike",false)} >
+                            |
+                            <div className="flex items-center mr-2" >
                                 <span className="text-[#ec0b1a]">{element?.disslikeCount ? element?.disslikeCount : "0"}</span> 
-                                <img src="../src/assets/images/selectedCourse/dislikeDefault.png" className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
+                                <img src={element?.currentUserEmotion == "DISSLIKED" ? "../src/assets/images/selectedCourse/disslike.png" : "../src/assets/images/selectedCourse/disslikeDefault.png"} onClick={(e)=> likeDissLikeCourse(element.id,"DissLike",false,element,e)} className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                         </div>
                         <div className="flex items-center justify-between w-[40px] absolute left-[50px] bottom-[10px] [&>img]:cursor-pointer" >

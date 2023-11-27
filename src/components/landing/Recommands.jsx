@@ -5,17 +5,12 @@ import recommandsValidation from "../../core/validations/recommandsValidation"
 import recommandsSubmit from "../../core/validations/submit/recommandsSubmit"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const Recommands = () => {
 
     const [theme, setTheme] = useState(localStorage.getItem("theme"))
-
-    useEffect(() => {
-      console.log(theme);
-    }, [theme])
     
-
   return (
     <div className='w-full h-[870px] flex flex-col justify-center items-center pt-[10px] relative mb-[100px] max-[480px]:mb-[-50px]'>
         <TitleComponents title="نظر خواهی" content="نظرات و انتقادات" src="courses-title.png" className="flex max-[1170px]:mb-16 top-[15px] max-[710px]:mb-0 max-[700px]:scale-[90%] " />
