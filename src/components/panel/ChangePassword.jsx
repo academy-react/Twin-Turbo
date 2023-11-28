@@ -1,6 +1,4 @@
 import { Formik ,Form, Field } from "formik"
-import { Button, FieldInput, LinkComponent } from "../common"
-import { useRef } from "react"
 import customAxios from "../../core/services/interceptor"
 
 const ChangePassword = () => {
@@ -9,12 +7,16 @@ const ChangePassword = () => {
     const ChangePass = (values) => {
 
         if(values.newPass == values.repeatnewPass) {
-
-            customAxios.post("/SharePanel/ChangePassword",
-            {
-                oldPassword : values.oldPass,
-                newPassword : values.newPass,
-            })
+            try {
+                customAxios.post("/SharePanel/ChangePassword",
+                {
+                    oldPassword : values.oldPass,
+                    newPassword : values.newPass,
+                })
+                
+            } catch (error) {
+                console.log(error);
+            }
 
         }
         else {
