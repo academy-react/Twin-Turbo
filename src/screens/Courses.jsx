@@ -35,7 +35,6 @@ const Courses = () => {
 
           <div className="w-[40%] min-w-[510px] [&>*]:mx-2 whitespace-nowrap max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px] max-[1700px]:text-[20px] max-[1170px]:text-[18px] max-[990px]:text-[16px] max-[480px]:scale-75 max-[395px]:scale-50">
             <SortCourse type="Active" id="radio5" sort="all" htmlFor="radio5" text="همه" defaultChecked={true}/>
-            {/* <sortCourse type="" id="radio4" sort="fullStorage" htmlFor="radio4" text="ظرفیت" defaultChecked={false}/> */}
             <SortCourse type="likeCount" id="radio3" sort="discount" htmlFor="radio3" text="محبوب ترین" defaultChecked={false}/>
             <SortCourse type="currentRegistrants" id="radio2" sort="quantityStudent" htmlFor="radio2" text=" تعداد دانشجو" defaultChecked={false}/>
             <SortCourse type="cost" id="radio1" sort="price" htmlFor="radio1" text="پرفروش ترین" defaultChecked={false}/>
@@ -46,11 +45,7 @@ const Courses = () => {
             <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeViewCourses(parent)}/>
           </div>
         </div>
-        <div
-          dir="rtl"
-          className="w-[90] flex flex-wrap justify-around"
-          ref={parent}
-        >
+        <div dir="rtl" className="w-[90] flex flex-wrap justify-around" ref={parent}>
           <CoursesMap />
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
