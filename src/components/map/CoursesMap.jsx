@@ -37,7 +37,7 @@ const CoursesMap = () => {
     useEffect(() => {
       getCoursesAll()
     }, [])
-    
+
     return (
 
       course.map((element, index) => {
@@ -49,13 +49,22 @@ const CoursesMap = () => {
                 <div dir="rtl" className="w-full h-[210px] mx-auto relative">
                   <p className="text-[24px] absolute right-2">{element.title}</p>
 
-                  <div className="w-12 h-16 rounded-[50px] absolute left-2 bottom-5 flex flex-col justify-between items-center overflow-hidden shadow-[0_0_7px_#ccc] [&>*:nth-child(even)]:bg-[#eee] [&>*]:bg-white [&>*]:w-full  [&>*]:h-[50%] [&>*]:flex [&>*]:items-center [&>*]:justify-center">
-                    <img src="../src/assets/images/selectedCourse/capacity.png" className="p-[6px] px-2" />
-                    <div>{element.currentRegistrants}</div>
-                  </div>
 
                   <div className="w-[50px] h-[70px]" style={{display:"none"}}></div>
-                  <img src="../src/assets/images/courses/heart-outline.png" alt="" className="w-7 absolute left-1 top-1" />
+                  <div className="w-7 absolute left-1 top-1 flex flex-col items-center">
+                    <img src="../src/assets/images/selectedCourse/likeDefault.png" alt="" />
+                    <span className="mt-1 whitespace-nowrap">{element.likeCount}</span>
+                  </div>
+                  
+                  <div className="w-7 absolute left-1 top-[70px] flex flex-col items-center">
+                    <img src="../src/assets/images/selectedCourse/disslikeDefault.png" alt="" />
+                    <span className="mt-1 whitespace-nowrap">{element.dissLikeCount}</span>
+                  </div>
+
+                  <div className="w-7 absolute left-1 bottom-5 flex flex-col items-center">
+                    <img className="ml-1" src="../src/assets/images/selectedCourse/registered.png" />
+                    <div className="mt-1 whitespace-nowrap">{element.currentRegistrants}</div>
+                  </div>
 
                   <div className=" flex justify-between items-start absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>

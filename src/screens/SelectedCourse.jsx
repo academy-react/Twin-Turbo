@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom";
 
 import {Header,Footer,RightPanel} from '../components/common'
 import customAxios from "../core/services/interceptor";
+import { ToastContainer, toast } from "react-toastify";
 
 export let setComments;
 const SelectedCourses = () => {
+
   const [item, setItem] = useState();
   const [teacher, setTeacher] = useState();
   const [comment, setComment] = useState();
   let url = useParams();
+  let theme = localStorage.getItem("theme")
 
   const getCourseDetail = async () => {
 
@@ -30,27 +33,54 @@ const SelectedCourses = () => {
   }
 
   const addToReserve = () => {
-    customAxios.post("/CourseReserve/ReserveAdd",{
-        courseId: url.id
-    })
+    if(item?.isCourseReseve == "0") {
+      customAxios.post("/CourseReserve/ReserveAdd",{
+          courseId: url.id
+      })
+      toast.success("این دوره با موفقیت رزرو شد")
+    }
+    else toast.error("این دوره از قبل رزرو شده است")
   }
 
   const addToFavorite = () => {
-    customAxios.post("/Course/AddCourseFavorite",{
-        courseId: url.id
-    })
+    if(!item?.isUserFavorite) {
+      customAxios.post("/Course/AddCourseFavorite",{
+          courseId: url.id
+      })
+      toast.success("این دوره با موفقیت به مورد علاقه ها اضافه شد")
+    }
+    else toast.error("این دوره در لیست علاقه مندی های شما موجود میباشد")
+  }
+
+  const likeCourse = async () => {
+    if(item?.currentUserLike == "0") {
+      await customAxios.post("/Course/AddCourseLike?CourseId=" + url.id)
+      getCourseDetail()
+      toast.success("نظر شما با موفقیت ثبت شد")
+    }
+    else toast.error("قادر به ثبت دوباره نظر نمی باشید")
+  }
+
+  const dissLikeCourse = async () => {
+    if(item?.currentUserDissLike == "0") {
+      await customAxios.post("/Course/AddCourseDissLike?CourseId=" + url.id)
+      getCourseDetail()
+      toast.success("نظر شما با موفقیت ثبت شد")
+    }
+    else toast.error("قادر به ثبت دوباره نظر نمی باشید")
   }
 
   useEffect(() => {
       setComments = setComment
       getCourseDetail()
       getCommentCourse()
-
+      console.log(item);
   }, [])
   
   return (
     <>
       <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
+        <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
         <Header src="avatar.png" color="#5A0BA9"/>
         <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5 mt-20 [&>div]:transition-all [&>div]:duration-100">
           <div dir="ltr" className="w-[580px] max-[1780px]:w-[500px] max-[1355px]:w-[400px] h-full flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5 max-[1150px]:order-2 max-[1150px]:w-[60%] max-[1150px]:mb-10 max-[715px]:w-[80%] max-[600px]:w-full max-[600px]:rounded-none" >
@@ -82,12 +112,16 @@ const SelectedCourses = () => {
               <CourseDetail content={teacher?.courseCounts} title="تعداد دوره ها" noLogo="hidden" dir={"rtl"}/>
             </div>
 
-            <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(2)]:bg-[#f5f5f5] max-[1360px]:[&>div]:text-[18px]">
+            <div className="w-[80%] rounded-2xl bg-white shadow-[0_0_7px_#ddd] flex flex-col my-5 [&>div:nth-child(even)]:bg-[#f5f5f5] max-[1360px]:[&>div]:text-[18px]">
               <div className="text-[28px] flex justify-between items-center p-3"> 
                 <img src="../src/assets/images/selectedCourse/teacher.png" alt="" className="w-7 h-7"/> ثبت نام
               </div>
+              <CourseDetail content={item?.likeCount} contentStyle="text-[#000]" title="تعداد لایک" logo="abcd.png"/>
+              <CourseDetail content={item?.dissLikeCount} contentStyle="text-[#000]" title="تعداد دیسلایک" logo="abcd.png"/>
               <CourseDetail content={"  تومان  " + item?.cost} contentStyle="text-[#36C54E]" title="قیمت دوره" logo="abcd.png"/>
-              <button className="h-12 flex justify-center items-center bg-[#346fa6] text-white  text-[22px] transition-all duration-500 hover:bg-[#24384b]" onClick={addToReserve}>رزرو این دوره</button>
+              <button className="h-12 flex justify-center items-center bg-[#36c54e] text-white  text-[22px] transition-all duration-500 hover:bg-[#34a647]" onClick={likeCourse}>لایک این دوره</button>
+              <button className="h-12 flex justify-center items-center bg-[#c33b3b] text-white  text-[22px] transition-all duration-500 hover:bg-[#9b3d3d]" onClick={dissLikeCourse}>دیسلایک این دوره</button>
+              <button className="h-12 flex justify-center items-center bg-[#346fa6] text-white  text-[22px] transition-all duration-500 hover:bg-[#24384b]" onClick={addToReserve}>{item?.isCourseReseve == "1" ? "این دوره رزرو شده است" : "رزرو این دوره"}</button>
               <button className="h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-b-2xl text-[22px] transition-all duration-500 hover:bg-[#34a647]">  ثبت نام در دوره</button>
             </div>
           </div>
