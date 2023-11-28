@@ -1,7 +1,11 @@
 import customAxios from '../../core/services/interceptor'
+import create from '../../core/utils/createResponseComment.utils'
+import { setComments } from '../../screens/SelectedCourse'
 
 const CommentMap = ({ db , parentComment }) => {
-    
+    let flag = true
+    let showResponseFlag = true
+
     const likeDissLikeCourse = (id,params,bool,element,e) => {
         
         if(location.pathname.indexOf("/courses") !== -1){
@@ -54,9 +58,8 @@ const CommentMap = ({ db , parentComment }) => {
         }
     }
 
-    let flag = true
+    const replay = (e,element) => {
 
-    const replay = (e) => {
 
         if(flag) {
             
@@ -70,9 +73,9 @@ const CommentMap = ({ db , parentComment }) => {
             parentComment.appendChild(replay)
     
     
-            let textarea = document.createElement("textarea");
-            textarea.className = "resize-none w-[90%] h-[50%] absolute left-0 top-0 border rounded-[25px] m-[15px] p-[10px]";
-            replay.appendChild(textarea);
+            let textareaReply = document.createElement("textarea");
+            textareaReply.className = "resize-none w-[90%] h-[50%] absolute left-0 top-0 border rounded-[25px] m-[15px] p-[10px]";
+            replay.appendChild(textareaReply);
 
             let idea = document.createElement("div")
             idea.className = "w-[300px] h-[70px] px-[20px] absolute left-0 bottom-0 flex justify-between items-center"
@@ -88,12 +91,24 @@ const CommentMap = ({ db , parentComment }) => {
             }
             idea.appendChild(rejBtn);
     
-            let accBtn = document.createElement("button")
-            accBtn.className = "bg-[green] w-[120px] h-[50px] rounded-[15px] text-[#fff] text-[19px]"
+            let accBtn = document.createElement("div")
+            accBtn.className = "bg-[green] w-[120px] h-[50px] rounded-[15px] text-[#fff] text-[19px] cursor-pointer flex justify-center items-center"
             accBtn.innerHTML = "ارسال";
-            accBtn.onclick = () => { 
-                // replay.remove()
+
+            accBtn.onclick = async () => {
+
+                let res = await customAxios.get("/SharePanel/GetProfileInfo")
                 flag = true
+
+                let formData = new FormData()
+                formData.append("CommentId",element.id)
+                formData.append("CourseId",element.courseId)
+                formData.append("Title",res.fName + " " + res.lName)
+                formData.append("Describe",textareaReply.value)
+                customAxios.post("/Course/AddReplyCourseComment",formData)
+                // setComments()
+
+
             }
             idea.appendChild(accBtn);
 
@@ -102,14 +117,39 @@ const CommentMap = ({ db , parentComment }) => {
         flag = false
         
     }
-    
+
+
+    const showResponse = async (e,element) => {
+        let targetComment = e.target.parentNode.parentNode.parentNode.parentNode
+        let order = targetComment.getAttribute("data-order")
+
+        
+        if(showResponseFlag) {
+            
+            let parentItem = document.createElement("div");
+            parentItem.className = `border border-[red] w-full flex items-center gap-[15px] my-[7px] py-5 flex flex-col relative`;
+            parentItem.style.order = order
+            parentComment.appendChild(parentItem)
+
+            create(parentItem,element,order)
+            showResponseFlag = false
+
+        }
+        else if (!showResponseFlag) {
+            console.log(parentItem);
+            showResponseFlag = true
+
+        }
+
+
+    }
     return (
-        db?.map((element,index)=> {            
+        db?.map((element,index)=> {
             return (
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
                     <img src={"../src/assets/images/panel/user.png"} alt="" className="w-16 h-[60px] rounded-full " />
-                    <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
-                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'></span>  </div>
+                    <div className="border border-[green] w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
+                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'>{element.insertDate.slice(0,10).replace("-","/").replace("-","/")}</span>  </div>
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
@@ -123,9 +163,11 @@ const CommentMap = ({ db , parentComment }) => {
                                 <img src={element?.currentUserEmotion == "DISSLIKED" ? "../src/assets/images/selectedCourse/disslike.png" : "../src/assets/images/selectedCourse/disslikeDefault.png"} onClick={(e)=> likeDissLikeCourse(element.id,"DissLike",false,element,e)} className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                         </div>
-                        <div className="flex items-center justify-between w-[40px] absolute left-[50px] bottom-[10px] [&>img]:cursor-pointer" >
-                            <img src="../src/assets/images/selectedCourse/reply.png" className='scale-[60%]' onClick={(e) => replay(e)} />
-                            <img src="../src/assets/images/selectedCourse/warning.png" className='scale-[60%]' />
+                        <div className="flex items-center justify-between absolute left-[20px] bottom-[10px] [&>img]:cursor-pointer" >
+                            <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element)}> 
+                                <span className='ml-[15px]'>نمایش پاسخ ها {element.acceptReplysCount}</span>
+                            </div>
+                            <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => replay(e,element)} />
                         </div>
                     </div>
                 </div>

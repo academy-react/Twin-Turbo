@@ -45,7 +45,7 @@ const Comment = ({db}) => {
             setComments(result)
 
         }   
-        if(textarea.value.length < 5) toast("نظر شما حداقل باید 5 کلمه باشد")
+        // if(textarea.value.length < 5) toast("نظر شما حداقل باید 5 کلمه باشد")
         else {
             value.comment = ""
             textarea.value = ""
