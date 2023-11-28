@@ -2,12 +2,10 @@ import Comment from "../selected-Blog-course/Comment";
 import Description from "../selected-Blog-course/Description";
 import { useState } from "react";
 import changeColor from '../../core/utils/changeColor.utils'
-import { useEffect } from "react";
+
 const RightPanel = ({ src, name , text , db, title}) => {
   
   const [flag, setFlag] = useState(true);
-  const [inctance, setInctance] = useState()
-
   
   return (
     <div className="w-[1150px] h-full pt-5 pb-10 rounded-xl shadow-[0_0_7px_#ddd] bg-white max-[1805px]:w-[960px] max-[1560px]:w-[760px] max-[1560px]:[&>*]:mt-[-30px] max-[800px]:[&>div:nth-child(2)]:mt-[-150px] max-[670px]:[&>div:nth-child(2)]:mt-[-180px] max-[800px]:[&>div:nth-child(2)]:relative max-[800px]:[&>div:nth-child(2)]:left-[-120px] max-[540px]:[&>div:nth-child(2)]:left-[-30px] max-[540px]:[&>div:nth-child(2)]:top-[-50px] max-[1260px]:w-[680px] max-[1159px]:order-1 max-[1159px]:w-[90%] max-[600px]:w-full max-[600px]:rounded-none ">

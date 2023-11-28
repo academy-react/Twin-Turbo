@@ -1,9 +1,11 @@
 import { RouterProvider } from "react-router-dom"
-import Router from './config/Router'
+import { Authorize , UnAuthorize } from './config/Router'
 
 const App = () => {
+  let token = localStorage.getItem("token")
   ondragstart = () => false
-  return <RouterProvider router={Router} />
+  
+  return <RouterProvider router={token ? Authorize : UnAuthorize} />
 };
 
 export default App;

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import {Header,Footer,RightPanel} from '../components/common'
 import customAxios from "../core/services/interceptor";
 
+export let setComments;
 const SelectedCourses = () => {
   const [item, setItem] = useState();
   const [teacher, setTeacher] = useState();
@@ -41,7 +42,7 @@ const SelectedCourses = () => {
   }
 
   useEffect(() => {
-
+      setComments = setComment
       getCourseDetail()
       getCommentCourse()
 

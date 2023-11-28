@@ -1,23 +1,58 @@
-import { useState } from 'react'
 import customAxios from '../../core/services/interceptor'
-import miladi_be_shamsi from '../../core/utils/miladiToShamsi.utils'
 
 const CommentMap = ({ db , parentComment }) => {
     
+    const likeDissLikeCourse = (id,params,bool,element,e) => {
+        
+        if(location.pathname.indexOf("/courses") !== -1){
+            
+            // like
+            if(params == "Like" && element.currentUserEmotion !== "LIKED") {
+                e.target.previousElementSibling.innerHTML = element.likeCount + 1
+                e.target.src = "../src/assets/images/selectedCourse/like.png"
+                customAxios.post(`/Course/AddCourseComment${params}?CourseCommandId=` + id)
+            }
+            else if(params == "Like" && element.currentUserEmotion == "LIKED") {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/likeDefault.png"
+                customAxios.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=` + id)
+            }
 
-    const addLike = async (id) => {
-        console.log(id);
-        let res = await customAxios.post("/Course/AddCourseCommentLike?CourseCommandId=" + id)
-        console.log(res);
+            //disslike
+            if(params == "DissLike" && element.currentUserEmotion !== "DISSLIKED") {
+                e.target.previousElementSibling.innerHTML = element.disslikeCount + 1
+                e.target.src = "../src/assets/images/selectedCourse/disslike.png"
+                customAxios.post(`/Course/AddCourseComment${params}?CourseCommandId=` + id)
+            }
+            else if(params == "DissLike" && element.currentUserEmotion == "DISSLIKED") {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/disslikeDefault.png"
+                // api isnt exist
+
+                // customAxios.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=` + id)
+            }
+
+        }
+        else if(location.pathname.indexOf("/blogs") !== -1) {
+            
+             // like
+            if(bool) {
+                e.target.previousElementSibling.innerHTML = element.commentLike + 1
+                e.target.src = "../src/assets/images/selectedCourse/like.png"
+                customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
+            }
+            else if(!bool) {
+                e.target.previousElementSibling.innerHTML = e.target.previousElementSibling.innerHTML - 1
+                e.target.src = "../src/assets/images/selectedCourse/likeDefault.png"
+                // api isnt exist
+
+                // customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
+            }
+
+            
+
+        }
     }
-
-    
-    const addDissLike = async (id) => {
-        console.log(id);
-        let res = await customAxios.post("/Course/AddCourseCommentDissLike?CourseCommandId=" + id)
-        console.log(res);
-    }
-
 
     let flag = true
 
@@ -67,28 +102,25 @@ const CommentMap = ({ db , parentComment }) => {
         flag = false
         
     }
-
     
     return (
-        db?.map((element,index)=> {
-            let insertDate = miladi_be_shamsi(Math.ceil(element.insertDate.slice(0,4)) , Math.ceil(element.insertDate.slice(5,7)) , Math.ceil(element.insertDate.slice(8,10)) )
-            
+        db?.map((element,index)=> {            
             return (
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
                     <img src={"../src/assets/images/panel/user.png"} alt="" className="w-16 h-[60px] rounded-full " />
                     <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
-                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'>{insertDate[0]}</span>  </div>
+                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'></span>  </div>
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
-                            <div className=" flex items-center" onClick={()=> addLike(element.id)}>
-                                <span className="text-[#37c54f]">{element?.likeCount || element?.commentLike}</span>
-                                <img src="../src/assets/images/selectedCourse/likeDefault.png" className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} />
+                            <div className=" flex items-center">
+                                <span className="text-[#37c54f]">{element?.likeCount == 0 ? 0 : element?.likeCount || element?.commentLike}</span>
+                                <img src={element?.currentUserEmotion == "LIKED" ? "../src/assets/images/selectedCourse/like.png" : "../src/assets/images/selectedCourse/likeDefault.png"} onClick={(e)=> likeDissLikeCourse(element.id,"Like",true,element,e)} className="mx-2 mb-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                             |
-                            <div className="flex items-center mr-2" onClick={()=> addDissLike(element.id)} >
+                            <div className="flex items-center mr-2" >
                                 <span className="text-[#ec0b1a]">{element?.disslikeCount ? element?.disslikeCount : "0"}</span> 
-                                <img src="../src/assets/images/selectedCourse/dislikeDefault.png" className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
+                                <img src={element?.currentUserEmotion == "DISSLIKED" ? "../src/assets/images/selectedCourse/disslike.png" : "../src/assets/images/selectedCourse/disslikeDefault.png"} onClick={(e)=> likeDissLikeCourse(element.id,"DissLike",false,element,e)} className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                         </div>
                         <div className="flex items-center justify-between w-[40px] absolute left-[50px] bottom-[10px] [&>img]:cursor-pointer" >
