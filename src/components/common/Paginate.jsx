@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { addToCourse } from '../map/CoursesMap'
-import {setBlog} from '../map/BlogsMap'
 import { useLocation } from 'react-router-dom';
 import {setNumberCourse} from '../map/ListCousePanelMap'
-
 import { settingPageNumber } from '../map/CoursesMap';
+import { settingPageNumberBlog } from '../map/BlogsMap';
+
 const Paginate = ({ itemsPerPage , db })=>  {
   let location = useLocation()
   
@@ -26,7 +25,9 @@ const Paginate = ({ itemsPerPage , db })=>  {
   const handlePageClick = (e) => {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
       setItemOffset(newOffset);  
-      settingPageNumber(e.selected+1)
+      // settingPageNumber(e.selected+1)
+      settingPageNumberBlog(e.selected+1)
+      
   };
 
   return (

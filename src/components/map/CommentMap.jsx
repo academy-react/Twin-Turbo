@@ -108,17 +108,34 @@ const CommentMap = ({ db , parentComment }) => {
 
                 let res = await customAxios.get("/SharePanel/GetProfileInfo")
                 flag = true
+                console.log(res);
 
-                let formData = new FormData()
-                formData.append("CommentId",element.id)
-                formData.append("CourseId",element.courseId)
-                formData.append("Title",res.fName + " " + res.lName)
-                formData.append("Describe",textareaReply.value)
-                await customAxios.post("/Course/AddReplyCourseComment",formData)
-                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-                setComments(result)
-                if(parent.current)  parent.current.remove()
-                replay.remove()
+                if(location.pathname.indexOf("/courses") !== -1) {
+                    
+                    let formData = new FormData()
+                    formData.append("CommentId",element.id)
+                    formData.append("CourseId",element.courseId)
+                    formData.append("Title",res.fName + " " + res.lName)
+                    formData.append("Describe",textareaReply.value)
+                    await customAxios.post("/Course/AddReplyCourseComment",formData)
+                    let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                    setComments(result)
+                    if(parent.current)  parent.current.remove()
+                    replay.remove()
+
+                }
+                else if(location.pathname.indexOf("/blogs") !== -1){
+
+                    customAxios.post("/News/CreateNewsReplyComment",{
+                        newsId: url.id,
+                        userIpAddress: element.userIpAddress,
+                        title: res.fName + " " + res.lName,
+                        describe: textareaReply.value,
+                        userId: element.userId,
+                        parentId: element.id,
+                    })
+                }
+
 
             }
             idea.appendChild(accBtn);
