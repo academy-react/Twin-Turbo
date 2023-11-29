@@ -31,22 +31,22 @@ const Comment = ({db}) => {
     } 
 
     const handle = async (value)=> { 
-        if(location.pathname.indexOf("/blogs") !== -1)  {
-
-            addCommentBlog(value)
-            let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-            setComments(result)
-
-        }  
-        else if(location.pathname.indexOf("/courses") !== -1) {
-
-            addCommentCourse(value)
-            let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-            setComments(result)
-
-        }   
         if(textarea.value.length < 5) toast("نظر شما حداقل باید 5 کلمه باشد")
         else {
+            if(location.pathname.indexOf("/blogs") !== -1)  {
+
+                addCommentBlog(value)
+                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                setComments(result)
+
+            }  
+            else if(location.pathname.indexOf("/courses") !== -1) {
+
+                addCommentCourse(value)
+                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                setComments(result)
+
+            }   
             value.comment = ""
             textarea.value = ""
         }
@@ -59,11 +59,11 @@ const Comment = ({db}) => {
                     <div className="w-full bg-[#F5F5F5] rounded-[25px] overflow-hidden relative z-10">
                         <div dir="rtl" ref={parentComment} className="h-full flex flex-col p-[25px] leading-[28px] [&>*]:my-[7px]">
                             <CommentMap db={db} parentComment={parentComment.current} />
-                            <Field as="textarea" id="textarea" name="comment" placeholder="نوشتن پیام" className="transition-all duration-1000 w-full h-[400px] bg-white shadow-[0_0_7px_#999] rounded-[15px] resize-none outline-none p-[10px] text-[18px]" style={{order : parentComment?.current?.children.length + 3}} />
-                            <div className="h-6" style={{order : parentComment?.current?.children.length + 4}}>
+                            <Field as="textarea" id="textarea" name="comment" placeholder="نوشتن پیام" className="w-full h-[400px] bg-white shadow-[0_0_7px_#999] rounded-[15px] resize-none outline-none p-[10px] text-[18px]" style={{order : parentComment?.current?.children.length + "3"}} />
+                            <div className="h-6" style={{order : parentComment?.current?.children.length + "4"}}>
                                 <ErrorMessage component="div" name="comment" className='text-[#B00020] ErrorMessage' />
                             </div>
-                            <button type="submit" style={{order : parentComment?.current?.children.length + 5}} className=" bg-[#36C54E] rounded-[15px] w-full h-[55px] flex justify-center items-center text-[#fff] text-[21px] transition-all duration-1000 hover:bg-[#34a647]">ارسال متن</button>
+                            <button type="submit" style={{order : parentComment?.current?.children.length + "5"}} className=" bg-[#36C54E] rounded-[15px] w-full h-[55px] flex justify-center items-center text-[#fff] text-[21px] hover:bg-[#34a647]">ارسال متن</button>
                         </div>
                     </div>
                 </Form>

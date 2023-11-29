@@ -25,7 +25,6 @@ const Paginate = ({ itemsPerPage , db })=>  {
 
   const handlePageClick = (e) => {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
-      console.log(e.selected);
       setItemOffset(newOffset);  
       settingPageNumber(e.selected+1)
   };

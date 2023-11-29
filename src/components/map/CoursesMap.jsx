@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRef , useState , useEffect } from "react";
 import customAxios from '../../core/services/interceptor'
+import ReactStars from "react-stars";
 
 let addToCourse;
 let Rows;
@@ -21,7 +22,6 @@ const CoursesMap = () => {
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&TechCount=0`) 
       setCourse(result.courseFilterDtos)
-      console.log(result);
     }
 
     useEffect(() => {getCoursesAll()}, [rowsOfPage])
@@ -66,9 +66,12 @@ const CoursesMap = () => {
                     <div className="mt-1 whitespace-nowrap">{element.currentRegistrants}</div>
                   </div>
 
-                  <div className=" flex justify-between items-start absolute bottom-[20px] h-[100px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
+                  <div className=" flex justify-between items-start absolute bottom-[20px] h-[110px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>
-                      <img src="../src/assets/images/star.png" className="w-36 ml-5" />
+                      <div className="flex items-center justify-between text-[#888]">
+                        <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} half={true} edit={false} />
+                        <span className="mr-2">{element.courseRate}</span>
+                      </div>
                       <span className="h-8 w-[230px] rounded-[50px] text-[#58AD57] flex justify-start items-center"> <span className="text-[#000] text-[18px]"> مبلغ : </span> &nbsp; {element.cost} تومان</span>
                   </div>
 

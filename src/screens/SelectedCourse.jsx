@@ -74,7 +74,6 @@ const SelectedCourses = () => {
       setComments = setComment
       getCourseDetail()
       getCommentCourse()
-      console.log(item);
   }, [])
   
   return (
@@ -125,7 +124,7 @@ const SelectedCourses = () => {
               <button className="h-12 flex justify-center items-center bg-[#36C54E] text-white rounded-b-2xl text-[22px] transition-all duration-500 hover:bg-[#34a647]">  ثبت نام در دوره</button>
             </div>
           </div>
-          <RightPanel src={item?.tumbImageAddress} name={item?.title} text={item?.describe} db={comment} title="دوره"/>
+          <RightPanel details={item ? item : item} db={comment} title="دوره"/>
         </div>
         <Footer/>
       </div>
