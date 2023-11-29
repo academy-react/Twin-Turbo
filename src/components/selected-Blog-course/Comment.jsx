@@ -6,6 +6,7 @@ import { useRef , useState } from 'react'
 import { setComments } from '../../screens/SelectedCourse'
 import { ToastContainer, toast } from 'react-toastify'
 import { useEffect } from 'react'
+import { setComment } from '../../screens/SelectedBlog'
 
 const Comment = ({db}) => {
     let url = useParams()
@@ -38,8 +39,8 @@ const Comment = ({db}) => {
             if(location.pathname.indexOf("/blogs") !== -1)  {
 
                 addCommentBlog(value)
-                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-                setComments(result)
+                let result = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
+                setComment(result)
 
             }  
             else if(location.pathname.indexOf("/courses") !== -1) {

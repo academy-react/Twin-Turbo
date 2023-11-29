@@ -7,7 +7,7 @@ import customAxios from "../core/services/interceptor";
 
 export let setingBlogs ;
 export let setingItemComment ;
-
+export let setComment ;
 const SelectedBlog = () => {
   const [blog, setBlog] = useState({});
   const [itemComment, setItemComment] = useState([]);
@@ -29,6 +29,7 @@ const SelectedBlog = () => {
   }
 
   useEffect(() => {
+    setComment = setItemComment
     getBlogDetail()
     getBlogComment()
   }, [])
