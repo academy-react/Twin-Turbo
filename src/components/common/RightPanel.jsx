@@ -6,11 +6,11 @@ import changeColor from '../../core/utils/changeColor.utils'
 const RightPanel = ({ details , db, title}) => {
   
   const [flag, setFlag] = useState(true);
-  console.log(db);
+  
   return (
     <div className="w-[1150px] h-full pt-5 pb-10 rounded-xl shadow-[0_0_7px_#ddd] bg-white max-[1805px]:w-[960px] max-[1560px]:w-[760px] max-[1560px]:[&>*]:mt-[-30px] max-[800px]:[&>div:nth-child(2)]:mt-[-150px] max-[670px]:[&>div:nth-child(2)]:mt-[-180px] max-[800px]:[&>div:nth-child(2)]:relative max-[800px]:[&>div:nth-child(2)]:left-[-120px] max-[540px]:[&>div:nth-child(2)]:left-[-30px] max-[540px]:[&>div:nth-child(2)]:top-[-50px] max-[1260px]:w-[680px] max-[1159px]:order-1 max-[1159px]:w-[90%] max-[600px]:w-full max-[600px]:rounded-none ">
       <div className="w-full h-[530px] flex justify-center items-center">
-        <img src={details?.tumbImageAddress} alt="" className="w-[90%] h-[90%] rounded-[20px] max-[1560px]:w-[80%] max-[1560px]:h-[70%] max-[800px]:h-[60%] max-[800px]:mt-[-150px] max-[670px]:h-[45%] max-[670px]:mt-[-190px]" id="bigpic"/>
+        <img src={details?.tumbImageAddress || details?.currentImageAddress} alt="" className="w-[90%] h-[90%] rounded-[20px] max-[1560px]:w-[80%] max-[1560px]:h-[70%] max-[800px]:h-[60%] max-[800px]:mt-[-150px] max-[670px]:h-[45%] max-[670px]:mt-[-190px]" id="bigpic"/>
       </div>
       <div className="w-full flex justify-center items-center text-[40px] max-[1560px]:text-[30px] ">{details?.title}</div>
       <div dir="rtl" className="w-full px-[20px]">

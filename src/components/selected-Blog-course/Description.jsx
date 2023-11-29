@@ -1,7 +1,6 @@
 import ReactStars from "react-stars";
 
 const DescriptionBlog = ({text , title , date , currentRate}) => {
-
   return (
     <>
       <div className="w-full h-[650px] bg-[#F5F5F5] rounded-[25px] overflow-hidden relative z-10 py-[25px]">

@@ -1,10 +1,10 @@
-const change = (num,setFlag) => {
-  setFlag(num);
+const change = (bool,setFlag) => {
+  setFlag(bool);
 
-  if (num == true) {
+  if (bool == true) {
     btn2.style.background = "transparent";
     btn1.style.background = "#f1ebf8";
-  } else if (num == false) {
+  } else if (bool == false) {
     btn1.style.background = "transparent";
     btn2.style.background = "#f1ebf8";
   }

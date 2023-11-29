@@ -25,7 +25,7 @@ const SelectedBlog = () => {
   const getBlogComment = async () => {
     let resultComment = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
     setItemComment(resultComment)
-
+    
   }
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const SelectedBlog = () => {
               <SelectedBlogMap />
             </div>
           </div>
-          <RightPanel src={blog?.currentImageAddress} name={blog?.title} text={blog?.describe} title="بلاگ" db={itemComment} />
+          <RightPanel details={blog ? blog : blog} title="بلاگ" db={itemComment} />
         </div>
         <Footer />
       </div>

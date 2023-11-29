@@ -1,11 +1,14 @@
-import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import customAxios from '../../core/services/interceptor'
 import create from '../../core/utils/createResponseComment.utils'
 import { setComments } from '../../screens/SelectedCourse'
+import { useRef } from 'react'
 
 const CommentMap = ({ db , parentComment }) => {
     let flag = true
-
+    let url = useParams()
+    const parent = useRef()
+    const repOrder = useRef()
 
     const likeDissLikeCourse = (id,params,bool,element,e) => {
         
@@ -66,13 +69,13 @@ const CommentMap = ({ db , parentComment }) => {
             
             let targetComment = e.target.parentNode.parentNode.parentNode
             let order = targetComment.getAttribute("data-order")
-            console.log(order);
     
             let replay = document.createElement("div");
-            replay.className = `border-[red] border w-[80%] h-[200px] relative`;
+            replay.className = `w-[80%] h-[200px] relative`;
+            repOrder.current = replay 
             replay.style.order = order
             parentComment.appendChild(replay)
-    
+            
     
             let textareaReply = document.createElement("textarea");
             textareaReply.className = "resize-none w-[90%] h-[50%] absolute left-0 top-0 border rounded-[25px] m-[15px] p-[10px]";
@@ -84,7 +87,7 @@ const CommentMap = ({ db , parentComment }) => {
     
     
             let rejBtn = document.createElement("button")
-            rejBtn.className = "bg-[red] w-[120px] h-[50px] rounded-[15px] text-[#fff] text-[19px]"
+            rejBtn.className = "bg-[#cc0000] w-[120px] h-[50px] rounded-[15px] text-[#fff] text-[19px]"
             rejBtn.innerHTML = "بیخیال";
             rejBtn.onclick = () => { 
                 replay.remove()
@@ -106,9 +109,11 @@ const CommentMap = ({ db , parentComment }) => {
                 formData.append("CourseId",element.courseId)
                 formData.append("Title",res.fName + " " + res.lName)
                 formData.append("Describe",textareaReply.value)
-                customAxios.post("/Course/AddReplyCourseComment",formData)
-                // setComments()
-
+                await customAxios.post("/Course/AddReplyCourseComment",formData)
+                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                setComments(result)
+                if(parent.current)  parent.current.remove()
+                replay.remove()
 
             }
             idea.appendChild(accBtn);
@@ -118,9 +123,10 @@ const CommentMap = ({ db , parentComment }) => {
         flag = false
         
     }
+
     let boolean = [];
 
-    for(let i = 0; i<db?.length ; i++) boolean.push(true)
+    for(let i = 0; i< db?.length ; i++) boolean.push(true)
  
     const showResponse = async (e,element,index) => {
         let targetComment = e.target.parentNode.parentNode.parentNode.parentNode
@@ -129,9 +135,14 @@ const CommentMap = ({ db , parentComment }) => {
         if(boolean[index] == true) {
             let parentItem = document.createElement("div");
             parentItem.className = `reply-${index} border border-[red] w-full flex items-center gap-[15px] my-[7px] py-5 flex flex-col relative`;
+            parent.current = parentItem
             parentItem.style.order = order
+            if(repOrder.current) {
+                repOrder.current.remove()
+                flag = true
+            }
             parentComment.appendChild(parentItem)
-            create(parentItem,element,order)
+            create(parentItem,element)
             boolean[index] = false
         }
         else if(boolean[index] == false) {
@@ -146,7 +157,7 @@ const CommentMap = ({ db , parentComment }) => {
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
                     <img src={"../src/assets/images/panel/user.png"} alt="" className="w-16 h-[60px] rounded-full " />
                     <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
-                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'>{element.insertDate.slice(0,10).replace("-","/").replace("-","/")}</span>  </div>
+                        <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : element.title}</span>  <span className='order-2'>|</span>  <span className='order-2'>{element.insertDate ? element.insertDate.slice(0,10).replace("-","/").replace("-","/") : element.inserDate.slice(0,10).replace("-","/").replace("-","/")}</span>  </div>
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
                         <div className="w-[130px] h-[25px] flex justify-evenly items-center my-1">
@@ -162,7 +173,7 @@ const CommentMap = ({ db , parentComment }) => {
                         </div>
                         <div className="flex items-center justify-between absolute left-[20px] bottom-[10px] [&>img]:cursor-pointer" >
                             <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element,index)}> 
-                                <span className='ml-[15px]' data-id={index}>{element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element.acceptReplysCount}` : ""}</span>
+                                <span className='ml-[15px]' data-id={index}>{location.pathname.indexOf("/blogs") !== -1 ? element.replyCount !== 0 ? `نمایش پاسخ ها ${element.replyCount}` : "" : element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element.acceptReplysCount ? element.acceptReplysCount : element.replyCount}` : "" }</span>
                             </div>
                             <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => replay(e,element)} />
                         </div>
