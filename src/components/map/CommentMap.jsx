@@ -1,10 +1,11 @@
+import { useEffect } from 'react'
 import customAxios from '../../core/services/interceptor'
 import create from '../../core/utils/createResponseComment.utils'
 import { setComments } from '../../screens/SelectedCourse'
 
 const CommentMap = ({ db , parentComment }) => {
     let flag = true
-    let showResponseFlag = true
+
 
     const likeDissLikeCourse = (id,params,bool,element,e) => {
         
@@ -117,38 +118,34 @@ const CommentMap = ({ db , parentComment }) => {
         flag = false
         
     }
+    let boolean = [];
 
-
-    const showResponse = async (e,element) => {
+    for(let i = 0; i<db?.length ; i++) boolean.push(true)
+ 
+    const showResponse = async (e,element,index) => {
         let targetComment = e.target.parentNode.parentNode.parentNode.parentNode
         let order = targetComment.getAttribute("data-order")
 
-        
-        if(showResponseFlag) {
-            
+        if(boolean[index] == true) {
             let parentItem = document.createElement("div");
-            parentItem.className = `border border-[red] w-full flex items-center gap-[15px] my-[7px] py-5 flex flex-col relative`;
+            parentItem.className = `reply-${index} border border-[red] w-full flex items-center gap-[15px] my-[7px] py-5 flex flex-col relative`;
             parentItem.style.order = order
             parentComment.appendChild(parentItem)
-
             create(parentItem,element,order)
-            showResponseFlag = false
-
+            boolean[index] = false
         }
-        else if (!showResponseFlag) {
-            console.log(parentItem);
-            showResponseFlag = true
-
+        else if(boolean[index] == false) {
+            let div = document.querySelector(`.reply-${index}`)
+            div.remove()
+            boolean[index] = true
         }
-
-
     }
     return (
         db?.map((element,index)=> {
             return (
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
                     <img src={"../src/assets/images/panel/user.png"} alt="" className="w-16 h-[60px] rounded-full " />
-                    <div className="border border-[green] w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
+                    <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
                         <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]"><span className='order-1'>{element?.author ? element.author : "بدون نام"}</span>  <span className='order-2'>|</span>  <span className='order-2'>{element.insertDate.slice(0,10).replace("-","/").replace("-","/")}</span>  </div>
                         
                         <p className="text-[#707070] text-[15px] my-1 inline-block">{element.describe}</p>
@@ -164,8 +161,8 @@ const CommentMap = ({ db , parentComment }) => {
                             </div>
                         </div>
                         <div className="flex items-center justify-between absolute left-[20px] bottom-[10px] [&>img]:cursor-pointer" >
-                            <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element)}> 
-                                <span className='ml-[15px]'>نمایش پاسخ ها {element.acceptReplysCount}</span>
+                            <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element,index)}> 
+                                <span className='ml-[15px]' data-id={index}>{element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element.acceptReplysCount}` : ""}</span>
                             </div>
                             <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => replay(e,element)} />
                         </div>
