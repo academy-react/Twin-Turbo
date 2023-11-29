@@ -7,6 +7,7 @@ let addToCourse;
 let Rows;
 let settingPageNumber;
 let settingSort;
+let settingInput;
 
 const CoursesMap = () => {
 
@@ -18,10 +19,22 @@ const CoursesMap = () => {
     const [rowsOfPage, setRowsOfPage] = useState(4)
     const [PageNumber, setPageNumber] = useState(1)
     const [sort, setSort] = useState("Active")
+    const [input, setInput] = useState("")
 
+
+    useEffect(() => {
+      console.log(input);
+    }, [input])
+    
+
+    
     const getCoursesAll = async () => {
-      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&TechCount=0`) 
+      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
       setCourse(result.courseFilterDtos)
+
+      setTimeout(() => {
+          console.log(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&Query=${"دوره"}&TechCount=0`);
+      }, 5000);
     }
 
     useEffect(() => {getCoursesAll()}, [rowsOfPage])
@@ -30,12 +43,17 @@ const CoursesMap = () => {
 
     useEffect(() => {getCoursesAll()}, [sort])
     
-    addToCourse = setCourse
-    Rows = setRowsOfPage
-    settingPageNumber = setPageNumber
-    settingSort = setSort
+    useEffect(() => {getCoursesAll()}, [input])
+
     useEffect(() => {
+
+      addToCourse = setCourse
+      Rows = setRowsOfPage
+      settingPageNumber = setPageNumber
+      settingSort = setSort
+      settingInput = setInput
       getCoursesAll()
+      
     }, [])
 
     return (
@@ -82,5 +100,5 @@ const CoursesMap = () => {
 
     );
 };
-export {addToCourse , Rows , settingPageNumber , settingSort}
+export {addToCourse , Rows , settingPageNumber , settingSort , settingInput}
 export default CoursesMap;

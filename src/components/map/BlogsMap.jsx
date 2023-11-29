@@ -4,6 +4,11 @@ import { Button } from "../common";
 import customAxios from "../../core/services/interceptor";
 
 let setBlog;
+let Rowsing;
+let settingPageNumberBlog;
+let settingSort;
+let setingInput;
+
 const BlogsMap = () => {
 
     let location = useLocation();
@@ -11,18 +16,36 @@ const BlogsMap = () => {
     let content = useRef();
 
     const [blogsItem, setBlogsItem] = useState([])
+    const [input, setInput] = useState("")
+    const [rowsOfPage, setRowsOfPage] = useState(4)
+    const [PageNumber, setPageNumber] = useState(1)
+    const [sort, setSort] = useState("Active")
 
     const getBlogs = async () => {
-      let result = await customAxios.get("/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC") 
+      let result = await customAxios.get(`/News?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&${input ? `&Query=${input}` : ""}`);
       setBlogsItem(result.news)
-      console.log(result);
     }
+    useEffect(() => {getBlogs()}, [input])
 
-    setBlog = blogsItem
-    useEffect(() => {
-      getBlogs()
-    }, [])
+    useEffect(() => {getBlogs()}, [rowsOfPage])
+
+    useEffect(() => {getBlogs()}, [PageNumber])
+
+    useEffect(() => {getBlogs()}, [sort])
     
+
+    
+    useEffect(() => {
+
+        setBlog = blogsItem
+        Rowsing = setRowsOfPage
+        settingPageNumberBlog = setPageNumber
+        settingSort = setSort
+        setingInput = setInput
+        getBlogs()
+
+    }, [])
+  
     return (
         blogsItem.map((element, index) => {
             return (
@@ -47,5 +70,6 @@ const BlogsMap = () => {
         })
     )
 }
-export {setBlog}
+
+export {setBlog , Rowsing,settingPageNumberBlog , settingSort, setingInput}
 export default BlogsMap
