@@ -3,7 +3,6 @@ let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] rela
 let flag = true
 
 const changeViewCourses = (parent) => {
-
   let children = parent.current.children;
   for (let i = 0; i < children.length; i++) {
     
@@ -20,7 +19,6 @@ const changeViewCourses = (parent) => {
       flag = false
     }
     if (radios1.checked) {
-
       centerDetails.style.flexDirection = "column"
       item.style.height = "400px"
       courseImg.style.marginTop = "10px"
@@ -46,7 +44,6 @@ const changeViewCourses = (parent) => {
       
     }
     else if(window.innerWidth > 800 && window.innerWidth < 1350 && !radios1.checked) {
-      
       centerDetails.style.width = "700px"
       centerDetails.style.right = "0px"
       centerDetails.style.bottom = "20px"

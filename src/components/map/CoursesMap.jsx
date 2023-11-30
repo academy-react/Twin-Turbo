@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useRef , useState , useEffect } from "react";
 import customAxios from '../../core/services/interceptor'
 import ReactStars from "react-stars";
+import changeViewCourses from "../../core/utils/changeViewCourse.utils";
 
 let addToCourse;
 let Rows;
@@ -9,12 +10,15 @@ let settingPageNumber;
 let settingSort;
 let settingInput;
 
-const CoursesMap = () => {
-
+const CoursesMap = ({parent}) => {
+    let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer";
+    let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[65%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%] [&>div:first-child]:flex [&>div:first-child]:items-center [&>div:first-child]:pr-[15px] [&>div:first-child]:h-[92%] [&>div:nth-child(2)>:first-child]:top-[45px] [&>div:first-child>img]:h-[85%] [&>div:last-child>div:last-child]:items-center";
+  
+    let state = sessionStorage.getItem("courseClass")
     let location = useLocation();
     let item = useRef();
     let navigate = useNavigate()
-
+    
     const [course, setCourse] = useState([])
     const [rowsOfPage, setRowsOfPage] = useState(4)
     const [PageNumber, setPageNumber] = useState(1)
@@ -24,18 +28,24 @@ const CoursesMap = () => {
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
       setCourse(result.courseFilterDtos)
+      setTimeout(() => {
+        
+        changeViewCourses(parent)
+      }, 50);
     }
-
+    
     useEffect(() => {getCoursesAll()}, [rowsOfPage])
-
+    
     useEffect(() => {getCoursesAll()}, [PageNumber])
-
+    
     useEffect(() => {getCoursesAll()}, [sort])
     
-    useEffect(() => {getCoursesAll()}, [input])
-
     useEffect(() => {
-
+      getCoursesAll()
+    }, [input])
+    
+    useEffect(() => {
+      if(!sessionStorage.getItem("courseClass")) sessionStorage.setItem("courseClass","grid")
       addToCourse = setCourse
       Rows = setRowsOfPage
       settingPageNumber = setPageNumber
@@ -43,13 +53,16 @@ const CoursesMap = () => {
       settingInput = setInput
       getCoursesAll()
       
+      console.log(parent);
+    
+      changeViewCourses(parent)
     }, [])
 
     return (
 
       course.map((element, index) => {
           return (
-              <div key={index} className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer " ref={item} onClick={()=> navigate(`${location.pathname}/${element.courseId}`)} >
+              <div key={index} className={state == "grid" ? view1 : view2} ref={item} onClick={()=> navigate(`${location.pathname}/${element.courseId}`)} >
                 <div className="w-full h-[170px] overflow-hidden my-[10px]">
                   <img src={element.tumbImageAddress} className="mx-auto h-full w-full rounded-[20px]"/>
                 </div>
