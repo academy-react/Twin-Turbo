@@ -104,6 +104,7 @@ const CommentMap = ({ db , parentComment }) => {
         if(boolean[index] == true) {
             let parentItem = document.createElement("div");
             parentItem.className = `reply-${index} w-full flex items-center gap-[15px]  flex flex-col relative`;
+            parentItem.setAttribute("id","parentItem")
             parent.current = parentItem
             parentItem.style.order = order
             if(repOrder.current) {
@@ -111,7 +112,7 @@ const CommentMap = ({ db , parentComment }) => {
                 flag = true
             }
             parentComment.appendChild(parentItem)
-            create(parentItem,element,url)
+            create(element,url)
             boolean[index] = false
         }
         else if(boolean[index] == false) {
@@ -125,7 +126,7 @@ const CommentMap = ({ db , parentComment }) => {
         db?.map((element,index)=> {
             return (
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
-                    <img src={"../src/assets/images/panel/user.png"} alt="" className="w-16 h-[60px] rounded-full " />
+                    <img src={element.pictureAddress} alt="" className="w-16 h-[60px] rounded-full " />
 
                     <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
                         <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]">

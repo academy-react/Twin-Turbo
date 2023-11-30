@@ -10,17 +10,17 @@ const changePic = async (e,userImage)=> {
 }
 
 const editProfileSubmit = async (values,userImage) => {
-
+    
     if(input) {
-        customAxios.post("/SharePanel/DeleteProfileImage",imageData)
-
+        
         let imageData = new FormData()
         imageData.append("formFile", input)
-    
-        customAxios.post("/SharePanel/AddProfileImage",imageData)
-    
+        
+        // await customAxios.delete("/SharePanel/DeleteProfileImage",imageData)
+        await customAxios.post("/SharePanel/AddProfileImage",imageData)
+        
     }
-
+    
     let res = await customAxios.get("/SharePanel/GetProfileInfo")
 
     console.log(res);
