@@ -43,10 +43,6 @@ const Authorize = createBrowserRouter([
       element: <SelectedCourse />,
     },
     {
-      path: "/courses/:id",
-      element: <SelectedCourse />,
-    },
-    {
       path: "/panel",
       element: <Panel /> ,
       
@@ -123,7 +119,7 @@ const UnAuthorize = createBrowserRouter([
   },
   {
     path: "/:blogs/:id",
-    element: <SelectedBlog />,
+    element: <SelectedBlog />
   },
   {
     path: "/courses",
@@ -131,11 +127,7 @@ const UnAuthorize = createBrowserRouter([
   },
   {
     path: "/courses/:id",
-    element: <SelectedCourse />,
-  },
-  {
-    path: "/courses/:id",
-    element: <SelectedCourse />,
+    element: <SelectedCourse />
   },
   {
     path: "*",

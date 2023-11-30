@@ -20,21 +20,10 @@ const CoursesMap = () => {
     const [PageNumber, setPageNumber] = useState(1)
     const [sort, setSort] = useState("Active")
     const [input, setInput] = useState("")
-
-
-    useEffect(() => {
-      console.log(input);
-    }, [input])
-    
-
     
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
       setCourse(result.courseFilterDtos)
-
-      setTimeout(() => {
-          console.log(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&Query=${"دوره"}&TechCount=0`);
-      }, 5000);
     }
 
     useEffect(() => {getCoursesAll()}, [rowsOfPage])
@@ -67,8 +56,6 @@ const CoursesMap = () => {
                 <div dir="rtl" className="w-full h-[210px] mx-auto relative">
                   <p className="text-[24px] absolute right-2">{element.title}</p>
 
-
-                  <div className="w-[50px] h-[70px]" style={{display:"none"}}></div>
                   <div className="w-7 absolute left-1 top-1 flex flex-col items-center">
                     <img src="../src/assets/images/selectedCourse/likeDefault.png" alt="" />
                     <span className="mt-1 whitespace-nowrap">{element.likeCount}</span>
@@ -79,12 +66,12 @@ const CoursesMap = () => {
                     <span className="mt-1 whitespace-nowrap">{element.dissLikeCount}</span>
                   </div>
 
-                  <div className="w-7 absolute left-1 bottom-5 flex flex-col items-center">
+                  <div className="w-7 absolute left-1 bottom-4 flex flex-col items-center">
                     <img className="ml-1" src="../src/assets/images/selectedCourse/registered.png" />
                     <div className="mt-1 whitespace-nowrap">{element.currentRegistrants}</div>
                   </div>
 
-                  <div className=" flex justify-between items-start absolute bottom-[20px] h-[110px] mr-2" style={{flexDirection:"column",width:"180px",bottom:"20px"}}>
+                  <div className=" flex justify-between items-start absolute bottom-[20px] h-[110px] mr-2" style={{flexDirection:"column",width:"180px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>
                       <div className="flex items-center justify-between text-[#888]">
                         <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} half={true} edit={false} />
