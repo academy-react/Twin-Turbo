@@ -82,8 +82,6 @@ const CommentMap = ({ db , parentComment }) => {
                         parentId: element.id,
                     })
                 }
-
-
             }
             idea.appendChild(accBtn);
 
@@ -126,7 +124,7 @@ const CommentMap = ({ db , parentComment }) => {
         db?.map((element,index)=> {
             return (
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
-                    <img src={element.pictureAddress} alt="" className="w-16 h-[60px] rounded-full " />
+                    <img src={element.pictureAddress ? element.pictureAddress : "../src/assets/images/icons/userIcon.png"} alt="" className="w-16 h-[60px] rounded-full " />
 
                     <div className="w-full h-[100%] bg-white shadow-[0_0_15px_#999] rounded-[15px] p-[10px] relative">
                         <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]">
@@ -153,6 +151,7 @@ const CommentMap = ({ db , parentComment }) => {
                             </div>
                             <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => reply(e,element)} />
                         </div>
+                        <div className={element.accept ? "absolute left-3 top-2 text-[15px] text-[#36c54e]" : "absolute left-3 top-2 text-[15px] text-[#c33b3b]" }>{element.accept ? "پذیرفته شده" : "پذیرفته نشده"}</div>
                     </div>
                 </div>
             )
