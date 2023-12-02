@@ -6,6 +6,7 @@ import landingScrollLogic from "../core/utils/landingScroll.utils";
 const Landing = () => {
   
   useEffect(() => {
+      if(!sessionStorage.getItem("courseClass")) sessionStorage.setItem("courseClass","grid")
       document.addEventListener("scroll",()=> landingScrollLogic())
   }, [])
 

@@ -28,10 +28,7 @@ const CoursesMap = ({parent}) => {
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
       setCourse(result.courseFilterDtos)
-      setTimeout(() => {
-        
-        changeViewCourses(parent)
-      }, 50);
+      setTimeout(() => {changeViewCourses(parent)}, 50);
     }
     
     useEffect(() => {getCoursesAll()}, [rowsOfPage])
@@ -40,12 +37,9 @@ const CoursesMap = ({parent}) => {
     
     useEffect(() => {getCoursesAll()}, [sort])
     
-    useEffect(() => {
-      getCoursesAll()
-    }, [input])
+    useEffect(() => {getCoursesAll()}, [input])
     
     useEffect(() => {
-      if(!sessionStorage.getItem("courseClass")) sessionStorage.setItem("courseClass","grid")
       addToCourse = setCourse
       Rows = setRowsOfPage
       settingPageNumber = setPageNumber
