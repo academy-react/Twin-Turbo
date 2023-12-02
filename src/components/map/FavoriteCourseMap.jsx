@@ -7,22 +7,27 @@ const FavoriteCourseMap = () => {
 
     const getFavoriteCourse = async() => {
         let res = await customAxios.get("/SharePanel/GetMyFavoriteCourses")
-
         setFavoriteCourse(res.favoriteCourseDto)
-        console.log(res);
     }
 
-    useEffect(() => {
-        getFavoriteCourse()
-    }, [])
+    useEffect(() => {getFavoriteCourse()}, [])
+
+    const handelDeleting = (element) => {
+        let formData = new FormData()
+        formData.append("CourseFavoriteId",element.favoriteId)
+        console.log(formData);
+        customAxios.delete("/Course/DeleteCourseFavorite",formData);
+    }
+    const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
     
     return (
         
             favoriteCourse?.map((element,index)=> {
                 return (
-                    <div key={index} className='border border-[red] max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
+                    <div key={index} className='max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
-                        <img src="../src/assets/images/dashboard/add.png" alt="" className='cursor-pointer' onClick={()=> findListCourse(element)}/>
+                        <img src="../src/assets/images/dashboard/Recycle Bin.png" alt="" className='w-[30px] cursor-pointer' onClick={()=> handelDeleting(element)}/>
+                        <img src="../src/assets/images/panel/view.svg" alt="" className='w-[30px] cursor-pointer' onClick={()=> goToCourse(element)}/>
 
                         <span dir='rtl'>{element.cost}  تومان  </span>
                         <span dir='rtl'>{element.lastUpdate.slice(0,10)}</span>
