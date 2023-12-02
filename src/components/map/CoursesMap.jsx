@@ -46,8 +46,6 @@ const CoursesMap = ({parent}) => {
       settingSort = setSort
       settingInput = setInput
       getCoursesAll()
-      
-      console.log(parent);
     
       changeViewCourses(parent)
     }, [])
@@ -81,7 +79,7 @@ const CoursesMap = ({parent}) => {
                   <div className=" flex justify-between items-start absolute bottom-[20px] h-[110px] mr-2" style={{flexDirection:"column",width:"180px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>
                       <div className="flex items-center justify-between text-[#888]">
-                        <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} half={true} edit={false} />
+                        <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} edit={false} />
                         <span className="mr-2">{element.courseRate}</span>
                       </div>
                       <span className="h-8 w-[230px] rounded-[50px] text-[#58AD57] flex justify-start items-center"> <span className="text-[#000] text-[18px]"> مبلغ : </span> &nbsp; {element.cost} تومان</span>
