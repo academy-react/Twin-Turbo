@@ -126,7 +126,7 @@ const CommentMap = ({ db , parentComment }) => {
                 <div key={index} className={`w-full flex items-center gap-[15px] my-[7px] py-5`} data-order={index+5} style={{order:index+5}} >
                     <img src={element.pictureAddress ? element.pictureAddress : "../src/assets/images/icons/userIcon.png"} alt="" className="w-16 h-[60px] rounded-full " />
 
-                    <div className="w-full h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative">
+                    <div className="w-full h-[100%] bg-white shadow-[0_0_15px_#999] rounded-[15px] p-[10px] relative">
                         <div  className="text-[18px] my-1 flex [&>span]:mx-[10px]">
                             <span className='order-1'>{element?.author ? element.author : element.title}</span>  
                             <span className='order-2'>|</span>  

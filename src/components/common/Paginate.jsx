@@ -25,9 +25,8 @@ const Paginate = ({ itemsPerPage , db })=>  {
   const handlePageClick = (e) => {
       const newOffset = (e.selected * itemsPerPage) % db.length; 
       setItemOffset(newOffset);  
-      settingPageNumber(e.selected+1)
-      settingPageNumberBlog(e.selected+1)
-      
+      if(location.pathname.indexOf("/courses") !== -1) settingPageNumber(e.selected+1)
+      else if(location.pathname.indexOf("/blogs") !== -1) settingPageNumberBlog(e.selected+1)
   };
 
   return (
