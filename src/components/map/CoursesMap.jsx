@@ -27,6 +27,7 @@ const CoursesMap = ({parent}) => {
     
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
+      console.log(result);
       setCourse(result.courseFilterDtos)
       setTimeout(() => {changeViewCourses(parent)}, 50);
     }

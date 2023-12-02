@@ -7,18 +7,15 @@ const FavoriteCourseMap = () => {
 
     const getFavoriteCourse = async() => {
         let res = await customAxios.get("/SharePanel/GetMyFavoriteCourses")
-
         setFavoriteCourse(res.favoriteCourseDto)
-        console.log(res);
     }
 
-    useEffect(() => {
-        getFavoriteCourse()
-    }, [])
+    useEffect(() => {getFavoriteCourse()}, [])
 
     const handelDeleting = (element) => {
         let formData = new FormData()
         formData.append("CourseFavoriteId",element.favoriteId)
+        console.log(formData);
         customAxios.delete("/Course/DeleteCourseFavorite",formData);
     }
     const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
