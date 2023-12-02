@@ -12,6 +12,9 @@ const ReserveCourseMap = () => {
         console.log(res);
     }
 
+    const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
+
+
     useEffect(() => {
         getReserveCourse()
     }, [])
@@ -22,7 +25,7 @@ const ReserveCourseMap = () => {
                 return (
                     <div key={index} className='border border-[red] max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
-                        <img src="../src/assets/images/dashboard/add.png" alt="" className='cursor-pointer' onClick={()=> findListCourse(element)}/>
+                        <img src="../src/assets/images/panel/view.svg" alt="" className='cursor-pointer w-[35px]' onClick={()=> goToCourse(element)}/>
 
                         <span dir='rtl'>{element.cost}  تومان  </span>
                         <span dir='rtl'>{element.reserverDate?.slice(0,10)}</span>
