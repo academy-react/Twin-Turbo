@@ -13,7 +13,11 @@ const creatingReply = async (element,url,bool) => {
         let parent = document.createElement("div");
         parent.className = "w-[85%] h-[100%] bg-white shadow-[0_0_7px_#999] rounded-[15px] p-[10px] relative mr-28"
 
-    
+        let isAccept = document.createElement("div");
+        if(element.accept) isAccept.className = element.accept ? "absolute left-3 top-2 text-[15px] text-[#36c54e]" : "absolute left-3 top-2 text-[15px] text-[#c33b3b]"
+        isAccept.innerHTML = element.accept ? "پذیرفته شده" : "پذیرفته نشده"
+        parent.appendChild(isAccept)
+
         let top = document.createElement("div");
         top.className = "text-[18px] my-1 flex [&>span]:mx-[10px]"
     
@@ -107,16 +111,13 @@ const creatingReply = async (element,url,bool) => {
     
         parent.appendChild(repParent)
     
-        let replyImg = document.createElement("img");
-        replyImg.className = "w-[25px] h-[20px]"
-        replyImg.src = "../../src/assets/images/selectedCourse/reply.png"
+        // let replyImg = document.createElement("img");
+        // replyImg.className = "w-[25px] h-[20px]"
+        // replyImg.src = "../../src/assets/images/selectedCourse/reply.png"
         // replyImg.onclick = (e)=> replay(e,element)
-        repParent.appendChild(replyImg)
+        // repParent.appendChild(replyImg)
     
         parentItem.appendChild(parent)
-    
-    
-
     })
 }
 const create = async (element,url) => {

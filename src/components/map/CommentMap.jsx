@@ -151,6 +151,7 @@ const CommentMap = ({ db , parentComment }) => {
                             </div>
                             <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => reply(e,element)} />
                         </div>
+                        <div className={element.accept ? "absolute left-3 top-2 text-[15px] text-[#36c54e]" : "absolute left-3 top-2 text-[15px] text-[#c33b3b]" }>{element.accept ? "پذیرفته شده" : "پذیرفته نشده"}</div>
                     </div>
                 </div>
             )
