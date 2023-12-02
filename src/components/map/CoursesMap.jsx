@@ -57,7 +57,7 @@ const CoursesMap = ({parent}) => {
           return (
               <div key={index} className={state == "grid" ? view1 : view2} ref={item} onClick={()=> navigate(`${location.pathname}/${element.courseId}`)} >
                 <div className="w-full h-[170px] overflow-hidden my-[10px]">
-                  <img src={element.tumbImageAddress} className="mx-auto h-full w-full rounded-[20px]"/>
+                  <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/03.png"} className="mx-auto h-full w-full rounded-[20px]"/>
                 </div>
                 <div dir="rtl" className="w-full h-[210px] mx-auto relative">
                   <p className="text-[24px] absolute right-2">{element.title}</p>
@@ -80,7 +80,7 @@ const CoursesMap = ({parent}) => {
                   <div className=" flex justify-between items-start absolute bottom-[20px] h-[110px] mr-2" style={{flexDirection:"column",width:"180px"}}>
                       <div className="text-[20px] w-[200px] truncate">{element.teacherName}</div>
                       <div className="flex items-center justify-between text-[#888]">
-                        <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} edit={false} />
+                        <ReactStars size={30} color2="#ffbb1b" value={element.courseRate} half={false} edit={false} />
                         <span className="mr-2">{element.courseRate}</span>
                       </div>
                       <span className="h-8 w-[230px] rounded-[50px] text-[#58AD57] flex justify-start items-center"> <span className="text-[#000] text-[18px]"> مبلغ : </span> &nbsp; {element.cost} تومان</span>

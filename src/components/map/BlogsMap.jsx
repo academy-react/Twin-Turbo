@@ -52,7 +52,7 @@ const BlogsMap = () => {
               <div key={index} className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end max-[450px]:justify-center overflow-hidden" ref={item}> 
                 <div className="w-full h-170px overflow-hidden my-[10px]">  
 
-                  <img src={element.currentImageAddressTumb} alt="" className=" mx-auto h-full w-full rounded-[20px]"   /> 
+                  <img src={element?.currentImageAddressTumb !== null ? element?.currentImageAddressTumb : "../src/assets/images/courses/03.png"} alt="" className=" mx-auto h-full w-full rounded-[20px]"   /> 
                 
                 </div>
                 <div dir="rtl" className="w-full h-[210px] mx-auto">

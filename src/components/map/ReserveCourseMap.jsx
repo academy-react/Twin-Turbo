@@ -23,7 +23,7 @@ const ReserveCourseMap = () => {
         
             reserveCourse?.map((element,index)=> {
                 return (
-                    <div key={index} className='border border-[red] max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
+                    <div key={index} className='max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
                         <img src="../src/assets/images/panel/view.svg" alt="" className='cursor-pointer w-[35px]' onClick={()=> goToCourse(element)}/>
 
@@ -33,8 +33,7 @@ const ReserveCourseMap = () => {
                         <span dir='rtl'>{element.levelName}</span>
                         <span dir='rtl'>{element.teacherName}</span>
                         <span dir='rtl'>{element.courseName}</span>
-
-                        <img src={element.tumbImageAddress} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                        <span></span>
                     </div>
                 )
             })

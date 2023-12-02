@@ -142,7 +142,7 @@ const CommentMap = ({ db , parentComment }) => {
                             </div>
                             |
                             <div className="flex items-center mr-2" >
-                                <span className={location.pathname.indexOf("courses") !== -1 ? element?.currentUserEmotion == "DISSLIKED" ? "text-[#ec0b1a]" : "text-[#000]" : element.currentUserIsDissLike ? "text-[#ec0b1a]" : "text-[#000]"}>{element?.disslikeCount ? element?.disslikeCount : element?.dissLikeCount}</span> 
+                                <span className={location.pathname.indexOf("courses") !== -1 ? element?.currentUserEmotion == "DISSLIKED" ? "text-[#ec0b1a]" : "text-[#000]" : element.currentUserIsDissLike ? "text-[#ec0b1a]" : "text-[#000]"}>{element?.disslikeCount == 0 ? 0 : element?.disslikeCount || element?.dissLikeCount}</span> 
                                 <img src={location.pathname.indexOf("courses") !== -1 ? element?.currentUserEmotion == "DISSLIKED" ? "../src/assets/images/selectedCourse/disslike.png" : "../src/assets/images/selectedCourse/disslikeDefault.png" : element.currentUserIsDissLike ? "../src/assets/images/selectedCourse/disslike.png" : "../src/assets/images/selectedCourse/disslikeDefault.png" } onClick={(e)=> likeDissLikeCourse(element.id,"DissLike",false,element,e,url)} className="mr-2 mt-2 w-6 cursor-pointer" data-id={`${index}`} />
                             </div>
                         </div>

@@ -23,7 +23,7 @@ const SelectedBlog = () => {
         return (
         <div key={index} className="w-full h-[120px] flex cursor-pointer   max-[1355px]:h-[100px]" onClick={() => findPath(element.id,location,navigate)}>
             <div className="w-[170px] h-full flex items-center justify-center">
-                <img src={element.currentImageAddressTumb} alt="" className="w-[90%] h-[110px] rounded-[15px] max-[1355px]:h-[85px]"/>
+                <img src={element?.currentImageAddressTumb !== null ? element?.currentImageAddressTumb : "../src/assets/images/courses/03.png"} alt="" className="w-[90%] h-[110px] rounded-[15px] max-[1355px]:h-[85px]"/>
             </div>
             <div className="w-[70%] h-full py-[5px] px-[15px] flex flex-col justify-center">
                 <p className="text-[25px] max-[1355px]:text-[22px]">{element.addUserFullName}</p>

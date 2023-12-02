@@ -36,7 +36,7 @@ const FavoriteCourseMap = () => {
                         <span dir='rtl'>{element.teacheName}</span>
                         <span dir='rtl'>{element.courseTitle}</span>
 
-                        <img src={element.tumbImageAddress} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                        <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
                     </div>
                 )
             })
