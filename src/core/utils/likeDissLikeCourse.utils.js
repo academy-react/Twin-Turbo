@@ -52,6 +52,7 @@ const likeDissLikeCourse = async (id,params,bool,element,e,url) => {
             await customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
         }
     }
+    
     if(location.pathname.indexOf("/courses") !== -1) {
         let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
         setComments(result)

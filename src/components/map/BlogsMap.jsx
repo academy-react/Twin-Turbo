@@ -10,7 +10,10 @@ let settingSort;
 let setingInput;
 
 const BlogsMap = () => {
+    let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end max-[450px]:justify-center overflow-hidden"
+    let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]";
 
+    let state = sessionStorage.getItem("newsClass")
     let location = useLocation();
     let item = useRef();
     let content = useRef();
@@ -49,7 +52,7 @@ const BlogsMap = () => {
     return (
         blogsItem.map((element, index) => {
             return (
-              <div key={index} className="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end max-[450px]:justify-center overflow-hidden" ref={item}> 
+              <div key={index} className={state == "grid" ? view1 : view2} ref={item}> 
                 <div className="w-full h-170px overflow-hidden my-[10px]">  
 
                   <img src={element?.currentImageAddressTumb !== null ? element?.currentImageAddressTumb : "../src/assets/images/courses/03.png"} alt="" className=" mx-auto h-full w-full rounded-[20px]"   /> 

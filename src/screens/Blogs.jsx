@@ -9,8 +9,10 @@ const Blogs = () => {
   let parent = useRef();
   const input = useRef()
   const time = useRef()
-  
-    useEffect(() => {
+  let state = sessionStorage.getItem("newsClass")
+
+  useEffect(() => {
+      if(!state) sessionStorage.setItem("newsClass" , "grid")
       window.onresize = () => {resizeBlog(parent)}
       return () => { window.onresize = () => {return false}}
     }, [])
@@ -48,8 +50,8 @@ const Blogs = () => {
           </div>
 
           <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-            <View id="radios1" htmlFor="radios1" defaultChecked={true} src="view (1).png" onInput={()=> changeView(parent)}/>
-            <View id="radios2" htmlFor="radios2" defaultChecked={false} src="view (2).png" onInput={()=> changeView(parent)}/>
+            <View id="radios1" htmlFor="radios1" defaultChecked={state ? state == "grid" ? true : false : true} src="view (1).png" onInput={()=> {changeView(parent);sessionStorage.setItem("newsClass","grid")}}/>
+            <View id="radios2" htmlFor="radios2" defaultChecked={state ? state == "table" ? true : false : false} src="view (2).png" onInput={()=> {changeView(parent);sessionStorage.setItem("newsClass","table")}}/>
           </div>
         </div>
         <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>
