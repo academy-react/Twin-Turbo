@@ -36,15 +36,14 @@ const likeDissLikeCourse = async (id,params,bool,element,e,url) => {
         }
     }
     else if(location.pathname.indexOf("/blogs") !== -1) {
-        
         // like
-        if(!element.currentUserIsLike) {
+        if(bool == true) {
             e.target.previousElementSibling.innerHTML = element.likeCount + 1
             e.target.previousElementSibling.style.color = "#37c54f"
             e.target.src = "../src/assets/images/selectedCourse/like.png"
             await customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
         }
-        else if(element.currentUserIsLike) {
+        else if(bool == false) {
             e.target.previousElementSibling.innerHTML = element.dissLikeCount + 1
             e.target.parentNode.previousElementSibling.firstChild.style.color = "#000"
             e.target.src = "../src/assets/images/selectedCourse/disslike.png"
