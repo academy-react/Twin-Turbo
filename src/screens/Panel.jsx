@@ -3,16 +3,26 @@ import { Outlet } from 'react-router-dom'
 import PanelQuickAccess from '../components/panel/PanelQuickAccess'
 import { useEffect, useState } from 'react'
 import customAxios from '../core/services/interceptor'
+import { useSelector } from 'react-redux'
+
+export let selTok;
 
 const Panel = () => {
 
+    let sel = useSelector(state => state.user.token)
+
+    selTok = sel
     const [myInfo, setMyInfo] = useState()
 
     const getInfo = async () => {
-
-
-        let result = await customAxios.get("/SharePanel/GetProfileInfo")
-        setMyInfo(result)
+        if(sel !== "") {
+            let result = await customAxios.get("/SharePanel/GetProfileInfo")
+            setMyInfo(result)
+        }
+        else {
+            let result = await customAxios.get("/SharePanel/GetProfileInfo")
+            setMyInfo(result)
+        }
     }
 
     useEffect(() => {

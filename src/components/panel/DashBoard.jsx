@@ -13,7 +13,6 @@ const DashBoard = () => {
   const getInfo = async () => {
       let result = await customAxios.get("/SharePanel/GetProfileInfo")
       setMyInfo(result)
-      console.log(result);
   }
 
 
@@ -33,7 +32,6 @@ const DashBoard = () => {
             <div dir="rtl" className="h-[70%] [&>div]:h-[14.28%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
               
               <div>نام کاربری:<span>{myInfo?.lName} {myInfo?.fName}</span></div>
-              <div>نقش :  <span> {myInfo?.role}  </span></div>
               <div>ایمیل :  <span> {myInfo?.email} </span></div>
               <div>تاریخ تولد :  <span> {myInfo?.birthDay.slice(0,10)} </span></div>
               <div>کد ملی : <span> {myInfo?.nationalCode} </span></div>

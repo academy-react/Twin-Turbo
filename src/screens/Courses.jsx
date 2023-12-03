@@ -15,6 +15,7 @@ const Courses = () => {
     let state = sessionStorage.getItem("courseClass")
 
   useEffect(() => {
+      if(!state) sessionStorage.setItem("courseClass" , "grid")
       window.onresize = () => {resizeCourse(parent)}
       return () => { window.onresize = () => {return false}}
   }, [])
@@ -54,8 +55,8 @@ const Courses = () => {
           </div>
 
           <div className="max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
-            <View id="radios1" htmlFor="radios1" defaultChecked={state =="grid" ? true : false} src="view (1).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","grid")}}/>
-            <View id="radios2" htmlFor="radios2" defaultChecked={state =="table" ? true : false} src="view (2).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","table")}}/>
+            <View id="radios1" htmlFor="radios1" defaultChecked={state == "grid" ? true : false} src="view (1).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","grid")}}/>
+            <View id="radios2" htmlFor="radios2" defaultChecked={state == "table" ? true : false} src="view (2).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","table")}}/>
           </div>
         </div>
         <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>

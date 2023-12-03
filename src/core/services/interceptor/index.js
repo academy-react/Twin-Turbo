@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { selTok } from '../../../screens/Panel'
 
 let token = localStorage.getItem("token")
 
@@ -19,7 +20,8 @@ const error = (err) => {
 customAxios.interceptors.response.use(succses,error)
 
 customAxios.interceptors.request.use((option)=> {
-    option.headers["Authorization"] = "Bearer " + token
+    if(selTok == "") option.headers["Authorization"] = "Bearer " + token
+    else option.headers["Authorization"] = "Bearer " + selTok
     return option 
 })
 
