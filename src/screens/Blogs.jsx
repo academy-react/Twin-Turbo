@@ -27,9 +27,7 @@ const Blogs = () => {
 
       clearTimeout(time.current)
       let timeOut = setTimeout(() => {
-          // setCounter(parent.current.childNodes.length)
           setingInput(e.target.value)
-
       }, 1000);
       time.current = timeOut
 
