@@ -4,7 +4,6 @@ import { useEffect, useRef , useState} from "react"
 import CoursesMap, { settingInput } from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 import SortCourse from '../components/course&blog/SortCourse'
-import {  } from 'react';
 
 export let settingCountCourse;
 
