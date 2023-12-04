@@ -6,7 +6,6 @@ const changeViewBlog = async (parent) => {
 
   let result = await customAxios.get("/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC") 
   let children = parent.current.children;
-  console.log(result);
 
   for (let i = 0; i < children.length; i++) {
     if (radios1.checked == true) {

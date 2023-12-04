@@ -23,7 +23,6 @@ const editProfileSubmit = async (values,userImage) => {
     
     let res = await customAxios.get("/SharePanel/GetProfileInfo")
 
-    console.log(res);
     let formData = new FormData();
     formData.append("LName" , values.lName !== "" ? values.lName : res.lName)
     formData.append("FName" , values.fName !== "" ? values.fName : res.fName)

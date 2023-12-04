@@ -4,7 +4,7 @@ const landingCourseSelector = async (e,pic,title,master,content,landingCourse,se
     let result = await customAxios.get("/Home/GetCoursesTop?Count=4")
     let num = e.target.getAttribute("data-id")
     let courseMapId = e.target.getAttribute("data-courseid")
-    console.log(result[num]);
+    
     setTimeout(() => {
         pic.src = e.target.getAttribute("src")
         title.innerHTML = "دوره کامل : " + result[num].title

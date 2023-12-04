@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import customAxios from "../../services/interceptor";
 
 const postEmail = async (email,baseUrl) => {
@@ -10,7 +10,7 @@ const postEmail = async (email,baseUrl) => {
         baseUrl: baseUrl
     })
     console.log(res);
-    alert("لطفا ایمیل خود را چک کنید")
+    toast.success("لطفا ایمیل خود را چک کنید")
 
 }
 
@@ -32,17 +32,16 @@ const postNewPass = async (values)=> {
 
 const forgetSubmit = (values) => {
 
-    console.log(values.bool);
     if(!values.bool) {
         postEmail(values.email,location.href)
     }
     else if (values.bool) {
         if(values.newPassword.length >= 8){
             postNewPass(values)
-            alert("success")
+            toast.success("عملیات با موفقیت انجام شد")
             location.pathname = '/login'
         }
-        else alert("رمز باید بیشتر از 8 کلمه باشد")
+        else toast.error("رمز باید بیشتر از 8 کلمه باشد")
     }
 
 }

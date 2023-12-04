@@ -29,7 +29,6 @@ const BlogsMap = () => {
       let result = await customAxios.get(`/News?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&${input ? `&Query=${input}` : ""}`);
       setBlogsItem(result.news)
       settingDbBlog(result.totalCount)
-      console.log(result);
     }
     useEffect(() => {getBlogs()}, [input])
 

@@ -5,6 +5,7 @@ import forgetPasswordValidation from "../core/validations/forgetPasswordValidati
 import { useEffect } from "react";
 import { useState } from "react";
 import customAxios from "../core/services/interceptor";
+import { ToastContainer } from "react-toastify";
 
 
 const ForgetPassword = () => {
@@ -73,6 +74,7 @@ const ForgetPassword = () => {
           </Formik>
 
       </div>
+      <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
     </div>
   )
 }

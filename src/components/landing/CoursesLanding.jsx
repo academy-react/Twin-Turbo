@@ -45,7 +45,6 @@ const Courses = () => {
                     <img src="../src/assets/images/landingCourse/c-i-1.png" alt="" className="absolute left-[-160%] bottom-0 z-10 transition-all duration-1000 h-[250px] max-[1020px]:hidden"  id="coursesHolder1" />
                      {
                         item?.map((el,index)=> {
-                            console.log(index);
                             return (
                                 <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id={index} data-courseid={el.courseId} onClick={(e)=> landingCourseSelector(e,bigPic?.current,title?.current,master?.current,content?.current,landingCourse?.current,setCourseId)}/>
                             )

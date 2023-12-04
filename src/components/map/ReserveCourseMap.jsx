@@ -9,7 +9,6 @@ const ReserveCourseMap = () => {
         let res = await customAxios.get("/SharePanel/GetMyCoursesReserve")
 
         setReserveCourse(res)
-        console.log(res);
     }
 
     const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
