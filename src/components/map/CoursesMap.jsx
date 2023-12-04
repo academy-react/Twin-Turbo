@@ -3,6 +3,7 @@ import { useRef , useState , useEffect } from "react";
 import customAxios from '../../core/services/interceptor'
 import ReactStars from "react-stars";
 import changeViewCourses from "../../core/utils/changeViewCourse.utils";
+import { settingDbCourse } from "../common/Paginate";
 
 let addToCourse;
 let Rows;
@@ -18,6 +19,8 @@ const CoursesMap = ({parent}) => {
     let location = useLocation();
     let item = useRef();
     let navigate = useNavigate()
+
+
     
     const [course, setCourse] = useState([])
     const [rowsOfPage, setRowsOfPage] = useState(4)
@@ -27,8 +30,8 @@ const CoursesMap = ({parent}) => {
     
     const getCoursesAll = async () => {
       let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
-      console.log(result);
       setCourse(result.courseFilterDtos)
+      settingDbCourse(result.totalCount)
       setTimeout(() => {changeViewCourses(parent)}, 50);
     }
     

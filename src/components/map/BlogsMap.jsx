@@ -2,6 +2,7 @@ import { useEffect, useRef , useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "../common";
 import customAxios from "../../core/services/interceptor";
+import { settingDbBlog } from "../common/Paginate";
 
 let setBlog;
 let Rowsing;
@@ -24,6 +25,8 @@ const BlogsMap = () => {
     const getBlogs = async () => {
       let result = await customAxios.get(`/News?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC&${input ? `&Query=${input}` : ""}`);
       setBlogsItem(result.news)
+      settingDbBlog(result.totalCount)
+      console.log(result);
     }
     useEffect(() => {getBlogs()}, [input])
 
@@ -36,7 +39,6 @@ const BlogsMap = () => {
 
     
     useEffect(() => {
-
         setBlog = blogsItem
         Rowsing = setRowsOfPage
         settingPageNumberBlog = setPageNumber

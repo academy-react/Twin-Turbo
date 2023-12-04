@@ -1,11 +1,19 @@
+import { settingCountBlog } from '../../screens/Blogs';
+import { settingCountCourse } from '../../screens/Courses';
 import { Rowsing } from '../map/BlogsMap';
 import { Rows } from '../map/CoursesMap'
 
 const SelectOption = () => {
 
   const caller = (e) => {
-      if(location.pathname.indexOf("/courses") !== -1) Rows(e.target.value)
-      else if(location.pathname.indexOf("/blogs") !== -1) Rowsing(e.target.value)
+      if(location.pathname.indexOf("/courses") !== -1) {
+        settingCountCourse(e.target.value)
+        Rows(e.target.value)
+      }
+      else if(location.pathname.indexOf("/blogs") !== -1) {
+        settingCountBlog(e.target.value)
+        Rowsing(e.target.value)
+      }
   }
 
   return (

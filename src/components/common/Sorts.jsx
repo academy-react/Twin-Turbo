@@ -3,11 +3,9 @@ import { settingSort } from "../map/BlogsMap";
 
 const Sorts = ({id,htmlFor,text,defaultChecked,type}) => {
   const caller = (e) => {
-      // console.log(id);
-      // console.log(text);
-      console.log(type);
       if(location.pathname.indexOf("/courses") !== -1) Rows(e.target.value)
       else if(location.pathname.indexOf("/blogs") !== -1) settingSort(type)
+    console.log(type);
   }
   
   return (

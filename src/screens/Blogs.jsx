@@ -3,25 +3,34 @@ import changeView from "../core/utils/changeViewBlog.utils";
 import { useEffect, useRef } from "react";
 import BlogsMap, { setingInput } from '../components/map/BlogsMap'
 import resizeBlog from '../core/utils/resizeBlog.utils'
-import blogs from "../core/services/blogDB";
+import { useState } from 'react';
+
+
+export let settingCountBlog;
 
 const Blogs = () => {
   let parent = useRef();
   const input = useRef()
   const time = useRef()
+  const [counter, setCounter] = useState(4)
+
   
     useEffect(() => {
+      settingCountBlog = setCounter
       window.onresize = () => {resizeBlog(parent)}
       return () => { window.onresize = () => {return false}}
     }, [])
 
     const changer = (e) => {
+
       clearTimeout(time.current)
       let timeOut = setTimeout(() => {
+          // setCounter(parent.current.childNodes.length)
           setingInput(e.target.value)
-          console.log(e.target.value);
+
       }, 1000);
       time.current = timeOut
+
     }
   return (
     <div className="w-[1920px] max-[1920px]:w-full mx-auto my-0 overflow-hidden">
@@ -39,9 +48,9 @@ const Blogs = () => {
           
           <SelectOption />
 
-          <div className="w-[40%] max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[770px]:[&>*]:text-[18px] max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
+          <div className="w-[45%] max-[801px]:ml-[25px] max-[770px]:mx-auto max-[770px]:scale-[90%] max-[770px]:w-full max-[770px]:[&>*]:text-[18px] max-[450px]:[&>*]:text-[14px] max-[1500px]:w-[65%] h-[60px] p-[7px] flex items-center justify-evenly rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>input]:hidden [&>label]:py-[8px] [&>label]:cursor-pointer [&>input:checked+label]:border-b-[#333] bg-white [&>input:checked+label]:border-b-[4px]">
             <Sorts id="radio5" type="Active" htmlFor="radio5" text="همه" defaultChecked={true}/>
-            <Sorts id="radio4" type="currentView" htmlFor="radio4" text="پر بازدید " defaultChecked={false}/>
+            <Sorts id="radio4" type="currentView" htmlFor="radio4" text=" پر بازدید ترین" defaultChecked={false}/>
             <Sorts id="radio3" type="currentLikeCount" htmlFor="radio3" text="محبوب ترین" defaultChecked={false}/>
             <Sorts id="radio2" type="currentRate" htmlFor="radio2" text="بیشترین امتیاز" defaultChecked={false}/>
             <Sorts id="radio1" type="insertDate" htmlFor="radio1" text="جدیدترین" defaultChecked={false}/>
@@ -57,7 +66,7 @@ const Blogs = () => {
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
           <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white">
-              <Paginate itemsPerPage={4} db={blogs} />
+              <Paginate itemsPerPage={counter} />
           </div>
         </div>
       </div>

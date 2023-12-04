@@ -5,20 +5,24 @@ import CoursesMap, { settingInput } from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 import courses from '../core/services/courseDB'
 import SortCourse from '../components/course&blog/SortCourse'
+import { useState } from 'react';
 
+export let settingCountCourse;
 
 const Courses = () => {
     let parent = useRef();
     const time = useRef()
     const input = useRef()
+    const [counter, setCounter] = useState(4)
 
-    let state = sessionStorage.getItem("courseClass")
+    let state = sessionStorage.getItem("courseClass")  
 
-  useEffect(() => {
-      if(!state) sessionStorage.setItem("courseClass" , "grid")
-      window.onresize = () => {resizeCourse(parent)}
-      return () => { window.onresize = () => {return false}}
-  }, [])
+    useEffect(() => {
+      settingCountCourse = setCounter
+        if(!state) sessionStorage.setItem("courseClass" , "grid")
+        window.onresize = () => {resizeCourse(parent)}
+        return () => { window.onresize = () => {return false}}
+    }, [])
 
 
   const changer = (e) => {
@@ -64,7 +68,7 @@ const Courses = () => {
         </div>
         <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
           <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white">
-            <Paginate itemsPerPage={4} db={courses}  />
+            <Paginate itemsPerPage={counter} />
           </div>
         </div>
       </div>
