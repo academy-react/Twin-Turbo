@@ -11,8 +11,8 @@ export let settingCountCourse;
 
 const Courses = () => {
     let parent = useRef();
-    const time = useRef()
-    const input = useRef()
+    const time = useRef();
+    const input = useRef();
     const [counter, setCounter] = useState(4)
 
     let state = sessionStorage.getItem("courseClass")  

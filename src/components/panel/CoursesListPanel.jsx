@@ -4,6 +4,7 @@ import Paginate from '../common/Paginate'
 import courses from '../../core/services/courseDB'
 import ReserveCourseMap from '../map/ReserveCourseMap'
 import FavoriteCourseMap from '../map/FavoriteCourseMap'
+import { useEffect } from 'react'
 
 const CoursesListPanel = ({bool}) => {
 
@@ -23,9 +24,7 @@ const CoursesListPanel = ({bool}) => {
                 </div>
 
             </div>
-            <div dir="rtl" className="flex items-center px-[15px]">
-                <span>تعداد دوره ها : </span>
-            </div>
+            <div dir="rtl" className="flex items-center px-[15px]"></div>
 
         </div>
         <div className="h-[70%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px] max-[1350px]:overflow-x-scroll" dir='rtl'>
@@ -44,8 +43,8 @@ const CoursesListPanel = ({bool}) => {
                   
             </div>
         </div>
-        <div className='h-[10%] w-[30%] mx-auto'>
-            {bool && <Paginate itemsPerPage={5} db={courses} />}
+        <div className='py-[1px] bg-[#f1f1f1] rounded-[25px] w-[25%] mx-auto'>
+            {bool && <Paginate itemsPerPage={4} />}
         </div>
 
 

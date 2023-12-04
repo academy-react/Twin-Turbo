@@ -2,36 +2,36 @@ import { useState } from 'react'
 import courseDB from '../../core/services/courseDB'
 import { useEffect } from 'react';
 import customAxios from '../../core/services/interceptor';
-let setNumberCourse;
+import { useRef } from 'react';
+export let settingPageNumberCoursePanel;
 const ListCousePanelMap = ({inpurSearch}) => {
 
-  const [slice, setSlice] = useState([])
+    const [course, setCourse] = useState([])
+    const [input, setInput] = useState("")
+    const [PageNumber, setPageNumber] = useState(1)
+    const time = useRef()
 
-  const getCourse = async ()=> {
-      let result = await customAxios.get("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=6&SortingCol=Active&SortType=DESC&TechCount=0")
-      console.log(result.courseFilterDtos);
-      setSlice(result.courseFilterDtos)
-  }
-
+    const getCourse = async ()=> {
+        let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=5&&SortType=DESC${input ? `&Query=${input}` : ""}`)
+        setCourse(result.courseFilterDtos)
+    }
+    useEffect(() => {getCourse()}, [input])
+    useEffect(() => {getCourse()}, [PageNumber])
     
-  useEffect(() => {
-      getCourse()
-      inpurSearch.current.oninput = ()=> {
-          let filtered = slice.filter((element)=> {
-            return element.name.indexOf(inpurSearch.current.value) !== -1 || element.masterName.indexOf(inpurSearch.current.value) !== -1
-            || element.courseName.indexOf(inpurSearch.current.value) !== -1
-          })
-          setSlice(filtered)
-      }
-      
-  }, [])
- 
+    useEffect(() => {
+        settingPageNumberCoursePanel = setPageNumber
+        inpurSearch.current.oninput = () => {
+            clearTimeout(time.current)
+            let timeOut = setTimeout(() => {setInput(inpurSearch.current.value)}, 1000);
+            time.current = timeOut
+        }
+        getCourse()
 
+    }, [])
     
-  
-setNumberCourse = setSlice
+
   return (
-    slice.map((element,index)=> {
+    course.map((element,index)=> {
         return (
             <div key={index} className='max-[1350px]:w-[900px] h-[80px] bg-[#fff] my-[7px] rounded-[25px] flex flex-row-reverse items-center justify-around [&>span]:w-[110px] px-[10px] [&>span]:text-center' data-id={`${index+1}`} >
 
@@ -52,5 +52,4 @@ setNumberCourse = setSlice
   
   
 }
-export {setNumberCourse}
 export default ListCousePanelMap
