@@ -5,6 +5,7 @@ import customAxios from "../core/services/interceptor"
 import { useNavigate } from "react-router-dom"
 import { useEffect , useState} from "react"
 import { useRef } from "react"
+import { ToastContainer, toast } from "react-toastify"
 
 const Register = () => {
 
@@ -15,6 +16,7 @@ const Register = () => {
   const [phoneNumber, setPhoneNumber] = useState()
   let navigate = useNavigate()
   let submitMessage ;
+  let theme = localStorage.getItem("theme")
   const [codeM, setCodeM] = useState(1)
   const [codeS, setCodeS] = useState(59)
   
@@ -27,7 +29,6 @@ const Register = () => {
           setCodeS(59)
         }
         if(codeM == 0 && codeS == 0) {
-          alert()
           setTimerFlag(false)
           clearTimeout(timer)
           sendAgainIn.current.style.display = "none"
@@ -54,9 +55,6 @@ const Register = () => {
   let formClassName = "w-[520px] h-[400px] bg-white absolute right-[14%] top-[405px] shadow-[0_0_7px_#ccc] rounded-[15px] flex flex-col justify-around items-center py-4 regForm max-[1256px]:mt-20 max-[1256px]:right-0 max-[1256px]:top-0 max-[1256px]:relative max-[550px]:scale-[80%] max-[430px]:scale-[70%] max-[380px]:scale-[60%]  max-[340px]:scale-[50%] "
 
   const registerSubmit = async (values) => {
-      
-      
-      console.log(values);
       if(flag == 1) { 
           let result = await customAxios.post("/Sign/SendVerifyMessage",{ phoneNumber : values.phoneNumber })
           if(result.success) {
@@ -64,7 +62,7 @@ const Register = () => {
             setPhoneNumber(values.phoneNumber)
             setTimerFlag(true)
           }
-          else alert(result.message)
+          else toast.error(result.message)
       }
       if(flag == 2) {
           let res = await customAxios.post("/Sign/VerifyMessage",
@@ -83,7 +81,6 @@ const Register = () => {
           })
           if(res.success) { 
             navigate("/login")
-            console.log(res);
           }
       }
   }
@@ -125,6 +122,7 @@ const Register = () => {
               </Form>
           </Formik>
       </div>
+      <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
     </div>
   )
 }

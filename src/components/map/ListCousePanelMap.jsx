@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import courseDB from '../../core/services/courseDB'
-import { useEffect } from 'react';
+import { useState , useEffect , useRef} from 'react'
 import customAxios from '../../core/services/interceptor';
-import { useRef } from 'react';
 export let settingPageNumberCoursePanel;
 const ListCousePanelMap = ({inpurSearch}) => {
 

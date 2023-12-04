@@ -5,7 +5,6 @@ const Sorts = ({id,htmlFor,text,defaultChecked,type}) => {
   const caller = (e) => {
       if(location.pathname.indexOf("/courses") !== -1) Rows(e.target.value)
       else if(location.pathname.indexOf("/blogs") !== -1) settingSort(type)
-    console.log(type);
   }
   
   return (

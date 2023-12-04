@@ -15,7 +15,6 @@ const FavoriteCourseMap = () => {
     const handelDeleting = (element) => {
         let formData = new FormData()
         formData.append("CourseFavoriteId",element.favoriteId)
-        console.log(formData);
         customAxios.delete("/Course/DeleteCourseFavorite",formData);
     }
     const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 

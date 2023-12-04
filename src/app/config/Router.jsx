@@ -52,10 +52,6 @@ const Authorize = createBrowserRouter([
           element : <ListOfCourse/>,
         },
         {
-          path : "/panel/mycourse",
-          element : <Mycourse/>,
-        },
-        {
           path : "/panel/editprofile",
           element : <EditProfile/>,
         },

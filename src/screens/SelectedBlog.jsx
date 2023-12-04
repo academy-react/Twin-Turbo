@@ -18,7 +18,6 @@ const SelectedBlog = () => {
 
   const getBlogDetail = async () => {
     let result = await customAxios.get("/News/" + url.id) 
-    console.log(result);
     setBlog(result.detailsNewsDto)
   }
 
