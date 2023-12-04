@@ -52,7 +52,19 @@ const EditProfile = () => {
                             <EditProfileItem content="نام" name="fName" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="درباره من" name="userAbout" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <div></div>
+                            <div>
+                                <div>جنسیت</div>
+                                <div className='pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:inline-block [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
+                                    <div>
+                                        <input type="radio" name="gender" id="radio1" className='w-[20px] h-[20px]'/>
+                                        <label htmlFor="radio1">مرد</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="gender" id="radio2" className='w-[20px] h-[20px]'/>
+                                        <label htmlFor="radio2">زن</label>
+                                    </div>
+                                </div>
+                            </div>
                             {/* <EditProfileItem type="checkbox" content="جنسیت " name="Gender" placeholder="جنسیت را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  /> */}
                                 
                                 <div className='[&>div:last-child]:w-[85%] [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9]'>
