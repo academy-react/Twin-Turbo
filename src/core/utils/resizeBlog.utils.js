@@ -1,4 +1,3 @@
-import courseDB from '../services/courseDB'
 let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white dark:bg-[#26324d] flex flex-col justify-end overflow-hidden max-[450px]:justify-center max-[450px]:h-[350px] max-[350px]:h-[330px]";
 
 const resizeBlog = (parent) => {

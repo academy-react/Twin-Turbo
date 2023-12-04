@@ -5,7 +5,6 @@ import EditProfileItem from './EditProfileItem'
 import DatePicker from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
-import account from '../../core/services/account';
 import editProfileValidation from '../../core/validations/editProfileValidation';
 import { changePic, editProfileSubmit } from '../../core/validations/submit/editProfileSubmit';
 import customAxios from '../../core/services/interceptor'

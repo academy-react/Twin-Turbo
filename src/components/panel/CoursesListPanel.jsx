@@ -1,10 +1,9 @@
 import { useRef } from 'react'
 import ListCousePanelMap from '../map/ListCousePanelMap'
 import Paginate from '../common/Paginate'
-import courses from '../../core/services/courseDB'
 import ReserveCourseMap from '../map/ReserveCourseMap'
 import FavoriteCourseMap from '../map/FavoriteCourseMap'
-import { useEffect } from 'react'
+
 
 const CoursesListPanel = ({bool}) => {
 

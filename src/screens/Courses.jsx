@@ -1,11 +1,10 @@
 import { Header,Footer,SelectOption,View, Paginate } from '../components/common'
 import changeViewCourses from "../core/utils/changeViewCourse.utils";
-import { useEffect, useRef } from "react"
+import { useEffect, useRef , useState} from "react"
 import CoursesMap, { settingInput } from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
-import courses from '../core/services/courseDB'
 import SortCourse from '../components/course&blog/SortCourse'
-import { useState } from 'react';
+import {  } from 'react';
 
 export let settingCountCourse;
 
