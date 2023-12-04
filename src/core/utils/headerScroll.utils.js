@@ -1,6 +1,6 @@
 const headerScroll = () => {
     if (pageYOffset > 600 && location.pathname == "/") {
-        if(location.pathname !== "/login" && location.pathname !== "/forgetPassword") {
+        if(location.pathname !== "/login" && location.pathname !== "/forgetPassword" && location.pathname !== "/forgetpassword") {
             header.style.boxShadow = "0 0 7px #ddd" ;
             header.style.background = "#fff";
             header.firstChild.style.paddingLeft = "25px"

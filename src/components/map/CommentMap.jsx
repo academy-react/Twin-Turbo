@@ -56,7 +56,6 @@ const CommentMap = ({ db , parentComment }) => {
 
                 let res = await customAxios.get("/SharePanel/GetProfileInfo")
                 flag = true
-                console.log(res);
 
                 if(location.pathname.indexOf("/courses") !== -1) {
                     
@@ -65,6 +64,7 @@ const CommentMap = ({ db , parentComment }) => {
                     formData.append("CourseId",element.courseId)
                     formData.append("Title",res.fName + " " + res.lName)
                     formData.append("Describe",textareaReply.value)
+
                     await customAxios.post("/Course/AddReplyCourseComment",formData)
                     let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
                     setComments(result)
@@ -75,13 +75,15 @@ const CommentMap = ({ db , parentComment }) => {
                 else if(location.pathname.indexOf("/blogs") !== -1){
 
                     customAxios.post("/News/CreateNewsReplyComment",{
-                        newsId: url.id,
-                        userIpAddress: element.userIpAddress,
+                        newsId: element.newsId,
+                        userIpAddress: "192.197.66.7777",
                         title: res.fName + " " + res.lName,
                         describe: textareaReply.value,
-                        userId: element.userId,
-                        parentId: element.id,
+                        userId: element.id,
+                        parentId: element.parentId,
                     })
+                    
+                    replay.remove()
                 }
             }
             idea.appendChild(accBtn);
