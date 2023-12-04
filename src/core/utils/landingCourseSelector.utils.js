@@ -1,19 +1,18 @@
 import customAxios from "../services/interceptor";
 
-const landingCourseSelector = async (e,pic,title,master,content,landingCourse,setNum) => {
+const landingCourseSelector = async (e,pic,title,master,content,landingCourse,setCourseId) => {
     let result = await customAxios.get("/Home/GetCoursesTop?Count=4")
-    result.shift()
-    console.log(result);
     let num = e.target.getAttribute("data-id")
-    console.log(result);
+    let courseMapId = e.target.getAttribute("data-courseid")
+    console.log(result[num]);
     setTimeout(() => {
         pic.src = e.target.getAttribute("src")
-        title.innerHTML = "دوره کامل : " + result[num].classRoomName
+        title.innerHTML = "دوره کامل : " + result[num].title
         master.innerHTML = result[num].teacherName  
         content.innerHTML =  result[num].describe  
 
-        landingCourse.setAttribute("data-id",num)
-        setNum(landingCourse.getAttribute("data-id"))
+        landingCourse.setAttribute("data-courseid",courseMapId)
+        setCourseId(landingCourse.getAttribute("data-courseid"))
     }, 100);
 
 }

@@ -21,12 +21,12 @@ const ContactUs = () => {
 
                             <div className="relative w-full flex justify-center">
 
-                                <Field as="textarea" name="textarea" className="dark:bg-[#26324D] placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"/>
+                                <Field as="textarea" name="textarea" className="dark:bg-[#26324D] placeholder:text-[#5a0ba951] text-[#5A0BA9] dark:text-white border border-[#70707023] outline-none rounded-lg w-[85%] h-60 pl-5 pt-10 px-[5px] resize-none"/>
                                 <div className="text-[20px] text-[#67008F] dark:text-white absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
 
                             </div>
                             <div className="self-end mr-14 h-5">
-                                <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] ErrorMessage' />
+                                <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] dark:text-[#ff3c60] ErrorMessage' />
                             </div>
                             <Submit content="ارسال پیام" className="w-[85%] h-14 max-[500px]:scale-90" />
                         </Form>
