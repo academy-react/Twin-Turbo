@@ -11,8 +11,8 @@ let settingSort;
 let setingInput;
 
 const BlogsMap = () => {
-    let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex flex-col justify-end max-[450px]:justify-center overflow-hidden"
-    let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]";
+    let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white dark:bg-[#26324d] flex flex-col justify-end max-[450px]:justify-center overflow-hidden"
+    let view2 ="w-[95%] h-[300px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white dark:bg-[#26324d] flex overflow-hidden [&>div:nth-child(2)>div:first-child]:h-[20%] [&>div:nth-child(2)>div:first-child]:h-[80%] [&>div:nth-child(2)>div:first-child]:w-full [&>div:nth-child(2)>div:first-child]:pt-[30px] [&>div:nth-child(2)]:h-full [&>div:nth-child(2)>div:first-child>p]:text-[28px] [&>div:nth-child(2)]:w-[60%] [&>div:nth-child(2)>div:first-child>div]:my-[40px] [&>div:first-child]:w-[31%]";
 
     let state = sessionStorage.getItem("newsClass")
     let location = useLocation();
@@ -63,12 +63,12 @@ const BlogsMap = () => {
                 <div dir="rtl" className="w-full h-[210px] mx-auto">
                   <div className="w-[95%] h-[150px] mx-auto"> 
 
-                    <p className="text-[24px] text-right max-[450px]:text-center">{element.title}</p> 
-                    <div className="text-[#777] w-full mt-[15px] leading-6 max-[450px]:text-center" ref={content}>{element.miniDescribe.length >= 140 ? element.miniDescribe.slice(0,140) + "..." : element.miniDescribe}</div>
+                    <p className="truncate text-[24px] dark:text-white text-right max-[450px]:text-center">{element.title}</p> 
+                    <div className="text-[#777] dark:text-[#eee] w-full mt-[15px] leading-6 max-[450px]:text-center" ref={content}>{element.miniDescribe.length >= 140 ? element.miniDescribe.slice(0,140) + "..." : element.miniDescribe}</div>
                   
                   </div>
                 <div className="w-full h-[50px] pb-2 flex justify-between items-center">     
-                <div className="text-[#777]">{element.newsCatregoryName}</div>     
+                <div className="text-[#777] dark:text-[#ddd]">{element.newsCatregoryName}</div>     
                 <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%]" link={`${location.pathname}/${element.id}`}     />   </div> </div>
               </div>
             );

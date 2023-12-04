@@ -28,7 +28,7 @@ const Recommands = () => {
                     
                     <div className="relative w-full flex justify-center">
                         <Field name="textarea" type="text" as="textarea" className="dark:bg-[#26324D] placeholder:text-[#5a0ba951] text-[#5A0BA9] border border-[#70707023] outline-none rounded-lg w-[85%] h-80 pl-5 pt-10 px-[5px] resize-none" />
-                        <div className="dark:text-[#fff] text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
+                        <div className="dark:text-white text-[20px] text-[#67008F] absolute right-[58px] top-3 transiition-all duration-[.5s]">متن پیام</div>
                     </div>
                     <div className="self-end mr-14 h-6" >
                         <ErrorMessage component={"div"} name="textarea" className='text-[#B00020] text-[18px] ErrorMessage' />
