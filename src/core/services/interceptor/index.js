@@ -20,7 +20,7 @@ const error = (err) => {
 customAxios.interceptors.response.use(succses,error)
 
 customAxios.interceptors.request.use((option)=> {
-    if(selTok == "") option.headers["Authorization"] = "Bearer " + token
+    if(!selTok) option.headers["Authorization"] = "Bearer " + token
     else option.headers["Authorization"] = "Bearer " + selTok
     return option 
 })

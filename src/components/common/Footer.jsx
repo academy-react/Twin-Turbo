@@ -1,42 +1,29 @@
-import FooterSvg from "../landing/footerSvg";
-import FooterList from '../common/FooterList'
 import { useRef } from "react";
-import RelationshipItem from '../common/RelationshipItem'
+import FooterSvg from "../landing/footerSvg";
+import FooterList from './footer/FooterList'
+import FooterTop from "./footer/FooterTop";
+import SocialMediaMap from "../map/SocialMediaMap";
+
 const Footer = () => {
   let btn = useRef()
   let input = useRef()
   
+  
   const changer = ()=> {
       if(input.current.value.length !== 0) btn.current.style.background = "#36c54e";
-      else btn.current.style.background = "#e0e0e2";
+      else btn.current.style.background = "#bdbdbf";
   }
 
   return (
     <>
         <div className="w-[1920px] overflow-hidden mx-auto max-[1919px]:w-full max-[1279px]:border-t-2 max-[1279px]:border-t-[#ccc]" >
           <FooterSvg />
-          <div className="h-[200px] w-[95%] max-[470px]:[&>div]:scale-[50%] max-[1100px]:[&>div]:scale-[70%] max-[700px]:[&>div>p]:hidden mx-auto mt-[-75px] max-[1700px]:mt-[-50px] max-[1400px]:mt-[-25px] max-[1279px]:[&>div]:mt-[25px] flex [&>div]:w-[25%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div>img]:h-[90px] [&>div>p]:text-[#3f4064] [&>div>p]:text-[20px] [&>div>p]:my-[15px] max-[600px]:[&>div]:scale-[60%]">
-              <div className="mt-[-105px]">
-                <img src="../src/assets/images/footer/teach.png" alt="" />
-                <p>تدریس عالی</p>
-              </div>
-              <div className="mt-[-55px]">
-                <img src="../src/assets/images/footer/playtime.png" alt="" />
-                <p>زمان ویدیو</p>
-              </div>
-              <div>
-                <img src="../src/assets/images/footer/internet.png" alt="" />
-                <p>کلاس انلاین</p>
-              </div>
-              <div className="mt-[-40px]">
-                <img src="../src/assets/images/footer/headphone.png" alt="" />
-                <p>پشتیبانی انلاین</p>
-              </div>
-              <div className="mt-[-105px]">
-                <img src="../src/assets/images/footer/cloud.png" alt="" />
-                <p>امنیت داده ها</p>
-              </div>
-          
+          <div className="h-[200px] w-[95%] max-[470px]:[&>div]:scale-[50%] max-[1100px]:[&>div]:scale-[70%] max-[700px]:[&>div>p]:hidden mx-auto mt-[-75px] max-[1700px]:mt-[-50px] max-[1400px]:mt-[-25px] max-[1279px]:[&>div]:mt-[25px] flex [&>div]:w-[25%] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div>img]:h-[90px] [&>div>p]:text-[#3f4064] [&>div>p]:text-[20px] [&>div>p]:my-[15px] max-[600px]:[&>div]:scale-[60%] dark:[&>div>p]:text-[#eee]">
+              <FooterTop className="mt-[-105px]" src="teach" content="تدریس عالی" />
+              <FooterTop className="mt-[-55px]" src="playtime" content="زمان ویدیو" />
+              <FooterTop className="" src="internet" content="کلاس انلاین" />
+              <FooterTop className="mt-[-40px]" src="headphone" content="پشتیبانی انلاین" />
+              <FooterTop className="mt-[-105px]" src="cloud" content="امنیت داده ها" />
           </div>
           
           <div className="[&>div]:h-full flex max-[1270px]:flex-col-reverse max-[1270px]:[&>div]:w-full">
@@ -45,23 +32,20 @@ const Footer = () => {
               
                 <div className="mb-3">
                   
-                    <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px]"> با ما همراه باشید !!!</p>
+                    <p className="pr-[30px] h-[60px] text-[#3f4064] text-[25px] dark:text-white"> با ما همراه باشید !!!</p>
                     <div className="h-[70px] w-[80%] flex items-center justify-evenly [&>div]:mx-[10px] [&>div]:cursor-pointer ">
                       
-                      <RelationshipItem src="aparat.png" beforeClass="before:bg-[#ee1b60]" />
-                      <RelationshipItem src="insta.png" beforeClass="instagram" />
-                      <RelationshipItem src="whatsapp.png" beforeClass="before:bg-[#51cc5e]" />
-                      <RelationshipItem src="telegram.png" beforeClass="before:bg-[#36AEE0] " />
+                      <SocialMediaMap />
                     
                     </div>
                 
                 </div>
                 <div className="max-[1270px]:flex max-[1270px]:flex-col max-[1270px]:w-[50%]">
                   
-                  <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1480px]:text-[22px] max-[1350px]:text-[18px] max-[960px]:pr-0">با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</p>
+                  <p className="flex items-center pr-[30px] h-[65px] text-[#3f4064] text-[25px] max-[1480px]:text-[22px] max-[1350px]:text-[18px] max-[960px]:pr-0 dark:text-white">با ثبت ایمیل، از جدید‌ترین تخفیف‌ ها با‌خبر شوید</p>
                   <div className="h-[90px] flex items-center justify-around w-[90%]">
-                    <input  type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
-                    <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#e0e0e2] text-[#fff] text-[25px]" ref={btn}>ثبت</button>
+                    <input type="text" className="w-[75%] max-[1300px]:w-[78%] outline-none text-[18px] bg-[#f0f0f1] dark:bg-[#26324d] dark:text-white rounded-[15px] border h-[70%] pr-[20px]" ref={input} placeholder="ایمیل خود را وارد کنید ...." onChange={changer}/>
+                    <button className="w-[15%] max-[1300px]:w-[18%] border-none h-[70%] border rounded-[15px] bg-[#bdbdbf] dark: text-[#fff] text-[25px]" ref={btn}>ثبت</button>
                   </div>
                 
                 </div>

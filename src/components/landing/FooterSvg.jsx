@@ -1,4 +1,16 @@
+import { useState } from "react";
+import { useEffect } from "react";
+
+export let sFillPath;
 const FooterSvg = () => {
+  const [fillPath, setFillPath] = useState("")
+  let theme = localStorage.getItem("theme")
+  useEffect(() => {
+    if(theme == "dark") setFillPath("#0f172a")
+    else setFillPath("#f5f5f5")
+    sFillPath = setFillPath
+  }, [])
+  
   return (
     <svg
       className="w-[110%] relative -z-10 -left-[3%] max-[1279px]:hidden"
@@ -49,7 +61,7 @@ const FooterSvg = () => {
         data-name="Path 9"
         d="M27.827,53.3C114.938,46.456,212.87-10.393,387.186,1.675c248.065,19.443,425.063,113.305,758.945,113.305,322.485,5.364,666.423-192.418,919.852-24.136s-19.04,57.4-19.04,57.4l-864.875,56.988-998.483-71.47H115.2S-59.283,60.143,27.827,53.3Z"
         transform="translate(1.837 51.726)"
-        fill="#f5f5f5"
+        fill={fillPath}
       />
     </svg>
   );

@@ -79,7 +79,7 @@ const creatingReply = async (element,url,bool) => {
     
         let dissLikeSpan = document.createElement("span");
         dissLikeSpan.className = location.pathname.indexOf("courses") !== -1 ? element?.currentUserEmotion == "DISSLIKED" ? "text-[#ec0b1a]" : "text-[#000]" : element.currentUserIsDissLike ? "text-[#ec0b1a]" : "text-[#000]"
-        dissLikeSpan.innerHTML = element?.disslikeCount ? element?.disslikeCount : element?.dissLikeCount
+        dissLikeSpan.innerHTML = element?.disslikeCount == 0 ? 0 : element?.disslikeCount || element?.dissLikeCount
         dissLike.appendChild(dissLikeSpan)
     
         let dissLikeImg = document.createElement("img");
@@ -106,12 +106,6 @@ const creatingReply = async (element,url,bool) => {
         repParent.appendChild(showRepParent)
     
         parent.appendChild(repParent)
-    
-        // let replyImg = document.createElement("img");
-        // replyImg.className = "w-[25px] h-[20px]"
-        // replyImg.src = "../../src/assets/images/selectedCourse/reply.png"
-        // replyImg.onclick = (e)=> replay(e,element)
-        // repParent.appendChild(replyImg)
     
         parentItem.appendChild(parent)
     })
