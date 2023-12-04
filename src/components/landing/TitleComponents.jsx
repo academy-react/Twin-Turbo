@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import { useState } from "react"
-import { useRef } from "react"
+import { useEffect , useState } from "react";
 export let setttttttt;
+
 const TitleComponents = ({title,content,className}) => {
 
   let theme = localStorage.getItem("theme")
@@ -16,7 +15,6 @@ const TitleComponents = ({title,content,className}) => {
       images.forEach(el => {
         el.src = imageSrc
       })
-      console.log(imageSrc);
   }, [imageSrc])
   
   return (

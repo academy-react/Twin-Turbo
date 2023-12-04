@@ -3,12 +3,14 @@ import headerScroll from "../../core/utils/headerScroll.utils"
 import darkMode from "../../core/utils/darkMode.utils"
 import { setttttttt } from "../landing/TitleComponents"
 import { useLocation } from "react-router-dom"
+import { sFillPath } from "../landing/footerSvg"
+import { reRend } from "../map/SocialMediaMap"
 
 const NightMode = ({bgClass}) => {
     
     let location = useLocation()
-    let local = localStorage.getItem("theme")
-    if(!local) localStorage.setItem("theme","light")
+    let theme = localStorage.getItem("theme")
+    if(!theme) localStorage.setItem("theme","light")
 
     const pic = useRef()
 
@@ -18,18 +20,26 @@ const NightMode = ({bgClass}) => {
 
     const changeMode = ()=> {
 
-        let local = localStorage.getItem("theme")
+        let theme = localStorage.getItem("theme")
             
-        if(local == "light") {
+        if(theme == "light") {
 
             pic.current.src = "../src/assets/images/header/sun.png"
             localStorage.setItem("theme","dark")
+            if(location.pathname == "/" || location.pathname == "/courses" || location.pathname == "/blogs" || location.pathname == "/contact-us") {
+                sFillPath("#0f172a")
+                reRend(false)
+            }  
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title-dark.png`)
         }
-        else if(local == "dark") {
+        else if(theme == "dark") {
 
             pic.current.src = "../src/assets/images/header/moon.png"
             localStorage.setItem("theme","light")
+            if(location.pathname == "/" || location.pathname == "/courses" || location.pathname == "/blogs" || location.pathname == "/contact-us") {
+                sFillPath("#f5f5f5")
+                reRend(true)
+            }  
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title.png`)
         }
         darkMode()
@@ -40,7 +50,7 @@ const NightMode = ({bgClass}) => {
 
     return (
         <div className={"w-[50px] h-[45px] rounded-full p-[5px] max-[321px]:right-[-75px] flex justify-center items-center cursor-pointer " + bgClass} onClick={changeMode} >
-            <img src={local == "dark" ? "../src/assets/images/header/sun.png" : "../src/assets/images/header/moon.png" } alt="" className="w-[28px] h-[28px]" ref={pic}/>
+            <img src={theme == "dark" ? "../src/assets/images/header/sun.png" : "../src/assets/images/header/moon.png" } alt="" className="w-[28px] h-[28px]" ref={pic}/>
         </div>
     )
 }
