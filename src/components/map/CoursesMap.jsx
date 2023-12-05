@@ -59,7 +59,7 @@ const CoursesMap = ({parent}) => {
           return (
               <div key={index} className={state == "grid" ? view1 : view2} ref={item} onClick={()=> navigate(`${location.pathname}/${element.courseId}`)} >
                 <div className="w-full h-[170px] overflow-hidden my-[10px]">
-                  <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/03.png"} className="mx-auto h-full w-full rounded-[20px]"/>
+                  <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/web.jpg"} className="mx-auto h-full w-full rounded-[20px]"/>
                 </div>
                 <div dir="rtl" className="w-full h-[210px] mx-auto relative">
                   <p className="text-[24px] absolute right-2 dark:text-white">{element.title}</p>

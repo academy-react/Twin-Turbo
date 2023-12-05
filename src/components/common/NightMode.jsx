@@ -26,20 +26,41 @@ const NightMode = ({bgClass}) => {
 
             pic.current.src = "../src/assets/images/header/sun.png"
             localStorage.setItem("theme","dark")
-            if(location.pathname == "/" || location.pathname == "/courses" || location.pathname == "/blogs" || location.pathname == "/contact-us") {
+            if(location.pathname == "/" || location.pathname.indexOf("/courses") !== -1 || location.pathname == "/blogs" || location.pathname == "/contact-us") {
                 sFillPath("#0f172a")
                 reRend(false)
             }  
+            if(location.pathname.indexOf("/courses/") !== -1 || location.pathname.indexOf("/blogs/") !== -1) {
+                
+                if(btn1.style.background == "rgb(241, 235, 248)")  btn1.style.background = "#3c4e78"
+                if(btn1.style.background == "transparent")  btn1.style.background = "transparent"
+                if(btn2.style.background == "rgb(241, 235, 248)")  btn2.style.background = "#3c4e78"
+                if(btn2.style.background == "transparent")  btn2.style.background = "transparent"
+                let likeCourse = document.querySelectorAll(".likeCourses[src='../src/assets/images/selectedCourse/likeDefault.png']")
+                likeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/likeDefault-light.png") 
+                let dissLikeCourse = document.querySelectorAll(".dissLikeCourses[src='../src/assets/images/selectedCourse/disslikeDefault.png']")
+                dissLikeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/disslikeDefault-light.png") 
+            }
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title-dark.png`)
         }
         else if(theme == "dark") {
 
             pic.current.src = "../src/assets/images/header/moon.png"
             localStorage.setItem("theme","light")
-            if(location.pathname == "/" || location.pathname == "/courses" || location.pathname == "/blogs" || location.pathname == "/contact-us") {
+            if(location.pathname == "/" || location.pathname.indexOf("/courses") !== -1 || location.pathname == "/blogs" || location.pathname == "/contact-us") {
                 sFillPath("#f5f5f5")
                 reRend(true)
             }  
+            if(location.pathname.indexOf("/courses/") !== -1 || location.pathname.indexOf("/blogs/") !== -1) {
+                if(btn1.style.background == "rgb(60, 78, 120)")  btn1.style.background = "#f1ebf8"
+                if(btn1.style.background == "transparent")  btn1.style.background = "transparent"
+                if(btn2.style.background == "rgb(60, 78, 120)")  btn2.style.background = "#f1ebf8"
+                if(btn2.style.background == "transparent")  btn2.style.background = "transparent"
+                let likeCourse = document.querySelectorAll(".likeCourses[src='../src/assets/images/selectedCourse/likeDefault.png']")
+                likeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/likeDefault.png") 
+                let dissLikeCourse = document.querySelectorAll(".dissLikeCourses[src='../src/assets/images/selectedCourse/disslikeDefault-light.png']")
+                dissLikeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/disslikeDefault.png") 
+            }
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title.png`)
         }
         darkMode()
