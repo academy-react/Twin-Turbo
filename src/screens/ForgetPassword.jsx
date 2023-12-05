@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 
 const ForgetPassword = () => {
 
-
+    let theme = localStorage.getItem("theme")
     const [flag, setFlag] = useState(1)
     
 

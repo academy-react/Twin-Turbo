@@ -40,6 +40,8 @@ const NightMode = ({bgClass}) => {
                 likeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/likeDefault-light.png") 
                 let dissLikeCourse = document.querySelectorAll(".dissLikeCourses[src='../src/assets/images/selectedCourse/disslikeDefault.png']")
                 dissLikeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/disslikeDefault-light.png") 
+                let replyImg = document.querySelectorAll(".replyImg")
+                replyImg.forEach(e => e.src = "../src/assets/images/selectedCourse/reply-light.png") 
             }
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title-dark.png`)
         }
@@ -56,10 +58,12 @@ const NightMode = ({bgClass}) => {
                 if(btn1.style.background == "transparent")  btn1.style.background = "transparent"
                 if(btn2.style.background == "rgb(60, 78, 120)")  btn2.style.background = "#f1ebf8"
                 if(btn2.style.background == "transparent")  btn2.style.background = "transparent"
-                let likeCourse = document.querySelectorAll(".likeCourses[src='../src/assets/images/selectedCourse/likeDefault.png']")
+                let likeCourse = document.querySelectorAll(".likeCourses[src='../src/assets/images/selectedCourse/likeDefault-light.png']")
                 likeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/likeDefault.png") 
                 let dissLikeCourse = document.querySelectorAll(".dissLikeCourses[src='../src/assets/images/selectedCourse/disslikeDefault-light.png']")
                 dissLikeCourse.forEach(e => e.src = "../src/assets/images/selectedCourse/disslikeDefault.png") 
+                let replyImg = document.querySelectorAll(".replyImg")
+                replyImg.forEach(e => e.src = "../src/assets/images/selectedCourse/reply.png") 
             }
             if(location.pathname == "/")  setttttttt(`../src/assets/images/landingCourse/courses-title.png`)
         }
