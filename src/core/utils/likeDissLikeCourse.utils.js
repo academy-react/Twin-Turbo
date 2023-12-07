@@ -47,8 +47,7 @@ const likeDissLikeCourse = async (id,params,bool,element,e,url) => {
         }
         else if(bool == false) {
             e.target.previousElementSibling.innerHTML = element.dissLikeCount + 1
-            e.target.parentNode.previousElementSibling.firstChild.classList.add( theme == "light" ? "text-[#000] dark:text-white" : "text-white dark:text-[#000]")
-            // e.target.parentNode.previousElementSibling.firstChild.style.color = "#000"
+            e.target.parentNode.previousElementSibling.firstChild.className = theme == "light" ? "text-[#000] dark:text-white" : "text-white dark:text-[#000]"
             e.target.src = "../src/assets/images/selectedCourse/disslike.png"
             // api isnt exist
             await customAxios.post(`/News/CommentLike/${id}?LikeType=${bool}`)
