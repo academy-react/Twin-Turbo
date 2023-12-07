@@ -50,7 +50,7 @@ const Header = ({className,src,color,borderClass}) => {
                     {!token && <LinkComponent content="ثبت نام" link="/register" className='mx-[15px] w-[100px] px-4 select-none' />}
                     {!token && <LinkComponent content="ورود" link="/login" className='mx-[15px] w-[100px] px-4 select-none' />}
                     {token && <LinkComponent link="/panel/userpanel" content={<img src={iconeUser} alt="" className="w-[90%] h-[90%] object-cover rounded-[50%]" />} className='w-[50px]' />}
-                    <LinkComponent link="/panel/userpanel" content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[34px] object-cover" />} className='w-[50px]' />
+                    <LinkComponent content={<img src="../src/assets/images/header/shop.png" alt="" className="w-[34px] object-cover" />} className='w-[50px]' />
                 </>}
               </div>
           </div>

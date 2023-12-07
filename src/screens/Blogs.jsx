@@ -38,7 +38,7 @@ const Blogs = () => {
 
       <div className="w-full  flex flex-col items-center">
         <div className="inline-block my-[55px] px-[95px] py-[12px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] bg-white dark:bg-[#26324d] dark:text-white">
-          بلاگ
+          اخبار
         </div>
         <div className="bg-[#EEE6F6] dark:bg-[#26324d] w-[400px] h-[50px] my-[15px] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]">
             <img src="../src/assets/images/header/search.png" alt="" className="w-[30px] h-[30px]" id="searchImg" />

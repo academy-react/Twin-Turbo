@@ -63,11 +63,12 @@ const BlogsMap = () => {
                   <div className="w-[95%] h-[150px] mx-auto"> 
 
                     <p className="truncate text-[24px] dark:text-white text-right max-[450px]:text-center">{element.title}</p> 
-                    <div className="text-[#777] dark:text-[#eee] w-full mt-[15px] leading-6 max-[450px]:text-center" ref={content}>{element.miniDescribe.length >= 140 ? element.miniDescribe.slice(0,140) + "..." : element.miniDescribe}</div>
+                    <div className="text-[#777] dark:text-[#eee] w-full mt-[15px] leading-6 max-[450px]:text-center" ref={content}>{sessionStorage.getItem("courseClass") == "grid" ? element.miniDescribe.slice(0,97) + "..." : element.miniDescribe}</div>
                   
                   </div>
                 <div className="w-full h-[50px] pb-2 flex justify-between items-center">     
-                <div className="text-[#777] dark:text-[#ddd]">{element.newsCatregoryName}</div>     
+                {/* <div className="text-[#777] dark:text-[#ddd] ">{element.newsCatregoryName}</div>   */}
+                <div className="text-[#777] mr-[10px]">بازدید : {element.currentView}</div>
                 <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%]" link={`${location.pathname}/${element.id}`}     />   </div> </div>
               </div>
             );

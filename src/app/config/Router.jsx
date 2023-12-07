@@ -10,18 +10,6 @@ const Authorize = createBrowserRouter([
       path: "/forgetPassword/:ConfigValue",
       element: <ForgetPassword />,
     },
-    {    // when the forget page was optional the 404 page didn`t worked when we write anything in url
-      path: "/forgetPassword",
-      element: <ForgetPassword />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
     {
       path: "/contact-us",
       element: <ContactUs />,
@@ -49,7 +37,7 @@ const Authorize = createBrowserRouter([
       children : [
         {
           path : "/panel/ListOfCourse",
-          element : <ListOfCourse/>,
+          element : <Mycourse s1="قیمت" s2="اخرین تغیرات" s3="وضعیت" s4="سطح" s5="نام استاد" s6="نام دوره"/>,
         },
         {
           path : "/panel/editprofile",
@@ -65,11 +53,15 @@ const Authorize = createBrowserRouter([
         },
         {
           path : "/panel/reserveCourse",
-          element : <Mycourse/>,
+          element : <Mycourse classNameSpans="[&>span:nth-child(3)]:mr-[-140px] [&>span:nth-child(2)]:mr-[60px] [&>span:nth-child(6)]:mr-[120px] pl-[85px]" s2="اخرین تغیرات" s3="وضعیت"  s6="نام دوره"/>,
         },
         {
           path : "/panel/favoriteCourse",
-          element : <Mycourse/>,
+          element : <Mycourse classNameSpans="pr-[60px] [&>span:nth-child(4)]:pr-[25px] [&>span:nth-child(5)]:pr-[25px] [&>span:nth-child(6)]:pr-[25px]" s2="اخرین تغیرات" s3="وضعیت" s4="سطح" s5="نام استاد" s6="نام دوره"/>,
+        },
+        {
+          path : "/panel/favoriteNews",
+          element : <Mycourse classNameSpans="pr-[85px] [&>span:nth-child(6)]:ml-[20px]" s2="امتیاز" s3="اخرین تغیرات" s4="تعداد لایک" s5="بازدید" s6="نام اخبار"/>,
         },
         {
           path : "/panel/changePassword",

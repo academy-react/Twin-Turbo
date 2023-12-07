@@ -10,12 +10,17 @@ const FavoriteCourseMap = () => {
         setFavoriteCourse(res.favoriteCourseDto)
     }
 
+    
+
     useEffect(() => {getFavoriteCourse()}, [])
 
-    const handelDeleting = (element) => {
+    const handelDeleting = async (element) => {
         let formData = new FormData()
         formData.append("CourseFavoriteId",element.favoriteId)
-        customAxios.delete("/Course/DeleteCourseFavorite",formData);
+        await customAxios.delete("/Course/DeleteCourseFavorite",{
+            data : formData
+        });
+        getFavoriteCourse()
     }
     const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
     
@@ -28,7 +33,7 @@ const FavoriteCourseMap = () => {
                         <img src="../src/assets/images/dashboard/Recycle Bin.png" alt="" className='w-[30px] cursor-pointer' onClick={()=> handelDeleting(element)}/>
                         <img src="../src/assets/images/panel/view.svg" alt="" className='w-[30px] cursor-pointer' onClick={()=> goToCourse(element)}/>
 
-                        <span dir='rtl'>{element.cost}  تومان  </span>
+                        {/* <span dir='rtl'>{element.cost}  تومان  </span> */}
                         <span dir='rtl'>{element.lastUpdate.slice(0,10)}</span>
                         <span dir='rtl'>{element.typeName}</span>
                         <span dir='rtl'>{element.levelName}</span>
