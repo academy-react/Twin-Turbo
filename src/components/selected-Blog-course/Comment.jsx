@@ -66,10 +66,10 @@ const Comment = ({db}) => {
         <>
             <Formik initialValues={{comment : ""}} onSubmit={(value)=> handle(value)} >
                 <Form>
-                    <div className="w-full bg-[#F5F5F5] rounded-[25px] overflow-hidden relative z-10">
+                    <div className="w-full bg-[#F5F5F5] dark:bg-[#3c4e78] rounded-[25px] overflow-hidden relative z-10">
                         <div dir="rtl" ref={parentComment} className="h-full flex flex-col p-[25px] leading-[28px] [&>*]:my-[7px]">
                             <CommentMap db={db} parentComment={parentComment.current} />
-                            <Field as="textarea" id="textarea" name="comment" placeholder="نوشتن پیام" className="w-full h-[400px] bg-white shadow-[0_0_7px_#999] rounded-[15px] resize-none outline-none p-[10px] text-[18px]" style={{order : parentComment?.current?.children.length + "3"}} />
+                            <Field as="textarea" id="textarea" name="comment" placeholder="نوشتن پیام" className="w-full h-[400px] bg-white dark:bg-[#26324d] dark:text-white shadow-[0_0_7px_#999] rounded-[15px] resize-none outline-none p-[10px] text-[18px]" style={{order : parentComment?.current?.children.length + "3"}} />
                             <div className="h-6" ref={ErrorParent} style={{order : parentComment?.current?.children.length + "4"}}>
                                 <ErrorMessage component="div" name="comment" className='text-[#B00020] ErrorMessage' />
                             </div>
