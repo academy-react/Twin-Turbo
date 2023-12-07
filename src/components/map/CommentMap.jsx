@@ -14,6 +14,20 @@ const CommentMap = ({ db , parentComment }) => {
     const parent = useRef()
     const repOrder = useRef()
 
+    let flagTextShowCommentReply = true
+    const changeTextShow = (e,element) => {
+        console.log(element);
+        if(flagTextShowCommentReply) {
+            e.target.innerHTML = `بستن پاسخ ها ${element.acceptReplysCount}`;
+            flagTextShowCommentReply = false
+        }
+        else if(!flagTextShowCommentReply) {
+            e.target.innerHTML = `نمایش پاسخ ها ${element.acceptReplysCount}`;
+            flagTextShowCommentReply = true
+        }
+
+    }
+
 
     const reply = (e,element) => {
 
@@ -150,7 +164,7 @@ const CommentMap = ({ db , parentComment }) => {
                         </div>
                         <div className="flex items-center justify-between absolute left-[20px] bottom-[10px] [&>img]:cursor-pointer" >
                             <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element,index)}> 
-                                <span className='ml-[15px]' data-id={index}>{location.pathname.indexOf("/blogs") !== -1 ? element.replyCount !== 0 ? `نمایش پاسخ ها ${element.replyCount}` : "" : element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element?.acceptReplysCount ? element.acceptReplysCount : element.replyCount}` : "" }</span>
+                                <span className='ml-[15px]' onClick={(e)=> changeTextShow(e,element)} data-id={index}>{location.pathname.indexOf("/blogs") !== -1 ? element.replyCount !== 0 ? `نمایش پاسخ ها ${element.replyCount}` : "" : element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element?.acceptReplysCount ? element.acceptReplysCount : element.replyCount}` : "" }</span>
                             </div>
                             <img src="../src/assets/images/selectedCourse/reply.png" className='w-[25px] h-[20px]' onClick={(e) => reply(e,element)} />
                         </div>
