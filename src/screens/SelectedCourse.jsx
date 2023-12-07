@@ -68,7 +68,7 @@ const SelectedCourses = () => {
         data : formData
       })
       getCourseDetail()
-      toast.success("این خبر با موفقیت از مورد علاقه ها حذف شد")
+      toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
       e.target.innerHTML = "افزودن به علاقه مندی ها"
     }
   }
@@ -87,7 +87,7 @@ const SelectedCourses = () => {
         data : formData
       })
       getCourseDetail()
-      toast.success("این خبر با موفقیت از مورد علاقه ها حذف شد")
+      toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
       e.target.innerHTML = "لایک دوره"
     }
   }
@@ -138,7 +138,7 @@ const SelectedCourses = () => {
                 <img src={teacher?.pictureAddress} alt="" className="w-20 h-20 rounded-3xl"/>
               </div>
               <div className="text-[#444] text-[22px] self-end m-3 dark:text-white"> : فعالیت ها</div>
-              <CourseDetail content={teacher?.newsCount} title="تعداد خبرها" noLogo="hidden" dir={"rtl"}/>
+              <CourseDetail content={teacher?.newsCount} title="تعداد دورهها" noLogo="hidden" dir={"rtl"}/>
               <CourseDetail content={teacher?.courseCounts} title="تعداد دوره ها" noLogo="hidden" dir={"rtl"}/>
             </div>
 
