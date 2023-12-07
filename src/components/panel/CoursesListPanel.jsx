@@ -18,7 +18,7 @@ const CoursesListPanel = ({bool,s1,s2,s3,s4,s5,s6,classNameSpans}) => {
 
             <div className="flex justify-center items-center"> 
             
-                <div className="bg-[#EEE6F6] w-[75%] h-[40%] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]">
+                <div className="bg-[#EEE6F6] w-[75%] h-[40%] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px] border border-[transparent] transition-all duration-300 hover:border hover:border-[#955ecc]">
                     <img src="../src/assets/images/header/search.png" alt="" className=" w-[30px] h-[30px]" />
                     <input ref={inpurSearch} dir="rtl" type="text" className="w-[75%] h-full border-none outline-none bg-[#EEE6F6] placeholder:text-[#7F42BC] text-[#7F42BC]" placeholder="جستجو" id='inpurSearch'/>
                 </div>
