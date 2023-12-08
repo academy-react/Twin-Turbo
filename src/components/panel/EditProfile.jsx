@@ -8,6 +8,7 @@ import persian_fa from "react-date-object/locales/persian_fa"
 import editProfileValidation from '../../core/validations/editProfileValidation';
 import { changePic, editProfileSubmit } from '../../core/validations/submit/editProfileSubmit';
 import customAxios from '../../core/services/interceptor'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -17,10 +18,12 @@ const EditProfile = () => {
     let img = useRef()
     const [myInfo, setMyInfo] = useState()
     const datePicker = useRef()
+    let theme = localStorage.getItem("theme");
 
     const getInfo = async () => {
         let result = await customAxios.get("/SharePanel/GetProfileInfo")
         setMyInfo(result)
+        console.log(result);
     }
 
     useEffect(() => {
@@ -30,6 +33,7 @@ const EditProfile = () => {
 
     const inHovering = ()=> img.current.src = "../src/assets/images/panel/camera hover.png"
     const outHovering = ()=> img.current.src = "../src/assets/images/panel/camera.png"
+    
 
     return (
         <div id="editProfile" className="h-[1550px] max-[1200px]:h-[2850px] max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
@@ -49,7 +53,7 @@ const EditProfile = () => {
                         <div>
 
                             <EditProfileItem content="نام" name="fName" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="درباره من" name="userAbout" placeholder="نام را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="درباره من" name="userAbout" placeholder="مشخصات را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <div>
                                 <div>جنسیت</div>
@@ -90,22 +94,23 @@ const EditProfile = () => {
                         </div>
                         <div>
 
-                            <EditProfileItem content="نام خانوادگی" name="lName" placeholder="ایمیل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="پروفایل لینکدین" name="linkdinProfile" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="لینک تلگرام" name="telegramLink" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="نام خانوادگی" name="lName" placeholder="نام خانوادگی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="پروفایل لینکدین" name="linkdinProfile" placeholder=" لینک لینکدین را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <EditProfileItem content="لینک تلگرام" name="telegramLink" placeholder="لینک تلگرام  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="دریافت خبرها" type="checkbox" name="ReceiveMessageEvent" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="ادرس منزل" name="homeAdderess" placeholder="ادرس منزل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
 
                         <div className='absolute bottom-0 left-0 flex justify-center items-center' style={{height:"100px",width:"100%"}}>
-                            <button type='submit' className='w-[150px] bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' onClick={(e)=> editProfileSubmit(form.values,userImage)} >ثبت تغییرات</button>
+                            <button type='submit' className='w-[150px] bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' >ثبت تغییرات</button>
                         </div>  
 
                     </Form>
                     
                 )}
             </Formik>
+            <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
             
 
         </div>
