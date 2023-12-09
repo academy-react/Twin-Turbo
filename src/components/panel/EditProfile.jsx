@@ -19,7 +19,6 @@ const EditProfile = () => {
     let img = useRef()
     const [myInfo, setMyInfo] = useState()
     const datePicker = useRef()
-    let theme = localStorage.getItem("theme");
 
     const getInfo = async () => {
         let result = await customAxios.get("/SharePanel/GetProfileInfo")
