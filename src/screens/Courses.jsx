@@ -40,7 +40,7 @@ const Courses = () => {
         <div className="inline-block my-[55px] px-[95px] py-[12px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] bg-white dark:bg-[#26324d] dark:text-white">
           دوره
         </div>
-        <div className="bg-[#EEE6F6] dark:bg-[#26324d] w-[400px] h-[50px] my-[15px] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]">
+        <div className="hover:border hover:border-[#955ecc] border border-[transparent] transition-all duration-300 bg-[#EEE6F6] dark:bg-[#26324d] w-[400px] h-[50px] my-[15px] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]">
             <img src="../src/assets/images/header/search.png" alt="" className=" w-[30px] h-[30px]" id="searchImg" />
             <input dir="rtl" ref={input} onInput={(e)=>changer(e)} type="text" className="w-[75%] h-full border-none outline-none bg-[#EEE6F6] dark:bg-[#26324d] placeholder:text-[#7F42BC] dark:placeholder:text-white text-[#7F42BC] dark:text-white" placeholder="جستجو" id='inpurSearch'/>
         </div>

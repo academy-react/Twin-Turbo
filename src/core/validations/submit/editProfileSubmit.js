@@ -1,5 +1,3 @@
-import { toast } from 'react-toastify';
-import { setMyInf } from '../../../screens/Panel';
 import customAxios from '../../services/interceptor';
 
 let input ;
@@ -12,14 +10,13 @@ const changePic = async (e,userImage)=> {
 
 const editProfileSubmit = async (values,userImage) => {
     
-    let token = localStorage.getItem("token")
     if(input) {
         
         let imageData = new FormData()
         imageData.append("formFile", input)
         
         // await customAxios.delete("/SharePanel/DeleteProfileImage",imageData)
-        await customAxios.post("/SharePanel/AddProfileImage",imageData)
+        customAxios.post("/SharePanel/AddProfileImage",imageData)
         
     }
     
@@ -35,17 +32,14 @@ const editProfileSubmit = async (values,userImage) => {
     formData.append("HomeAdderess" , values.homeAdderess !== "" ? values.homeAdderess : res.homeAdderess)
     formData.append("NationalCode" , values.nationalCode !== "" ? values.nationalCode : res.nationalCode)
     formData.append("Gender" , values.gender ? values.gender : res.gender)
-    formData.append("BirthDay" , "2006-10-09")
+    formData.append("BirthDay" , values.BirthDay ? values.BirthDay : res.birthDay)
     formData.append("Latitude" , "12.3")
     formData.append("Longitude" , "14.6")
 
-    let result = await customAxios.put("/SharePanel/UpdateProfileInfo",formData,
+    customAxios.put("/SharePanel/UpdateProfileInfo",formData,
         {headers : {"Authorization" : "Bearer " + token}}
     )
-    if(result.success) toast.success("عملیات با موفقیت انجام شد")
-    else toast.error("خطا در انجام عملیات")
-    
-    setMyInf()
+
 
 }
 
