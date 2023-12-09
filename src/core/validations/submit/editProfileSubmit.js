@@ -1,16 +1,18 @@
+import { toast } from 'react-toastify';
+import { setMyInf } from '../../../screens/Panel';
 import customAxios from '../../services/interceptor';
-
 
 let input ;
 const changePic = async (e,userImage)=> {
-
+    
     userImage.current.src = URL.createObjectURL(e.target.files[0])
     input = e.target.files[0]
-
+    
 }
 
 const editProfileSubmit = async (values,userImage) => {
     
+    let token = localStorage.getItem("token")
     if(input) {
         
         let imageData = new FormData()
@@ -37,10 +39,13 @@ const editProfileSubmit = async (values,userImage) => {
     formData.append("Latitude" , "12.3")
     formData.append("Longitude" , "14.6")
 
-    customAxios.put("/SharePanel/UpdateProfileInfo",formData,
+    let result = await customAxios.put("/SharePanel/UpdateProfileInfo",formData,
         {headers : {"Authorization" : "Bearer " + token}}
     )
-
+    if(result.success) toast.success("عملیات با موفقیت انجام شد")
+    else toast.error("خطا در انجام عملیات")
+    
+    setMyInf()
 
 }
 

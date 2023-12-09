@@ -6,7 +6,7 @@ import customAxios from '../core/services/interceptor'
 import { useSelector } from 'react-redux'
 
 export let selTok;
-
+export let setMyInf;
 const Panel = () => {
 
     let sel = useSelector(state => state.user.token)
@@ -27,6 +27,7 @@ const Panel = () => {
 
     useEffect(() => {
       getInfo()
+      setMyInf = getInfo
     }, [])
 
   return (
@@ -41,7 +42,7 @@ const Panel = () => {
                 <div className="right-1 max-[1200px]:w-[360px] max-[1020px]:hidden bg-white rounded-3xl shadow-[0_0_7px_#ddd] w-[415px] ">
 
                     <div className=" h-[150px] flex justify-center items-center px-3">
-                        <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.lName} {myInfo?.fName}</div>
+                        <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.fName} {myInfo?.lName}</div>
                         <img src={myInfo?.currentPictureAddress} alt="" id='picprofile' className='h-[80px] w-[80px] rounded-[50%]' />
                     </div>
 

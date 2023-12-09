@@ -8,11 +8,13 @@ import persian_fa from "react-date-object/locales/persian_fa"
 import editProfileValidation from '../../core/validations/editProfileValidation';
 import { changePic, editProfileSubmit } from '../../core/validations/submit/editProfileSubmit';
 import customAxios from '../../core/services/interceptor'
+import { ToastContainer } from 'react-toastify'
 
 
 
 const EditProfile = () => {
 
+    let theme = localStorage.getItem("theme")
     let userImage = useRef()
     let img = useRef()
     const [myInfo, setMyInfo] = useState()
@@ -99,7 +101,7 @@ const EditProfile = () => {
                         </div>
 
                         <div className='absolute bottom-0 left-0 flex justify-center items-center' style={{height:"100px",width:"100%"}}>
-                            <button type='submit' className='w-[150px] bg-[#922492] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' onClick={(e)=> editProfileSubmit(form.values,userImage)} >ثبت تغییرات</button>
+                            <button type='submit' className='w-[150px] bg-[#922492] active:bg-[#922492dd] text-[#fff] scale-[105%] px-[15px] h-[45px] rounded-[30px] right-[44%]' >ثبت تغییرات</button>
                         </div>  
 
                     </Form>
@@ -107,6 +109,7 @@ const EditProfile = () => {
                 )}
             </Formik>
             
+            <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
 
         </div>
     )
