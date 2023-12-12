@@ -46,7 +46,7 @@ const Courses = () => {
                      {
                         item?.map((el,index)=> {
                             return (
-                                <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id={index} data-courseid={el.courseId} onClick={(e)=> landingCourseSelector(e,bigPic?.current,title?.current,master?.current,content?.current,landingCourse?.current,setCourseId)}/>
+                                <img key={index} src={el.tumbImageAddress} alt="" className="w-[85%] h-[150px] cursor-pointer rounded-[20px] max-[1020px]:w-[180px] max-[620px]:w-[150px] max-[510px]:w-[130px] max-[450px]:w-[120px] max-[1020px]:h-[110px] max-[450px]:h-[80px] max-[400px]:w-[100px] " data-id={index++ + index++} data-courseid={el.courseId} onClick={(e)=> landingCourseSelector(e,bigPic?.current,title?.current,master?.current,content?.current,landingCourse?.current,setCourseId)}/>
                             )
                         })
                      }

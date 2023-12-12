@@ -9,16 +9,12 @@ const changeViewBlog = async (parent) => {
 
   for (let i = 0; i < children.length; i++) {
     if (radios1.checked) {
-
-      parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = sessionStorage.getItem("courseClass") == "grid" ? result.news[i].miniDescribe.slice(0,97) + "..." : result.news[i].miniDescribe;
+      parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = result.news[i].miniDescribe.slice(0,97) + "...";
       children[i].className = "";
       children[i].className = view1;
       children[i].style.height = "400px"
-      
-    
     } 
     else if (!radios1.checked) {
-
       parent.current.children[i].lastChild.firstChild.lastChild.innerHTML = result.news[i].miniDescribe.length >= 140 ? result.news[i].miniDescribe.slice(0) + "..." : result.news[i].miniDescribe;
       children[i].className = "";
       children[i].className = view2;
@@ -36,7 +32,6 @@ const changeViewBlog = async (parent) => {
               children[i].children[0].style.marginTop = "10px"
           }
       }
-
     }
   }
 };
