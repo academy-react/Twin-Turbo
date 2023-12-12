@@ -33,14 +33,13 @@ const FavoriteCourseMap = () => {
                         <img src="../src/assets/images/dashboard/Recycle Bin.png" alt="" className='w-[30px] cursor-pointer' onClick={()=> handelDeleting(element)}/>
                         <img src="../src/assets/images/panel/view.svg" alt="" className='w-[30px] cursor-pointer' onClick={()=> goToCourse(element)}/>
 
-                        {/* <span dir='rtl'>{element.cost}  تومان  </span> */}
                         <span dir='rtl'>{element.lastUpdate.slice(0,10)}</span>
                         <span dir='rtl'>{element.typeName}</span>
                         <span dir='rtl'>{element.levelName}</span>
                         <span dir='rtl'>{element.teacheName}</span>
                         <span dir='rtl'>{element.courseTitle}</span>
 
-                        <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                        <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress.indexOf("https://") !== -1 ? element?.tumbImageAddress : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
                     </div>
                 )
             })

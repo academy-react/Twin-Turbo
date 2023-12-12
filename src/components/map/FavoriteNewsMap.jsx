@@ -8,7 +8,6 @@ const FavoriteNewsMap = () => {
     const getFavoriteNews = async () => {
         let result = await customAxios.get("/SharePanel/GetMyFavoriteNews")
         setFavoriteNews(result.myFavoriteNews)
-        console.log(result.myFavoriteNews);
         
     }
 
@@ -37,10 +36,7 @@ const FavoriteNewsMap = () => {
                     <span dir='rtl'> {element.currentView} نفر</span>
                     <span dir='rtl'>{element.title.slice(0,10)}</span>
                     
-
-                    
-
-                    <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                    <img src={element?.currentImageAddressTumb !== null ? element?.currentImageAddressTumb.indexOf("https://") !== -1 ? element?.currentImageAddressTumb : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
                 </div>
             )
         })

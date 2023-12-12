@@ -17,7 +17,6 @@ const ForgetPassword = () => {
     const get = async ()=> {
     
       let ConfigValue = location.pathname.slice(location.pathname.lastIndexOf("/")+1)
-      console.log(ConfigValue);
       let res = await customAxios.get("/Sign/Reset/" + ConfigValue)
       
       sessionStorage.setItem("userId",res.id)
@@ -29,7 +28,6 @@ const ForgetPassword = () => {
 
       if(location.pathname !== "/forgetPassword" ) {
           setFlag(flag+1)
-          console.log(flag);
           get()
       }
 

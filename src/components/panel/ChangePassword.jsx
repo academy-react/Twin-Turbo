@@ -19,7 +19,6 @@ const ChangePassword = () => {
                 
             } catch (error) {
                 console.log(error);
-                
             }
 
         }

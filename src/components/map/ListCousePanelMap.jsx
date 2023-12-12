@@ -43,7 +43,7 @@ const ListCousePanelMap = ({inpurSearch}) => {
                     <span dir='rtl'>{element.teacherName}</span>
                     <span dir='rtl'>{element.title}</span>
 
-                    <img src={element.tumbImageAddress} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
+                    <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress.indexOf("https://") !== -1 ? element?.tumbImageAddress : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
                 </div>
             )
         })
