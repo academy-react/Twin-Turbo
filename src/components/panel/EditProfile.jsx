@@ -1,5 +1,5 @@
 import React , { useEffect, useRef, useState } from 'react'
-import {Formik,Form} from 'formik'
+import {Formik,Form, Field} from 'formik'
 import EditProfileItem from './EditProfileItem'
 
 import DatePicker from "react-multi-date-picker"
@@ -56,18 +56,17 @@ const EditProfile = () => {
                             <EditProfileItem content="کد ملی" name="nationalCode" placeholder="کد ملی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <div>
                                 <div>جنسیت</div>
-                                <div className='pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:inline-block [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
+                                <div className='flex pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
                                     <div>
-                                        <input type="radio" name="gender" id="radio1" className='w-[20px] h-[20px]'/>
+                                        <Field type="radio" name="gender1" id="radio1" className='w-[20px] h-[20px]'/>
                                         <label htmlFor="radio1">مرد</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="gender" id="radio2" className='w-[20px] h-[20px]'/>
+                                        <Field type="radio" name="gender1" id="radio2" className='w-[20px] h-[20px]'/>
                                         <label htmlFor="radio2">زن</label>
                                     </div>
                                 </div>
                             </div>
-                            {/* <EditProfileItem type="checkbox" content="جنسیت " name="Gender" placeholder="جنسیت را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  /> */}
                                 
                                 <div className='[&>div:last-child]:w-[85%] [&>div:last-child>input]:h-[50px] [&>div:last-child>input]:border [&>div:last-child>input]:border-[#ccc] [&>div:last-child>input]:relative [&>div:last-child>input]:top-[-20px] [&>div:last-child>input]:text-[#5A0BA9]'>
                                     <div>تاریخ تولد</div>
@@ -96,7 +95,19 @@ const EditProfile = () => {
                             <EditProfileItem content="نام خانوادگی" name="lName" placeholder="نام خانوادگی را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="پروفایل لینکدین" name="linkdinProfile" placeholder=" لینک لینکدین را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
                             <EditProfileItem content="لینک تلگرام" name="telegramLink" placeholder="لینک تلگرام  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
-                            <EditProfileItem content="دریافت خبرها" type="checkbox" name="ReceiveMessageEvent" placeholder="نقش  را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
+                            <div>
+                                <div>آیا مایل به دریافت خبر هستید؟</div>
+                                <div className='flex pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
+                                    <div>
+                                        <Field type="radio" name="receiveMessageEvent1" id="radio3" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = true}/>
+                                        <label htmlFor="radio3" className='px-5 relative right-[-30px] '>بله</label>
+                                    </div>
+                                    <div>
+                                        <Field type="radio" name="receiveMessageEvent1" id="radio4" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = false}/>
+                                        <label htmlFor="radio4" className='px-5 relative right-[-30px] '>خیر</label>
+                                    </div>
+                                </div>
+                            </div>
                             <EditProfileItem content="ادرس منزل" name="homeAdderess" placeholder="ادرس منزل را وارد کنید ..." border="border border-[#ccc]" display="hidden" className="placeholder:text-[#b9b7b7]" dir="rtl"  />
 
                         </div>
