@@ -34,6 +34,8 @@ const editProfileSubmit = async (values,userImage) => {
     // formData.append("HomeAdderess" , values.homeAdderess !== "" ? values.homeAdderess : res.homeAdderess)
     // formData.append("NationalCode" , values.nationalCode !== "" ? values.nationalCode : res.nationalCode)
     // formData.append("Gender" , values.gender ? values.gender : res.gender)
+    formData.append("Gender" , values.gender !== undefined ? values.gender : res.gender)
+
     // formData.append("BirthDay" , values.BirthDay ? values.BirthDay : res.birthDay)
     // formData.append("Latitude" , "12.3")
     // formData.append("Longitude" , "14.6")

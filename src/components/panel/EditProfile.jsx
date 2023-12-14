@@ -46,7 +46,7 @@ const EditProfile = () => {
                     </div>
                 </div>
             </div>
-            <Formik initialValues={{lName:"",fName:"",userAbout:"",linkdinProfile:"",telegramLink:"",receiveMessageEvent:false,homeAdderess:"",nationalCode:"",gender:false,birthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
+            <Formik initialValues={{lName:"",fName:"",userAbout:"",linkdinProfile:"",telegramLink:"",receiveMessageEvent:false,homeAdderess:"",nationalCode:"",gender:true,birthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
                 {(form)=> (
                     <Form dir='rtl' className="items-start max-[1200px]:flex-col max-[1200px]:[&>div]:w-full py-[10px] w-[95%] flex mx-auto bg-[#f4f4f4] mt-[-10px] rounded-[25px] [&>div]:w-[50%] [&>div]:flex [&>div]:flex-col [&>div>div]:my-[15px] [&>div>div]:w-[95%] [&>div>div]:h-[200px] [&>div>div]:rounded-[15px] [&>div>div]:mx-auto [&>div>div]:bg-[#fff] [&>div>div>div]:m-[20px] ">
                         <div>
@@ -58,11 +58,11 @@ const EditProfile = () => {
                                 <div>جنسیت</div>
                                 <div className='flex pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
                                     <div>
-                                        <Field type="radio" name="gender1" id="radio1" className='w-[20px] h-[20px]'/>
+                                        <Field type="radio" name="gender1" id="radio1" className='w-[20px] h-[20px]' />
                                         <label htmlFor="radio1">مرد</label>
                                     </div>
                                     <div>
-                                        <Field type="radio" name="gender1" id="radio2" className='w-[20px] h-[20px]'/>
+                                        <Field type="radio" name="gender1" id="radio2" className='w-[20px] h-[20px]'  />
                                         <label htmlFor="radio2">زن</label>
                                     </div>
                                 </div>
