@@ -10,6 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 export let setingBlogs ;
 export let setingItemComment ;
 export let setComment ;
+export let functionGetCommentNews ;
+
 const SelectedBlog = () => {
   const [blog, setBlog] = useState({});
   const [itemComment, setItemComment] = useState([]);
@@ -28,12 +30,14 @@ const SelectedBlog = () => {
     let resultComment = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
     setItemComment(resultComment)
   }
-
+  
   useEffect(() => {
-    setComment = setItemComment
-    getBlogDetail()
-    getBlogComment()
+      functionGetCommentNews = getBlogComment
+      setComment = setItemComment
+      getBlogDetail()
+      getBlogComment()
   }, [])
+
 
   const addToFavorite = async (e) => {
     if(!blog?.isCurrentUserFavorite) {

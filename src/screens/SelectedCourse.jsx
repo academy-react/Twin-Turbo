@@ -11,6 +11,7 @@ const SelectedCourses = () => {
   const [item, setItem] = useState();
   const [teacher, setTeacher] = useState();
   const [comment, setComment] = useState();
+
   let url = useParams();
   let theme = localStorage.getItem("theme")
 
@@ -31,6 +32,7 @@ const SelectedCourses = () => {
 
   }
 
+  
   const addToReserve = async (e) => {
     if(item?.isCourseReseve == "0") {
       await customAxios.post("/CourseReserve/ReserveAdd",{
@@ -50,7 +52,6 @@ const SelectedCourses = () => {
       e.target.innerHTML = "رزرو دوره"
     }
   }
-  console.log(item);
 
   const addToFavorite = async (e) => {
     if(!item?.isUserFavorite) {

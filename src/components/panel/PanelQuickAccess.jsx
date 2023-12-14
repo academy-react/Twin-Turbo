@@ -1,16 +1,19 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { Linkes } from "../common"
 import raiseUp from '../../core/utils/raiseUp.utils'
+import { useSelector } from "react-redux"
 
 const PanelQuickAccess = ({ className }) => {
 
     let location = useLocation()
     let navigate = useNavigate()
+    let p = useSelector(state => state) 
 
     const handelGoOut = () => {
 
         localStorage.removeItem("token")
-        navigate("/")  
+        navigate("/") 
+        console.log(p);
 
     }
 

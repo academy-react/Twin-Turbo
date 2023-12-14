@@ -4,7 +4,7 @@ import headerScroll from '../../core/utils/headerScroll.utils'
 import NightMode from '../common/NightMode'
 import customAxios from "../../core/services/interceptor"
 
-const Header = ({className,src,color,borderClass}) => {
+const Header = ({className,src,color,borderClass,ml}) => {
 
   let token = localStorage.getItem("token");
   let classUnAuthorize = " [&>a:nth-child(3)]:max-[1020px]:hidden [&>a:nth-child(2)]:max-[1020px]:hidden "
@@ -44,7 +44,7 @@ const Header = ({className,src,color,borderClass}) => {
                   <img src={"../src/assets/images/header/" + src} alt="" className="scale-[70%]"/>
               </div>
               <img src="../src/assets/images/menu.png" alt="" id="menuPic" className="h-[30px] max-[1020px]:block m-[15px] cursor-pointer max-[500px]:scale-[83%] hidden "/>
-              <div className={!token ? classUnAuthorize + " max-[500px]:scale-[83%] max-[500px]:ml-[-15px]" + " ml-[10px] relative max-[1400px]:[&>*]:scale-[95%]  max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " : " scale-[120%] ml-[20px] relative max-[1400px]:[&>*]:scale-[95%] max-[500px]:scale-[83%] max-[500px]:ml-[-15px] max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " + className}>
+              <div className={!token ? classUnAuthorize + "max-[500px]:scale-[83%] max-[500px]:ml-[-15px]" + " relative max-[1400px]:[&>*]:scale-[95%]  max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " : " scale-[120%] ml-[20px] relative max-[1400px]:[&>*]:scale-[95%] max-[500px]:scale-[83%] max-[500px]:ml-[-15px] max-[1280px]:[&>*]:scale-[90%] h-full flex justify-around items-center pl-1 text-[#8043bd] [&>a]:h-[45px] [&>a]:bg-[#f1ebf8] [&>a]:mx-[8px] [&>a]:rounded-[30px] [&>a]:flex [&>a]:justify-center [&>a]:items-center [&>a]:whitespace-nowrap [&>a]:text-[18px] [&>a]:cursor-pointer [&>a]:shadow-[0px_3px_6px_#5757574f] " + className} style={{marginLeft:ml}}>
                 <NightMode bgClass="bg-[#f1ebf8] px-[8px] absolute right-[-60px] " borderClass="border-2 border-black" />
                 {(location.pathname !== "/login" && location.pathname !== "/forgetPassword" && location.pathname !== "/forgetpassword" && location.pathname !== "/register") && <>
                     {!token && <LinkComponent content="ثبت نام" link="/register" className='mx-[15px] w-[100px] px-4 select-none' />}

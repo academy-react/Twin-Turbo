@@ -36,7 +36,7 @@ const ForgetPassword = () => {
   
   return (
     <div className='w-full h-[1345px] bg-gradient-to-r from-[#66008C] to-[#9F0099]'>
-      <Header className="hidden" src="avatar-1.png" color="#fff"/>
+      <Header className="hidden" ml="25px" src="avatar-1.png" color="#fff"/>
 
       <div className='w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden flex flex-col justify-start items-center max-[1256px]:mt-28'>
           

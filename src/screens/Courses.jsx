@@ -34,7 +34,7 @@ const Courses = () => {
 
   return (
     <div className="w-[1920px] max-[1920px]:w-full mx-auto my-0 overflow-hidden">
-      <Header src="avatar.png" color="#5A0BA9" />
+      <Header src="avatar.png" ml="25px" color="#5A0BA9" />
 
       <div className="w-full  flex flex-col items-center">
         <div className="inline-block my-[55px] px-[95px] py-[12px] rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] bg-white dark:bg-[#26324d] dark:text-white">

@@ -94,7 +94,7 @@ const Register = () => {
 
   return (
     <div className="w-full h-[1200px] bg-[#f5f5f5]">
-      <Header className="hidden" src="avatar.png" color="#5A0BA9" />
+      <Header className="hidden" ml="25px" src="avatar.png" color="#5A0BA9" />
       <div className="w-[1920px] max-[1919px]:w-full  mx-auto h-full relative overflow-hidden flex flex-col justify-start items-center">
           <img src="../src/assets/images/panel/path register.png" alt="" className="absolute left-[-31px] top-0 scale-x-[122%] scale-y-[127%] max-[1000px]:hidden"/>
           <img src="../src/assets/images/panel/register logo.png" alt="" className="absolute left-0 top-[260px] w-[63%] transition-all duration-1000 max-[1485px]:top-[200px] order-2 max-[1256px]:mt-20 max-[1256px]:right-0 max-[1256px]:top-0 max-[1256px]:relative max-[700px]:hidden"/>

@@ -7,7 +7,7 @@ import contactUsSubmit from '../core/validations/submit/contactUsSubmit'
 const ContactUs = () => {
     return (
         <div className='w-[1920px] mx-[auto] max-[1920px]:w-full'>
-            <Header src="avatar.png" color="#5A0BA9" />
+            <Header src="avatar.png" ml="25px" color="#5A0BA9" />
                 <div className='w-[80%] mx-auto flex items-center justify-around max-[1260px]:flex-wrap my-10'>
                     <Formik initialValues={{name:"",email:"",phone:"",textarea:""}} onSubmit={(values)=> contactUsSubmit(values)} validationSchema={contactUsValidation}>
                         <Form className="min-w-[600px] h-[750px] shadow-[0_0_7px_#ddd] bg-white dark:bg-gradient-to-tr from-[#4b5f8e] to-[#263659] rounded-3xl flex flex-col max-[1260px]:order-2 items-center justify-evenly transition-all duration-1000 max-[1300px]:scale-[90%] max-[750px]:scale-[80%] max-[540px]:scale-[70%] max-[460px]:min-w-[540px] max-[410px]:scale-[60%] max-[350px]:scale-[50%] max-[540px]:mt-[-100px] max-[350px]:mt-[-150px]" id="recommandsForm">

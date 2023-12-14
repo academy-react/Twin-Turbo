@@ -6,7 +6,7 @@ import { useRef , useState } from 'react'
 import { setComments } from '../../screens/SelectedCourse'
 import { ToastContainer, toast } from 'react-toastify'
 import { useEffect } from 'react'
-import { setComment } from '../../screens/SelectedBlog'
+import { functionGetCommentNews , setComment } from '../../screens/SelectedBlog'
 
 const Comment = ({db}) => {
     let url = useParams()
@@ -16,11 +16,16 @@ const Comment = ({db}) => {
     const ErrorParent = useRef()
 
     const addCommentBlog = async (value) => {
-        customAxios.post("/News/CreateNewsComment",{
-            newsId: url.id,
-            title: "Hamid",
-            describe: value.comment
-        })
+        if(value.comment.length >= 10) {
+            let result = await customAxios.get("/SharePanel/GetProfileInfo")
+            await customAxios.post("/News/CreateNewsComment",{
+                newsId: url.id,
+                title: result.fName + " " + result.lName,
+                describe: value.comment
+            })
+            functionGetCommentNews()
+        }
+        else toast.error("متن باید بیش از 12 کلمه باشد")
     } 
 
     const addCommentCourse= async (value) => {

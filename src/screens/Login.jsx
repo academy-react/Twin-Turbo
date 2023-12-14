@@ -14,7 +14,7 @@ const login = () => {
 
   return (
     <div className="w-full h-[1345px] bg-gradient-to-r from-[#66008C] to-[#9F0099]">
-      <Header className="hidden" src="avatar-1.png" color="#fff" />
+      <Header className="hidden" ml="25px" src="avatar-1.png" color="#fff" />
       <div className="w-[1920px] max-[1919px]:w-full mx-auto h-full relative overflow-hidden flex flex-col justify-start items-center">
 
           <img src="../src/assets/images/panel/path forget.png" alt="" className="absolute left-[-31px] top-[15px] scale-x-[122%] scale-y-[127%] max-[1000px]:hidden"/>

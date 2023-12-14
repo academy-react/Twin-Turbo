@@ -12,6 +12,7 @@ const DashBoard = () => {
 
   const getInfo = async () => {
       let result = await customAxios.get("/SharePanel/GetProfileInfo")
+      console.log(result);
       setMyInfo(result)
   }
 
