@@ -1,8 +1,10 @@
 import { useState , useEffect } from "react"
 import customAxios from "../../core/services/interceptor"
+import { useNavigate } from "react-router-dom"
 
 const FavoriteCourseMap = () => {
 
+    let navigate = useNavigate()
     const [favoriteCourse, setFavoriteCourse] = useState()
 
     const getFavoriteCourse = async() => {
@@ -22,7 +24,7 @@ const FavoriteCourseMap = () => {
         });
         getFavoriteCourse()
     }
-    const goToCourse = (element) => location.pathname = "/courses/" + element.courseId; 
+    const goToCourse = (element) => navigate("/courses/" + element.courseId)
     
     return (
         
