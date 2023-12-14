@@ -2,13 +2,19 @@ import customAxios from '../../core/services/interceptor';
 import ItemLandingNews from '../landing/news/ItemLandingNews'
 import { useEffect, useState } from 'react';
 
-const ItemNewsMap = () => {
+const ItemNewsMap = ({newValue}) => {
   
   const [blogsItem, setBlogsItem] = useState([])
 
   const getBlogs = async () => {
-    let result = await customAxios.get(`/News?PageNumber=1&RowsOfPage=3&SortType=DESC`);
-    setBlogsItem(result.news)
+    if(newValue == true) {
+      let result = await customAxios.get(`/News?PageNumber=3&RowsOfPage=3&SortType=DESC`);
+      setBlogsItem(result.news)
+    }
+    else {
+      let result = await customAxios.get(`/News?PageNumber=1&RowsOfPage=3&SortType=DESC`);
+      setBlogsItem(result.news)
+    }
   }
   useEffect(() => {
     getBlogs()

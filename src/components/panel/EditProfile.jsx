@@ -58,11 +58,11 @@ const EditProfile = () => {
                                 <div>جنسیت</div>
                                 <div className='flex pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
                                     <div>
-                                        <Field type="radio" name="gender1" id="radio1" className='w-[20px] h-[20px]'/>
+                                        <input type="radio" name="gendedr" id="radio1" className='w-[20px] h-[20px]' onChange={() => form.values.gender = true}/>
                                         <label htmlFor="radio1">مرد</label>
                                     </div>
                                     <div>
-                                        <Field type="radio" name="gender1" id="radio2" className='w-[20px] h-[20px]'/>
+                                        <input type="radio" name="gendedr" id="radio2" className='w-[20px] h-[20px]' onChange={() => form.values.gender = false}/>
                                         <label htmlFor="radio2">زن</label>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ const EditProfile = () => {
                                         ref={datePicker}
                                         onChange={() => {
                                         setTimeout(() => {
-                                            form.values.BirthDay = datePicker.current.children[0].value
+                                            form.values.birthDay = datePicker.current.children[0].value
                                         }, 10);
                                         }}
                                         placeholder="تاریخ تولد را وارد کنید ..."
@@ -99,11 +99,11 @@ const EditProfile = () => {
                                 <div>آیا مایل به دریافت خبر هستید؟</div>
                                 <div className='flex pt-[20px] [&>div]:w-[150px] [&>div]:h-[100px] [&>div]:flex [&>div]:justify-center [&>div]:items-center [&>div>*]:m-[15px] [&>div>*]:cursor-pointer [&>div>*]:text-[20px]'>
                                     <div>
-                                        <Field type="radio" name="receiveMessageEvent1" id="radio3" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = true}/>
+                                        <input type="radio" name="receiveMessageEvent1" id="radio3" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = true}/>
                                         <label htmlFor="radio3" className='px-5 relative right-[-30px] '>بله</label>
                                     </div>
                                     <div>
-                                        <Field type="radio" name="receiveMessageEvent1" id="radio4" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = false}/>
+                                        <input type="radio" name="receiveMessageEvent1" id="radio4" className='w-[20px] h-[20px]' onChange={() => form.values.receiveMessageEvent = false}/>
                                         <label htmlFor="radio4" className='px-5 relative right-[-30px] '>خیر</label>
                                     </div>
                                 </div>

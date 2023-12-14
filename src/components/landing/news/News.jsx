@@ -18,12 +18,12 @@ const News = () => {
       <div className="w-[90%] flex gap-20 [&>div]:w-[50%] [&>div]:shadow-[0px_0px_20px_#5757574f] dark:[&>div]:shadow-none [&>div]:mx-3 [&>div]:relative [&>div]:rounded-[15px] [&>div]:flex [&>div]:pt-[35px] max-[600px]:[&>div]:pt-[20px] [&>div]:items-center [&>div]:flex-col [&>div]:h-[470px] max-[600px]:[&>div]:h-[550px] max-[1200px]:flex-col max-[1200px]:[&>div]:mx-auto max-[1200px]:[&>div]:w-[85%] max-[1200px]:[&>div]:my-[10px] max-[600px]:w-[95%] max-[600px]:[&>div]:w-[400px] max-[450px]:[&>div]:w-full [&>div]:bg-white dark:[&>div]:bg-[#26324D] ">
           <div>
               <TitleItemNews content="اخبار"/>
-              <ItemNews />
+              <ItemNews newValue={false} />
               <Button content="بیشتر" className="scale-[90%] absolute left-4 bottom-2" link="/blogs" />
           </div>
           <div>
               <TitleItemNews content="مقالات"/>
-              <ItemNews />
+              <ItemNews newValue={true} />
               <Button content="بیشتر" className="scale-[90%] absolute left-4 bottom-2" link="/blogs" />
           </div>
       </div>
