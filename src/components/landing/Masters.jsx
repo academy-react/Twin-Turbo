@@ -9,7 +9,7 @@ const Masters = () => {
     const getTeacher = async () => {
 
       let res = await customAxios.get("/Home/GetTeachers")
-      setTeacher(res.slice(0,3))
+      setTeacher(res.slice(3,6))
 
     }
 
