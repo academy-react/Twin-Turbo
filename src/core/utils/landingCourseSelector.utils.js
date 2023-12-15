@@ -1,15 +1,13 @@
+import { setCurItem } from "../../components/landing/CoursesLanding";
 import customAxios from "../services/interceptor";
 
-const landingCourseSelector = async (e,pic,title,master,content,landingCourse,setCourseId) => {
-    let result = await customAxios.get("/Home/GetCoursesTop?Count=6")
+const landingCourseSelector = async (e,landingCourse,setCourseId) => {
+    let result = await customAxios.get("/Home/GetCoursesTop?Count=3")
     let num = e.target.getAttribute("data-id")
     let courseMapId = e.target.getAttribute("data-courseid")
     
     setTimeout(() => {
-        pic.src = e.target.getAttribute("src")
-        title.innerHTML = "دوره کامل : " + result[num].title
-        master.innerHTML = result[num].teacherName  
-        content.innerHTML =  result[num].describe  
+        setCurItem(result[num])
 
         landingCourse.setAttribute("data-courseid",courseMapId)
         setCourseId(landingCourse.getAttribute("data-courseid"))

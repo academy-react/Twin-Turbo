@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import CourseDetail from "../components/selected-Blog-course/CourseDetail";
 import { Header,Footer,RightPanel } from '../components/common'
 import customAxios from "../core/services/interceptor";
+import Loading from "../components/common/Loading"
 
 export let setComments;
 const SelectedCourses = () => {
@@ -13,6 +14,7 @@ const SelectedCourses = () => {
   const [comment, setComment] = useState();
 
   let url = useParams();
+  let token = localStorage.getItem("token")
   let theme = localStorage.getItem("theme")
 
   const getCourseDetail = async () => {
@@ -34,72 +36,92 @@ const SelectedCourses = () => {
 
   
   const addToReserve = async (e) => {
-    if(item?.isCourseReseve == "0") {
-      await customAxios.post("/CourseReserve/ReserveAdd",{
-          courseId: url.id
-      })
-      getCourseDetail()
-      e.target.innerHTML = "حذف رزرو"
-      toast.success("این دوره با موفقیت رزرو شد")
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else if(item?.isCourseReseve == "1") {
-      let res = await customAxios.delete("/CourseReserve" , {
-        data : {id : url.id}
-      })
-      if(res.success) toast.success("این دوره با موفقیت از رزرو حذف شد")
-      else toast.error("به دلیل اینکه  در دوره افزوده شدید قادر به حذف رزرو نمی باشید.")
-      getCourseDetail()
-      e.target.innerHTML = "رزرو دوره"
+    else {
+      if(item?.isCourseReseve == "0") {
+        await customAxios.post("/CourseReserve/ReserveAdd",{
+            courseId: url.id
+        })
+        getCourseDetail()
+        e.target.innerHTML = "حذف رزرو"
+        toast.success("این دوره با موفقیت رزرو شد")
+      }
+      else if(item?.isCourseReseve == "1") {
+        let res = await customAxios.delete("/CourseReserve" , {
+          data : {id : url.id}
+        })
+        if(res.success) toast.success("این دوره با موفقیت از رزرو حذف شد")
+        else toast.error("به دلیل اینکه  در دوره افزوده شدید قادر به حذف رزرو نمی باشید.")
+        getCourseDetail()
+        e.target.innerHTML = "رزرو دوره"
+      }
     }
   }
 
   const addToFavorite = async (e) => {
-    if(!item?.isUserFavorite) {
-      await customAxios.post("/Course/AddCourseFavorite",{
-          courseId: url.id
-      })
-      getCourseDetail()
-      e.target.innerHTML = "حذف از علاقه مندی ها"
-      toast.success("این دوره با موفقیت به مورد علاقه ها اضافه شد")
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else if(item?.isUserFavorite) {
-      let formData = new FormData()
-      formData.append("CourseFavoriteId" , item?.userFavoriteId)
-      await customAxios.delete("/Course/DeleteCourseFavorite" , {
-        data : formData
-      })
-      getCourseDetail()
-      toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
-      e.target.innerHTML = "افزودن به علاقه مندی ها"
+    else {
+      if(!item?.isUserFavorite) {
+        await customAxios.post("/Course/AddCourseFavorite",{
+            courseId: url.id
+        })
+        getCourseDetail()
+        e.target.innerHTML = "حذف از علاقه مندی ها"
+        toast.success("این دوره با موفقیت به مورد علاقه ها اضافه شد")
+      }
+      else if(item?.isUserFavorite) {
+        let formData = new FormData()
+        formData.append("CourseFavoriteId" , item?.userFavoriteId)
+        await customAxios.delete("/Course/DeleteCourseFavorite" , {
+          data : formData
+        })
+        getCourseDetail()
+        toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
+        e.target.innerHTML = "افزودن به علاقه مندی ها"
+      }
     }
   }
 
   const likeCourse = async (e) => {
-    if(item?.currentUserLike == "0") {
-      await customAxios.post("/Course/AddCourseLike?CourseId=" + url.id)
-      getCourseDetail()
-      e.target.innerHTML = "حذف لایک دوره"
-      toast.success("نظر شما با موفقیت ثبت شد")
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else if(item?.currentUserLike == "1") {
-      let formData = new FormData()
-      formData.append("CourseLikeId" , item?.userLikeId)
-      await customAxios.delete("/Course/DeleteCourseLike" , {
-        data : formData
-      })
-      getCourseDetail()
-      toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
-      e.target.innerHTML = "لایک دوره"
+    else {
+      if(item?.currentUserLike == "0") {
+        await customAxios.post("/Course/AddCourseLike?CourseId=" + url.id)
+        getCourseDetail()
+        e.target.innerHTML = "حذف لایک دوره"
+        toast.success("نظر شما با موفقیت ثبت شد")
+      }
+      else if(item?.currentUserLike == "1") {
+        let formData = new FormData()
+        formData.append("CourseLikeId" , item?.userLikeId)
+        await customAxios.delete("/Course/DeleteCourseLike" , {
+          data : formData
+        })
+        getCourseDetail()
+        toast.success("این دوره با موفقیت از مورد علاقه ها حذف شد")
+        e.target.innerHTML = "لایک دوره"
+      }
     }
   }
 
   const dissLikeCourse = async () => {
-    if(item?.currentUserDissLike == "0") {
-      await customAxios.post("/Course/AddCourseDissLike?CourseId=" + url.id)
-      getCourseDetail()
-      toast.success("نظر شما با موفقیت ثبت شد")
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else toast.error("قادر به ثبت دوباره نظر نمی باشید")
+    else {
+      if(item?.currentUserDissLike == "0") {
+        await customAxios.post("/Course/AddCourseDissLike?CourseId=" + url.id)
+        getCourseDetail()
+        toast.success("نظر شما با موفقیت ثبت شد")
+      }
+      else toast.error("قادر به ثبت دوباره نظر نمی باشید")
+    }
   }
 
   useEffect(() => {
@@ -110,8 +132,9 @@ const SelectedCourses = () => {
   
   return (
     <>
+      <Loading time={500} />
       <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
-        <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
+        <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={4}  /> 
         <Header src="avatar.png" color="#5A0BA9"/>
         <div className="w-[full] flex justify-center flex-wrap gap-[50px] my-5 mt-20 [&>div]:transition-all [&>div]:duration-100">
           <div dir="ltr" className="w-[580px] dark:bg-[#26324d] dark:[&>div]:bg-[#3c4e78] dark:[&>div]:shadow-none max-[1780px]:w-[500px] max-[1355px]:w-[400px] h-full flex flex-col items-center justify-center rounded-xl shadow-[0_0_7px_#ddd] bg-white py-5 max-[1150px]:order-2 max-[1150px]:w-[60%] max-[1150px]:mb-10 max-[715px]:w-[80%] max-[600px]:w-full max-[600px]:rounded-none" >
@@ -139,7 +162,7 @@ const SelectedCourses = () => {
                 <img src={teacher?.pictureAddress} alt="" className="w-20 h-20 rounded-3xl"/>
               </div>
               <div className="text-[#444] text-[22px] self-end m-3 dark:text-white"> : فعالیت ها</div>
-              <CourseDetail content={teacher?.newsCount} title="تعداد دورهها" noLogo="hidden" dir={"rtl"}/>
+              <CourseDetail content={teacher?.newsCount} title="تعداد اخبار" noLogo="hidden" dir={"rtl"}/>
               <CourseDetail content={teacher?.courseCounts} title="تعداد دوره ها" noLogo="hidden" dir={"rtl"}/>
             </div>
 

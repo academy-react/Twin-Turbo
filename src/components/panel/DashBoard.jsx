@@ -30,14 +30,13 @@ const DashBoard = () => {
         </div>
         <div className="shadow-[0_0_70px_#ccc] flex flex-col justify-around pb-[25px] ">
             <div className="text-center mt-[20px] text-[21px]">اطلاعات حساب کاربری</div>
-            <div dir="rtl" className="h-[70%] [&>div]:h-[14.28%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
+            <div dir="rtl" className="h-[70%] [&>div]:h-[20%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
               
-              <div>نام کاربری:<span>{myInfo?.lName} {myInfo?.fName}</span></div>
-              <div>ایمیل :  <span> {myInfo?.email} </span></div>
-              <div>تاریخ تولد :  <span> {myInfo?.birthDay.slice(0,10)} </span></div>
-              <div>کد ملی : <span> {myInfo?.nationalCode} </span></div>
-              <div>شماره همراه : <span> {myInfo?.phoneNumber} </span></div>
-              <div>جنسیت :<span> {myInfo?.gender ? "مرد" : "زن"} </span></div>
+              <div>نام کاربری:<span>{myInfo?.fName ? myInfo?.fName : "بدون نام"} {myInfo?.lName ? myInfo?.lName : "بدون نام خانوادگی"}</span></div>
+              <div>ایمیل :  <span> {myInfo?.email ? myInfo?.email : "بدون ایمیل"} </span></div>
+              <div>تاریخ تولد :  <span> {myInfo?.birthDay ? myInfo?.birthDay.slice(0,10) : "نا مشخص"} </span></div>
+              <div>کد ملی : <span> {myInfo?.nationalCode ? myInfo?.nationalCode : "نامشخص"} </span></div>
+              <div>شماره همراه : <span> {myInfo?.phoneNumber ? myInfo?.phoneNumber : "بدون شماره همراه"} </span></div>
 
             </div>
             <div onClick={()=> raiseUp(navigate,"/panel/editprofile",true)} className="bg-[#36C54E] w-[90%] h-[60px] rounded-[15px] mx-auto flex justify-center items-center text-[#fff] text-[22px] cursor-pointer">ویرایش</div>

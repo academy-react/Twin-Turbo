@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+import { setMyInf } from '../../../screens/Panel';
 import customAxios from '../../services/interceptor';
 
 let input ;
@@ -34,14 +36,19 @@ const editProfileSubmit = async (values,userImage) => {
     formData.append("HomeAdderess" , values.homeAdderess !== "" ? values.homeAdderess : res.homeAdderess)
     formData.append("NationalCode" , values.nationalCode !== "" ? values.nationalCode : res.nationalCode)
     formData.append("Gender" , values.gender )
-    formData.append("BirthDay" , values.BirthDay ? values.BirthDay : res.birthDay)
+    formData.append("BirthDay" , values.birthDay ? values.birthDay : res.birthDay)
     formData.append("Latitude" , "12.3")
     formData.append("Longitude" , "14.6")
 
-    customAxios.put("/SharePanel/UpdateProfileInfo",formData,
+    let update = await customAxios.put("/SharePanel/UpdateProfileInfo",formData,
         {headers : {"Authorization" : "Bearer " + token}}
     )
-
+    if(update.success) {
+        let newRes = await customAxios.get("/SharePanel/GetProfileInfo")
+        setMyInf(newRes)
+        toast.success("عملیات با موفقیت انجام شد")
+    }
+    else toast.error("خطا در انجام عملیات")
 
 }
 

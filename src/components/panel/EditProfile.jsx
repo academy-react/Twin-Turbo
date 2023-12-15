@@ -78,10 +78,10 @@ const EditProfile = () => {
                                         }, 10);
                                         }}
                                         placeholder="تاریخ تولد را وارد کنید ..."
-                                        minDate="1330/1/1"
+                                        minDate="1900/1/1"
                                         maxDate={new Date}
-                                        calendar={persian}
-                                        locale={persian_fa}
+                                        // calendar={persian}
+                                        // locale={persian_fa}
                                         arrow={false}
                                         calendarPosition="left"
                                         inputClass='text-[18px] pr-[15px] w-full placeholder:text-[#5a0ba951] text-[#5A0BA9]  border-[rgba(112,112,112,0.14)] outline-none rounded-lg h-12 pl-5 placeholder:text-[#b9b7b7]'

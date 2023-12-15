@@ -12,20 +12,26 @@ const Comment = ({db}) => {
     let url = useParams()
     let location = useLocation()
     const [theme, setTheme] = useState(localStorage.getItem("theme"))
+    let token = localStorage.getItem("token")
     const parentComment = useRef()
     const ErrorParent = useRef()
 
     const addCommentBlog = async (value) => {
-        if(value.comment.length >= 10) {
-            let result = await customAxios.get("/SharePanel/GetProfileInfo")
-            await customAxios.post("/News/CreateNewsComment",{
-                newsId: url.id,
-                title: result.fName + " " + result.lName,
-                describe: value.comment
-            })
-            functionGetCommentNews()
+        if(!token) {
+          toast.error("لطفا ابتدا ثبت نام کنید")
         }
-        else toast.error("متن باید بیش از 12 کلمه باشد")
+        else {
+            if(value.comment.length >= 10) {
+                let result = await customAxios.get("/SharePanel/GetProfileInfo")
+                await customAxios.post("/News/CreateNewsComment",{
+                    newsId: url.id,
+                    title: result.fName + " " + result.lName,
+                    describe: value.comment
+                })
+                functionGetCommentNews()
+            }
+            else toast.error("متن باید بیش از 12 کلمه باشد")
+        }
     } 
 
     const addCommentCourse= async (value) => {
@@ -36,27 +42,34 @@ const Comment = ({db}) => {
         formData.append("Describe", value.comment)
 
         customAxios.post("/Course/AddCommentCourse",formData)
+    
     } 
 
     const handle = async (value)=> { 
-        if(textarea.value.length < 5) toast.error("نظر شما حداقل باید 5 کلمه باشد")
+        if(!token) {
+          toast.error("لطفا ابتدا ثبت نام کنید")
+        }
         else {
-            if(location.pathname.indexOf("/blogs") !== -1)  {
+            if(textarea.value.length < 5) toast.error("نظر شما حداقل باید 5 کلمه باشد")
+            else {
+                if(location.pathname.indexOf("/blogs") !== -1)  {
 
-                addCommentBlog(value)
-                let result = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
-                setComment(result)
+                    addCommentBlog(value)
+                    let result = await customAxios.get("/News/GetNewsComments?NewsId=" + url.id)
+                    setComment(result)
 
-            }  
-            else if(location.pathname.indexOf("/courses") !== -1) {
+                }  
+                else if(location.pathname.indexOf("/courses") !== -1) {
 
-                addCommentCourse(value)
-                let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-                setComments(result)
+                    addCommentCourse(value)
+                    let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                    setComments(result)
 
-            }   
-            value.comment = ""
-            textarea.value = ""
+                }   
+                value.comment = ""
+                textarea.value = ""
+                toast.success("نظر شما با موفقیت اضافه شد")
+            }
         }
     }
     

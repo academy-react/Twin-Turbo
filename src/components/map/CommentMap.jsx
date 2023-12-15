@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 const CommentMap = ({ db , parentComment }) => {
     let flag = true
     let theme = localStorage.getItem("theme")
+    let token = localStorage.getItem("token")
     let url = useParams()
     let location = useLocation()
     const parent = useRef()
@@ -84,44 +85,49 @@ const CommentMap = ({ db , parentComment }) => {
             
             accBtn.onclick = async (e) => {
                 
-                let res = await customAxios.get("/SharePanel/GetProfileInfo")
-                flag = true
-                
-                if(textareaReply.value.length < 5) toast.error("لطفا متنی بیش از 5 کلمه وارد کنید")
-                else if(location.pathname.indexOf("/courses") !== -1 && textareaReply.value !== "") {
-                    
-                    let formData = new FormData()
-                    formData.append("CommentId",element.id)
-                    formData.append("CourseId",element.courseId)
-                    formData.append("Title",res.fName + " " + res.lName)
-                    formData.append("Describe",textareaReply.value)
-
-                    await customAxios.post("/Course/AddReplyCourseComment",formData)
-                    let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
-                    setComments(result)
-                    functionGetReplyCommentCourse(element)
-                    if(repOrder.current) {
-                        repOrder.current.remove()
-                        flag = true
-                    }
-                    if(parent.current) parent.current.remove()
-                    replay.remove()
-                    toast.success("عملیات با موفقیت انجام شد")
-
+                if(!token) {
+                    toast.error("لطفا ابتدا ثبت نام کنید")
                 }
-                else if(location.pathname.indexOf("/blogs") !== -1){
-
-                    customAxios.post("/News/CreateNewsReplyComment",{
-                        newsId: element.newsId,
-                        userIpAddress: "192.197.66.7777",
-                        title: res.fName + " " + res.lName,
-                        describe: textareaReply.value,
-                        userId: element.id,
-                        parentId: element.parentId,
-                    })
+                else {
+                    let res = await customAxios.get("/SharePanel/GetProfileInfo")
+                    flag = true
                     
-                    replay.remove()
-                    toast.success("عملیات با موفقیت انجام شد")
+                    if(textareaReply.value.length < 5) toast.error("لطفا متنی بیش از 5 کلمه وارد کنید")
+                    else if(location.pathname.indexOf("/courses") !== -1 && textareaReply.value !== "") {
+                        
+                        let formData = new FormData()
+                        formData.append("CommentId",element.id)
+                        formData.append("CourseId",element.courseId)
+                        formData.append("Title",res.fName + " " + res.lName)
+                        formData.append("Describe",textareaReply.value)
+
+                        await customAxios.post("/Course/AddReplyCourseComment",formData)
+                        let result = await customAxios.get("/Course/GetCourseCommnets/" + url.id)
+                        setComments(result)
+                        functionGetReplyCommentCourse(element)
+                        if(repOrder.current) {
+                            repOrder.current.remove()
+                            flag = true
+                        }
+                        if(parent.current) parent.current.remove()
+                        replay.remove()
+                        toast.success("عملیات با موفقیت انجام شد")
+
+                    }
+                    else if(location.pathname.indexOf("/blogs") !== -1){
+
+                        customAxios.post("/News/CreateNewsReplyComment",{
+                            newsId: element.newsId,
+                            userIpAddress: "192.197.66.7777",
+                            title: res.fName + " " + res.lName,
+                            describe: textareaReply.value,
+                            userId: element.id,
+                            parentId: element.parentId,
+                        })
+                        
+                        replay.remove()
+                        toast.success("عملیات با موفقیت انجام شد")
+                    }
                 }
             }
             idea.appendChild(accBtn);

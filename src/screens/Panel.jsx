@@ -4,6 +4,7 @@ import PanelQuickAccess from '../components/panel/PanelQuickAccess'
 import { useEffect, useState } from 'react'
 import customAxios from '../core/services/interceptor'
 import { useSelector } from 'react-redux'
+import Loading from '../components/common/Loading'
 
 export let selTok;
 export let setMyInf;
@@ -32,7 +33,8 @@ const Panel = () => {
 
   return (
     <>
-        <div className=" w-[1920px] mx-auto my-0 max-[1919px]:w-full relative">
+        <Loading time={500} />
+        <div className="w-[1920px] mx-auto my-0 max-[1919px]:w-full relative">
 
             <Header src="avatar.png" color="#5A0BA9" hClass="fixed" />
             <div className="w-[90%] h-[900px] mx-auto my-10 flex justify-evenly [&>div]:border max-[1020px]:w-full max-[1800px]:w-[100%]">

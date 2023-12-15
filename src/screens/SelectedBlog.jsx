@@ -6,6 +6,7 @@ import SelectedBlogMap from '../components/map/SelectedBlogMap'
 import customAxios from "../core/services/interceptor";
 import CourseDetail from "../components/selected-Blog-course/CourseDetail";
 import { ToastContainer, toast } from "react-toastify";
+import Loading from "../components/common/Loading"
 
 export let setingBlogs ;
 export let setingItemComment ;
@@ -17,6 +18,7 @@ const SelectedBlog = () => {
   const [itemComment, setItemComment] = useState([]);
   let url = useParams();
   let theme = localStorage.getItem("theme")
+  let token = localStorage.getItem("token")
 
   setingBlogs = setBlog
   setingItemComment = setItemComment
@@ -40,50 +42,66 @@ const SelectedBlog = () => {
 
 
   const addToFavorite = async (e) => {
-    if(!blog?.isCurrentUserFavorite) {
-      await customAxios.post("/News/AddFavoriteNews?NewsId=" + url.id)
-      getBlogDetail()
-      toast.success("این خبر با موفقیت به مورد علاقه ها اضافه شد")
-      e.target.innerHTML = "حذف از علاقه مندی ها"
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else if(blog?.isCurrentUserFavorite) {
-      await customAxios.delete("/News/DeleteFavoriteNews" , {
-        data : {deleteEntityId : blog?.currentUserFavoriteId}
-      })
-      getBlogDetail()
-      toast.success("این خبر با موفقیت از مورد علاقه ها حذف شد")
-      e.target.innerHTML = "افزودن به علاقه مندی ها"
+    else {
+      if(!blog?.isCurrentUserFavorite) {
+        await customAxios.post("/News/AddFavoriteNews?NewsId=" + url.id)
+        getBlogDetail()
+        toast.success("این خبر با موفقیت به مورد علاقه ها اضافه شد")
+        e.target.innerHTML = "حذف از علاقه مندی ها"
+      }
+      else if(blog?.isCurrentUserFavorite) {
+        await customAxios.delete("/News/DeleteFavoriteNews" , {
+          data : {deleteEntityId : blog?.currentUserFavoriteId}
+        })
+        getBlogDetail()
+        toast.success("این خبر با موفقیت از مورد علاقه ها حذف شد")
+        e.target.innerHTML = "افزودن به علاقه مندی ها"
+      }
     }
   }
 
   const likeNews = async (e) => {
-    if(!blog?.currentUserIsLike) {
-      await customAxios.post("/News/NewsLike/" + url.id)
-      getBlogDetail()
-      toast.success("نظر شما با موفقیت ثبت شد")
-      e.target.innerHTML = "حذف لایک"
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else if(blog?.currentUserIsLike) {
-      await customAxios.delete("/News/DeleteLikeNews" , {
-        data : {deleteEntityId : blog?.likeId}
-      })
-      getBlogDetail()
-      toast.success("نظر شما با موفقیت ثبت شد")
-      e.target.innerHTML = "لایک خبر"
+    else {
+      if(!blog?.currentUserIsLike) {
+        await customAxios.post("/News/NewsLike/" + url.id)
+        getBlogDetail()
+        toast.success("نظر شما با موفقیت ثبت شد")
+        e.target.innerHTML = "حذف لایک"
+      }
+      else if(blog?.currentUserIsLike) {
+        await customAxios.delete("/News/DeleteLikeNews" , {
+          data : {deleteEntityId : blog?.likeId}
+        })
+        getBlogDetail()
+        toast.success("نظر شما با موفقیت ثبت شد")
+        e.target.innerHTML = "لایک خبر"
+      }
     }
   }
 
   const dissLikeNews = async () => {
-    if(!blog?.currentUserIsDissLike) {
-      await customAxios.post("/News/NewsDissLike/" + url.id)
-      getBlogDetail()
-      toast.success("نظر شما با موفقیت ثبت شد")
+    if(!token) {
+      toast.error("لطفا ابتدا ثبت نام کنید")
     }
-    else toast.error("قادر به ثبت دوباره نظر نمی باشید")
+    else {
+      if(!blog?.currentUserIsDissLike) {
+        await customAxios.post("/News/NewsDissLike/" + url.id)
+        getBlogDetail()
+        toast.success("نظر شما با موفقیت ثبت شد")
+      }
+      else toast.error("قادر به ثبت دوباره نظر نمی باشید")
+    }
   }
 
   return (
     <>
+      <Loading time={500} />
       <div className="w-[1920px] max-[1919px]:w-full mx-[auto]">
         <ToastContainer theme={theme} autoClose={4000} position="top-center" limit={2}  /> 
         <Header src="avatar.png" color="#5A0BA9" />
