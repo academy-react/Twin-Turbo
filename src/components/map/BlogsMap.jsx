@@ -21,7 +21,7 @@ const BlogsMap = () => {
 
     const [blogsItem, setBlogsItem] = useState([])
     const [input, setInput] = useState("")
-    const [rowsOfPage, setRowsOfPage] = useState(4)
+    const [rowsOfPage, setRowsOfPage] = useState(6)
     const [PageNumber, setPageNumber] = useState(1)
     const [sort, setSort] = useState("Active")
 
@@ -41,12 +41,12 @@ const BlogsMap = () => {
 
     
     useEffect(() => {
-        setBlog = blogsItem
-        Rowsing = setRowsOfPage
-        settingPageNumberBlog = setPageNumber
-        settingSort = setSort
-        setingInput = setInput
-        getBlogs()
+      setBlog = blogsItem
+      Rowsing = setRowsOfPage
+      settingPageNumberBlog = setPageNumber
+      settingSort = setSort
+      setingInput = setInput
+      getBlogs()
 
     }, [])
   

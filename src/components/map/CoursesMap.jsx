@@ -5,11 +5,7 @@ import ReactStars from "react-stars";
 import changeViewCourses from "../../core/utils/changeViewCourse.utils";
 import { settingDbCourse } from "../common/Paginate";
 
-let addToCourse;
-let Rows;
-let settingPageNumber;
-let settingSort;
-let settingInput;
+export let addToCourse , Rows , costDowner , costUpper , settingTechnologies , settingPageNumber , settingSort , settingInput , settingLevel , settingCourseTypeId;
 
 const CoursesMap = ({parent}) => {
     let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white dark:bg-[#26324d] flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer";
@@ -23,13 +19,18 @@ const CoursesMap = ({parent}) => {
 
     
     const [course, setCourse] = useState([])
-    const [rowsOfPage, setRowsOfPage] = useState(4)
+    const [rowsOfPage, setRowsOfPage] = useState(6)
     const [PageNumber, setPageNumber] = useState(1)
+    const [costDown, setCostDown] = useState(0)
+    const [costUp, setCostUp] = useState()
+    const [level, setLevel] = useState()
+    const [technologies, setTechnologies] = useState()
+    const [courseTypeId, setCourseTypeId] = useState()
     const [sort, setSort] = useState("Active")
     const [input, setInput] = useState("")
     
     const getCoursesAll = async () => {
-      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}&TechCount=0`) 
+      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}${courseTypeId ? `&CourseTypeId=${courseTypeId}` : ""}&CostDown=${costDown}${costUp ? `&CostUp=${costUp}` : ""}${level ? `&courseLevelId=${level}` : ""}${technologies ? `&ListTech=${technologies}` : ""}`) 
       setCourse(result.courseFilterDtos)
       settingDbCourse(result.totalCount)
       setTimeout(() => {changeViewCourses(parent)}, 50);
@@ -42,8 +43,23 @@ const CoursesMap = ({parent}) => {
     useEffect(() => {getCoursesAll()}, [sort])
     
     useEffect(() => {getCoursesAll()}, [input])
+
+    useEffect(() => {getCoursesAll()}, [costDown])
+
+    useEffect(() => {getCoursesAll()}, [costUp])
+
+    useEffect(() => {getCoursesAll()}, [level])
+
+    useEffect(() => {getCoursesAll()}, [technologies])
+
+    useEffect(() => {getCoursesAll()}, [courseTypeId])
     
     useEffect(() => {
+      settingTechnologies = setTechnologies
+      settingLevel = setLevel
+      costDowner = setCostDown
+      costUpper = setCostUp
+      settingCourseTypeId = setCourseTypeId
       addToCourse = setCourse
       Rows = setRowsOfPage
       settingPageNumber = setPageNumber
@@ -62,7 +78,7 @@ const CoursesMap = ({parent}) => {
                   <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress.indexOf("https://") !== -1 ? element?.tumbImageAddress : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} className="mx-auto h-full w-full rounded-[20px]"/>
                 </div>
                 <div dir="rtl" className="w-full h-[210px] mx-auto relative">
-                  <p className="text-[24px] absolute right-2 dark:text-white">{element.title}</p>
+                  <p className="text-[24px] absolute right-2 dark:text-white truncate w-[255px]">{element.title}</p>
 
                   <div className="w-7 absolute left-1 top-1 flex flex-col items-center">
                     <img src={theme == "light" ? "../src/assets/images/selectedCourse/likeDefault.png" : "../src/assets/images/selectedCourse/likeDefault-light.png"} className="likeCourse" alt="" />
@@ -95,5 +111,4 @@ const CoursesMap = ({parent}) => {
 
     );
 };
-export {addToCourse , Rows , settingPageNumber , settingSort , settingInput}
 export default CoursesMap;

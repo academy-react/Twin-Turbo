@@ -1,26 +1,54 @@
 import { Header,Footer,SelectOption,View, Paginate } from '../components/common'
 import changeViewCourses from "../core/utils/changeViewCourse.utils";
 import { useEffect, useRef , useState} from "react"
-import CoursesMap, { settingInput } from '../components/map/CoursesMap'
+import CoursesMap, { costDowner, costUpper, settingCourseTypeId, settingInput, settingLevel, settingTechnologies } from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 import SortCourse from '../components/course&blog/SortCourse'
 import Loading from '../components/common/Loading';
+import customAxios from '../core/services/interceptor';
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
 
 export let settingCountCourse;
 
 const Courses = () => {
+    let priceFrom = useRef();
+    let priceTo = useRef();
+    let filterParent = useRef();
     let parent = useRef();
     const time = useRef();
+    const costD = useRef();
+    const costU = useRef();
     const input = useRef();
-    const [counter, setCounter] = useState(4)
+    const [counter, setCounter] = useState(6)
+    const [courseType, setCourseType] = useState()
+    const [courseLevel, setCourseLevel] = useState()
+    const [courseTechnologies, setCourseTechnologies] = useState()
+    let flag = [false , false , false , false]
 
     let state = sessionStorage.getItem("courseClass")  
 
+    const getCourseTypes = async () => {
+      let res = await customAxios.get("/CourseType/GetCourseTypes")
+      setCourseType(res)
+    }
+    const getCourseTechnologies = async () => {
+      let res = await customAxios.get("/Home/GetTechnologies")
+      setCourseTechnologies(res)
+    }
+    const getCourseLevel = async () => {
+      let res = await customAxios.get("/CourseLevel/GetAllCourseLevel")
+      setCourseLevel(res)
+    }
+
     useEffect(() => {
+      getCourseTypes()
+      getCourseLevel()
+      getCourseTechnologies()
       settingCountCourse = setCounter
-        if(!state) sessionStorage.setItem("courseClass" , "grid")
-        window.onresize = () => {resizeCourse(parent)}
-        return () => { window.onresize = () => {return false}}
+      if(!state) sessionStorage.setItem("courseClass" , "grid")
+      window.onresize = () => {resizeCourse(parent)}
+      return () => { window.onresize = () => {return false}}
     }, [])
 
 
@@ -31,7 +59,46 @@ const Courses = () => {
     }, 1000);
     time.current = timeOut
   }
+
+  const openAcc = (e,h,id) => {
+    if(e.target.nodeName == "DIV") {
+      if(!flag[id]) {
+        e.target.nextElementSibling.style.height = h + "px"
+        filterParent.current.style.height = Math.ceil(filterParent.current.style.height.slice(0,filterParent.current.style.height.indexOf("p"))) + h + "px"
+        e.target.nextElementSibling.style.borderBottom = "1px solid #cdcdcd"
+        flag[id] = true
+      }
+      else if(flag[id]) {
+        e.target.nextElementSibling.style.height = "0px"
+        filterParent.current.style.height = Math.ceil(filterParent.current.style.height.slice(0,filterParent.current.style.height.indexOf("p"))) - h + "px"
+        e.target.nextElementSibling.style.borderBottom = "1px solid transparent"
+        flag[id] = false
+      }
+      e.target.children[1].classList.toggle("rotate-180")
+    }
+    else return
+  }
+  const handlePrice = e => {
+    priceFrom.current.innerHTML = e[0]
+    priceTo.current.innerHTML = e[1]
+    costDowns(e)
+    costUps(e)
+  }
   
+  const costDowns = (e) => {
+    clearTimeout(costD.current)
+    let timeOut = setTimeout(() => {
+      costDowner(e[0])
+    }, 1000);
+    costD.current = timeOut
+  }
+  const costUps = (e) => {
+    clearTimeout(costU.current)
+    let timeOut = setTimeout(() => {
+      costUpper(e[1])
+    }, 1000);
+    costU.current = timeOut
+  }
 
   return (
     <>
@@ -63,11 +130,117 @@ const Courses = () => {
               <View id="radios2" htmlFor="radios2" defaultChecked={state ? state == "table" ? true : false : false} src="view (2).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","table")}}/>
             </div>
           </div>
-          <div dir="rtl" className="w-[90%] flex flex-wrap justify-around" ref={parent}>
-            <CoursesMap parent={parent} />
+          <div dir="rtl" className="w-[90%] flex flex-wrap justify-between">
+            
+            <div ref={filterParent} className="transition-all duration-300 flex flex-col justify-start border border-[#cdcdcd] rounded-3xl w-[20%] [&>div.top-acc:not([&>div.top-acc:last-child])]:border-b-2 [&>div.top-acc]:border-[#cdcdcd] [&>div.top-acc]:h-[80px] [&>div.top-acc]:flex [&>div.top-acc]:justify-between [&>div.top-acc]:items-center [&>div.top-acc]:px-5 [&>div.top-acc]:cursor-pointer" style={{height : 385}}>
+
+              <div className='top-acc' onClick={e => openAcc(e,140,0)}>
+                <span className="text-[24px]">نوع دوره</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="black" className={`h-6 w-6 transition-transform`} >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  
+                  />
+                </svg>
+              </div>
+
+              <div className='transition-all duration-300 overflow-hidden pr-2 flex flex-col items-start justify-center m-2 [&>div>*]:cursor-pointer [&>div>label]:text-[20px] [&>div>label]:mr-2 [&>div]:my-2' style={{height : 0}}>
+                {courseType?.map((el,index) => {
+                  return  <>
+                    <div key={index}>
+                      <input type="radio" name="courseType" id={`courseType${el.id}`} onInput={() => settingCourseTypeId(el.id)} className='w-5 h-5' />
+                      <label htmlFor={`courseType${el.id}`}>{el.typeName}</label>
+                    </div>
+                  </>
+                })}
+                  <div>
+                    <input type="radio" name="courseType" id="all" onInput={() => settingCourseTypeId("")} className='w-5 h-5' />
+                    <label htmlFor="all">همه</label>
+                  </div>
+              </div>
+
+              <div className='top-acc' onClick={e => openAcc(e,180,1)}>
+                <span className="text-[24px]">سطح دوره</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="black" className={`h-6 w-6 transition-transform`}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+
+              <div className='transition-all duration-300 overflow-hidden pr-2 flex flex-col items-start justify-center m-2 [&>div>*]:cursor-pointer [&>div>label]:text-[20px] [&>div>label]:mr-2 [&>div]:my-2' style={{height : 0}}>
+              
+                {courseLevel?.map((el,index) => {
+                  return  <>
+                    <div key={index}>
+                      <input type="radio" name="courseLevel" id={`courseLevel${el.id}`} onInput={() => settingLevel(el.id)} className='w-5 h-5' />
+                      <label htmlFor={`courseLevel${el.id}`}>{el.levelName}</label>
+                    </div>
+                  </>
+                })}
+                <div>
+                  <input type="radio" name="courseLevel" id="courseLevel" onInput={() => settingLevel("")} className='w-5 h-5' />
+                  <label htmlFor={`courseLevel`}>همه</label>
+                </div>
+
+              </div>
+              
+              <div className='top-acc' onClick={e => openAcc(e,380,2)}>
+                <span className="text-[24px]">دسته بندی</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="black" className={`h-6 w-6 transition-transform`}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+
+              <div className='transition-all duration-300 overflow-hidden pr-2 flex flex-col items-start justify-center m-2 [&>div>*]:cursor-pointer [&>div>label]:text-[20px] [&>div>label]:mr-2 [&>div]:my-2' style={{height : 0}}>
+              
+                {courseTechnologies?.map((el,index) => {
+                  return  <>
+                    <div key={index}>
+                      <input type="checkbox" name="courseTechnologies" id={`courseTechnologies${el.id}`} onClick={() => settingTechnologies(el.id)} className='w-5 h-5' />
+                      <label htmlFor={`courseTechnologies${el.id}`}>{el.techName}</label>
+                    </div>
+                  </>
+                })}
+
+              </div>
+
+              <div className='top-acc' onClick={e => openAcc(e,200,3)} >
+                <span className="text-[24px]">قیمت</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="black" className={`h-6 w-6 transition-transform`}>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+
+              <div className='transition-all duration-300 overflow-hidden pr-4 gap-3 flex flex-col items-start justify-center text-[21px] [&>div]:my-2' style={{height : 0 , borderRadius : "20px"}}>
+              
+                <RangeSlider className="bg-[#ccc] w-[95%] [&>div]:bg-purple-500" onInput={e => handlePrice(e)} step="5000" min="0" max="500000" defaultValue={[0,500000]} />
+
+                <div>از <span ref={priceFrom} className="mx-2">0</span> تومان </div>
+                <div>تا <span ref={priceTo} className="mx-2">500000</span> تومان </div>
+
+              </div>
+
+            </div>
+
+            <div className="w-[80%] flex flex-wrap justify-center content-start" ref={parent}>
+              <CoursesMap parent={parent} />
+            </div>
           </div>
           <div className="w-full h-[70px] m-[25px] rounded-[25px] flex justify-center items-center">
-            <div className="w-[400px] h-full shadow-[0_0_7px_#ddd] rounded-[25px] bg-white dark:bg-[#26324d]">
+            <div className="w-[400px] h-full shadow-[0_0_7px_#cdcdcd] rounded-[25px] bg-white dark:bg-[#26324d]">
               <Paginate itemsPerPage={counter} />
             </div>
           </div>
