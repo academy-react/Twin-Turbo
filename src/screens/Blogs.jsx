@@ -13,7 +13,7 @@ const Blogs = () => {
   let parent = useRef();
   const input = useRef()
   const time = useRef()
-  const [counter, setCounter] = useState(4)
+  const [counter, setCounter] = useState(6)
   let state = sessionStorage.getItem("newsClass")
 
   
