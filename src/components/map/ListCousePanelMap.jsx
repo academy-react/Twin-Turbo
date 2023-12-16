@@ -6,12 +6,12 @@ const ListCousePanelMap = ({inpurSearch}) => {
 
     const [course, setCourse] = useState([])
     const [input, setInput] = useState("")
-    const [PageNumber, setPageNumber] = useState(1)
+    const [PageNumber, setPageNumber] = useState(5)
     let navigate = useNavigate()
     const time = useRef()
 
     const getCourse = async ()=> {
-        let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=5&&SortType=DESC${input ? `&Query=${input}` : ""}`)
+        let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=6&&SortType=DESC${input ? `&Query=${input}` : ""}`)
         setCourse(result.courseFilterDtos)
     }
     useEffect(() => {getCourse()}, [input])
@@ -41,7 +41,7 @@ const ListCousePanelMap = ({inpurSearch}) => {
                     <span dir='rtl'>{element.statusName}</span>
                     <span dir='rtl'>{element.levelName}</span>
                     <span dir='rtl'>{element.teacherName}</span>
-                    <span dir='rtl'>{element.title}</span>
+                    <span dir='rtl'>{element.title.slice(0,14)}</span>
 
                     <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress.indexOf("https://") !== -1 ? element?.tumbImageAddress : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} alt="" className='w-[90px] h-[80%] rounded-[15px]' />
                 </div>

@@ -2,6 +2,7 @@ import { toast } from "react-toastify"
 import { setComment } from "../../screens/SelectedBlog"
 import { setComments } from "../../screens/SelectedCourse"
 import customAxios from "../services/interceptor"
+import { settingReplyComment } from "../../components/map/ReplyCommentMap"
 
 const likeDissLikeCourse = async (id,params,bool,element,e,url) => {
 
@@ -48,6 +49,7 @@ const likeDissLikeCourse = async (id,params,bool,element,e,url) => {
                 await customAxios.delete(`/Course/DeleteCourseCommentLike?CourseCommandId=` + id)
                     
             }
+
         }
         else if(location.pathname.indexOf("/blogs") !== -1) {
             // like
