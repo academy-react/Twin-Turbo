@@ -1,7 +1,7 @@
 import { Header,Footer,SelectOption,View, Paginate } from '../components/common'
 import changeViewCourses from "../core/utils/changeViewCourse.utils";
 import { useEffect, useRef , useState} from "react"
-import CoursesMap, { costDowner, costUpper, settingCourseTypeId, settingInput, settingLevel, settingTechnologies } from '../components/map/CoursesMap'
+import CoursesMap, { costDowner, costUpper, settingCourseTypeId, settingInput, settingLevel, settingTechnologies, tech } from '../components/map/CoursesMap'
 import resizeCourse from '../core/utils/resizeCourse.utils'
 import SortCourse from '../components/course&blog/SortCourse'
 import Loading from '../components/common/Loading';
@@ -25,6 +25,7 @@ const Courses = () => {
     const [courseLevel, setCourseLevel] = useState()
     const [courseTechnologies, setCourseTechnologies] = useState()
     let flag = [false , false , false , false]
+    let flagFilter = false;
 
     let state = sessionStorage.getItem("courseClass")  
 
@@ -99,7 +100,18 @@ const Courses = () => {
     }, 1000);
     costU.current = timeOut
   }
-
+  
+  const handleFilter = () => {
+    if(flagFilter) {
+      parent.current.style.width = "100%"
+      flagFilter = false
+    }
+    else if(!flagFilter) {
+      parent.current.style.width = "80%"
+      flagFilter = true
+    }
+    filterParent.current.classList.toggle("hidden")
+  }
   return (
     <>
       <Loading time={500} />
@@ -125,14 +137,17 @@ const Courses = () => {
               <SortCourse type="cost" id="radio1" htmlFor="radio1" text="پرفروش ترین" defaultChecked={false}/>
             </div>
 
-            <div className="bg-white dark:bg-[#26324d] max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b-[#333] dark:[&>input:checked+label]:border-b-white [&>input:checked+label]:border-b-[4px]">
-              <View id="radios1" htmlFor="radios1" defaultChecked={state ? state == "grid" ? true : false : true} src="view (1).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","grid")}}/>
-              <View id="radios2" htmlFor="radios2" defaultChecked={state ? state == "table" ? true : false : false} src="view (2).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","table")}}/>
+            <div className="flex justify-around items-center w-[250px]">
+              <div className="px-6 py-3 bg-white dark:bg-[#26324d] dark:text-white border rounded-xl cursor-pointer flex items-center justify-around" onClick={handleFilter}> <img src="../src/assets/images/arrow-down.png" className="mr-1" /> فیلتر ها</div>
+              <div className="bg-white dark:bg-[#26324d] max-[800px]:hidden w-[120px] h-[60px] p-[5px] flex items-center justify-around rounded-[18px] text-[25px] shadow-[0_0_7px_#ccc] [&>img]:h-[35px] [&>img]:mx-[5px] [&>img]:cursor-pointer [&>input]:hidden [&>label]:cursor-pointer [&>label]:py-[8px] [&>input:checked+label]:border-b-[#333] dark:[&>input:checked+label]:border-b-white [&>input:checked+label]:border-b-[4px]">
+                <View id="radios1" htmlFor="radios1" defaultChecked={state ? state == "grid" ? true : false : true} src="view (1).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","grid")}}/>
+                <View id="radios2" htmlFor="radios2" defaultChecked={state ? state == "table" ? true : false : false} src="view (2).png" onInput={()=> {changeViewCourses(parent);sessionStorage.setItem("courseClass","table")}}/>
+              </div>
             </div>
           </div>
           <div dir="rtl" className="w-[90%] flex flex-wrap justify-between">
             
-            <div ref={filterParent} className="transition-all duration-300 flex flex-col justify-start border border-[#cdcdcd] rounded-3xl w-[20%] [&>div.top-acc:not([&>div.top-acc:last-child])]:border-b-2 [&>div.top-acc]:border-[#cdcdcd] [&>div.top-acc]:h-[80px] [&>div.top-acc]:flex [&>div.top-acc]:justify-between [&>div.top-acc]:items-center [&>div.top-acc]:px-5 [&>div.top-acc]:cursor-pointer" style={{height : 385}}>
+            <div ref={filterParent} className="hidden transition-all duration-300 flex flex-col justify-start border border-[#cdcdcd] rounded-3xl w-[20%] [&>div.top-acc:not([&>div.top-acc:last-child])]:border-b-2 [&>div.top-acc]:border-[#cdcdcd] [&>div.top-acc]:h-[80px] [&>div.top-acc]:flex [&>div.top-acc]:justify-between [&>div.top-acc]:items-center [&>div.top-acc]:px-5 [&>div.top-acc]:cursor-pointer" style={{height : 385}}>
 
               <div className='top-acc' onClick={e => openAcc(e,140,0)}>
                 <span className="text-[24px]">نوع دوره</span>
@@ -205,7 +220,7 @@ const Courses = () => {
                 {courseTechnologies?.map((el,index) => {
                   return  <>
                     <div key={index}>
-                      <input type="checkbox" name="courseTechnologies" id={`courseTechnologies${el.id}`} onClick={() => settingTechnologies(el.id)} className='w-5 h-5' />
+                      <input type="checkbox" name="courseTechnologies" id={`courseTechnologies${el.id}`} onInput={() => settingTechnologies(tech ? [...tech , el.id] : [el.id] )} className='w-5 h-5' />
                       <label htmlFor={`courseTechnologies${el.id}`}>{el.techName}</label>
                     </div>
                   </>
@@ -235,7 +250,7 @@ const Courses = () => {
 
             </div>
 
-            <div className="w-[80%] flex flex-wrap justify-center content-start" ref={parent}>
+            <div className="flex flex-wrap justify-center content-start" ref={parent} style={{width : "100%"}}>
               <CoursesMap parent={parent} />
             </div>
           </div>
