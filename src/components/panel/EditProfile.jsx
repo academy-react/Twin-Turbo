@@ -23,6 +23,7 @@ const EditProfile = () => {
     const getInfo = async () => {
         let result = await customAxios.get("/SharePanel/GetProfileInfo")
         setMyInfo(result)
+        console.log(result);
     }
 
     useEffect(() => {

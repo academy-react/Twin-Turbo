@@ -43,12 +43,14 @@ const CoursesListPanel = ({bool,s1,s2,s3,s4,s5,s6,classNameSpans}) => {
                 {location.pathname == "/panel/ListOfCourse" && <ListCousePanelMap inpurSearch={inpurSearch} />}
                 {location.pathname == "/panel/reserveCourse" && <ReserveCourseMap />}
                 {location.pathname == "/panel/favoriteCourse" && <FavoriteCourseMap />}
-                {location.pathname == "/panel/favoriteNews" && <FavoriteNewsMap />}
+                {/* {location.pathname == "/panel/favoriteNews" && <FavoriteNewsMap />} */}
                   
             </div>
         </div>
-        <div className='py-[1px] bg-[#f1f1f1] rounded-[25px] w-[25%] mx-auto'>
-            {bool && <Paginate itemsPerPage={4} />}
+        <div className={(location.pathname.indexOf("/panel/ListOfCourse") !== -1 && location.pathname.indexOf("/panel/favoriteCourse") == -1 && location.pathname.indexOf("/panel/favoriteNews") == -1) ? 'py-[1px] bg-[#f1f1f1] rounded-[25px] px-[15px] w-[35%] mx-auto' : ""}>
+
+            {location.pathname.indexOf("/panel/ListOfCourse") !== -1 && <Paginate itemsPerPage={6} />}
+
         </div>
 
 

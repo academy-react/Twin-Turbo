@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import customAxios from "../../core/services/interceptor"
 import likeDissLikeCourse from "../../core/utils/likeDissLikeCourse.utils";
 import { useParams } from "react-router-dom";
-export let functionGetReplyCommentCourse ;
-
+export let settingReplyComment
 const ReplyCommentMap = ({element}) => {
     let url = useParams()
     const [replyComment, setReplyComment] = useState()
@@ -17,12 +16,16 @@ const ReplyCommentMap = ({element}) => {
         let res = await customAxios.get(`/News/GetRepliesComments?Id=${element.id}`)
         setReplyComment(res)
     }
+ 
     useEffect(() => {
-        functionGetReplyCommentCourse = getReplyCommentCourse
+        settingReplyComment = setReplyComment
         if(location.pathname.indexOf("/courses") !== -1) getReplyCommentCourse(element)
         else if(location.pathname.indexOf("/blogs") !== -1) getReplyCommentNews()
         
     }, [])
+
+
+    
 
     
     return (
@@ -55,7 +58,7 @@ const ReplyCommentMap = ({element}) => {
                             <div className='text-[#777] cursor-pointer flex items-center' onClick={(e) => showResponse(e,element,index)}> 
                                 <span className='ml-[15px] dark:text-white' onClick={(e)=> changeTextShow(e,element)} data-id={index}>{location.pathname.indexOf("/blogs") !== -1 ? element.replyCount !== 0 ? `نمایش پاسخ ها ${element.replyCount}` : "" : element.acceptReplysCount !== 0 ? `نمایش پاسخ ها ${element?.acceptReplysCount ? element.acceptReplysCount : element.replyCount}` : "" }</span>
                             </div>
-                            <img src={theme == "light" ? "../src/assets/images/selectedCourse/reply.png" : "../src/assets/images/selectedCourse/reply-light.png"  } className='w-[25px] h-[20px] replyImg' onClick={(e) => reply(e,element)} />
+                            {/* <img src={theme == "light" ? "../src/assets/images/selectedCourse/reply.png" : "../src/assets/images/selectedCourse/reply-light.png"  } className='w-[25px] h-[20px] replyImg' onClick={(e) => reply(e,element)} /> */}
                         </div>
                         <div className={element.accept ? "absolute left-3 top-2 text-[15px] text-[#36c54e]" : "absolute left-3 top-2 text-[15px] text-[#ec0b1a]" }>{location.pathname.indexOf("courses") !== -1 ? element.accept ? "پذیرفته شده" : "پذیرفته نشده" : ""}</div>
                     </div>

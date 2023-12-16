@@ -26,13 +26,14 @@ const Paginate = ({ itemsPerPage })=>  {
           setDbCourse(result.totalCount)
       }
       else if(location.pathname.indexOf("/blogs") !== -1)  {
-          let result = await customAxios.get(`/News?PageNumber=1&RowsOfPage=4&SortType=DESC`);
+          let result = await customAxios.get(`/News?PageNumber=1&RowsOfPage=1&SortType=DESC`);
           setDbBlog(result.totalCount)
       }
       else if(location.pathname.indexOf("/panel/ListOfCourse") !== -1) {
-        let result = await customAxios.get(`/News?PageNumber=1&RowsOfPage=5&SortType=DESC`);
+        let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=1&SortType=DESC`);
         setDbCoursePanel(result.totalCount) 
       }
+      
   }
   
   useEffect(() => {
