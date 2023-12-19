@@ -4,6 +4,7 @@ import headerScroll from '../../core/utils/headerScroll.utils'
 import NightMode from '../common/NightMode'
 import customAxios from "../../core/services/interceptor"
 import ReactStars from "react-stars"
+import { useNavigate } from "react-router-dom"
 
 const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksClassName}) => {
 
@@ -14,6 +15,7 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
   const [news, setNews] = useState([])
   const time = useRef()
   const modalSearch = useRef()
+  let navigate = useNavigate()
 
     let token = localStorage.getItem("token");
     let classUnAuthorize = " [&>a:nth-child(3)]:max-[1020px]:hidden [&>a:nth-child(2)]:max-[1020px]:hidden "
@@ -85,9 +87,9 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
 
   return (
     <>
-      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed right-0 left-0 top-[-100%] mx-auto bg-[#fff]">
-          <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff]">
-              <div className="h-[100px] flex justify-center items-center relative">
+      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed opacity-0 right-0 left-0 top-[-150%] mx-auto bg-[#fff] invisible">
+          <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff] border border-[red] ">
+              <div className="h-[100px] flex justify-center items-center relative ">
                   <div className="w-[80%] h-full flex justify-around items-center">
 
                         <div className="border border-[transparent] bg-[#EEE6F6] w-[30%] h-[60px] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]  transition-all duration-300 hover:border hover:border-[#955ecc]">
@@ -100,7 +102,18 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
                         </div>
 
                   </div>
-                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {modalSearch?.current.classList.remove("top-[0%]");modalSearch?.current.classList.add("top-[-100%]");setNews([]);setCourse([]),inputSearch.value = ""}} />
+                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {
+                        modalSearch?.current.classList.remove("top-[0%]");
+                        modalSearch?.current.classList.add("top-[-150%]");
+                        setNews([]);
+                        setCourse([]);
+                        Searchinput.value = "";
+                        modalSearch?.current.classList.remove("opacity-1");
+                        modalSearch?.current.classList.add("opacity-0")
+                        modalSearch?.current.classList.remove("visible");
+                        modalSearch?.current.classList.add("invisible")
+                      }
+                    } />
 
               </div>
               <div>
@@ -108,7 +121,7 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
                     {coloring == "course" &&
                       course.map((element, index) => {
                         return (
-                            <div key={index} className={view1} onClick={()=> navigate(`${location.pathname}/${element.courseId}`)} >
+                            <div key={index} className={view1 + " border border-[red]"} onClick={()=> navigate(`courses/${element.courseId}`)} >
                               <div className="w-full h-[170px] overflow-hidden my-[10px]">
                                 <img src={element?.tumbImageAddress !== null ? element?.tumbImageAddress.indexOf("https://") !== -1 ? element?.tumbImageAddress : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} className="mx-auto h-full w-full rounded-[20px]"/>
                               </div>
@@ -147,7 +160,7 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
                     {coloring == "news" &&
                         news.map((element, index) => {
                           return (
-                            <div key={index} className={view1}> 
+                            <div key={index} className={view1}  > 
                               <div className="w-full h-170px overflow-hidden my-[10px]">  
                               
                                 <img src={element?.currentImageAddressTumb !== null ? element?.currentImageAddressTumb.indexOf("https://") !== -1 ? element?.currentImageAddressTumb : "../src/assets/images/courses/03.png" : "../src/assets/images/courses/03.png"} alt="" className=" mx-auto h-full w-full rounded-[20px]"   /> 
@@ -162,7 +175,7 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
                                 </div>
                               <div className="w-full h-[50px] pb-2 flex justify-between items-center">
                               <div className="text-[#777] mr-[10px]">بازدید : {element.currentView}</div>
-                              <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%]" link={`${location.pathname}/${element.id}`}     />   </div> </div>
+                              <Button content="ادامه مطلب" className="whitespace-nowrap text-[16px] scale-[80%]" link={`blogs/${element.id}`} />   </div> </div>
                             </div>
                           );
                       })

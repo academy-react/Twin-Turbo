@@ -33,13 +33,13 @@ const changePic = async (element)=> {
 }
 
 const editProfileSubmit = async (values) => {
-
-    picprofile.src = userImage.getAttribute("src")
-    pictureHeader.src = userImage.getAttribute("src")
-    let formDataOne = new FormData()
-    formDataOne.append("ImageId",userImage.getAttribute("data-id"))
-    let result = customAxios.post("/SharePanel/SelectProfileImage",formDataOne)
-
+    if(input) {
+        picprofile.src = userImage.getAttribute("src")
+        pictureHeader.src = userImage.getAttribute("src")
+        let formDataOne = new FormData()
+        formDataOne.append("ImageId",userImage.getAttribute("data-id"))
+        let result = customAxios.post("/SharePanel/SelectProfileImage",formDataOne)
+    }
 
     // 
         
@@ -72,7 +72,9 @@ const editProfileSubmit = async (values) => {
         setMyInf(newRes)
         toast.success("عملیات با موفقیت انجام شد")
     }
-    else toast.error("خطا در انجام عملیات")
+    else {
+        toast.error(update?.errors[0])
+    }
 
 }
 
