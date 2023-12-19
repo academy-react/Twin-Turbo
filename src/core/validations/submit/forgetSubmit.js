@@ -20,7 +20,7 @@ const postNewPass = async (values)=> {
 
     userId = Math.ceil(userId)
 
-    customAxios.post("/Sign/Reset",
+    await customAxios.post("/Sign/Reset",
     {
       userId: userId,
       newPassword: values.newPassword,
