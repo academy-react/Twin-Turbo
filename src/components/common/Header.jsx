@@ -85,7 +85,7 @@ const Header = ({className,src,color,borderClass,ml}) => {
 
   return (
     <>
-      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#ddd] z-[120] transition-all duration-700 fixed right-0 left-0 top-[-100%] mx-auto bg-[#fff]">
+      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed right-0 left-0 top-[-100%] mx-auto bg-[#fff]">
           <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff]">
               <div className="h-[100px] flex justify-center items-center relative">
                   <div className="w-[80%] h-full flex justify-around items-center">
@@ -104,7 +104,7 @@ const Header = ({className,src,color,borderClass,ml}) => {
 
               </div>
               <div>
-                <div className="w-[80%] mx-auto h-full flex flex-wrap">
+                <div className={`w-full h-[470px] flex justify-around flex-wrap ${(course.length >= 5 || news.length >= 5) ? "overflow-y-scroll" : ""}`}>
                     {coloring == "course" &&
                       course.map((element, index) => {
                         return (
@@ -175,7 +175,7 @@ const Header = ({className,src,color,borderClass,ml}) => {
       </div> 
 
       <header dir="rtl" className={"z-[100] relative w-full right-0 left-0 top-0 max-h-[80px] " + borderClass} id="header" >
-          <div id="headerHolder" className={`mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center`}>
+          <div id="headerHolder" className={`dark:shadow-[0_0_7px_#transparent] mx-auto w-[1920px] h-full flex justify-between max-[1919px]:w-full items-center`}>
               <div className="w-[35%] max-[1580px]:w-[40%] max-[1580px]:[&>a]:text-[16px] max-[1020px]:hidden whitespace-nowrap h-full flex  justify-around items-center [&>a]:pb-2 px-4 [&>a]:text-[20px] flex-row-reverse max-[1200px]:[&>a]:text-[15px]">
                   <Linkes to="/contact-us" content="تماس با ما" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border-b-[2px] border-b-[#8043bd] dark:text-[#fff] dark:border-b-[#fff]"} ejectedClassName={"text-[" + color + "] headerItemHover relative dark:text-[#ddd] dark:before:bg-white"} />
                   <Linkes to="/blogs" content="خدمات" imgClassName="hidden" ejectedStyle="none" acceptedClassName={"text-[" + color + "] border-b-[2px] border-b-[#8043bd] dark:text-[#fff] dark:border-b-[#fff]"} ejectedClassName={"text-[" + color + "] headerItemHover relative dark:text-[#ddd] dark:before:bg-white"} />
