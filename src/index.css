@@ -185,3 +185,14 @@ input[type=number] {-moz-appearance:textfield;}
 } 
 .range-slider .range-slider__range {background-color: #8f008b ;}
 .range-slider .range-slider__thumb {background-color: #be04b2 ;}
+.dashboardCalender {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    scale: 100%;
+}
+@media screen and (max-width : 1260px) {
+    #headerHolder > div:first-child {
+        margin-right : -50px;
+    }
+}

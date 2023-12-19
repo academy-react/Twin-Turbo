@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect , useState } from 'react'
 import customAxios from '../../core/services/interceptor'
 import TopDashboard from './TopDashboard'
+import { Calendar } from 'react-multi-date-picker'
 
 const DashBoard = () => {
 
@@ -22,12 +23,17 @@ const DashBoard = () => {
   }, [])
 
   return (
-    <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] flex flex-col ">
-        <div className='h-[200px] max-[1500px]:h-[300px] rounded-t-3xl bg-[#f5f5f5] flex flex-wrap justify-around items-center [&>div>div:first-child]:rounded-lg [&>div>div:first-child]:bg-[#EDF4FF] [&>div>div:last-child]:h-[80%] [&>div>div:last-child]:flex [&>div>div:last-child]:flex-col [&>div>div:last-child]:justify-evenly [&>div>div:last-child]:items-center'>
-          <TopDashboard src="testPassed.svg" title="تست های قبول شده" content="120" />
-          <TopDashboard src="testAttended.svg" title="تست های شرکت شده" content="120" />
+    <div id='dashBoard' className="w-[79%] max-[1260px]:w-[94%] bg-[#f5f5f5] relative flex flex-col ">
+        <div className='h-[200px] max-[1500px]:h-[300px] bg-[#f5f5f5] flex flex-wrap justify-around items-start relative top-[-13px] [&>div>div:first-child]:rounded-lg [&>div>div:first-child]:bg-[#EDF4FF] [&>div>div:last-child]:h-[80%] [&>div>div:last-child]:flex [&>div>div:last-child]:flex-col [&>div>div:last-child]:justify-evenly [&>div>div:last-child]:items-center'>
+          <TopDashboard src="testPassed.svg" title="تست های قبول شده" content="10" />
+          <TopDashboard src="testAttended.svg" title="تست های شرکت شده" content="16" />
           <TopDashboard src="allProjects.svg" title="پروژه ها" content="79" />
           <TopDashboard src="allCourses.svg" title="دوره ها" content="120" />
+        </div>
+        <div className='flex justify-between border border-[red] h-[80%]'>
+          <div className='w-[30%] flex-col border border-[green]'>
+            <Calendar className='dashboardCalender' />
+          </div>
         </div>
     </div>
   )
