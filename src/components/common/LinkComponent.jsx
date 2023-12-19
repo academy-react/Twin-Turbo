@@ -3,7 +3,7 @@ import raiseUp from "../../core/utils/raiseUp.utils"
 
 const LinkComponent = ({content,link,className,bool,modalSearch}) => {
   const showModalSearch = ()=> {
-      modalSearch?.current.classList.remove("top-[-100%]");modalSearch?.current.classList.add("top-[0%]")
+      modalSearch?.current.classList.remove("top-[-150%]");modalSearch?.current.classList.add("top-[0%]")
       Searchinput.focus()
       
     }

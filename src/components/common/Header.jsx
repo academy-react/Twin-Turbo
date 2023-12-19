@@ -85,7 +85,7 @@ const Header = ({className,src,color,borderClass,ml}) => {
 
   return (
     <>
-      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed right-0 left-0 top-[-100%] mx-auto bg-[#fff]">
+      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed right-0 left-0 top-[-150%] mx-auto bg-[#fff] ">
           <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff]">
               <div className="h-[100px] flex justify-center items-center relative">
                   <div className="w-[80%] h-full flex justify-around items-center">
@@ -100,7 +100,7 @@ const Header = ({className,src,color,borderClass,ml}) => {
                         </div>
 
                   </div>
-                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {modalSearch?.current.classList.remove("top-[0%]");modalSearch?.current.classList.add("top-[-100%]");setNews([]);setCourse([]),inputSearch.value = ""}} />
+                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {modalSearch?.current.classList.remove("top-[0%]");modalSearch?.current.classList.add("top-[-150%]");setNews([]);setCourse([]),Searchinput.value = "";modalSearch?.current.classList.remove("opacity-0");modalSearch?.current.classList.add("opacity-1")}} />
 
               </div>
               <div>
