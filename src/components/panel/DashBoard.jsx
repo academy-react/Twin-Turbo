@@ -1,8 +1,7 @@
-import DashboardItemLeft from '../common/DashboardItemLeft'
-import raiseUp from "../../core/utils/raiseUp.utils"
 import { useNavigate } from 'react-router-dom'
 import { useEffect , useState } from 'react'
 import customAxios from '../../core/services/interceptor'
+import TopDashboard from './TopDashboard'
 
 const DashBoard = () => {
 
@@ -23,26 +22,20 @@ const DashBoard = () => {
   }, [])
 
   return (
-    <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] [&>div]:w-[49%] [&>div]:h-[90%] [&>div]:rounded-[25px] flex items-center justify-between px-[30px] mr-2 max-[1350px]:flex-col-reverse max-[1350px]:[&>div]:w-full max-[1350px]:[&>div:first-child]:h-[50%] max-[1023px]:[&>div:first-child]:h-[100%] max-[1350px]:[&>div]:my-2 max-[1020px]:w-full max-[1020px]:rounded-none max-[1020px]:shadow-none max-[1020px]:mr-0 max-[1020px]:bg-transparent max-[1020px]:[&>div]:bg-white max-[1020px]:px-0 max-[1020px]:[&>div]:rounded-none">
-        <div className="[&>div]:h-[48.5%] [&>div]:rounded-[25px] [&>div]:shadow-[0_0_70px_#ccc] flex flex-col justify-between max-[1350px]:flex-row max-[1350px]:[&>div]:w-[200%] max-[1350px]:[&>div]:h-[300px] max-[1023px]:flex-col max-[1023px]:[&>div]:h-[60%] max-[1023px]:[&>div]:w-[100%] max-[1020px]:bg-transparent max-[1020px]:[&>div]:rounded-none max-[1020px]:[&>div]:shadow-[0_0_10px_#ccc]">
-            <DashboardItemLeft title="اخرین خریداری شده" course="دوره اموزش جامع انگولار" master="مدرس : استاد اصغری" price="250000 تومان" src="web.jpg" />
-            <DashboardItemLeft title="دوره منتخب" course="دوره اموزش  نود جی اس" master="مدرس : استاد اصغری" price="150000 تومان" src="bootstrap.jpg"/>
-        </div>
-        <div className="shadow-[0_0_70px_#ccc] flex flex-col justify-around pb-[25px] ">
-            <div className="text-center mt-[20px] text-[21px]">اطلاعات حساب کاربری</div>
-            <div dir="rtl" className="h-[70%] [&>div]:h-[20%] pr-[10px] [&>div]:flex [&>div]:pr-[15px] [&>div]:text-[22px] [&>div]:items-center [&>div>span]:text-[#777] [&>div>span]:mr-[10px] max-[1540px]:[&>div]:text-[20px]">
-              
-              <div>نام کاربری:<span>{myInfo?.fName == "" ? "بدون نام" : myInfo?.fName} {myInfo?.lName ? myInfo?.lName : "بدون نام خانوادگی"}</span></div>
-              <div>ایمیل :  <span> {myInfo?.email == "" ? "بدون ایمیل" : myInfo?.email} </span></div>
-              <div>تاریخ تولد :  <span> {myInfo?.birthDay == "" ? "نا مشخص" : myInfo?.birthDay.slice(0,10)} </span></div>
-              <div>کد ملی : <span> {myInfo?.nationalCode == "" ? "نامشخص" : myInfo?.nationalCode} </span></div>
-              <div>شماره همراه : <span> {myInfo?.phoneNumber == "" ? "بدون شماره همراه" : myInfo?.phoneNumber } </span></div>
-
-            </div>
-            <div onClick={()=> raiseUp(navigate,"/panel/editprofile",true)} className="bg-[#36C54E] w-[90%] h-[60px] rounded-[15px] mx-auto flex justify-center items-center text-[#fff] text-[22px] cursor-pointer">ویرایش</div>
+    <div id='dashBoard' className="w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd] flex flex-col ">
+        <div className='h-[200px] max-[1500px]:h-[300px] rounded-t-3xl bg-[#f5f5f5] flex flex-wrap justify-around items-center [&>div>div:first-child]:rounded-lg [&>div>div:first-child]:bg-[#EDF4FF] [&>div>div:last-child]:h-[80%] [&>div>div:last-child]:flex [&>div>div:last-child]:flex-col [&>div>div:last-child]:justify-evenly [&>div>div:last-child]:items-center'>
+          <TopDashboard src="testPassed.svg" title="تست های قبول شده" content="120" />
+          <TopDashboard src="testAttended.svg" title="تست های شرکت شده" content="120" />
+          <TopDashboard src="allProjects.svg" title="پروژه ها" content="79" />
+          <TopDashboard src="allCourses.svg" title="دوره ها" content="120" />
         </div>
     </div>
   )
 }
 
 export default DashBoard
+{/* <div>نام کاربری:<span>{myInfo?.fName == "" ? "بدون نام" : myInfo?.fName} {myInfo?.lName ? myInfo?.lName : "بدون نام خانوادگی"}</span></div>
+<div>ایمیل :  <span> {myInfo?.email == "" ? "بدون ایمیل" : myInfo?.email} </span></div>
+<div>تاریخ تولد :  <span> {myInfo?.birthDay == "" ? "نا مشخص" : myInfo?.birthDay.slice(0,10)} </span></div>
+<div>کد ملی : <span> {myInfo?.nationalCode == "" ? "نامشخص" : myInfo?.nationalCode} </span></div>
+<div>شماره همراه : <span> {myInfo?.phoneNumber == "" ? "بدون شماره همراه" : myInfo?.phoneNumber } </span></div> */}
