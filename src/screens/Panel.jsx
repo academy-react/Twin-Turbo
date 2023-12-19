@@ -41,7 +41,7 @@ const Panel = () => {
 
                 <Outlet/>
 
-                <div className="max-[1020px]:hidden bg-white z-[101] w-[400px] max-[1260px]:w-[70px] max-[1260px]:hover:w-[400px] max-[1260px]:[&:hover>div>img]:w-[50px] max-[1260px]:top-[-95px] relative overflow-hidden max-[1500px]:mt-5 transition-all duration-500">
+                <div className="max-[1020px]:hidden bg-white z-[101] w-[400px] max-[1260px]:w-[70px] max-[1260px]:hover:w-[400px] max-[1260px]:[&:hover>div>img]:w-[50px] max-[1260px]:top-[-108px] relative overflow-hidden transition-all duration-500">
 
                     <div className="h-[150px] flex justify-around items-center px-3 max-[1260px]:h-[80px]">
                         <div className='text-[25px] truncate w-60' id='usename'>{myInfo?.fName} {myInfo?.lName}</div>

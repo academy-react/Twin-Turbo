@@ -11,7 +11,7 @@ const CoursesListPanel = ({bool,s1,s2,s3,s4,s5,s6,classNameSpans}) => {
     const inpurSearch = useRef()
 
   return (
-    <div className="w-[73%] bg-white rounded-3xl shadow-[0_0_7px_#ddd]">
+    <div className="w-[79%] max-[1260px]:w-[94%] bg-white">
 
 
         <div className="h-[15%] [&>div]:h-full [&>div]:w-[35%] flex justify-between ">
@@ -27,7 +27,7 @@ const CoursesListPanel = ({bool,s1,s2,s3,s4,s5,s6,classNameSpans}) => {
             <div dir="rtl" className="flex items-center px-[15px]"></div>
 
         </div>
-        <div className="h-[70%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px] max-[1350px]:overflow-x-scroll" dir='rtl'>
+        <div className="h-[72%] m-[25px] mt-[0] bg-[#f1f1f1] rounded-[25px] max-[1350px]:overflow-x-scroll" dir='rtl'>
             <div className={"pr-[40px] w-[90%] h-[15%] flex flex-row-reverse justify-evenly items-center mx-[auto] max-[1350px]:w-[900px] " + classNameSpans}>
                 
                 <span>{s1}</span>

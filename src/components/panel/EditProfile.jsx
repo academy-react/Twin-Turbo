@@ -65,7 +65,7 @@ const EditProfile = () => {
     
 
     return (
-        <div id="editProfile" className="h-[1550px] max-[1200px]:h-[2850px] max-[1020px]:bg-[none] max-[1020px]:w-full max-[1800px]:w-[70%] max-[1550px]:w-[60%] max-[1494px]:w-[60%] w-[73%] bg-white relative rounded-3xl shadow-[0_0_7px_#ddd]">
+        <div id="editProfile" className="h-[1550px] max-[1200px]:h-[2850px] w-[79%] max-[1300px]:w-full relative">
 
             <div className="h-[250px] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
