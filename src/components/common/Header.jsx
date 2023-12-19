@@ -85,9 +85,9 @@ const Header = ({className,src,color,borderClass,ml}) => {
 
   return (
     <>
-      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed right-0 left-0 top-[-150%] mx-auto bg-[#fff] ">
-          <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff]">
-              <div className="h-[100px] flex justify-center items-center relative">
+      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed opacity-0 right-0 left-0 top-[-150%] mx-auto bg-[#fff] ">
+          <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff] border border-[red] ">
+              <div className="h-[100px] flex justify-center items-center relative ">
                   <div className="w-[80%] h-full flex justify-around items-center">
 
                         <div className="border border-[transparent] bg-[#EEE6F6] w-[30%] h-[60px] rounded-[50px] flex items-center justify-around overflow-hidden pr-[10px]  transition-all duration-300 hover:border hover:border-[#955ecc]">
@@ -100,7 +100,15 @@ const Header = ({className,src,color,borderClass,ml}) => {
                         </div>
 
                   </div>
-                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {modalSearch?.current.classList.remove("top-[0%]");modalSearch?.current.classList.add("top-[-150%]");setNews([]);setCourse([]),Searchinput.value = "";modalSearch?.current.classList.remove("opacity-0");modalSearch?.current.classList.add("opacity-1")}} />
+                  <img src="../src/assets/images/close.svg" alt="" className="absolute left-2 top-2 w-10 h-10 cursor-pointer hover:drop-shadow-[0_0_7px_#ccc]" onClick={()=> {
+                        modalSearch?.current.classList.remove("top-[0%]");
+                        modalSearch?.current.classList.add("top-[-150%]");
+                        setNews([]);
+                        setCourse([]);
+                        Searchinput.value = "";
+                        modalSearch?.current.classList.remove("opacity-1");
+                        modalSearch?.current.classList.add("opacity-0")}
+                    } />
 
               </div>
               <div>
