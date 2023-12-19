@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 
+export let setLoad;
 const Loading = ({ time }) => {
 
   const [isLoaded, setisLoaded] = useState(false)
 
   useEffect(() => {
+    setLoad = setisLoaded
     setTimeout(() => {
         setisLoaded(true)
     }, time);

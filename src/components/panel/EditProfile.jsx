@@ -6,28 +6,57 @@ import DatePicker from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 import editProfileValidation from '../../core/validations/editProfileValidation';
-import { changePic, editProfileSubmit } from '../../core/validations/submit/editProfileSubmit';
+import { showModalPic, editProfileSubmit , upLoadPicture} from '../../core/validations/submit/editProfileSubmit';
 import customAxios from '../../core/services/interceptor'
 import { ToastContainer } from 'react-toastify'
+import user from '../../redux/user'
+import Loading from '../common/Loading'
+import PicturesProfileMap from '../map/PicturesProfileMap'
 
-
-
+export let settingCounter;
 const EditProfile = () => {
-
+    let pos = 0;
     let theme = localStorage.getItem("theme")
     let userImage = useRef()
     let img = useRef()
     const [myInfo, setMyInfo] = useState()
     const datePicker = useRef()
+    const [counter, setCounter] = useState(4)
 
     const getInfo = async () => {
         let result = await customAxios.get("/SharePanel/GetProfileInfo")
         setMyInfo(result)
-        console.log(result);
+        console.log(result.userImage);
     }
 
-    useEffect(() => {
-        getInfo()
+
+    const goDirection = (e) => {
+        if(e.target.className.indexOf("left") !== -1) {
+            if(pos == 0){
+                pos = -myInfo?.userImage.length * myInfo?.userImage.length*2
+                gallery.style.left = pos + "%" 
+            }
+            else {
+                pos = pos + myInfo?.userImage.length * 5;
+                gallery.style.left = pos + "%"
+            }
+        }
+        else if( e.target.className.indexOf("right") !== -1) {
+            if(pos == -myInfo?.userImage.length * myInfo?.userImage.length*2){
+                pos = 0
+                gallery.style.left = pos + "%" 
+            }
+            else {
+                pos = pos - myInfo?.userImage.length * 5;
+                gallery.style.left = pos + "%"
+            }
+        }
+    }
+
+
+    useEffect(() => { 
+        getInfo() 
+        settingCounter = setCounter
     }, [])
     
 
@@ -40,11 +69,38 @@ const EditProfile = () => {
 
             <div className="h-[250px] justify-center items-center max-[1200px]:h-[15%]">
                 <div className="relative w-[50%] mx-auto h-full flex flex-col justify-center items-center">
-                    <div className='w-[120px] h-[120px] rounded-[50%] mb-[25px] relative'>
-                        <img src={myInfo?.currentPictureAddress} alt="" className='rounded-[50%] w-[120px] h-[120px]' ref={userImage} />
-                        <input type="file" className='hidden' onChange={(e)=> changePic(e,userImage)} id='fileInput' />
-                        <label htmlFor="fileInput" className='border border-black w-[34px] h-[34px] bg-[#db9cdb] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-[50%] absolute right-[-2px] top-[80px]' onMouseOver={inHovering} onMouseOut={outHovering} ><img src="../src/assets/images/panel/camera.png" alt="" className='w-[20px] h-[15px]' ref={img} /></label>
+                    <div className='cursor-pointer overflow-hidden [&:hover>div]:bottom-0 w-[120px] h-[120px] rounded-[50%] mb-[25px] relative' onClick={(e)=> showModalPic(e)}>
+                        <img src={myInfo?.currentPictureAddress} alt="" className='rounded-[50%] w-[120px] h-[120px]' id="userImage" />
+                        {/* <input type="file" className='hidden'  id='fileInput' />
+                        <label htmlFor="fileInput" className='border border-black w-[34px] h-[34px] bg-[#db9cdb] cursor-pointer flex justify-center items-center text-[#fff] text-[20px] rounded-[50%] absolute right-[-2px] top-[80px]' onMouseOver={inHovering} onMouseOut={outHovering} ><img src="../src/assets/images/panel/camera.png" alt="" className='w-[20px] h-[15px]' ref={img} /></label> */}
+                        <div className='absolute bottom-[-100%] bg-[#cccccc96] w-full h-[30px] transition-all duration-300 flex justify-center items-center'><img src="../src/assets/images/panel/camera.png" alt="" className='w-[25px] h-[20px]' /></div>
                     </div>
+                </div>
+            </div>
+            <div id="modalPicture" className='overflow-hidden absolute top-[-100%] h-[700px] w-[650px] bg-[#fff] rounded-[15px] z-[100] shadow-[0_0_50px_5px_#777] transition-all duration-700 right-[24%]'>
+                <div className='h-[10%] py-[5px] flex items-center justify-between px-[20px]'>
+                    <img src="../src/assets/images/close.svg" alt="" className='w-[40px] h-[40px] cursor-pointer' onClick={()=> { modalPicture.classList.remove("top-[12%]"); modalPicture.classList.add("top-[-100%]") }} />
+                    <span className='text-[20px]'>انتخاب عکس گالری</span>
+                </div>
+                <div className='flex h-[90%]  pt-[5px]  flex-wrap content-start'>
+                    
+                <div className='w-full h-[30%] overflow-hidden' >
+                    <div id='gallery' className="h-full transition-all duration-700 relative left-0 flex justify-around items-center" style={{width:myInfo?.userImage.length * 200 + "px"}}>
+                        <PicturesProfileMap />
+                    </div>
+                </div>
+                <div className='mx-auto flex justify-center relative'>
+                    <div className={`${myInfo?.userImage.length < counter ? "hidden" : ""} left mx-[auto] w-[40px] h-[40px] rounded-[50%] border flex justify-center items-center cursor-pointer`} onClick={(e)=> goDirection(e)}>L</div>
+                    <div className={`${myInfo?.userImage.length < counter ? "hidden" : ""} right mx-auto w-[40px] h-[40px] rounded-[50%] border flex justify-center items-center cursor-pointer`} onClick={(e)=> goDirection(e)}>R</div>
+                </div>
+                <div className='w-full h-[63%] flex justify-center items-center'>
+                    <input type="file" name="" id="file" className='hidden' onInput={(e)=> upLoadPicture(e)} />
+                    <label htmlFor='file' className='w-[80%] h-[80%] rounded-lg cursor-pointer flex justify-center items-center' style={{border:"1px dashed black"}}>
+                        <span className='text-[18px]'>برای آپلود عکس اینجا کلیک کنید</span>
+                        <img src="../src/assets/images/panel/uploadPic.png" alt="" className='w-[90px] h-[60px] ml-[25px]' />
+                    </label>
+                </div>
+                    
                 </div>
             </div>
             <Formik initialValues={{lName:"",fName:"",userAbout:"",linkdinProfile:"",telegramLink:"",receiveMessageEvent:false,homeAdderess:"",nationalCode:"",gender:true,birthDay:""}} onSubmit={(values)=> editProfileSubmit(values,userImage)} validationSchema={editProfileValidation}>
