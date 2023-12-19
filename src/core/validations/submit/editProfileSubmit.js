@@ -1,28 +1,52 @@
 import { toast } from 'react-toastify';
 import { setMyInf } from '../../../screens/Panel';
 import customAxios from '../../services/interceptor';
+import { setLoad } from '../../../components/common/Loading';
+import { gettingInfo } from '../../../components/map/PicturesProfileMap';
 
 let input ;
 let token = localStorage.getItem("token")
-const changePic = async (e,userImage)=> {
+const showModalPic = (e)=> {
+        
+    modalPicture.classList.remove("top-[-100%]"); 
+    modalPicture.classList.add("top-[12%]");
+
+    // userImage.current.src = URL.createObjectURL(e.target.files[0])
     
-    userImage.current.src = URL.createObjectURL(e.target.files[0])
-    input = e.target.files[0]
     
 }
-
-const editProfileSubmit = async (values,userImage) => {
-    
-    console.log(values);
+const upLoadPicture = async (e) => {
+    input = e.target.files[0]
     if(input) {
-        
+        setLoad(false)
         let imageData = new FormData()
         imageData.append("formFile", input)
-        
-        // await customAxios.delete("/SharePanel/DeleteProfileImage",imageData)
-        customAxios.post("/SharePanel/AddProfileImage",imageData)
-        
+        await customAxios.post("/SharePanel/AddProfileImage",imageData)
+        await gettingInfo()
+        setLoad(true)
+        toast.success("عکس با موفقیت اضافه شد")
     }
+}
+const changePic = async (element)=> {
+    userImage.src = element.puctureAddress
+    userImage.setAttribute("data-id",element.id)
+}
+
+const editProfileSubmit = async (values) => {
+
+    picprofile.src = userImage.getAttribute("src")
+    pictureHeader.src = userImage.getAttribute("src")
+    let formDataOne = new FormData()
+    formDataOne.append("ImageId",userImage.getAttribute("data-id"))
+    let result = customAxios.post("/SharePanel/SelectProfileImage",formDataOne)
+
+
+    // 
+        
+
+        // await customAxios.delete("/SharePanel/DeleteProfileImage",imageData)
+        
+    // }
     
     let res = await customAxios.get("/SharePanel/GetProfileInfo")
 
@@ -52,4 +76,4 @@ const editProfileSubmit = async (values,userImage) => {
 
 }
 
-export {changePic , editProfileSubmit}
+export {showModalPic , editProfileSubmit , changePic , upLoadPicture}

@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 import raiseUp from "../../core/utils/raiseUp.utils"
 
-const LinkComponent = ({content,link,className}) => {
+const LinkComponent = ({content,link,className,bool,modalSearch}) => {
+  const showModalSearch = ()=> {
+      modalSearch?.current.classList.remove("top-[-100%]");modalSearch?.current.classList.add("top-[0%]")
+      Searchinput.focus()
+      
+    }
   return (
-    <Link to={link} className={className} onClick={()=> raiseUp(undefined,"",false)}>{content}</Link>
+    <Link to={link} className={className} onClick={()=> { bool ? showModalSearch() :  raiseUp(undefined,"",false) }}>{content}</Link>
   )
 }
 
