@@ -5,7 +5,7 @@ import ReactStars from "react-stars";
 import changeViewCourses from "../../core/utils/changeViewCourse.utils";
 import { settingDbCourse } from "../common/Paginate";
 
-export let addToCourse , Rows , costDowner , costUpper , settingTechnologies , settingPageNumber , settingSort , settingInput , settingLevel , settingCourseTypeId;
+export let addToCourse , Rows , tech , costDowner , costUpper , settingTechnologies , settingPageNumber , settingSort , settingInput , settingLevel , settingCourseTypeId;
 
 const CoursesMap = ({parent}) => {
     let view1 ="w-[350px] h-[400px] shadow-[0_0_7px_#ddd] m-[25px] rounded-[25px] relative px-[15px] bg-white dark:bg-[#26324d] flex flex-col justify-end overflow-hidden hover:shadow-[0_0_7px_#999] active:bg-[#eee] cursor-pointer";
@@ -30,7 +30,7 @@ const CoursesMap = ({parent}) => {
     const [input, setInput] = useState("")
     
     const getCoursesAll = async () => {
-      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}${courseTypeId ? `&CourseTypeId=${courseTypeId}` : ""}&CostDown=${costDown}${costUp ? `&CostUp=${costUp}` : ""}${level ? `&courseLevelId=${level}` : ""}${technologies ? `&ListTech=${technologies}` : ""}`) 
+      let result = await customAxios.get(`/Home/GetCoursesWithPagination?PageNumber=${PageNumber}&RowsOfPage=${rowsOfPage}&SortingCol=${sort}&SortType=DESC${input ? `&Query=${input}` : ""}${courseTypeId ? `&CourseTypeId=${courseTypeId}` : ""}&CostDown=${costDown}${costUp ? `&CostUp=${costUp}` : ""}${level ? `&courseLevelId=${level}` : ""}${technologies ? `&ListTech=${technologies}` : ""}${technologies?.length == 1 ? "&TechCount=1" : technologies?.length == 2 ? "&TechCount=2" : ""}`) 
       setCourse(result.courseFilterDtos)
       settingDbCourse(result.totalCount)
       setTimeout(() => {changeViewCourses(parent)}, 50);
@@ -55,6 +55,7 @@ const CoursesMap = ({parent}) => {
     useEffect(() => {getCoursesAll()}, [courseTypeId])
     
     useEffect(() => {
+      tech = technologies
       settingTechnologies = setTechnologies
       settingLevel = setLevel
       costDowner = setCostDown
