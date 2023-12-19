@@ -8,7 +8,8 @@ const LinkComponent = ({content,link,className,bool,modalSearch}) => {
       modalSearch?.current.classList.remove("opacity-0");
       modalSearch?.current.classList.add("opacity-1")
       Searchinput.focus()
-      
+      modalSearch?.current.classList.remove("invisible");
+      modalSearch?.current.classList.add("visible")
     }
   return (
     <Link to={link} className={className} onClick={()=> { bool ? showModalSearch() :  raiseUp(undefined,"",false) }}>{content}</Link>
