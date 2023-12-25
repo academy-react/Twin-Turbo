@@ -190,7 +190,10 @@ input[type=number] {-moz-appearance:textfield;}
     display: flex;
     justify-content: center;
     scale: 100%;
+    box-shadow: none !important;
 }
+.CircularProgressbar-path {stroke: #a472a4 !important;}
+.CircularProgressbar-text {fill: #a472a4 !important;}
 @media screen and (max-width : 1260px) {
     #headerHolder > div:first-child {
         margin-right : -50px;

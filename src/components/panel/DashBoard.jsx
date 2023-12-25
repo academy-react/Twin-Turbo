@@ -1,8 +1,10 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect , useState } from 'react'
 import customAxios from '../../core/services/interceptor'
 import TopDashboard from './TopDashboard'
 import { Calendar } from 'react-multi-date-picker'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const DashBoard = () => {
 
@@ -30,9 +32,43 @@ const DashBoard = () => {
           <TopDashboard src="allProjects.svg" title="پروژه ها" content="79" />
           <TopDashboard src="allCourses.svg" title="دوره ها" content="120" />
         </div>
-        <div className='flex justify-between border border-[red] h-[80%]'>
-          <div className='w-[30%] flex-col border border-[green]'>
+        <div className='flex justify-between h-[80%] p-5'>
+          <div className='w-[30%] flex-col rounded-t-2xl'>
             <Calendar className='dashboardCalender' />
+          </div>
+          <div className='w-[70%] flex-col'>
+            <div className='w-[90%] h-[240px] bg-white mx-auto rounded-2xl relative'>
+              <h1 className='absolute right-4 top-4 text-[20px]'>مشخصات فردی</h1>
+              <div className="w-[100px] h-[100px] absolute right-10 bottom-20 text-[#a472a4]">
+                <CircularProgressbar value={myInfo?.profileCompletionPercentage} text={`${myInfo?.profileCompletionPercentage}%`} />
+                <span className="absolute bottom-[-40px]">تکمیل پروفایل</span>
+              </div>
+              <div className="w-[75%] h-full pt-3 flex flex-col flex-wrap px-2 [&>div]:flex [&>div]:flex-col [&>div>span:first-child]:mb-1 [&>div]:my-2 " dir="rtl">
+                <div>
+                  <span className='text-[#9b9b9b]'>نام و نام خانوادگی</span>
+                  <span>{myInfo?.fName} {myInfo?.lName}</span>
+                </div>
+                <div>
+                  <span className='text-[#9b9b9b]'>تاریخ تولد</span>
+                  <span>{myInfo?.birthDay.slice(0,10).replaceAll("-" , "/")}</span>
+                </div>
+                <div>
+                  <span className='text-[#9b9b9b]'>ایمیل</span>
+                  <span>{myInfo?.email}</span>
+                </div>
+                <div>
+                  <span className='text-[#9b9b9b]'>کد ملی</span>
+                  <span>{myInfo?.nationalCode}</span>
+                </div>
+                <div>
+                  <span className='text-[#9b9b9b]'>شماره همراه</span>
+                  <span>{myInfo?.phoneNumber}</span>
+                </div>
+              </div>
+              <Link to="/panel/editprofile">
+                <span className="px-5 py-2 rounded-xl text-white absolute bottom-4 left-6 bg-[#36c54e] hover:bg-[#38b24c]">ویرایش اطلاعات</span>
+              </Link>
+            </div>
           </div>
         </div>
     </div>
@@ -40,8 +76,3 @@ const DashBoard = () => {
 }
 
 export default DashBoard
-{/* <div>نام کاربری:<span>{myInfo?.fName == "" ? "بدون نام" : myInfo?.fName} {myInfo?.lName ? myInfo?.lName : "بدون نام خانوادگی"}</span></div>
-<div>ایمیل :  <span> {myInfo?.email == "" ? "بدون ایمیل" : myInfo?.email} </span></div>
-<div>تاریخ تولد :  <span> {myInfo?.birthDay == "" ? "نا مشخص" : myInfo?.birthDay.slice(0,10)} </span></div>
-<div>کد ملی : <span> {myInfo?.nationalCode == "" ? "نامشخص" : myInfo?.nationalCode} </span></div>
-<div>شماره همراه : <span> {myInfo?.phoneNumber == "" ? "بدون شماره همراه" : myInfo?.phoneNumber } </span></div> */}

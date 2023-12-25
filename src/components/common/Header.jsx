@@ -87,7 +87,7 @@ const Header = ({className,src,color,borderClass,ml,iconClassName,headerLinksCla
 
   return (
     <>
-      <div ref={modalSearch} className="w-[1920px] shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed opacity-0 right-0 left-0 top-[-150%] mx-auto bg-[#fff] invisible">
+      <div ref={modalSearch} className="w-[1920px] max-[1919px]:w-full shadow-[0_0_7px_#222]  z-[120] transition-all duration-700 fixed opacity-0 right-0 left-0 top-[-150%] mx-auto bg-[#fff] invisible">
           <div dir="rtl"  className="z-[1000] w-full transition-all duration-700 bg-[#fff] border border-[red] ">
               <div className="h-[100px] flex justify-center items-center relative ">
                   <div className="w-[80%] h-full flex justify-around items-center">
