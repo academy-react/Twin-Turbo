@@ -5,7 +5,7 @@ let token = localStorage.getItem("token")
 
 const customAxios = axios.create({
 
-    baseURL : "https://acadapi.etacorealtime.ir/api"
+    baseURL : "https://classapi.sepehracademy.ir/api"
     
 })
 
@@ -24,10 +24,5 @@ customAxios.interceptors.request.use((option)=> {
     else option.headers["Authorization"] = "Bearer " + selTok
     return option 
 })
-
-
-
-
-
 
 export default customAxios
