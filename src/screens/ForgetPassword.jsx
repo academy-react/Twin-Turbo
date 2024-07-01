@@ -65,7 +65,7 @@ const ForgetPassword = () => {
                     <div className='w-[33%] h-7 flex justify-around items-center [&>*]:text-[#564FCC] mt-2'>
                       <LinkComponent content="ثبت نام" link="/register" className='text-[18px]' />
                       <p>|</p>
-                      <LinkComponent content="ورود" link="/login" className='text-[18px]' />
+                      <LinkComponent content="ورود" link="/sign-in" className='text-[18px]' />
                     </div>
     
                 </Form>

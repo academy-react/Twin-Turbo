@@ -17,7 +17,7 @@ const Menu = () => {
     {
       !token && <>
           <div className="w-full h-[80px] flex [&>div>a]:text-[13px] [&>div>a]:text-[#777] [&>div>img]:ml-[10px]">
-            <Link to={'/login'} className="hover:bg-[#eee] h-[50%] my-auto w-[50%] flex justify-center items-center max-[600px]:[&>div]:text-[13px]" onClick={()=> raiseUp(undefined,"",false)}>
+            <Link to={'/sign-in'} className="hover:bg-[#eee] h-[50%] my-auto w-[50%] flex justify-center items-center max-[600px]:[&>div]:text-[13px]" onClick={()=> raiseUp(undefined,"",false)}>
                 <div>ورود</div>
                 <img src="../../src/assets/images/panel/log-in.png" alt="" className="h-[20px] ml-2"/>
             </Link>

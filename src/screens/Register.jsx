@@ -87,7 +87,7 @@ const Register = () => {
               gmail: values.Email,
           })
           if(res.success) { 
-            navigate("/login")
+            navigate("/sign-in")
             toast.success("ثبت نام با موفقیت انجام شد")
           }
           else {

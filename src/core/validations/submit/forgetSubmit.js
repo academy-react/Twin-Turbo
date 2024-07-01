@@ -39,7 +39,7 @@ const forgetSubmit = (values) => {
         if(values.newPassword.length >= 8){
             postNewPass(values)
             toast.success("عملیات با موفقیت انجام شد")
-            location.pathname = '/login'
+            location.pathname = '/sign-in'
         }
         else toast.error("رمز باید بیشتر از 8 کلمه باشد")
     }

@@ -90,7 +90,7 @@ const UnAuthorize = createBrowserRouter([
     element: <ForgetPassword />,
   },
   {
-    path: "/login",
+    path: "/sign-in",
     element: <Login />,
   },
   {
